@@ -80,11 +80,11 @@ void InitSoundManager(void)
 				global_sound_list = stdList_Create(sizeof(Sound), 0);
 				scene_sound_list = stdList_Create(sizeof(Sound), 0);
 				FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "wav"),
-					Sound tmp = CreateSound(STD_LIST_GETDATA(filesInfos, FilesInfo, i)->m_path);
+					Sound tmp = CreateSound(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 				if (strcmp(tmp.m_name, "placeholder") == 0)
 					sound_place_holder = tmp;
 				else
-					global_sound_list->push_back(&global_sound_list, &tmp);
+					global_sound_list->push_back(global_sound_list, &tmp);
 					)
 			}
 		}
@@ -107,11 +107,11 @@ void InitSoundManager(void)
 			global_music_list = stdList_Create(sizeof(Music), 0);
 			scene_music_list = stdList_Create(sizeof(Music), 0);
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "ogg"),
-				Music tmp = CreateMusic(STD_LIST_GETDATA(filesInfos, FilesInfo, i)->m_path);
+				Music tmp = CreateMusic(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
 				music_place_holder = tmp;
 			else
-				global_music_list->push_back(&global_music_list, &tmp);
+				global_music_list->push_back(global_music_list, &tmp);
 				)
 		}
 	}
@@ -135,18 +135,18 @@ void ClearSceneSound(void)
 	{
 		for (int i = 0; i < scene_sound_list->size(scene_sound_list); i++)
 		{
-			sfSound_destroy(STD_LIST_GETDATA(scene_sound_list, Sound, i)->m_sound);
-			sfSoundBuffer_destroy(STD_LIST_GETDATA(scene_sound_list, Sound, i)->m_sound_buffer);
+			sfSound_destroy(STD_GETDATA(scene_sound_list, Sound, i)->m_sound);
+			sfSoundBuffer_destroy(STD_GETDATA(scene_sound_list, Sound, i)->m_sound_buffer);
 		}
-		scene_sound_list->clear(&scene_sound_list);
+		scene_sound_list->clear(scene_sound_list);
 	}
 	if (scene_music_list != NULL)
 	{
 		for (int i = 0; i < scene_music_list->size(scene_music_list); i++)
 		{
-			sfMusic_destroy(STD_LIST_GETDATA(scene_music_list, Music, i)->m_music);
+			sfMusic_destroy(STD_GETDATA(scene_music_list, Music, i)->m_music);
 		}
-		scene_music_list->clear(&scene_music_list);
+		scene_music_list->clear(scene_music_list);
 	}
 }
 
@@ -205,9 +205,9 @@ void DestroySoundsManager(void)
 	{
 		for (int i = 0; i < global_sound_list->size(global_sound_list); i++)
 		{
-			DeleteSound(STD_LIST_GETDATA(global_sound_list, Sound, i));
+			DeleteSound(STD_GETDATA(global_sound_list, Sound, i));
 		}
-		global_sound_list->clear(&global_sound_list);
+		global_sound_list->clear(global_sound_list);
 		global_sound_list->destroy(&global_sound_list);
 	}
 	scene_sound_list->destroy(&scene_sound_list);
@@ -215,9 +215,9 @@ void DestroySoundsManager(void)
 	{
 		for (int i = 0; i < global_music_list->size(global_music_list); i++)
 		{
-			DeleteMusic(STD_LIST_GETDATA(global_music_list, Music, i));
+			DeleteMusic(STD_GETDATA(global_music_list, Music, i));
 		}
-		global_music_list->clear(&global_music_list);
+		global_music_list->clear(global_music_list);
 		global_music_list->destroy(&global_music_list);
 	}
 	scene_music_list->destroy(&scene_music_list);

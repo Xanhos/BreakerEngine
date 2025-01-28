@@ -11,7 +11,7 @@ void __RegisterState(StateInfo stateInfo)
 	{
 		stateList = STD_LIST_CREATE(StateInfo, 0);
 	}
-	stateList->push_back(&stateList, &stateInfo);
+	stateList->push_back(stateList, &stateInfo);
 }
 
 StateInfo GetState(char* name)

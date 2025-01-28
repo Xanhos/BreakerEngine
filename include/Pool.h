@@ -29,85 +29,76 @@
 
 #include "Export.h"
 
-#define STD_LIST_CREATE(type, size, ...) \
-  stdList_Create(sizeof(type), size, __VA_ARGS__)
+typedef struct Pool Pool;
+typedef struct stdPool stdPool;
 
-#define STD_CONVERT(type, ...) \
-	(const void*)&(type){__VA_ARGS__}
-
-#define STD_LIST_PUSHBACK(list, type, ...) \
-	list->push_back(&list, (const void*)&(type)__VA_ARGS__)
-
-typedef struct List List;
-typedef struct stdList stdList;
-
-struct LIBSTD_API stdList
+struct LIBSTD_API stdPool
 {
 	////////////////////////////////////////////////////////////
-	/// \brief Contains all the data of the list. DO NOT USE IT DIRECTLY.
+	/// \brief Contains all the data of the pool. DO NOT USE IT DIRECTLY.
 	////////////////////////////////////////////////////////////
-	List* _Data;
+	Pool* _Data;
 
 	////////////////////////////////////////////////////////////
-	/// \brief Push a new element at the back of the list.
+	/// \brief Push a new element into an already allocated slot or at the end of the pool.
 	///
-	/// \param stdList* The list you are using.
-	/// \param void* The element to push.
+	/// \param stdPool* The pool you are using.
+	/// \param void* The element to push into the pool.
 	////////////////////////////////////////////////////////////
-	void (*push_back)(stdList*, void*);
+	void (*push_back)(stdPool*, void*);
 
 	////////////////////////////////////////////////////////////
 	/// \brief Delete the element at the specified index.
 	///
-	/// \param stdList* The list you are using.
+	/// \param stdPool* The pool you are using.
 	/// \param unsigned int The index of the element to delete.
 	////////////////////////////////////////////////////////////
-	void (*erase)(stdList*, unsigned int);
+	void (*erase)(stdPool*, unsigned int);
 
 	////////////////////////////////////////////////////////////
 	/// \brief Retrieve the data at the specified index.
 	///        The return value must be cast to the desired type
-	///        (e.g., `(int)list->getData(&list, 0)` if the list stores integers).
+	///        (e.g., `(int)pool->getData(&pool, 0)` if the pool stores integers).
 	///
-	/// \param stdList* The list you are using.
+	/// \param stdPool* The pool you are using.
 	/// \param unsigned int The index of the element to retrieve.
 	/// \return A pointer to the data at the specified index.
 	////////////////////////////////////////////////////////////
-	void* (*getData)(stdList*, unsigned int);
+	void* (*getData)(stdPool*, unsigned int);
 
 	////////////////////////////////////////////////////////////
-	/// \brief Get the number of elements currently in the list.
+	/// \brief Get the number of elements currently in the pool.
 	///
-	/// \param stdList* The list you are using.
-	/// \return The size of the list as an `int`.
+	/// \param stdPool* The pool you are using.
+	/// \return The size of the pool as an `int`.
 	////////////////////////////////////////////////////////////
-	int (*size)(stdList*);
+	size_t(*size)(stdPool*);
 
 	////////////////////////////////////////////////////////////
-	/// \brief Clear all elements from the list.
-	///        This function does not free memory allocated outside the list.
+	/// \brief Clear all elements from the pool.
+	///        This function does not free memory allocated outside the pool.
 	///        Ensure all external memory is properly freed before calling this function.
 	///
-	/// \param stdList* The list you are using.
+	/// \param stdPool* The pool you are using.
 	////////////////////////////////////////////////////////////
-	void (*clear)(stdList*);
+	void (*clear)(stdPool*);
 
 	////////////////////////////////////////////////////////////
-	/// \brief Destroy the list and release all associated resources.
-	///        Use this function only when you no longer need the list.
+	/// \brief Destroy the pool and release all associated resources.
+	///        Use this function only when you no longer need the pool.
 	///
-	/// \param stdList** The address of the list to destroy (e.g., `&list`).
+	/// \param stdPool** The address of the pool to destroy (e.g., `&pool`).
 	////////////////////////////////////////////////////////////
-	void (*destroy)(stdList**);
+	void (*destroy)(stdPool**);
 };
 
 ////////////////////////////////////////////////////////////
-/// \brief Create a new list.
+/// \brief Create a new pool.
 ///
-/// \param size_t The size of the elements to store in the list.
-/// \param int The initial size of the list.
+/// \param size_t The size of the type stored in the pool.
+/// \param unsigned int The initial size of the pool.
 /// \param ... Additional arguments, if needed.
-/// \return A pointer to the newly created `stdList` structure.
+/// \return A pointer to the newly created `stdPool` structure.
 ////////////////////////////////////////////////////////////
-stdList LIBSTD_API* stdList_Create(size_t elementSize, int size, ...);
+stdPool LIBSTD_API* stdPool_Create(size_t type, unsigned int size, ...);
 

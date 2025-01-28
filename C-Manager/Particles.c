@@ -196,7 +196,7 @@ void UpdateParticles(Particles* particles, float deltaTime)
 		for (int i = 0; i < data->m_spawn_count; i++)
 		{
 			Particle* tmp = CreateParticle(particles);
-			data->m_particle_list->push_back(&data->m_particle_list, &tmp);
+			data->m_particle_list->push_back(data->m_particle_list, &tmp);
 		}
 		data->m_spawn_timer = 0;
 	}
@@ -205,7 +205,7 @@ void UpdateParticles(Particles* particles, float deltaTime)
 		if (UpdateParticle(particles, it, deltaTime))
 		{
 			free(it);
-			data->m_particle_list->erase(&data->m_particle_list, i);
+			data->m_particle_list->erase(data->m_particle_list, i);
 			i--;
 		}
 			);

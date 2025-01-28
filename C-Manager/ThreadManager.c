@@ -82,11 +82,11 @@ static void UpdateThreadManager(ThreadManager* thread_manager)
 	{
 		for (int i = 0; i < thread_list->size(thread_list); i++)
 		{
-			if ((*STD_LIST_GETDATA(thread_list, ThreadFunctionInfo*, i))->m_is_finish)
+			if ((*STD_GETDATA(thread_list, ThreadFunctionInfo*, i))->m_is_finish)
 			{
-				DestroyThreadFunction(STD_LIST_GETDATA(thread_list, ThreadFunctionInfo*, i));
+				DestroyThreadFunction(STD_GETDATA(thread_list, ThreadFunctionInfo*, i));
 				thread_manager->_Data->m_actual_size--;
-				thread_list->erase(&thread_list, i);
+				thread_list->erase(thread_list, i);
 			}
 		}
 	} while (thread_manager->_Data->m_limit == thread_manager->_Data->m_actual_size);
@@ -105,7 +105,7 @@ static void AddNewThread(ThreadManager* thread_manager, void (*func)(void*), voi
 	ThreadFunctionInfo* newThread = CreateThreadFunction(func, func_data);
 	thread_manager->_Data->m_actual_size++;
 	newThread->m_data_is_copied = copy_data;
-	thread_manager->_Data->m_thread_list->push_back(&thread_manager->_Data->m_thread_list, &newThread);
+	thread_manager->_Data->m_thread_list->push_back(thread_manager->_Data->m_thread_list, &newThread);
 	sfThread_launch(newThread->m_thread);
 }
 

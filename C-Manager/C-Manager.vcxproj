@@ -34,6 +34,7 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="ThreadManager.h" />
     <ClInclude Include="Tools.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Viewport.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
@@ -53,6 +54,7 @@
     <ClCompile Include="TextureManager.c" />
     <ClCompile Include="ThreadManager.c" />
     <ClCompile Include="Tools.c" />
+    <ClCompile Include="UI.c" />
     <ClCompile Include="Viewport.c" />
     <ClCompile Include="WindowManager.c" />
   </ItemGroup>
@@ -189,6 +191,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

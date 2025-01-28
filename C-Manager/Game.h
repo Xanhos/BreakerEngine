@@ -48,4 +48,11 @@ void StartGame(WindowManager* window_manager, char* starting_state, Animation* l
  * @brief Changes the current state of the application.
  * @param char state_name Name of the new state.
  */
-void ChangeState(char* state_name);
+void ChangeMainState(char* state_name);
+
+
+void RegisterSubState(char* state_name, WindowManager* window, sfBool update_of_below_state,sfBool display_of_below_state);
+
+void PushSubState(char* state_name);
+
+void PopSubState();

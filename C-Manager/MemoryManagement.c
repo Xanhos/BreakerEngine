@@ -39,7 +39,7 @@ static void allocationTracker(void* ptr, size_t size, const char* file, unsigned
 {
 	if (!allocations)
 		allocations = stdList_Create(sizeof(AllocInfo), 0, NULL);
-	allocations->push_back(&allocations, STD_CONVERT(AllocInfo,  ptr,size,file,line ));
+	allocations->push_back(allocations, STD_CONVERT(AllocInfo,  ptr,size,file,line ));
 	totalAllocated += size;
 }
 
@@ -57,10 +57,11 @@ void DetrackerCalloc(void* ptr)
 		{
 			free(tmp->ptr);
 			totalFreed += tmp->size;
-			allocations->erase(&allocations, it);
+			allocations->erase(allocations, it);
 			break;
 		}
 			)
+	
 }
 
 

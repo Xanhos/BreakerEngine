@@ -57,13 +57,13 @@ void InitFontManager(void)
 
 			global_font_list = stdList_Create(sizeof(Font), 0);
 			scene_font_list = stdList_Create(sizeof(Font), 0);
-
+			
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "ttf"),
-				Font tmp = CreateFont(STD_LIST_GETDATA(filesInfos, FilesInfo, i)->m_path);
+				Font tmp = CreateFont(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
 				place_holder = tmp;
 			else
-				global_font_list->push_back(&global_font_list, &tmp);
+				global_font_list->push_back(global_font_list, &tmp);
 				)
 		}
 	}
@@ -77,7 +77,7 @@ void InitFontManager(void)
 void Load_Font(const char* path)
 {
 	Font tmp = CreateFont(path);
-	scene_font_list->push_back(&scene_font_list, &tmp);
+	scene_font_list->push_back(scene_font_list, &tmp);
 }
 
 void LoadSceneFont(const char* scene)
@@ -91,8 +91,8 @@ void ClearSceneFont(void)
 	if (scene_font_list != NULL)
 	{
 		for (int i = 0; i < scene_font_list->size(scene_font_list); i++)
-			sfFont_destroy(STD_LIST_GETDATA(scene_font_list, Font, i)->m_font);
-		scene_font_list->clear(&scene_font_list);
+			sfFont_destroy(STD_GETDATA(scene_font_list, Font, i)->m_font);
+		scene_font_list->clear(scene_font_list);
 	}
 }
 
@@ -126,8 +126,8 @@ void DestroyFontsManager(void)
 	if (global_font_list != NULL)
 	{
 		for (int i = 0; i < global_font_list->size(global_font_list); i++)
-			sfFont_destroy(STD_LIST_GETDATA(global_font_list, Font, i)->m_font);
-		global_font_list->clear(&global_font_list);
+			sfFont_destroy(STD_GETDATA(global_font_list, Font, i)->m_font);
+		global_font_list->clear(global_font_list);
 	}
 	scene_font_list->destroy(&scene_font_list);
 	global_font_list->destroy(&global_font_list);

@@ -158,7 +158,7 @@ static sfRectangleShape* GetRenderer(Animation* anim)
 
 static Animation_Key* AddAnimationKey(Animation const* anim, Animation_Key* anim_key)
 {
-	anim->_Data->m_key_anim_list->push_back(&anim->_Data->m_key_anim_list, &anim_key);
+	anim->_Data->m_key_anim_list->push_back(anim->_Data->m_key_anim_list, &anim_key);
 	return anim_key;
 }
 

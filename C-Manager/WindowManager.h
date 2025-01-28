@@ -22,6 +22,7 @@
 */
 #pragma once
 #include "Tools.h"
+#include "string.h"
 
 /**
  * @file windowmanager.h

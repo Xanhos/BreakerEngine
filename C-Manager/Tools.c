@@ -114,14 +114,14 @@ stdList* SearchFilesInfos(const char* path, const char* extension)
 	stdList* filesList = stdList_Create(sizeof(FilesInfo), 0);
 	Path Converted_Path = fs_create_path(path);
 	FOR_EACH_RECURSIVE_ITERATOR(Converted_Path, filesIterator,
-		Path tmpPath = *STD_LIST_GETDATA(filesIterator, Path, i);
+		Path tmpPath = *STD_GETDATA(filesIterator, Path, i);
 	Path tmpExtension = tmpPath.extension(&tmpPath);
 	if (strcmp(tmpExtension.path_data.m_path, extension) == 0)
 	{
 		FilesInfo tmpFilesInfos;
 		strcpy_s(tmpFilesInfos.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 		strcpy_s(tmpFilesInfos.m_path, MAX_PATH_SIZE, tmpPath.path_data.m_path);
-		filesList->push_back(&filesList, &tmpFilesInfos);
+		filesList->push_back(filesList, &tmpFilesInfos);
 	}
 		)
 		return filesList;
@@ -132,7 +132,7 @@ void __LoadWithThread(void* thread_infos)
 	thread_info* infos = thread_infos;
 	for (int it = infos->start; it < infos->end; it++)
 	{
-		infos->func(STD_LIST_GETDATA(infos->files_info, FilesInfo, it)->m_path);
+		infos->func(STD_GETDATA(infos->files_info, FilesInfo, it)->m_path);
 	}
 }
 
@@ -174,11 +174,11 @@ void __LoadScene(const char* scene, const char* extension, const char* type, voi
 			tmp_thread_info.files_info = files_infos;
 			tmp_thread_info.func = func;
 
-			thread_infos->push_back(&thread_infos, &tmp_thread_info);
+			thread_infos->push_back(thread_infos, &tmp_thread_info);
 			sfThread* tmp_thread = NULL;
-			thread_list->push_back(&thread_list, &tmp_thread);
-			*STD_LIST_GETDATA(thread_list, sfThread*, i) = sfThread_create(&__LoadWithThread, STD_LIST_GETDATA(thread_infos, thread_info, i));
-			sfThread_launch(*STD_LIST_GETDATA(thread_list, sfThread*, i));
+			thread_list->push_back(thread_list, &tmp_thread);
+			*STD_GETDATA(thread_list, sfThread*, i) = sfThread_create(&__LoadWithThread, STD_GETDATA(thread_infos, thread_info, i));
+			sfThread_launch(*STD_GETDATA(thread_list, sfThread*, i));
 
 		}
 
@@ -229,6 +229,17 @@ int iRand(int _min, int _max)
 sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon)
 {
 	return ((_pos.x - _circle_pos.x) * (_pos.x - _circle_pos.x) + (_pos.y - _circle_pos.y) * (_pos.y - _circle_pos.y) < _rayon * _rayon);
+}
+
+sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box)
+{
+	if (_pos.x >= _box.left &&         
+		_pos.x <= _box.left + _box.width &&    
+		_pos.y >= _box.top &&         
+		_pos.y <= _box.top + _box.height) {   
+		return sfTrue;
+	}
+	return sfFalse;
 }
 
 int rand_int(int _min, int _max)

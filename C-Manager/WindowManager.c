@@ -96,7 +96,7 @@ static void AddNewCustomParam(const WindowManager* window_manager, const char* n
 	custom_param.m_param_size = param_size;
 	custom_param.m_param = calloc(1, param_size);
 	memcpy_s(custom_param.m_param, param_size, param_data, param_size);
-	window_manager->_Data->m_custom_param_list->push_back(&window_manager->_Data->m_custom_param_list, &custom_param);
+	window_manager->_Data->m_custom_param_list->push_back(window_manager->_Data->m_custom_param_list, &custom_param);
 	SetCustomParam(window_manager, name, param_data);
 }
 
@@ -128,7 +128,7 @@ static void AddNewSound(const WindowManager* window_manager, const char* name, f
 	SoundInfo sound_info;
 	sound_info.m_name = StrAllocNCopy(name);
 	sound_info.m_volume = volume;
-	window_manager->_Data->m_sound_list->push_back(&window_manager->_Data->m_sound_list, &sound_info);
+	window_manager->_Data->m_sound_list->push_back(window_manager->_Data->m_sound_list, &sound_info);
 }
 
 static void SetWindowSound(const WindowManager* window, const char* name, float volume)

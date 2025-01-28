@@ -17,7 +17,7 @@
  */
 #define DECLARE_HEADER_STATE(name)                               \
 void Init##name(WindowManager*);                                  /**< Initializes the state. */ \
-void UpdateEvent##name(WindowManager*);                           /**< Updates events for the state. */ \
+void UpdateEvent##name(WindowManager*, sfEvent*);                           /**< Updates events for the state. */ \
 void Update##name(WindowManager*);                                /**< Updates the logic of the state. */ \
 void Render##name(WindowManager*);                                /**< Renders the state. */ \
 void UIRender##name(WindowManager*);                              /**< Renders the UI for the state. */ \
@@ -67,7 +67,7 @@ void Init##stateName(WindowManager* windowManager)          /**< Initializes the
 {                                                           \
                                                             \
 }                                                           \
-void UpdateEvent##stateName(WindowManager* windowManager)   /**< Updates events for the state. */ \
+void UpdateEvent##stateName(WindowManager* windowManager, sfEvent* evt)   /**< Updates events for the state. */ \
 {                                                           \
                                                             \
 }                                                           \

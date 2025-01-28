@@ -24,7 +24,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
+#include "stdString.h"
 #include "FileSystem.h"
 #include "SFML/Graphics.h"
 #include "SFML/Audio.h"
@@ -54,150 +56,150 @@ char resource_directory[MAX_PATH_SIZE];
  */
 #define MAX_THREAD 10
 
- /**
-  * @def KEY(key)
-  * @brief Macro to check if a specific key is currently pressed.
-  * @param key The key to check (e.g., A, B, etc.).
-  * @return Boolean value indicating if the key is pressed.
-  */
+/**
+* @def KEY(key)
+* @brief Macro to check if a specific key is currently pressed.
+* @param key The key to check (e.g., A, B, etc.).
+* @return Boolean value indicating if the key is pressed.
+*/
 #define KEY(key) sfKeyboard_isKeyPressed(sfKey##key)
 
-  /**
-   * @def KEY_DOWN(key)
-   * @brief Macro to check if a specific key has been pressed (down event).
-   * @param key The key to check (e.g., A, B, etc.).
-   * @return Boolean value indicating if the key is pressed.
-   */
+/**
+* @def KEY_DOWN(key)
+* @brief Macro to check if a specific key has been pressed (down event).
+* @param key The key to check (e.g., A, B, etc.).
+* @return Boolean value indicating if the key is pressed.
+*/
 #define KEY_DOWN(key) sfKeyboard_isKeyDown(sfKey##key)
 
-   /**
-    * @def KEY_UP(key)
-    * @brief Macro to check if a specific key has been released (up event).
-    * @param key The key to check (e.g., A, B, etc.).
-    * @return Boolean value indicating if the key is released.
-    */
+/**
+* @def KEY_UP(key)
+* @brief Macro to check if a specific key has been released (up event).
+* @param key The key to check (e.g., A, B, etc.).
+* @return Boolean value indicating if the key is released.
+*/
 #define KEY_UP(key) sfKeyboard_isKeyUp(sfKey##key)
 
-    /**
-     * @def STD_LIST_CREATE_POINTER(type, size, ...)
-     * @brief Macro to create a list of pointers of a specific type.
-     * @param type The type of data.
-     * @param size The size of the list.
-     */
+/**
+* @def STD_LIST_CREATE_POINTER(type, size, ...)
+* @brief Macro to create a list of pointers of a specific type.
+* @param type The type of data.
+* @param size The size of the list.
+*/
 #define STD_LIST_CREATE_POINTER(type, size, ...) \
   stdList_Create(sizeof(type*), size, __VA_ARGS__)
 
-     /**
-      * @def FOR_EACH_TEMP_LIST(name, type, initFunc, func)
-      * @brief Macro to iterate over a temporary list.
-      * @param name The name of the list.
-      * @param type The type of elements in the list.
-      * @param initFunc The function to initialize the list.
-      * @param func The function to apply to each element.
-      */
+/**
+* @def FOR_EACH_TEMP_LIST(name, type, initFunc, func)
+* @brief Macro to iterate over a temporary list.
+* @param name The name of the list.
+* @param type The type of elements in the list.
+* @param initFunc The function to initialize the list.
+* @param func The function to apply to each element.
+*/
 #define FOR_EACH_TEMP_LIST(name, type, initFunc, func) \
   stdList* name = initFunc; \
   for (int i = 0; i < name->size(name); i++) { func } \
   name->destroy(&name);
 
-      /**
-       * @def FOR_EACH_LIST(list, type, it_name, data_container_name, func)
-       * @brief Macro to iterate over a list and apply a function to each element.
-       * @param list The list to iterate over.
-       * @param type The type of elements in the list.
-       * @param it_name The iterator name.
-       * @param data_container_name The name for the data container.
-       * @param func The function to apply to each element.
-       */
+/**
+* @def FOR_EACH_LIST(list, type, it_name, data_container_name, func)
+* @brief Macro to iterate over a list and apply a function to each element.
+* @param list The list to iterate over.
+* @param type The type of elements in the list.
+* @param it_name The iterator name.
+* @param data_container_name The name for the data container.
+* @param func The function to apply to each element.
+*/
 #define FOR_EACH_LIST(list, type, it_name, data_container_name, func) \
   for (int it_name = 0; it_name < list->size(list); it_name++) { \
-    type* data_container_name = STD_LIST_GETDATA(list, type, it_name); \
+    type* data_container_name = STD_GETDATA(list, type, it_name); \
     func }
 
-       /**
-        * @def FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)
-        * @brief Macro to iterate over a list of pointers and apply a function to each element.
-        * @param list The list to iterate over.
-        * @param type The type of elements in the list.
-        * @param it_name The iterator name.
-        * @param data_container_name The name for the data container.
-        * @param func The function to apply to each element.
-        */
+/**
+* @def FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)
+* @brief Macro to iterate over a list of pointers and apply a function to each element.
+* @param list The list to iterate over.
+* @param type The type of elements in the list.
+* @param it_name The iterator name.
+* @param data_container_name The name for the data container.
+* @param func The function to apply to each element.
+*/
 #define FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func) \
   for (int it_name = 0; it_name < list->size(list); it_name++) { \
-    type* data_container_name##_ = STD_LIST_GETDATA(list, type, it_name); \
+    type* data_container_name##_ = STD_GETDATA(list, type, it_name); \
     type data_container_name = *data_container_name##_; \
     func }
 
-        //------------------------------------------VECTOR FUNCTION----------------------------------------------//
+//------------------------------------------VECTOR FUNCTION----------------------------------------------//
 
-        /**
-         * @def DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)
-         * @brief Declares a function to add two vectors.
-         * @param vector_type The type of vector (e.g., sfVector2f).
-         * @param suffixe The suffix for the function (e.g., f for float).
-         * @param type The type of scalar used for multiplication (e.g., float).
-         */
+/**
+* @def DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to add two vectors.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for multiplication (e.g., float).
+*/
 #define DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type AddVector2##suffixe(vector_type a, vector_type b) { \
     return (vector_type){a.x + b.x, a.y + b.y}; \
   }
 
-         /**
-          * @def DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type)
-          * @brief Declares a function to subtract two vectors.
-          * @param vector_type The type of vector (e.g., sfVector2f).
-          * @param suffixe The suffix for the function (e.g., f for float).
-          * @param type The type of scalar used for multiplication (e.g., float).
-          */
+/**
+* @def DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to subtract two vectors.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for multiplication (e.g., float).
+*/
 #define DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type SubVector2##suffixe(vector_type a, vector_type b) { \
     return (vector_type){a.x - b.x, a.y - b.y}; \
   }
 
-          /**
-           * @def DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type)
-           * @brief Declares a function to multiply a vector by a scalar.
-           * @param vector_type The type of vector (e.g., sfVector2f).
-           * @param suffixe The suffix for the function (e.g., f for float).
-           * @param type The type of scalar used for multiplication (e.g., float).
-           */
+/**
+* @def DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to multiply a vector by a scalar.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for multiplication (e.g., float).
+*/
 #define DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type MultiplyVector2##suffixe(vector_type a, type b) { \
     return (vector_type){a.x * b, a.y * b}; \
   }
 
-           /**
-            * @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
-            * @brief Declares a function to divide a vector by a scalar.
-            * @param vector_type The type of vector (e.g., sfVector2f).
-            * @param suffixe The suffix for the function (e.g., f for float).
-            * @param type The type of scalar used for multiplication (e.g., float).
-            */
+   /**  
+* @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to divide a vector by a scalar.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for multiplication (e.g., float).
+*/
 #define DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type DivideVector2##suffixe(vector_type a, type b) { \
     return (vector_type){a.x / b, a.y / b}; \
   }
 
-            /**
-             * @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
-             * @brief Declares a function to create a vector of specified type and values.
-             * @param vector_type The type of vector (e.g., sfVector2f).
-             * @param suffixe The suffix for the function (e.g., f for float).
-             * @param type The type of scalar used for vector creation (e.g., float).
-             */
+/**
+* @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to create a vector of specified type and values.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for vector creation (e.g., float).
+*/
 #define DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type vector_type##_Create(type a, type b) { \
     return (vector_type){a, b}; \
   }
 
-             /**
-              * @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
-              * @brief Declares a function to print the values of a vector.
-              * @param vector_type The type of vector (e.g., sfVector2f).
-              * @param suffixe The suffix for the function (e.g., f for float).
-              * @param type The type of scalar used for printing (e.g., float).
-              */
+/**
+* @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
+* @brief Declares a function to print the values of a vector.
+* @param vector_type The type of vector (e.g., sfVector2f).
+* @param suffixe The suffix for the function (e.g., f for float).
+* @param type The type of scalar used for printing (e.g., float).
+*/
 #define DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type) \
   void PrintVector2##suffixe(vector_type vec, sfBool go_to_next_line) { \
     NEW_CHAR(sentence_debug, 100) \
@@ -278,60 +280,60 @@ DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(sfVector2u, u, unsigned int)
 
               //------------------------------------------MATHS FUNCTION----------------------------------------------//
 
-              /**
-               * @def PI
-               * @brief The constant value of Pi.
-               */
+/**
+* @def PI
+* @brief The constant value of Pi.
+*/
 #define PI 3.14159265359
 
-               /**
-                * @def RAD2DEG
-                * @brief The constant to convert radians to degrees.
-                */
+/**
+* @def RAD2DEG
+* @brief The constant to convert radians to degrees.
+*/
 #define RAD2DEG 57.295779f
 
-                /**
-                 * @def DEG2RAD
-                 * @brief The constant to convert degrees to radians.
-                 */
+/**
+* @def DEG2RAD
+* @brief The constant to convert degrees to radians.
+*/
 #define DEG2RAD 0.017453f
 
-                 /**
-                  * @def LERP(a, b, t)
-                  * @brief Linearly interpolates between two values.
-                  * @param a The start value.
-                  * @param b The end value.
-                  * @param t The interpolation factor.
-                  * @return The interpolated value.
-                  */
+/**
+* @def LERP(a, b, t)
+* @brief Linearly interpolates between two values.
+* @param a The start value.
+* @param b The end value.
+* @param t The interpolation factor.
+* @return The interpolated value.
+*/
 #define LERP(a, b, t) (b - a) * t + a
 
-                  /**
-                   * @def MAX(a, b)
-                   * @brief Returns the maximum of two values.
-                   * @param a The first value.
-                   * @param b The second value.
-                   * @return The maximum of a and b.
-                   */
+/**
+* @def MAX(a, b)
+* @brief Returns the maximum of two values.
+* @param a The first value.
+* @param b The second value.
+* @return The maximum of a and b.
+*/
 #define MAX(a, b) a >= b ? a : b
 
-                   /**
-                    * @def MIN(a, b)
-                    * @brief Returns the minimum of two values.
-                    * @param a The first value.
-                    * @param b The second value.
-                    * @return The minimum of a and b.
-                    */
+/**
+* @def MIN(a, b)
+* @brief Returns the minimum of two values.
+* @param a The first value.
+* @param b The second value.
+* @return The minimum of a and b.
+*/
 #define MIN(a, b) a <= b ? a : b
 
-                    /**
-                     * @brief Checks if two circles are in collision.
-                     * @param _pos1 The position of the first circle.
-                     * @param _pos2 The position of the second circle.
-                     * @param _rayon1 The radius of the first circle.
-                     * @param _rayon2 The radius of the second circle.
-                     * @return True if there is a collision, false otherwise.
-                     */
+/**
+* @brief Checks if two circles are in collision.
+* @param _pos1 The position of the first circle.
+* @param _pos2 The position of the second circle.
+* @param _rayon1 The radius of the first circle.
+* @param _rayon2 The radius of the second circle.
+* @return True if there is a collision, false otherwise.
+*/
 sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2);
 
 /**
@@ -350,6 +352,14 @@ sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2);
  * @return True if the point is inside the circle, false otherwise.
  */
 sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon);
+
+/**
+ * @brief Checks if a point is inside a rectangle.
+ * @param _pos The point to check.
+ * @param _box The rectangle (position, width, height).
+ * @return True if the point is inside the rectangle, false otherwise.
+ */
+sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box);
 
 /**
  * @brief Generates a random integer between the given minimum and maximum values.

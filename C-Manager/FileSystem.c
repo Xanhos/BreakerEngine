@@ -142,7 +142,7 @@ stdList* fs_iterator_directory(Path* path)
 
 			Path new_entry = fs_create_path(new_entry_path);
 			if (is_file(&new_entry))
-				list->push_back(&list, &new_entry);
+				list->push_back(list, &new_entry);
 		}
 		closedir(d);
 	}
@@ -167,7 +167,7 @@ static stdList* recursive_iterator_directory__(Path* path, stdList* list)
 
 			Path new_entry = fs_create_path(new_entry_path);
 			if (is_file(&new_entry))
-				list->push_back(&list, &new_entry);
+				list->push_back(list, &new_entry);
 			else if (is_directory(&new_entry))
 				recursive_iterator_directory__(&new_entry, list);
 

@@ -15,13 +15,35 @@ StateInfo menu;
 
 Particles* particles;
 
+void InitSubState(WindowManager* windowManager){ } 
+void UpdateEventSubState(WindowManager* windowManager, sfEvent* evt) { }
+void UpdateSubState(WindowManager* windowManager) { 
+	printf("SubState\n"); 
+	if (KEY_DOWN(A))
+	{
+		PopSubState();
+	}
+}
+void RenderSubState(WindowManager* windowManager) { } 
+void UIRenderSubState(WindowManager* windowManager) { } 
+void DestroySubState(WindowManager* windowManager) { }
+REGISTER_C_STATE(SubState)
+
+sfCircleShape* CreateCircle(float radius, sfVector2f position, sfColor color)
+{
+	sfCircleShape* circle = sfCircleShape_create();
+	sfCircleShape_setRadius(circle, radius);
+	sfCircleShape_setPosition(circle, position);
+	sfCircleShape_setFillColor(circle, color);
+	return circle;
+}
+
+sfCircleShape* circle;
+
 void Init___(WindowManager* window)
 {
-
-	ParticleParam param = CreateDefaultParam(LIFE_TIME, sfVector2f_Create(100, 100), 0, 100);
-
-	particles = CreateTextureParticles(param, GetTexture("test"), (sfIntRect) { 0, 0, 0, 0 });
-
+	RegisterSubState("SubState", window, sfTrue, sfTrue);
+	circle = CreateCircle(80, sfVector2f_Create(100, 100), CreateColor(255, 0, 0, 255));
 
 }
 void UpdateEvent___(WindowManager* window, sfEvent* event)
@@ -29,26 +51,24 @@ void UpdateEvent___(WindowManager* window, sfEvent* event)
 }
 void Update___(WindowManager* window)
 {
-	if (KEY_UP(A))
-	{
-		printf("Up\n");
-	}
-	if (KEY_DOWN(A))
-	{
-		printf("Down\n");
-	}
+	printf("MainState\n");
 
-	UpdateParticles(particles, DeltaTime);
+	if(KEY_DOWN(A))
+	{
+		PushSubState("SubState");
+	}
 }
 void Render___(WindowManager* window)
 {
-	sfRenderWindow_drawParticles(window->GetWindow(window), particles, NULL);
+	sfRenderWindow_drawCircleShape(window->GetWindow(window), circle, NULL);
 }
 void UIRender___(WindowManager* window)
 {
 }
 void Destroy___(WindowManager* window)
 {
+		sfCircleShape_destroy(circle);
+
 }
 
 void setfpsmax(const WindowManager* window, void* fps_max)
@@ -98,8 +118,8 @@ int main(void)
 
 	InitResourcesManager("../Ressources");
 	StartGame(CreateWindowManager(1080, 720, "Test", sfDefaultStyle, NULL), "___", NULL, NULL);
-	Animation* anim = CreateAnimationFromFile("D:\\GitCours\\C\\C-Manager\\Animator\\Export\\test.anim", sfTexture_createFromFile("D:\\Cpp-Manager-for-SFML\\New_Manager\\Ressources\\ALL\\TEXTURES\\porte_intro_1224x855.png", NULL));
+	/*Animation* anim = CreateAnimationFromFile("D:\\GitCours\\C\\C-Manager\\Animator\\Export\\test.anim", sfTexture_createFromFile("D:\\Cpp-Manager-for-SFML\\New_Manager\\Ressources\\ALL\\TEXTURES\\porte_intro_1224x855.png", NULL));
 	sfRectangleShape_setPosition(anim->GetRenderer(anim), sfVector2f_Create(500, 250));
-	StartGame(CreateWindowManager(1080, 720, "Test", sfDefaultStyle, NULL), "___", anim, "KeyAnim");
+	StartGame(CreateWindowManager(1080, 720, "Test", sfDefaultStyle, NULL), "___", anim, "KeyAnim");*/
 	ReportLeaks();
 }

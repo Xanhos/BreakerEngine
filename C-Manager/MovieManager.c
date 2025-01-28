@@ -61,11 +61,11 @@ void InitMovieManager(void)
 			global_movie_list = stdList_Create(sizeof(Movie), 0);
 			scene_movie_list = stdList_Create(sizeof(Movie), 0);
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "mp4"),
-				Movie tmp = CreateMovie(STD_LIST_GETDATA(filesInfos, FilesInfo, i)->m_path);
+				Movie tmp = CreateMovie(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
 				place_holder = tmp;
 			else
-				global_movie_list->push_back(&global_movie_list, &tmp);
+				global_movie_list->push_back(global_movie_list, &tmp);
 				)
 		}
 	}
@@ -79,7 +79,7 @@ void InitMovieManager(void)
 void LoadMovie(const char* path)
 {
 	Movie tmp = CreateMovie(path);
-	scene_movie_list->push_back(&scene_movie_list, &tmp);
+	scene_movie_list->push_back(scene_movie_list, &tmp);
 }
 
 
@@ -94,8 +94,8 @@ void ClearSceneMovie(void)
 	if (scene_movie_list != NULL)
 	{
 		for (int i = 0; i < scene_movie_list->size(scene_movie_list); i++)
-			sfeMovie_destroy(STD_LIST_GETDATA(scene_movie_list, Movie, i)->m_movie);
-		scene_movie_list->clear(&scene_movie_list);
+			sfeMovie_destroy(STD_GETDATA(scene_movie_list, Movie, i)->m_movie);
+		scene_movie_list->clear(scene_movie_list);
 	}
 }
 
@@ -129,8 +129,8 @@ void DestroyMoviesManager(void)
 	if (global_movie_list != NULL)
 	{
 		for (int i = 0; i < global_movie_list->size(global_movie_list); i++)
-			sfeMovie_destroy(STD_LIST_GETDATA(global_movie_list, Movie, i)->m_movie);
-		global_movie_list->clear(&global_movie_list);
+			sfeMovie_destroy(STD_GETDATA(global_movie_list, Movie, i)->m_movie);
+		global_movie_list->clear(global_movie_list);
 	}
 	scene_movie_list->destroy(&scene_movie_list);
 	global_movie_list->destroy(&global_movie_list);

@@ -62,7 +62,7 @@ static sfSprite* AddNewSprite(const SpriteManager* sprite_manager, const char* n
 {
 	stdList* sprite_list = sprite_manager->_Data->m_sprite_list;
 	SpriteHolder sprite_holder = CreateSpriteHolder(name, texture, reset_rect);
-	sprite_list->push_back(&sprite_list, &sprite_holder);
+	sprite_list->push_back(sprite_list, &sprite_holder);
 	return sprite_holder.m_sprite;
 }
 
@@ -116,7 +116,7 @@ static void RemoveSpriteByName(const SpriteManager* sprite_manager, const char* 
 	FOR_EACH_LIST(sprite_manager->_Data->m_sprite_list, SpriteHolder, it, tmp,
 		if (strcmp(tmp->name, name) == 0)
 		{
-			sprite_manager->_Data->m_sprite_list->erase(&sprite_manager->_Data->m_sprite_list, it);
+			sprite_manager->_Data->m_sprite_list->erase(sprite_manager->_Data->m_sprite_list, it);
 			return;
 		}
 			)
@@ -127,7 +127,7 @@ static void RemoveSpriteByIndex(const SpriteManager* sprite_manager, int index)
 	FOR_EACH_LIST(sprite_manager->_Data->m_sprite_list, SpriteHolder, it, tmp,
 		if (index == it)
 		{
-			sprite_manager->_Data->m_sprite_list->erase(&sprite_manager->_Data->m_sprite_list, it);
+			sprite_manager->_Data->m_sprite_list->erase(sprite_manager->_Data->m_sprite_list, it);
 			return;
 		}
 			)

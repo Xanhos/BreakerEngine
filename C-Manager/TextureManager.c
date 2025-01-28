@@ -53,11 +53,11 @@ void InitTextureManager(void)
 			global_texture_list = stdList_Create(sizeof(Texture), 0);
 			scene_texture_list = stdList_Create(sizeof(Texture), 0);
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "png"),
-				Texture tmp = CreateTexture(STD_LIST_GETDATA(filesInfos, FilesInfo, i)->m_path);
+				Texture tmp = CreateTexture(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
 				place_holder = tmp;
 			else
-				global_texture_list->push_back(&global_texture_list, &tmp);
+				global_texture_list->push_back(global_texture_list, &tmp);
 				)
 		}
 	}
@@ -72,7 +72,7 @@ void InitTextureManager(void)
 void Load_Texture(const char* path)
 {
 	Texture tmp = CreateTexture(path);
-	scene_texture_list->push_back(&scene_texture_list, &tmp);
+	scene_texture_list->push_back(scene_texture_list, &tmp);
 }
 
 void LoadSceneTexture(const char* scene)
@@ -88,8 +88,8 @@ void ClearSceneTexture(void)
 	if (scene_texture_list != NULL)
 	{
 		for (int i = 0; i < scene_texture_list->size(scene_texture_list); i++)
-			sfTexture_destroy(STD_LIST_GETDATA(scene_texture_list, Texture, i)->m_texture);
-		scene_texture_list->clear(&scene_texture_list);
+			sfTexture_destroy(STD_GETDATA(scene_texture_list, Texture, i)->m_texture);
+		scene_texture_list->clear(scene_texture_list);
 	}
 }
 
@@ -123,8 +123,8 @@ void DestroyTexturesManager(void)
 	if (global_texture_list != NULL)
 	{
 		for (int i = 0; i < global_texture_list->size(global_texture_list); i++)
-			sfTexture_destroy(STD_LIST_GETDATA(global_texture_list, Texture, i)->m_texture);
-		global_texture_list->clear(&global_texture_list);
+			sfTexture_destroy(STD_GETDATA(global_texture_list, Texture, i)->m_texture);
+		global_texture_list->clear(global_texture_list);
 	}
 	scene_texture_list->destroy(&scene_texture_list);
 	assert(global_texture_list);
