@@ -1,0 +1,129 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Memory\+Management.h File Reference}
+\hypertarget{_memory_management_8h}{}\label{_memory_management_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MemoryManagement.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MemoryManagement.h}}
+
+
+This file contains a extension tools for the memory management of the engine.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_memory_management_8h_a8749d674b2a07b4d3af4c693291fba16}{calloc\+\_\+d}}(type,  count)
+\begin{DoxyCompactList}\small\item\em Allocates memory for an array of elements, with leak tracking enabled. This macro wraps the {\ttfamily Tracker\+Calloc} function for easier usage. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_memory_management_8h_a1cbf7ed45db391747f19516c59909675}{free\+\_\+d}}(ptr)
+\begin{DoxyCompactList}\small\item\em Frees memory allocated by {\ttfamily calloc\+\_\+d}, with leak tracking enabled. This macro wraps the {\ttfamily Detracker\+Calloc} function for easier usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_memory_management_8h_adfcf9d6c211b587fad7eb650a39596ed}{Tracker\+Calloc}} (size\+\_\+t count, size\+\_\+t size, const char \texorpdfstring{$\ast$}{*}file, unsigned int line)
+\begin{DoxyCompactList}\small\item\em Allocates memory for an array of elements and tracks the allocation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57}{Detracker\+Calloc}} (void \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em Frees memory allocated by {\ttfamily Tracker\+Calloc} and removes it from tracking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9}{Report\+Leaks}} (void)
+\begin{DoxyCompactList}\small\item\em Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains a extension tools for the memory management of the engine. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_memory_management_8h_a8749d674b2a07b4d3af4c693291fba16}\index{MemoryManagement.h@{MemoryManagement.h}!calloc\_d@{calloc\_d}}
+\index{calloc\_d@{calloc\_d}!MemoryManagement.h@{MemoryManagement.h}}
+\doxysubsubsection{\texorpdfstring{calloc\_d}{calloc\_d}}
+{\footnotesize\ttfamily \label{_memory_management_8h_a8749d674b2a07b4d3af4c693291fba16} 
+\#define calloc\+\_\+d(\begin{DoxyParamCaption}\item[{}]{type}{, }\item[{}]{count}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(type*)\mbox{\hyperlink{_memory_management_8h_adfcf9d6c211b587fad7eb650a39596ed}{TrackerCalloc}}(count,\ \textcolor{keyword}{sizeof}(type),\ \_\_FILE\_\_,\ \_\_LINE\_\_)}
+
+\end{DoxyCode}
+
+
+Allocates memory for an array of elements, with leak tracking enabled. This macro wraps the {\ttfamily Tracker\+Calloc} function for easier usage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The data type of the elements. \\
+\hline
+{\em count} & The number of elements to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory, cast to the specified type. 
+\end{DoxyReturn}
+\Hypertarget{_memory_management_8h_a1cbf7ed45db391747f19516c59909675}\index{MemoryManagement.h@{MemoryManagement.h}!free\_d@{free\_d}}
+\index{free\_d@{free\_d}!MemoryManagement.h@{MemoryManagement.h}}
+\doxysubsubsection{\texorpdfstring{free\_d}{free\_d}}
+{\footnotesize\ttfamily \label{_memory_management_8h_a1cbf7ed45db391747f19516c59909675} 
+\#define free\+\_\+d(\begin{DoxyParamCaption}\item[{}]{ptr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57}{DetrackerCalloc}}(ptr)}
+
+\end{DoxyCode}
+
+
+Frees memory allocated by {\ttfamily calloc\+\_\+d}, with leak tracking enabled. This macro wraps the {\ttfamily Detracker\+Calloc} function for easier usage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to the memory to free. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57}\index{MemoryManagement.h@{MemoryManagement.h}!DetrackerCalloc@{DetrackerCalloc}}
+\index{DetrackerCalloc@{DetrackerCalloc}!MemoryManagement.h@{MemoryManagement.h}}
+\doxysubsubsection{\texorpdfstring{DetrackerCalloc()}{DetrackerCalloc()}}
+{\footnotesize\ttfamily \label{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57} 
+void Detracker\+Calloc (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})}
+
+
+
+Frees memory allocated by {\ttfamily Tracker\+Calloc} and removes it from tracking. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to the memory to free. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9}\index{MemoryManagement.h@{MemoryManagement.h}!ReportLeaks@{ReportLeaks}}
+\index{ReportLeaks@{ReportLeaks}!MemoryManagement.h@{MemoryManagement.h}}
+\doxysubsubsection{\texorpdfstring{ReportLeaks()}{ReportLeaks()}}
+{\footnotesize\ttfamily \label{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9} 
+void Report\+Leaks (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. 
+
+\Hypertarget{_memory_management_8h_adfcf9d6c211b587fad7eb650a39596ed}\index{MemoryManagement.h@{MemoryManagement.h}!TrackerCalloc@{TrackerCalloc}}
+\index{TrackerCalloc@{TrackerCalloc}!MemoryManagement.h@{MemoryManagement.h}}
+\doxysubsubsection{\texorpdfstring{TrackerCalloc()}{TrackerCalloc()}}
+{\footnotesize\ttfamily \label{_memory_management_8h_adfcf9d6c211b587fad7eb650a39596ed} 
+void \texorpdfstring{$\ast$}{*} Tracker\+Calloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count}{, }\item[{size\+\_\+t}]{size}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{unsigned int}]{line}{}\end{DoxyParamCaption})}
+
+
+
+Allocates memory for an array of elements and tracks the allocation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of elements to allocate. \\
+\hline
+{\em size} & The size of each element in bytes. \\
+\hline
+{\em file} & The source file where the allocation is made. \\
+\hline
+{\em line} & The line number in the source file where the allocation is made. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory. 
+\end{DoxyReturn}

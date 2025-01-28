@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['rad2deg_0',['RAD2DEG',['../_tools_8h.html#ac5a945020d3528355cda82d383676736',1,'Tools.h']]],
+  ['radius_1',['radius',['../struct_particle_param.html#a5050a760c11da521cd4aee6336f6529f',1,'ParticleParam']]],
+  ['rand_5ffloat_2',['rand_float',['../_tools_8h.html#a50d1e1e1742bd5a82c663b9a92d85efb',1,'Tools.h']]],
+  ['rand_5fint_3',['rand_int',['../_tools_8h.html#aac41e11b0bd648fe5d1752a6d4dcd151',1,'Tools.h']]],
+  ['rectangle_5fcollision_4',['Rectangle_Collision',['../_tools_8h.html#af02f16bb83330b37c5649ed9994dde1b',1,'Tools.h']]],
+  ['register_5fc_5fstate_5',['REGISTER_C_STATE',['../_state_8h.html#add77d3a13edf7144585bce1205681da7',1,'State.h']]],
+  ['remove_5fby_5fid_6',['remove_by_id',['../struct_sprite_manager.html#a0cd787144f21f74e1563c5b0396ff020',1,'SpriteManager']]],
+  ['remove_5fby_5fname_7',['remove_by_name',['../struct_sprite_manager.html#a8e95aa9a1e48766becc35209d4fd6a3c',1,'SpriteManager']]],
+  ['render_8',['Render',['../struct_state_info.html#a43bdca7e84341c58ddbaa35f25934e40',1,'StateInfo']]],
+  ['reportleaks_9',['ReportLeaks',['../_memory_management_8h.html#acd5d5efabb0d9ea29bffa06669c469e9',1,'MemoryManagement.h']]],
+  ['resettimer_10',['ResetTimer',['../struct_window_manager.html#acc5cfb81127c486f8dbbd32e112b96ed',1,'WindowManager']]],
+  ['resource_5fdirectory_11',['resource_directory',['../_tools_8h.html#aa242836903fc655abed70288a389a7e8',1,'Tools.h']]],
+  ['resourcesmanager_2eh_12',['ResourcesManager.h',['../_resources_manager_8h.html',1,'']]],
+  ['restartclock_13',['RestartClock',['../struct_window_manager.html#a0658aa4588b4cf6f1e45609cfebe485a',1,'WindowManager']]],
+  ['restartclock_14',['restartClock',['../struct_clock.html#a5af09b61cfe091e1a61f9a8cd7e0f5c2',1,'Clock']]],
+  ['rotation_15',['rotation',['../struct_particle_param.html#a1fc5a0e5fca1a310e6bfa125bf80042e',1,'ParticleParam']]]
+];

@@ -1,0 +1,92 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Window\+Manager.h File Reference}
+\hypertarget{_window_manager_8h}{}\label{_window_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/WindowManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/WindowManager.h}}
+
+
+This file defines the \doxylink{struct_window_manager}{Window\+Manager} structure and functions for managing a window and all the settings.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_window_manager}{Window\+Manager}}
+\begin{DoxyCompactList}\small\item\em A structure that manages window operations and custom parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Window\+Manager \mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{Window\+Manager}}
+\begin{DoxyCompactList}\small\item\em Structure for managing the window and related operations. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{Window\+Manager\+\_\+\+Data}} \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{Window\+Manager\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em Internal structure for holding data related to the window manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{Create\+Window\+Manager}} (const unsigned int width, const unsigned int height, const char \texorpdfstring{$\ast$}{*}title, const sf\+Uint32 style, const sf\+Context\+Settings \texorpdfstring{$\ast$}{*}settings)
+\begin{DoxyCompactList}\small\item\em Creates a new window manager with the given parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the \doxylink{struct_window_manager}{Window\+Manager} structure and functions for managing a window and all the settings. 
+
+This code shows how to create a window.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Example\ usage\ of\ creating\ a\ new\ window:}}
+\DoxyCodeLine{\mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager\ =\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(1080,\ 720,\ \textcolor{stringliteral}{"{}SFML\_Works"{}},\ sfDefaultStyle,\ NULL);}
+
+\end{DoxyCode}
+
+
+The above code creates a window of size 1080x720 with a title of "{}\+SFML\+\_\+\+Works"{} and the default window style. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}\index{WindowManager.h@{WindowManager.h}!WindowManager@{WindowManager}}
+\index{WindowManager@{WindowManager}!WindowManager.h@{WindowManager.h}}
+\doxysubsubsection{\texorpdfstring{WindowManager}{WindowManager}}
+{\footnotesize\ttfamily \label{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641} 
+typedef struct Window\+Manager Window\+Manager}
+
+
+
+Structure for managing the window and related operations. 
+
+\Hypertarget{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}\index{WindowManager.h@{WindowManager.h}!WindowManager\_Data@{WindowManager\_Data}}
+\index{WindowManager\_Data@{WindowManager\_Data}!WindowManager.h@{WindowManager.h}}
+\doxysubsubsection{\texorpdfstring{WindowManager\_Data}{WindowManager\_Data}}
+{\footnotesize\ttfamily \label{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463} 
+typedef struct \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{Window\+Manager\+\_\+\+Data}} \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{Window\+Manager\+\_\+\+Data}}}
+
+
+
+Internal structure for holding data related to the window manager. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}\index{WindowManager.h@{WindowManager.h}!CreateWindowManager@{CreateWindowManager}}
+\index{CreateWindowManager@{CreateWindowManager}!WindowManager.h@{WindowManager.h}}
+\doxysubsubsection{\texorpdfstring{CreateWindowManager()}{CreateWindowManager()}}
+{\footnotesize\ttfamily \label{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4} 
+\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*} Create\+Window\+Manager (\begin{DoxyParamCaption}\item[{const unsigned int}]{width}{, }\item[{const unsigned int}]{height}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{title}{, }\item[{const sf\+Uint32}]{style}{, }\item[{const sf\+Context\+Settings \texorpdfstring{$\ast$}{*}}]{settings}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new window manager with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the window. \\
+\hline
+{\em height} & The height of the window. \\
+\hline
+{\em title} & The title of the window. \\
+\hline
+{\em style} & The window style (e.\+g., sf\+Close). \\
+\hline
+{\em settings} & The context settings for the window. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \doxylink{struct_window_manager}{Window\+Manager} instance. 
+\end{DoxyReturn}

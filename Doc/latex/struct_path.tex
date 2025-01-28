@@ -1,0 +1,173 @@
+\doxysection{Path Struct Reference}
+\hypertarget{struct_path}{}\label{struct_path}\index{Path@{Path}}
+
+
+High-\/level representation of a file system path with utility functions.  
+
+
+
+
+{\ttfamily \#include $<$File\+System.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structfs__path}{fs\+\_\+path}} \mbox{\hyperlink{struct_path_a0a877c4766d6757901b4f87450860de0}{path\+\_\+data}}
+\item 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_ae5086637c6bfd45ae77535756a4876be}{is\+\_\+directory}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Checks if the path is a directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_a9e5bbf27dc035bd455d96c6035a01a99}{is\+\_\+file}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Checks if the path is a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_ac3372b7185389630f9de6dab4ce93590}{exist}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Checks if the path exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_a39e0f8b6f89fdda9a98efbba2f4f93ab}{parent}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Retrieves the parent directory of the path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_af83c80319d5f7b25187c92dc13c4b0a5}{extension}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Retrieves the file extension of the path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_a01ce548e404a5a3f543f47669a5729e7}{stem}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Retrieves the stem (base name without extension) of the path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_path_a68f510fd166146c0bb97bf965ef66f2e}{filename}} )(\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Retrieves the file name (with extension) of the path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/level representation of a file system path with utility functions. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_path_ac3372b7185389630f9de6dab4ce93590}\index{Path@{Path}!exist@{exist}}
+\index{exist@{exist}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{exist}{exist}}
+{\footnotesize\ttfamily \label{struct_path_ac3372b7185389630f9de6dab4ce93590} 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} exist) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Checks if the path exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the path exists, FALSE otherwise. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_af83c80319d5f7b25187c92dc13c4b0a5}\index{Path@{Path}!extension@{extension}}
+\index{extension@{extension}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{extension}{extension}}
+{\footnotesize\ttfamily \label{struct_path_af83c80319d5f7b25187c92dc13c4b0a5} 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} extension) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Retrieves the file extension of the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{struct_path}{Path} object representing the file extension. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_a68f510fd166146c0bb97bf965ef66f2e}\index{Path@{Path}!filename@{filename}}
+\index{filename@{filename}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily \label{struct_path_a68f510fd166146c0bb97bf965ef66f2e} 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} filename) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Retrieves the file name (with extension) of the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{struct_path}{Path} object representing the file name. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_ae5086637c6bfd45ae77535756a4876be}\index{Path@{Path}!is\_directory@{is\_directory}}
+\index{is\_directory@{is\_directory}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{is\_directory}{is\_directory}}
+{\footnotesize\ttfamily \label{struct_path_ae5086637c6bfd45ae77535756a4876be} 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} is\+\_\+directory) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Checks if the path is a directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it is a directory, FALSE otherwise. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_a9e5bbf27dc035bd455d96c6035a01a99}\index{Path@{Path}!is\_file@{is\_file}}
+\index{is\_file@{is\_file}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{is\_file}{is\_file}}
+{\footnotesize\ttfamily \label{struct_path_a9e5bbf27dc035bd455d96c6035a01a99} 
+\mbox{\hyperlink{_file_system_8h_ac1ab14101d3423fbcbd7fa9e6ad6a57b}{fs\+Bool}}(\texorpdfstring{$\ast$}{*} is\+\_\+file) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Checks if the path is a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it is a file, FALSE otherwise. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_a39e0f8b6f89fdda9a98efbba2f4f93ab}\index{Path@{Path}!parent@{parent}}
+\index{parent@{parent}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \label{struct_path_a39e0f8b6f89fdda9a98efbba2f4f93ab} 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} parent) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Retrieves the parent directory of the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{struct_path}{Path} object representing the parent directory. 
+\end{DoxyReturn}
+\Hypertarget{struct_path_a0a877c4766d6757901b4f87450860de0}\index{Path@{Path}!path\_data@{path\_data}}
+\index{path\_data@{path\_data}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{path\_data}{path\_data}}
+{\footnotesize\ttfamily \label{struct_path_a0a877c4766d6757901b4f87450860de0} 
+\mbox{\hyperlink{structfs__path}{fs\+\_\+path}} path\+\_\+data}
+
+Internal file path data. \Hypertarget{struct_path_a01ce548e404a5a3f543f47669a5729e7}\index{Path@{Path}!stem@{stem}}
+\index{stem@{stem}!Path@{Path}}
+\doxysubsubsection{\texorpdfstring{stem}{stem}}
+{\footnotesize\ttfamily \label{struct_path_a01ce548e404a5a3f543f47669a5729e7} 
+\mbox{\hyperlink{struct_path}{Path}}(\texorpdfstring{$\ast$}{*} stem) (\mbox{\hyperlink{struct_path}{Path}} \texorpdfstring{$\ast$}{*}path)}
+
+
+
+Retrieves the stem (base name without extension) of the path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pointer to the \doxylink{struct_path}{Path} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{struct_path}{Path} object representing the stem. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_file_system_8h}{File\+System.\+h}}\end{DoxyCompactItemize}

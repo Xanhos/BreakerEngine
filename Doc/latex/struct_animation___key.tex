@@ -1,0 +1,112 @@
+\doxysection{Animation\+\_\+\+Key Struct Reference}
+\hypertarget{struct_animation___key}{}\label{struct_animation___key}\index{Animation\_Key@{Animation\_Key}}
+
+
+Encapsulates data and functions for managing an animation key.  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}{Animation\+\_\+\+Key\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation___key_a59741eda27f31a1fe86f9b08b9480575}{\+\_\+\+Data}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation___key_a97a81b1eba3f7759547e5c1772a5d8b5}{Get\+Total\+Frame}} )(\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of frames. \end{DoxyCompactList}\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation___key_ad970223335a87ddfb825d4f5cf4f1bce}{Get\+Current\+Frame}} )(\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Retrieves the current frame index. \end{DoxyCompactList}\item 
+sf\+Int\+Rect(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation___key_ad07f288e71bfbdcaeaa63ef4e4b006d9}{Get\+Current\+Rect}} )(\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Retrieves the texture rectangle for the current frame. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation___key_a9b9e8e8e880e79c01cb93246c701b294}{Set\+Current\+Frame}} )(\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key, int frame)
+\begin{DoxyCompactList}\small\item\em Sets the current frame index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates data and functions for managing an animation key. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_animation___key_a59741eda27f31a1fe86f9b08b9480575}\index{Animation\_Key@{Animation\_Key}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!Animation\_Key@{Animation\_Key}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_animation___key_a59741eda27f31a1fe86f9b08b9480575} 
+\mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}{Animation\+\_\+\+Key\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Pointer to internal data for the animation key. \Hypertarget{struct_animation___key_ad970223335a87ddfb825d4f5cf4f1bce}\index{Animation\_Key@{Animation\_Key}!GetCurrentFrame@{GetCurrentFrame}}
+\index{GetCurrentFrame@{GetCurrentFrame}!Animation\_Key@{Animation\_Key}}
+\doxysubsubsection{\texorpdfstring{GetCurrentFrame}{GetCurrentFrame}}
+{\footnotesize\ttfamily \label{struct_animation___key_ad970223335a87ddfb825d4f5cf4f1bce} 
+int(\texorpdfstring{$\ast$}{*} Get\+Current\+Frame) (\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)}
+
+
+
+Retrieves the current frame index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim\+\_\+key} & Pointer to the animation key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current frame index. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation___key_ad07f288e71bfbdcaeaa63ef4e4b006d9}\index{Animation\_Key@{Animation\_Key}!GetCurrentRect@{GetCurrentRect}}
+\index{GetCurrentRect@{GetCurrentRect}!Animation\_Key@{Animation\_Key}}
+\doxysubsubsection{\texorpdfstring{GetCurrentRect}{GetCurrentRect}}
+{\footnotesize\ttfamily \label{struct_animation___key_ad07f288e71bfbdcaeaa63ef4e4b006d9} 
+sf\+Int\+Rect(\texorpdfstring{$\ast$}{*} Get\+Current\+Rect) (\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)}
+
+
+
+Retrieves the texture rectangle for the current frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim\+\_\+key} & Pointer to the animation key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_texture}{Texture} rectangle for the current frame. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation___key_a97a81b1eba3f7759547e5c1772a5d8b5}\index{Animation\_Key@{Animation\_Key}!GetTotalFrame@{GetTotalFrame}}
+\index{GetTotalFrame@{GetTotalFrame}!Animation\_Key@{Animation\_Key}}
+\doxysubsubsection{\texorpdfstring{GetTotalFrame}{GetTotalFrame}}
+{\footnotesize\ttfamily \label{struct_animation___key_a97a81b1eba3f7759547e5c1772a5d8b5} 
+int(\texorpdfstring{$\ast$}{*} Get\+Total\+Frame) (\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)}
+
+
+
+Retrieves the total number of frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim\+\_\+key} & Pointer to the animation key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total number of frames. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation___key_a9b9e8e8e880e79c01cb93246c701b294}\index{Animation\_Key@{Animation\_Key}!SetCurrentFrame@{SetCurrentFrame}}
+\index{SetCurrentFrame@{SetCurrentFrame}!Animation\_Key@{Animation\_Key}}
+\doxysubsubsection{\texorpdfstring{SetCurrentFrame}{SetCurrentFrame}}
+{\footnotesize\ttfamily \label{struct_animation___key_a9b9e8e8e880e79c01cb93246c701b294} 
+void(\texorpdfstring{$\ast$}{*} Set\+Current\+Frame) (\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key, int frame)}
+
+
+
+Sets the current frame index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim\+\_\+key} & Pointer to the animation key. \\
+\hline
+{\em frame} & Frame index to set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\end{DoxyCompactItemize}

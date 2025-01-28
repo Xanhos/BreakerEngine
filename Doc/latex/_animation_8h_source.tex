@@ -1,0 +1,80 @@
+\doxysection{Animation.\+h}
+\hypertarget{_animation_8h_source}{}\label{_animation_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Animation.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Animation.h}}
+\mbox{\hyperlink{_animation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resources_manager_8h}{ResourcesManager.h}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}\ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}{Animation\_Key\_Data}}\ \mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}{Animation\_Key\_Data}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}{Animation\_Key\_Data}}*\ \mbox{\hyperlink{struct_animation___key_a59741eda27f31a1fe86f9b08b9480575}{\_Data}};\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ int\ (*\mbox{\hyperlink{struct_animation___key_a97a81b1eba3f7759547e5c1772a5d8b5}{GetTotalFrame}})(\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ anim\_key);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \ \ int\ (*\mbox{\hyperlink{struct_animation___key_ad970223335a87ddfb825d4f5cf4f1bce}{GetCurrentFrame}})(\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ anim\_key);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ sfIntRect(*\mbox{\hyperlink{struct_animation___key_ad07f288e71bfbdcaeaa63ef4e4b006d9}{GetCurrentRect}})(\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ anim\_key);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_animation___key_a9b9e8e8e880e79c01cb93246c701b294}{SetCurrentFrame}})(\mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ anim\_key,\ \textcolor{keywordtype}{int}\ frame);}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_animation}{Animation}}\ \mbox{\hyperlink{struct_animation}{Animation}};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\_Data}}\ \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\_Data}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_animation}{Animation}}}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\_Data}}*\ \mbox{\hyperlink{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29}{\_Data}};\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ (*AddAnimationKey)(\mbox{\hyperlink{struct_animation}{Animation}}\ \textcolor{keyword}{const}*\ anim,\ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ anim\_key);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ (*SelectAnimationKey)(\mbox{\hyperlink{struct_animation}{Animation}}*\ anim,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ (*GetCurrentAnimationKey)(\mbox{\hyperlink{struct_animation}{Animation}}*\ anim);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \ \ sfRectangleShape*\ (*GetRenderer)(\mbox{\hyperlink{struct_animation}{Animation}}*\ anim);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00138\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_animation_a54299950d4adb931928f36bbc3ee2ca6}{Update}})(\mbox{\hyperlink{struct_animation}{Animation}}*\ anim,\ \textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00144\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_animation_a76ee2779e38edb1d57c0e1fe724b8058}{Destroy}})(\mbox{\hyperlink{struct_animation}{Animation}}**\ anim);}
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00157\ \mbox{\hyperlink{struct_animation___key}{Animation\_Key}}*\ \mbox{\hyperlink{_animation_8h_ac18e934e4161580a6519f98920e17ffe}{CreateAnimationKey}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ sfIntRect\ rect,\ \textcolor{keywordtype}{int}\ line\_number,\ \textcolor{keywordtype}{int}\ line\_frame\_number,\ \textcolor{keywordtype}{int}\ total\_frame,\ \textcolor{keywordtype}{float}\ frame\_time);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00165\ \mbox{\hyperlink{struct_animation}{Animation}}*\ \mbox{\hyperlink{_animation_8h_a1f84aabb71eace9430e1762897e97502}{CreateAnimation}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ sfTexture*\ texture);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00173\ \mbox{\hyperlink{struct_animation}{Animation}}*\ \mbox{\hyperlink{_animation_8h_a43ea4f0428853804bab669b411b2d723}{CreateAnimationFromFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ sfTexture*\ texture);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00181\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_animation_8h_a548df4a7b5b031d636cfdca3d9f18f8b}{sfRenderWindow\_drawAnimation}}(sfRenderWindow*\ window,\ \mbox{\hyperlink{struct_animation}{Animation}}*\ anim,\ sfRenderStates*\ states);}
+
+\end{DoxyCode}

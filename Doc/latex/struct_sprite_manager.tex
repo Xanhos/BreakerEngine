@@ -1,0 +1,197 @@
+\doxysection{Sprite\+Manager Struct Reference}
+\hypertarget{struct_sprite_manager}{}\label{struct_sprite_manager}\index{SpriteManager@{SpriteManager}}
+
+
+Contains function pointers to manage sprites in a sprite collection.  
+
+
+
+
+{\ttfamily \#include $<$Sprite\+Manager.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{Sprite\+Manager\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a6c144c86518c8307cc56f57cbb25f87c}{\+\_\+\+Data}}
+\item 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a806ba93cdce68508a030b94c35e49f3e}{push\+\_\+back}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name, const sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Bool reset\+\_\+rect)
+\begin{DoxyCompactList}\small\item\em Adds a new sprite to the manager. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_ae85ba32701c1caacb3f2f6aac2853f4d}{draw}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, sf\+Render\+Window \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Draws all sprites managed by the sprite manager to the specified window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a0ce66caddb5e3f58e8e969b5430a712a}{destroy}} )(\mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sprite\+\_\+manager)
+\begin{DoxyCompactList}\small\item\em Destroys the sprite manager and frees all associated resources. \end{DoxyCompactList}\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a729e0a8855b0cdfa6755feadfae851db}{size}} )(\mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager)
+\begin{DoxyCompactList}\small\item\em Returns the number of sprites managed by the sprite manager. \end{DoxyCompactList}\item 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a6be33ff98fc9a8148738856085e8878a}{get\+\_\+by\+\_\+name}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Retrieves a sprite by its name. \end{DoxyCompactList}\item 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a5e8db6ef6cee78912a4b4aaea101f9a8}{get\+\_\+by\+\_\+id}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, int index)
+\begin{DoxyCompactList}\small\item\em Retrieves a sprite by its index. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a8e95aa9a1e48766becc35209d4fd6a3c}{remove\+\_\+by\+\_\+name}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Removes a sprite by its name. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_sprite_manager_a0cd787144f21f74e1563c5b0396ff020}{remove\+\_\+by\+\_\+id}} )(const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, int index)
+\begin{DoxyCompactList}\small\item\em Removes a sprite by its index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains function pointers to manage sprites in a sprite collection. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_sprite_manager_a6c144c86518c8307cc56f57cbb25f87c}\index{SpriteManager@{SpriteManager}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a6c144c86518c8307cc56f57cbb25f87c} 
+\mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{Sprite\+Manager\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Internal data for managing sprites. \Hypertarget{struct_sprite_manager_a0ce66caddb5e3f58e8e969b5430a712a}\index{SpriteManager@{SpriteManager}!destroy@{destroy}}
+\index{destroy@{destroy}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{destroy}{destroy}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a0ce66caddb5e3f58e8e969b5430a712a} 
+void(\texorpdfstring{$\ast$}{*} destroy) (\mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sprite\+\_\+manager)}
+
+
+
+Destroys the sprite manager and frees all associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the pointer of the \doxylink{struct_sprite_manager}{Sprite\+Manager} object to destroy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_sprite_manager_ae85ba32701c1caacb3f2f6aac2853f4d}\index{SpriteManager@{SpriteManager}!draw@{draw}}
+\index{draw@{draw}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{draw}{draw}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_ae85ba32701c1caacb3f2f6aac2853f4d} 
+void(\texorpdfstring{$\ast$}{*} draw) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, sf\+Render\+Window \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Draws all sprites managed by the sprite manager to the specified window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em window} & Pointer to the SFML render window to draw the sprites to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_sprite_manager_a5e8db6ef6cee78912a4b4aaea101f9a8}\index{SpriteManager@{SpriteManager}!get\_by\_id@{get\_by\_id}}
+\index{get\_by\_id@{get\_by\_id}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{get\_by\_id}{get\_by\_id}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a5e8db6ef6cee78912a4b4aaea101f9a8} 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+\_\+by\+\_\+id) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, int index)}
+
+
+
+Retrieves a sprite by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em index} & The index of the sprite to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the sprite if found, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{struct_sprite_manager_a6be33ff98fc9a8148738856085e8878a}\index{SpriteManager@{SpriteManager}!get\_by\_name@{get\_by\_name}}
+\index{get\_by\_name@{get\_by\_name}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{get\_by\_name}{get\_by\_name}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a6be33ff98fc9a8148738856085e8878a} 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+\_\+by\+\_\+name) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name)}
+
+
+
+Retrieves a sprite by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em name} & The name of the sprite to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the sprite if found, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{struct_sprite_manager_a806ba93cdce68508a030b94c35e49f3e}\index{SpriteManager@{SpriteManager}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{push\_back}{push\_back}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a806ba93cdce68508a030b94c35e49f3e} 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} push\+\_\+back) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name, const sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Bool reset\+\_\+rect)}
+
+
+
+Adds a new sprite to the manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em name} & The name to assign to the new sprite. \\
+\hline
+{\em texture} & The texture to use for the sprite. \\
+\hline
+{\em reset\+\_\+rect} & Flag to reset the sprite\textquotesingle{}s rectangle bounds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly added sprite. 
+\end{DoxyReturn}
+\Hypertarget{struct_sprite_manager_a0cd787144f21f74e1563c5b0396ff020}\index{SpriteManager@{SpriteManager}!remove\_by\_id@{remove\_by\_id}}
+\index{remove\_by\_id@{remove\_by\_id}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{remove\_by\_id}{remove\_by\_id}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a0cd787144f21f74e1563c5b0396ff020} 
+void(\texorpdfstring{$\ast$}{*} remove\+\_\+by\+\_\+id) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, int index)}
+
+
+
+Removes a sprite by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em index} & The index of the sprite to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_sprite_manager_a8e95aa9a1e48766becc35209d4fd6a3c}\index{SpriteManager@{SpriteManager}!remove\_by\_name@{remove\_by\_name}}
+\index{remove\_by\_name@{remove\_by\_name}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{remove\_by\_name}{remove\_by\_name}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a8e95aa9a1e48766becc35209d4fd6a3c} 
+void(\texorpdfstring{$\ast$}{*} remove\+\_\+by\+\_\+name) (const \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager, const char \texorpdfstring{$\ast$}{*}name)}
+
+
+
+Removes a sprite by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+{\em name} & The name of the sprite to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_sprite_manager_a729e0a8855b0cdfa6755feadfae851db}\index{SpriteManager@{SpriteManager}!size@{size}}
+\index{size@{size}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{struct_sprite_manager_a729e0a8855b0cdfa6755feadfae851db} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} size) (\mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}} \texorpdfstring{$\ast$}{*}sprite\+\_\+manager)}
+
+
+
+Returns the number of sprites managed by the sprite manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+\_\+manager} & Pointer to the \doxylink{struct_sprite_manager}{Sprite\+Manager} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of sprites in the manager. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_sprite_manager_8h}{Sprite\+Manager.\+h}}\end{DoxyCompactItemize}

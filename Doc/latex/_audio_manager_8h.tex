@@ -1,0 +1,215 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Audio\+Manager.h File Reference}
+\hypertarget{_audio_manager_8h}{}\label{_audio_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/AudioManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/AudioManager.h}}
+
+
+This file contains all the data to load sounds and musics for the engine.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_sound}{Sound}}
+\begin{DoxyCompactList}\small\item\em Represents a sound object that includes a sound buffer, a sound instance, and associated metadata. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_music}{Music}}
+\begin{DoxyCompactList}\small\item\em Represents a music object that includes a music stream and associated metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Sound \mbox{\hyperlink{_audio_manager_8h_a44c7688d141cdc1b2de5c579e6e0a70e}{Sound}}
+\item 
+typedef struct Music \mbox{\hyperlink{_audio_manager_8h_ab38810c6f21a5e0aca4e8fabcb9cc70b}{Music}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_sound}{Sound}} \mbox{\hyperlink{_audio_manager_8h_ae63112bfd18a046f00659d23e937fb1d}{Create\+Sound}} (const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Creates a new sound object from a file path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_music}{Music}} \mbox{\hyperlink{_audio_manager_8h_af52d67969774a4dc749498d33cc4166b}{Create\+Music}} (const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Creates a new music object from a file path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_afacdeca89b55be34b54b7885fa2e9a55}{Delete\+Sound}} (\mbox{\hyperlink{struct_sound}{Sound}} \texorpdfstring{$\ast$}{*}sound)
+\begin{DoxyCompactList}\small\item\em Deletes a sound object and releases its associated resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_aacd687b998410396ffda684df6e8b707}{Delete\+Music}} (\mbox{\hyperlink{struct_music}{Music}} \texorpdfstring{$\ast$}{*}music)
+\begin{DoxyCompactList}\small\item\em Deletes a music object and releases its associated resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_a19a30e005630efa6447f03cb39f4da6f}{Init\+Sound\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the sound manager. This function sets up the necessary resources and data structures for sound management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_a8edbabe5eb6a71fe117796dd228c7c35}{Load\+Scene\+Sound}} (const char \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Loads sounds associated with a specific scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_a9485054817526044ee91e76d1598b5ca}{Clear\+Scene\+Sound}} (void)
+\begin{DoxyCompactList}\small\item\em Clears all sounds associated with the current scene. This function frees memory and unloads scene-\/specific sounds. \end{DoxyCompactList}\item 
+sf\+Sound \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_audio_manager_8h_ae0423febc9cb7ee91b43d904eb2e8d81}{Get\+Sound}} (const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Retrieves a sound instance by its name. \end{DoxyCompactList}\item 
+sf\+Music \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_audio_manager_8h_a1daf6161c18c2a9664fc751f320f6aeb}{Get\+Music}} (const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Retrieves a music instance by its name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_audio_manager_8h_a70cf07cc89f1a96aad7dc4401c3cb739}{Destroy\+Sounds\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the sound manager and releases all associated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the data to load sounds and musics for the engine. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_audio_manager_8h_ab38810c6f21a5e0aca4e8fabcb9cc70b}\index{AudioManager.h@{AudioManager.h}!Music@{Music}}
+\index{Music@{Music}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{Music}{Music}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_ab38810c6f21a5e0aca4e8fabcb9cc70b} 
+typedef struct Music Music}
+
+\Hypertarget{_audio_manager_8h_a44c7688d141cdc1b2de5c579e6e0a70e}\index{AudioManager.h@{AudioManager.h}!Sound@{Sound}}
+\index{Sound@{Sound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{Sound}{Sound}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a44c7688d141cdc1b2de5c579e6e0a70e} 
+typedef struct Sound Sound}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_audio_manager_8h_a9485054817526044ee91e76d1598b5ca}\index{AudioManager.h@{AudioManager.h}!ClearSceneSound@{ClearSceneSound}}
+\index{ClearSceneSound@{ClearSceneSound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{ClearSceneSound()}{ClearSceneSound()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a9485054817526044ee91e76d1598b5ca} 
+void Clear\+Scene\+Sound (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all sounds associated with the current scene. This function frees memory and unloads scene-\/specific sounds. 
+
+\Hypertarget{_audio_manager_8h_af52d67969774a4dc749498d33cc4166b}\index{AudioManager.h@{AudioManager.h}!CreateMusic@{CreateMusic}}
+\index{CreateMusic@{CreateMusic}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{CreateMusic()}{CreateMusic()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_af52d67969774a4dc749498d33cc4166b} 
+\mbox{\hyperlink{struct_music}{Music}} Create\+Music (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new music object from a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \doxylink{struct_path}{Path} to the music file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{struct_music}{Music} object initialized with the given file. 
+\end{DoxyReturn}
+\Hypertarget{_audio_manager_8h_ae63112bfd18a046f00659d23e937fb1d}\index{AudioManager.h@{AudioManager.h}!CreateSound@{CreateSound}}
+\index{CreateSound@{CreateSound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{CreateSound()}{CreateSound()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_ae63112bfd18a046f00659d23e937fb1d} 
+\mbox{\hyperlink{struct_sound}{Sound}} Create\+Sound (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new sound object from a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \doxylink{struct_path}{Path} to the sound file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{struct_sound}{Sound} object initialized with the given file. 
+\end{DoxyReturn}
+\Hypertarget{_audio_manager_8h_aacd687b998410396ffda684df6e8b707}\index{AudioManager.h@{AudioManager.h}!DeleteMusic@{DeleteMusic}}
+\index{DeleteMusic@{DeleteMusic}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{DeleteMusic()}{DeleteMusic()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_aacd687b998410396ffda684df6e8b707} 
+void Delete\+Music (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_music}{Music}} \texorpdfstring{$\ast$}{*}}]{music}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a music object and releases its associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em music} & Pointer to the \doxylink{struct_music}{Music} object to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_audio_manager_8h_afacdeca89b55be34b54b7885fa2e9a55}\index{AudioManager.h@{AudioManager.h}!DeleteSound@{DeleteSound}}
+\index{DeleteSound@{DeleteSound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{DeleteSound()}{DeleteSound()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_afacdeca89b55be34b54b7885fa2e9a55} 
+void Delete\+Sound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sound}{Sound}} \texorpdfstring{$\ast$}{*}}]{sound}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a sound object and releases its associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound} & Pointer to the \doxylink{struct_sound}{Sound} object to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_audio_manager_8h_a70cf07cc89f1a96aad7dc4401c3cb739}\index{AudioManager.h@{AudioManager.h}!DestroySoundsManager@{DestroySoundsManager}}
+\index{DestroySoundsManager@{DestroySoundsManager}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{DestroySoundsManager()}{DestroySoundsManager()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a70cf07cc89f1a96aad7dc4401c3cb739} 
+void Destroy\+Sounds\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the sound manager and releases all associated resources. 
+
+\Hypertarget{_audio_manager_8h_a1daf6161c18c2a9664fc751f320f6aeb}\index{AudioManager.h@{AudioManager.h}!GetMusic@{GetMusic}}
+\index{GetMusic@{GetMusic}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{GetMusic()}{GetMusic()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a1daf6161c18c2a9664fc751f320f6aeb} 
+sf\+Music \texorpdfstring{$\ast$}{*} Get\+Music (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a music instance by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the music to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the music instance if found, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{_audio_manager_8h_ae0423febc9cb7ee91b43d904eb2e8d81}\index{AudioManager.h@{AudioManager.h}!GetSound@{GetSound}}
+\index{GetSound@{GetSound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{GetSound()}{GetSound()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_ae0423febc9cb7ee91b43d904eb2e8d81} 
+sf\+Sound \texorpdfstring{$\ast$}{*} Get\+Sound (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a sound instance by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the sound to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the sound instance if found, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{_audio_manager_8h_a19a30e005630efa6447f03cb39f4da6f}\index{AudioManager.h@{AudioManager.h}!InitSoundManager@{InitSoundManager}}
+\index{InitSoundManager@{InitSoundManager}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{InitSoundManager()}{InitSoundManager()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a19a30e005630efa6447f03cb39f4da6f} 
+void Init\+Sound\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the sound manager. This function sets up the necessary resources and data structures for sound management. 
+
+\Hypertarget{_audio_manager_8h_a8edbabe5eb6a71fe117796dd228c7c35}\index{AudioManager.h@{AudioManager.h}!LoadSceneSound@{LoadSceneSound}}
+\index{LoadSceneSound@{LoadSceneSound}!AudioManager.h@{AudioManager.h}}
+\doxysubsubsection{\texorpdfstring{LoadSceneSound()}{LoadSceneSound()}}
+{\footnotesize\ttfamily \label{_audio_manager_8h_a8edbabe5eb6a71fe117796dd228c7c35} 
+void Load\+Scene\+Sound (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{}\end{DoxyParamCaption})}
+
+
+
+Loads sounds associated with a specific scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Name of the scene for which sounds should be loaded. \\
+\hline
+\end{DoxyParams}

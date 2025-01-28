@@ -1,0 +1,153 @@
+\doxysection{Animation Struct Reference}
+\hypertarget{struct_animation}{}\label{struct_animation}\index{Animation@{Animation}}
+
+
+Encapsulates data and functions for managing animations.  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29}{\+\_\+\+Data}}
+\item 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_ad499900482505293873a7e3d45ca710a}{Add\+Animation\+Key}} )(\mbox{\hyperlink{struct_animation}{Animation}} const \texorpdfstring{$\ast$}{*}anim, \mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Adds a new animation key to the animation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a3623e1f4009f033090b16de3eacd3006}{Select\+Animation\+Key}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Selects an animation key by its name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_ac94aaeef37785b7dfe8fab38a12224d6}{Get\+Current\+Animation\+Key}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Retrieves the current animation key. \end{DoxyCompactList}\item 
+sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a8490d705ff41cce09406d911639d1408}{Get\+Renderer}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Retrieves the renderer for the animation. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a54299950d4adb931928f36bbc3ee2ca6}{Update}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the animation based on elapsed time. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a76ee2779e38edb1d57c0e1fe724b8058}{Destroy}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Destroys the animation and releases associated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates data and functions for managing animations. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29}\index{Animation@{Animation}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29} 
+\mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Pointer to internal data for the animation. \Hypertarget{struct_animation_ad499900482505293873a7e3d45ca710a}\index{Animation@{Animation}!AddAnimationKey@{AddAnimationKey}}
+\index{AddAnimationKey@{AddAnimationKey}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{AddAnimationKey}{AddAnimationKey}}
+{\footnotesize\ttfamily \label{struct_animation_ad499900482505293873a7e3d45ca710a} 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Add\+Animation\+Key) (\mbox{\hyperlink{struct_animation}{Animation}} const  \texorpdfstring{$\ast$}{*}anim, \mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}anim\+\_\+key)}
+
+
+
+Adds a new animation key to the animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+{\em anim\+\_\+key} & Pointer to the animation key to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the added animation key. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation_a76ee2779e38edb1d57c0e1fe724b8058}\index{Animation@{Animation}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
+{\footnotesize\ttfamily \label{struct_animation_a76ee2779e38edb1d57c0e1fe724b8058} 
+void(\texorpdfstring{$\ast$}{*} Destroy) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Destroys the animation and releases associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation pointer to destroy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_animation_ac94aaeef37785b7dfe8fab38a12224d6}\index{Animation@{Animation}!GetCurrentAnimationKey@{GetCurrentAnimationKey}}
+\index{GetCurrentAnimationKey@{GetCurrentAnimationKey}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{GetCurrentAnimationKey}{GetCurrentAnimationKey}}
+{\footnotesize\ttfamily \label{struct_animation_ac94aaeef37785b7dfe8fab38a12224d6} 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Get\+Current\+Animation\+Key) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Retrieves the current animation key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the current animation key. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation_a8490d705ff41cce09406d911639d1408}\index{Animation@{Animation}!GetRenderer@{GetRenderer}}
+\index{GetRenderer@{GetRenderer}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{GetRenderer}{GetRenderer}}
+{\footnotesize\ttfamily \label{struct_animation_a8490d705ff41cce09406d911639d1408} 
+sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Get\+Renderer) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Retrieves the renderer for the animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the rectangle shape used for rendering. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation_a3623e1f4009f033090b16de3eacd3006}\index{Animation@{Animation}!SelectAnimationKey@{SelectAnimationKey}}
+\index{SelectAnimationKey@{SelectAnimationKey}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{SelectAnimationKey}{SelectAnimationKey}}
+{\footnotesize\ttfamily \label{struct_animation_a3623e1f4009f033090b16de3eacd3006} 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Select\+Animation\+Key) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, const char \texorpdfstring{$\ast$}{*}name)}
+
+
+
+Selects an animation key by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+{\em name} & Name of the animation key to select. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the selected animation key. 
+\end{DoxyReturn}
+\Hypertarget{struct_animation_a54299950d4adb931928f36bbc3ee2ca6}\index{Animation@{Animation}!Update@{Update}}
+\index{Update@{Update}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Update}{Update}}
+{\footnotesize\ttfamily \label{struct_animation_a54299950d4adb931928f36bbc3ee2ca6} 
+void(\texorpdfstring{$\ast$}{*} Update) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, float delta\+Time)}
+
+
+
+Updates the animation based on elapsed time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+{\em delta\+Time} & Time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\end{DoxyCompactItemize}

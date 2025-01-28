@@ -1,0 +1,85 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Thread\+Manager.h File Reference}
+\hypertarget{_thread_manager_8h}{}\label{_thread_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ThreadManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ThreadManager.h}}
+
+
+This file defines the \doxylink{struct_thread_manager}{Thread\+Manager} structure and functions for managing a multitude of thread.  
+
+
+{\ttfamily \#include "{}List.\+h"{}}\newline
+{\ttfamily \#include "{}SFML/\+System.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}}
+\begin{DoxyCompactList}\small\item\em Contains function pointers to manage threads, including adding, updating, and destroying threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}} \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em Opaque structure that holds the internal data for the thread manager. \end{DoxyCompactList}\item 
+typedef struct Thread\+Manager \mbox{\hyperlink{_thread_manager_8h_a9a6bb720b545cd20bb13c0a0947dc050}{Thread\+Manager}}
+\begin{DoxyCompactList}\small\item\em Manages a collection of threads and provides functionality for creating, updating, and destroying threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}{Create\+Thread\+Manager}} (size\+\_\+t limit)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{struct_thread_manager}{Thread\+Manager} with a specified thread limit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the \doxylink{struct_thread_manager}{Thread\+Manager} structure and functions for managing a multitude of thread. 
+
+This code shows how to create a \doxylink{struct_thread_manager}{Thread\+Manager} that can be used for various purposes, such as resources loading or data treatment.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Example\ usage\ of\ creating\ a\ new\ viewport:}}
+\DoxyCodeLine{\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ viewport\ =\ \mbox{\hyperlink{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}{CreateThreadManager}}(5);}
+
+\end{DoxyCode}
+
+
+The above code creates a \doxylink{struct_thread_manager}{Thread\+Manager} that can handle up to 5 threads simultaneous. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_thread_manager_8h_a9a6bb720b545cd20bb13c0a0947dc050}\index{ThreadManager.h@{ThreadManager.h}!ThreadManager@{ThreadManager}}
+\index{ThreadManager@{ThreadManager}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{ThreadManager}{ThreadManager}}
+{\footnotesize\ttfamily \label{_thread_manager_8h_a9a6bb720b545cd20bb13c0a0947dc050} 
+typedef struct Thread\+Manager Thread\+Manager}
+
+
+
+Manages a collection of threads and provides functionality for creating, updating, and destroying threads. 
+
+\Hypertarget{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}\index{ThreadManager.h@{ThreadManager.h}!ThreadManager\_Data@{ThreadManager\_Data}}
+\index{ThreadManager\_Data@{ThreadManager\_Data}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{ThreadManager\_Data}{ThreadManager\_Data}}
+{\footnotesize\ttfamily \label{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8} 
+typedef struct \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}} \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}}}
+
+
+
+Opaque structure that holds the internal data for the thread manager. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}\index{ThreadManager.h@{ThreadManager.h}!CreateThreadManager@{CreateThreadManager}}
+\index{CreateThreadManager@{CreateThreadManager}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{CreateThreadManager()}{CreateThreadManager()}}
+{\footnotesize\ttfamily \label{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1} 
+\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*} Create\+Thread\+Manager (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{limit}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new \doxylink{struct_thread_manager}{Thread\+Manager} with a specified thread limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The maximum number of threads that can be handled by the manager. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly created \doxylink{struct_thread_manager}{Thread\+Manager} object. 
+\end{DoxyReturn}

@@ -1,0 +1,69 @@
+\doxysection{Audio\+Manager.\+h}
+\hypertarget{_audio_manager_8h_source}{}\label{_audio_manager_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/AudioManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/AudioManager.h}}
+\mbox{\hyperlink{_audio_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_sound}{Sound}}\ \mbox{\hyperlink{struct_sound}{Sound}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_sound}{Sound}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ sfSoundBuffer*\ \mbox{\hyperlink{struct_sound_a17eb45449b489dd52e1758584c2053e4}{m\_sound\_buffer}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ sfSound*\ \mbox{\hyperlink{struct_sound_a622f7124fd0dd8c658bc354f176566f9}{m\_sound}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{struct_path}{Path}}\ \mbox{\hyperlink{struct_sound_ae8a852c9fdc1d01d32735191278df912}{m\_path}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_sound_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ \ \ }
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_music}{Music}}\ \mbox{\hyperlink{struct_music}{Music}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_music}{Music}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ sfMusic*\ \mbox{\hyperlink{struct_music_a18bea1447a931d47e3dd0ce7c4c82cc8}{m\_music}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{struct_path}{Path}}\ \mbox{\hyperlink{struct_music_ae8a852c9fdc1d01d32735191278df912}{m\_path}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_music_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ \ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \mbox{\hyperlink{struct_sound}{Sound}}\ \mbox{\hyperlink{_audio_manager_8h_ae63112bfd18a046f00659d23e937fb1d}{CreateSound}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \mbox{\hyperlink{struct_music}{Music}}\ \mbox{\hyperlink{_audio_manager_8h_af52d67969774a4dc749498d33cc4166b}{CreateMusic}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_afacdeca89b55be34b54b7885fa2e9a55}{DeleteSound}}(\mbox{\hyperlink{struct_sound}{Sound}}*\ sound);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_aacd687b998410396ffda684df6e8b707}{DeleteMusic}}(\mbox{\hyperlink{struct_music}{Music}}*\ music);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_a19a30e005630efa6447f03cb39f4da6f}{InitSoundManager}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_a8edbabe5eb6a71fe117796dd228c7c35}{LoadSceneSound}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_a9485054817526044ee91e76d1598b5ca}{ClearSceneSound}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ sfSound*\ \mbox{\hyperlink{_audio_manager_8h_ae0423febc9cb7ee91b43d904eb2e8d81}{GetSound}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ sfMusic*\ \mbox{\hyperlink{_audio_manager_8h_a1daf6161c18c2a9664fc751f320f6aeb}{GetMusic}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_audio_manager_8h_a70cf07cc89f1a96aad7dc4401c3cb739}{DestroySoundsManager}}(\textcolor{keywordtype}{void});}
+
+\end{DoxyCode}

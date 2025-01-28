@@ -1,0 +1,115 @@
+\doxysection{Thread\+Manager Struct Reference}
+\hypertarget{struct_thread_manager}{}\label{struct_thread_manager}\index{ThreadManager@{ThreadManager}}
+
+
+Contains function pointers to manage threads, including adding, updating, and destroying threads.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Manager.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_manager_a0621dc75309a153931333e0791f98d7a}{\+\_\+\+Data}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_manager_a333c9117391745797cc33d5935e58f34}{Add\+New\+Thread}} )(\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager, void(\texorpdfstring{$\ast$}{*}func)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}func\+\_\+data, sf\+Bool copy\+\_\+data, size\+\_\+t data\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Adds a new thread to the manager. \end{DoxyCompactList}\item 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd}{Get\+Thread\+Count}} )(\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager)
+\begin{DoxyCompactList}\small\item\em Gets the current number of threads managed by the \doxylink{struct_thread_manager}{Thread\+Manager}. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae}{Update}} )(\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager)
+\begin{DoxyCompactList}\small\item\em Updates the state of all threads managed by the \doxylink{struct_thread_manager}{Thread\+Manager}. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209}{Destroy}} )(\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}thread\+\_\+manager)
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{struct_thread_manager}{Thread\+Manager} and releases all associated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains function pointers to manage threads, including adding, updating, and destroying threads. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_thread_manager_a0621dc75309a153931333e0791f98d7a}\index{ThreadManager@{ThreadManager}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_thread_manager_a0621dc75309a153931333e0791f98d7a} 
+\mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{Thread\+Manager\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Internal data for managing threads. \Hypertarget{struct_thread_manager_a333c9117391745797cc33d5935e58f34}\index{ThreadManager@{ThreadManager}!AddNewThread@{AddNewThread}}
+\index{AddNewThread@{AddNewThread}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{AddNewThread}{AddNewThread}}
+{\footnotesize\ttfamily \label{struct_thread_manager_a333c9117391745797cc33d5935e58f34} 
+void(\texorpdfstring{$\ast$}{*} Add\+New\+Thread) (\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager, void(\texorpdfstring{$\ast$}{*}func)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}func\+\_\+data, sf\+Bool copy\+\_\+data, size\+\_\+t data\+\_\+size)}
+
+
+
+Adds a new thread to the manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+manager} & Pointer to the \doxylink{struct_thread_manager}{Thread\+Manager} object. \\
+\hline
+{\em func} & The function to be executed by the new thread. \\
+\hline
+{\em func\+\_\+data} & Data to pass to the function, if any. \\
+\hline
+{\em copy\+\_\+data} & Flag to indicate whether to copy the data or not. \\
+\hline
+{\em data\+\_\+size} & Size of the data to pass to the function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+if the thread manager is full, this function will block the main thread until the new task can be added. Update of the thread manager is automatically make in that case. 
+\end{DoxyWarning}
+\Hypertarget{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209}\index{ThreadManager@{ThreadManager}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
+{\footnotesize\ttfamily \label{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209} 
+void(\texorpdfstring{$\ast$}{*} Destroy) (\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}thread\+\_\+manager)}
+
+
+
+Destroys the \doxylink{struct_thread_manager}{Thread\+Manager} and releases all associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+manager} & Pointer to the pointer of the \doxylink{struct_thread_manager}{Thread\+Manager} object to destroy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd}\index{ThreadManager@{ThreadManager}!GetThreadCount@{GetThreadCount}}
+\index{GetThreadCount@{GetThreadCount}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{GetThreadCount}{GetThreadCount}}
+{\footnotesize\ttfamily \label{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd} 
+size\+\_\+t(\texorpdfstring{$\ast$}{*} Get\+Thread\+Count) (\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager)}
+
+
+
+Gets the current number of threads managed by the \doxylink{struct_thread_manager}{Thread\+Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+manager} & Pointer to the \doxylink{struct_thread_manager}{Thread\+Manager} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of threads managed by the manager. 
+\end{DoxyReturn}
+\Hypertarget{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae}\index{ThreadManager@{ThreadManager}!Update@{Update}}
+\index{Update@{Update}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{Update}{Update}}
+{\footnotesize\ttfamily \label{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae} 
+void(\texorpdfstring{$\ast$}{*} Update) (\mbox{\hyperlink{struct_thread_manager}{Thread\+Manager}} \texorpdfstring{$\ast$}{*}thread\+\_\+manager)}
+
+
+
+Updates the state of all threads managed by the \doxylink{struct_thread_manager}{Thread\+Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+manager} & Pointer to the \doxylink{struct_thread_manager}{Thread\+Manager} object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_thread_manager_8h}{Thread\+Manager.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,148 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Texture\+Manager.h File Reference}
+\hypertarget{_texture_manager_8h}{}\label{_texture_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/TextureManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/TextureManager.h}}
+
+
+This file contains all the data to load textures for the engine.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_texture}{Texture}}
+\begin{DoxyCompactList}\small\item\em Represents a texture object, storing the texture data and its metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Texture \mbox{\hyperlink{_texture_manager_8h_a9862149b4afb78441c9ac01b07535975}{Texture}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_texture}{Texture}} \mbox{\hyperlink{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a}{Create\+Texture}} (const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Creates a new texture from a file path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325}{Delete\+Texture}} (\mbox{\hyperlink{struct_texture}{Texture}} \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Deletes a texture object and releases its associated resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480}{Init\+Texture\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the texture manager and loads necessary resources. This function sets up resources and data structures for texture management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_texture_manager_8h_a5d8b528a1df200bf4027f746707384b5}{Load\+Scene\+Texture}} (const char \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Loads all textures associated with a specific scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_texture_manager_8h_af8e33300474d16255b892e6778e03900}{Clear\+Scene\+Texture}} (void)
+\begin{DoxyCompactList}\small\item\em Clears all textures associated with the current scene. This function frees memory and unloads scene-\/specific textures. \end{DoxyCompactList}\item 
+sf\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c}{Get\+Texture}} (const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Retrieves a texture object by its name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4}{Destroy\+Textures\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the texture manager and releases all associated resources. This function is called when shutting down the application to free up memory and unload textures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the data to load textures for the engine. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_texture_manager_8h_a9862149b4afb78441c9ac01b07535975}\index{TextureManager.h@{TextureManager.h}!Texture@{Texture}}
+\index{Texture@{Texture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{Texture}{Texture}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_a9862149b4afb78441c9ac01b07535975} 
+typedef struct Texture Texture}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_texture_manager_8h_af8e33300474d16255b892e6778e03900}\index{TextureManager.h@{TextureManager.h}!ClearSceneTexture@{ClearSceneTexture}}
+\index{ClearSceneTexture@{ClearSceneTexture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{ClearSceneTexture()}{ClearSceneTexture()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_af8e33300474d16255b892e6778e03900} 
+void Clear\+Scene\+Texture (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all textures associated with the current scene. This function frees memory and unloads scene-\/specific textures. 
+
+\Hypertarget{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a}\index{TextureManager.h@{TextureManager.h}!CreateTexture@{CreateTexture}}
+\index{CreateTexture@{CreateTexture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{CreateTexture()}{CreateTexture()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a} 
+\mbox{\hyperlink{struct_texture}{Texture}} Create\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new texture from a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \doxylink{struct_path}{Path} to the texture file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{struct_texture}{Texture} object initialized with the given file. 
+\end{DoxyReturn}
+\Hypertarget{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325}\index{TextureManager.h@{TextureManager.h}!DeleteTexture@{DeleteTexture}}
+\index{DeleteTexture@{DeleteTexture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{DeleteTexture()}{DeleteTexture()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325} 
+void Delete\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_texture}{Texture}} \texorpdfstring{$\ast$}{*}}]{texture}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a texture object and releases its associated resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Pointer to the \doxylink{struct_texture}{Texture} object to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4}\index{TextureManager.h@{TextureManager.h}!DestroyTexturesManager@{DestroyTexturesManager}}
+\index{DestroyTexturesManager@{DestroyTexturesManager}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{DestroyTexturesManager()}{DestroyTexturesManager()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4} 
+void Destroy\+Textures\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the texture manager and releases all associated resources. This function is called when shutting down the application to free up memory and unload textures. 
+
+\Hypertarget{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c}\index{TextureManager.h@{TextureManager.h}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c} 
+sf\+Texture \texorpdfstring{$\ast$}{*} Get\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a texture object by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the texture to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the texture object if found, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480}\index{TextureManager.h@{TextureManager.h}!InitTextureManager@{InitTextureManager}}
+\index{InitTextureManager@{InitTextureManager}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{InitTextureManager()}{InitTextureManager()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480} 
+void Init\+Texture\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the texture manager and loads necessary resources. This function sets up resources and data structures for texture management. 
+
+\Hypertarget{_texture_manager_8h_a5d8b528a1df200bf4027f746707384b5}\index{TextureManager.h@{TextureManager.h}!LoadSceneTexture@{LoadSceneTexture}}
+\index{LoadSceneTexture@{LoadSceneTexture}!TextureManager.h@{TextureManager.h}}
+\doxysubsubsection{\texorpdfstring{LoadSceneTexture()}{LoadSceneTexture()}}
+{\footnotesize\ttfamily \label{_texture_manager_8h_a5d8b528a1df200bf4027f746707384b5} 
+void Load\+Scene\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{}\end{DoxyParamCaption})}
+
+
+
+Loads all textures associated with a specific scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Name of the scene for which textures should be loaded. \\
+\hline
+\end{DoxyParams}

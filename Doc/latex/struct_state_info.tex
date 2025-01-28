@@ -1,0 +1,137 @@
+\doxysection{State\+Info Struct Reference}
+\hypertarget{struct_state_info}{}\label{struct_state_info}\index{StateInfo@{StateInfo}}
+
+
+Contains function pointers for managing the lifecycle of a state in the application.  
+
+
+
+
+{\ttfamily \#include $<$State.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{struct_state_info_a8e03167ce04350be901b028cc4cf1ce1}{name}} \mbox{[}256\mbox{]}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_aad3c9ec4b724dbc33957f078c4a73ff2}{Init}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initializes the state. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_a8095a7b33c1a1df74a8be4d7efbbf8ca}{Update\+Event}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}, sf\+Event \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Handles events for the state. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_a46f73f8b319a237f28b58f3d0613f00f}{Update}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Updates the state logic. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_a43bdca7e84341c58ddbaa35f25934e40}{Render}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Renders the state visuals. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_a2ac053f7fd3294516268af6c09599add}{UIRender}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Renders the user interface of the state. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7}{Destroy}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Destroys and cleans up the state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains function pointers for managing the lifecycle of a state in the application. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7}\index{StateInfo@{StateInfo}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
+{\footnotesize\ttfamily \label{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7} 
+void(\texorpdfstring{$\ast$}{*} Destroy) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})}
+
+
+
+Destroys and cleans up the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for cleanup. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_state_info_aad3c9ec4b724dbc33957f078c4a73ff2}\index{StateInfo@{StateInfo}!Init@{Init}}
+\index{Init@{Init}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily \label{struct_state_info_aad3c9ec4b724dbc33957f078c4a73ff2} 
+void(\texorpdfstring{$\ast$}{*} Init) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})}
+
+
+
+Initializes the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for managing the application window. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_state_info_a8e03167ce04350be901b028cc4cf1ce1}\index{StateInfo@{StateInfo}!name@{name}}
+\index{name@{name}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{struct_state_info_a8e03167ce04350be901b028cc4cf1ce1} 
+char name\mbox{[}256\mbox{]}}
+
+The name of the state. \Hypertarget{struct_state_info_a43bdca7e84341c58ddbaa35f25934e40}\index{StateInfo@{StateInfo}!Render@{Render}}
+\index{Render@{Render}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{Render}{Render}}
+{\footnotesize\ttfamily \label{struct_state_info_a43bdca7e84341c58ddbaa35f25934e40} 
+void(\texorpdfstring{$\ast$}{*} Render) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})}
+
+
+
+Renders the state visuals. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for rendering. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_state_info_a2ac053f7fd3294516268af6c09599add}\index{StateInfo@{StateInfo}!UIRender@{UIRender}}
+\index{UIRender@{UIRender}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{UIRender}{UIRender}}
+{\footnotesize\ttfamily \label{struct_state_info_a2ac053f7fd3294516268af6c09599add} 
+void(\texorpdfstring{$\ast$}{*} UIRender) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})}
+
+
+
+Renders the user interface of the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for UI rendering. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_state_info_a46f73f8b319a237f28b58f3d0613f00f}\index{StateInfo@{StateInfo}!Update@{Update}}
+\index{Update@{Update}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{Update}{Update}}
+{\footnotesize\ttfamily \label{struct_state_info_a46f73f8b319a237f28b58f3d0613f00f} 
+void(\texorpdfstring{$\ast$}{*} Update) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*})}
+
+
+
+Updates the state logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for state updates. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_state_info_a8095a7b33c1a1df74a8be4d7efbbf8ca}\index{StateInfo@{StateInfo}!UpdateEvent@{UpdateEvent}}
+\index{UpdateEvent@{UpdateEvent}!StateInfo@{StateInfo}}
+\doxysubsubsection{\texorpdfstring{UpdateEvent}{UpdateEvent}}
+{\footnotesize\ttfamily \label{struct_state_info_a8095a7b33c1a1df74a8be4d7efbbf8ca} 
+void(\texorpdfstring{$\ast$}{*} Update\+Event) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}, sf\+Event \texorpdfstring{$\ast$}{*})}
+
+
+
+Handles events for the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for event handling. \\
+\hline
+{\em event} & Pointer to the SFML event structure. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_state_8h}{State.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['get_5fby_5fid_0',['get_by_id',['../struct_sprite_manager.html#a5e8db6ef6cee78912a4b4aaea101f9a8',1,'SpriteManager']]],
+  ['get_5fby_5fname_1',['get_by_name',['../struct_sprite_manager.html#a6be33ff98fc9a8148738856085e8878a',1,'SpriteManager']]],
+  ['getcurrentanimationkey_2',['GetCurrentAnimationKey',['../struct_animation.html#ac94aaeef37785b7dfe8fab38a12224d6',1,'Animation']]],
+  ['getcurrentframe_3',['GetCurrentFrame',['../struct_animation___key.html#ad970223335a87ddfb825d4f5cf4f1bce',1,'Animation_Key']]],
+  ['getcurrentrect_4',['GetCurrentRect',['../struct_animation___key.html#ad07f288e71bfbdcaeaa63ef4e4b006d9',1,'Animation_Key']]],
+  ['getcustomparam_5',['GetCustomParam',['../struct_window_manager.html#aaac51aa56b484e12f2447f043e06cd4e',1,'WindowManager']]],
+  ['getcustomview_6',['GetCustomView',['../struct_window_manager.html#a93754040317634faa644ad6f7b62a595',1,'WindowManager']]],
+  ['getdeltatime_7',['getDeltaTime',['../struct_clock.html#a4a0b5eddb84e5adb5b62c49e71407796',1,'Clock']]],
+  ['getevent_8',['GetEvent',['../struct_window_manager.html#afef585a227405807d3eb92214d78b144',1,'WindowManager']]],
+  ['getmousepos_9',['GetMousePos',['../struct_window_manager.html#af28c35c1130f6e86cde0759edd3aa190',1,'WindowManager']]],
+  ['getrenderer_10',['GetRenderer',['../struct_animation.html#a8490d705ff41cce09406d911639d1408',1,'Animation']]],
+  ['getsize_11',['GetSize',['../struct_window_manager.html#a79fee84e5d31d39a39e4b86507ccff1e',1,'WindowManager']]],
+  ['getsound_12',['GetSound',['../struct_window_manager.html#a7806a4d20f6dda8adc96c2dfedcef0af',1,'WindowManager']]],
+  ['getthreadcount_13',['GetThreadCount',['../struct_thread_manager.html#adc00c20addb7c1ca1b894fec56c730fd',1,'ThreadManager']]],
+  ['gettimer_14',['GetTimer',['../struct_window_manager.html#ad0903b6aa12b69b9257d9a655b0ea3a9',1,'WindowManager']]],
+  ['gettotalframe_15',['GetTotalFrame',['../struct_animation___key.html#a97a81b1eba3f7759547e5c1772a5d8b5',1,'Animation_Key']]],
+  ['getview_16',['GetView',['../struct_viewport.html#a57e60ffce6ac0e4860b539350ac2f203',1,'Viewport']]],
+  ['getwindow_17',['GetWindow',['../struct_window_manager.html#a991ece2e0688e3031b8113ccbe385727',1,'WindowManager']]]
+];

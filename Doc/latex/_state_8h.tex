@@ -1,0 +1,211 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+State.h File Reference}
+\hypertarget{_state_8h}{}\label{_state_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/State.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/State.h}}
+
+
+This file contains the function prototypes for managing states in the application.  
+
+
+{\ttfamily \#include "{}Window\+Manager.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_state_info}{State\+Info}}
+\begin{DoxyCompactList}\small\item\em Contains function pointers for managing the lifecycle of a state in the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_state_8h_a91d0f0a31fe83c7b7816b99f7d16d26c}{DECLARE\+\_\+\+HEADER\+\_\+\+STATE}}(name)
+\begin{DoxyCompactList}\small\item\em Declares the function prototypes for a state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_state_8h_ae404d298ddd3a94460d895020e26a0a2}{DECLARE\+\_\+\+SECTION\+\_\+\+PRAGMA}}~\+\_\+\+\_\+pragma(section("{}.CRT\$\+XCU"{}, read))
+\begin{DoxyCompactList}\small\item\em Declares a pragma section for the CRT (C runtime). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_state_8h_add77d3a13edf7144585bce1205681da7}{REGISTER\+\_\+\+C\+\_\+\+STATE}}(state\+Name)
+\begin{DoxyCompactList}\small\item\em Registers a state with the state manager. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_state_8h_a2cb455bf85c34acff9982695f229d5e8}{DECLARE\+\_\+\+BLANK\+\_\+\+STATE}}(state\+Name)
+\begin{DoxyCompactList}\small\item\em Declares a blank state with empty function definitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct State\+Info \mbox{\hyperlink{_state_8h_a824b3945ae9a5b4e43681fe70ab13cbd}{State\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_state_8h_a62e68478bf73836c847633654e7c9366}{\+\_\+\+\_\+\+Register\+State}} (\mbox{\hyperlink{struct_state_info}{State\+Info}} state\+Info)
+\begin{DoxyCompactList}\small\item\em Registers a state with the global state manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_info}{State\+Info}} \mbox{\hyperlink{_state_8h_a36c0625ae545e09e53d37255d6c85fe6}{Get\+State}} (char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Retrieves a state by its name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the function prototypes for managing states in the application. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_state_8h_a2cb455bf85c34acff9982695f229d5e8}\index{State.h@{State.h}!DECLARE\_BLANK\_STATE@{DECLARE\_BLANK\_STATE}}
+\index{DECLARE\_BLANK\_STATE@{DECLARE\_BLANK\_STATE}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_BLANK\_STATE}{DECLARE\_BLANK\_STATE}}
+{\footnotesize\ttfamily \label{_state_8h_a2cb455bf85c34acff9982695f229d5e8} 
+\#define DECLARE\+\_\+\+BLANK\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{state\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Init\#\#stateName(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ windowManager)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ UpdateEvent\#\#stateName(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ windowManager)\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Update\#\#stateName(\mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ windowManager)\ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Render\#\#stateName(\mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ windowManager)\ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ UIRender\#\#stateName(\mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ windowManager)\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Destroy\#\#stateName(\mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ windowManager)\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Declares a blank state with empty function definitions. 
+
+This macro generates empty function definitions for a given state. Useful when defining placeholder states.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+Name} & The name of the state. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_state_8h_a91d0f0a31fe83c7b7816b99f7d16d26c}\index{State.h@{State.h}!DECLARE\_HEADER\_STATE@{DECLARE\_HEADER\_STATE}}
+\index{DECLARE\_HEADER\_STATE@{DECLARE\_HEADER\_STATE}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_HEADER\_STATE}{DECLARE\_HEADER\_STATE}}
+{\footnotesize\ttfamily \label{_state_8h_a91d0f0a31fe83c7b7816b99f7d16d26c} 
+\#define DECLARE\+\_\+\+HEADER\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Init\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ UpdateEvent\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Update\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Render\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ UIRender\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Destroy\#\#name(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+
+\end{DoxyCode}
+
+
+Declares the function prototypes for a state. 
+
+This macro generates function declarations for a given state, including functions for initialization, updating events, updating logic, rendering, UI rendering, and destruction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the state. Destroys the state. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_state_8h_ae404d298ddd3a94460d895020e26a0a2}\index{State.h@{State.h}!DECLARE\_SECTION\_PRAGMA@{DECLARE\_SECTION\_PRAGMA}}
+\index{DECLARE\_SECTION\_PRAGMA@{DECLARE\_SECTION\_PRAGMA}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_SECTION\_PRAGMA}{DECLARE\_SECTION\_PRAGMA}}
+{\footnotesize\ttfamily \label{_state_8h_ae404d298ddd3a94460d895020e26a0a2} 
+\#define DECLARE\+\_\+\+SECTION\+\_\+\+PRAGMA~\+\_\+\+\_\+pragma(section("{}.CRT\$\+XCU"{}, read))}
+
+
+
+Declares a pragma section for the CRT (C runtime). 
+
+This macro is used for creating a section in the CRT to add the state functions. \Hypertarget{_state_8h_add77d3a13edf7144585bce1205681da7}\index{State.h@{State.h}!REGISTER\_C\_STATE@{REGISTER\_C\_STATE}}
+\index{REGISTER\_C\_STATE@{REGISTER\_C\_STATE}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{REGISTER\_C\_STATE}{REGISTER\_C\_STATE}}
+{\footnotesize\ttfamily \label{_state_8h_add77d3a13edf7144585bce1205681da7} 
+\#define REGISTER\+\_\+\+C\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{state\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ AddState\#\#stateName\#\#ToStateList()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Adding\ state\ \%s\(\backslash\)n"{}},\ \#stateName);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_state_info}{StateInfo}}\ info\ =\ \{.name\ =\ \#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Init\ =\ \&Init\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UpdateEvent\ =\ \&UpdateEvent\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Update\ =\ \&Update\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Render\ =\ \&Render\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UIRender\ =\ \&UIRender\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Destroy\ =\ \&Destroy\#\#stateName\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_\_RegisterState(info);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ DECLARE\_SECTION\_PRAGMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \_\_declspec(allocate(\textcolor{stringliteral}{"{}.CRT\$XCU"{}}))\ void\ (*p\_register\_\textcolor{preprocessor}{\#\#stateName\#\#\_function)()\ =\ AddState\#\#stateName\#\#ToStateList;}}
+
+\end{DoxyCode}
+
+
+Registers a state with the state manager. 
+
+This macro registers a state by creating a function that adds the state information to the global state list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+Name} & The name of the state to register. Declares the registration function. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_state_8h_a824b3945ae9a5b4e43681fe70ab13cbd}\index{State.h@{State.h}!StateInfo@{StateInfo}}
+\index{StateInfo@{StateInfo}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{StateInfo}{StateInfo}}
+{\footnotesize\ttfamily \label{_state_8h_a824b3945ae9a5b4e43681fe70ab13cbd} 
+typedef struct State\+Info State\+Info}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_state_8h_a62e68478bf73836c847633654e7c9366}\index{State.h@{State.h}!\_\_RegisterState@{\_\_RegisterState}}
+\index{\_\_RegisterState@{\_\_RegisterState}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{\_\_RegisterState()}{\_\_RegisterState()}}
+{\footnotesize\ttfamily \label{_state_8h_a62e68478bf73836c847633654e7c9366} 
+void \+\_\+\+\_\+\+Register\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_state_info}{State\+Info}}}]{state\+Info}{}\end{DoxyParamCaption})}
+
+
+
+Registers a state with the global state manager. 
+
+This function is called to register a state using the information provided in the \doxylink{struct_state_info}{State\+Info} structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+Info} & The \doxylink{struct_state_info}{State\+Info} structure containing the state details. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_state_8h_a36c0625ae545e09e53d37255d6c85fe6}\index{State.h@{State.h}!GetState@{GetState}}
+\index{GetState@{GetState}!State.h@{State.h}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \label{_state_8h_a36c0625ae545e09e53d37255d6c85fe6} 
+\mbox{\hyperlink{struct_state_info}{State\+Info}} Get\+State (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a state by its name. 
+
+This function returns the state information associated with a given state name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{struct_state_info}{State\+Info} structure associated with the specified state name. 
+\end{DoxyReturn}

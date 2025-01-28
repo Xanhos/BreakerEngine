@@ -1,0 +1,63 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Game.h File Reference}
+\hypertarget{_game_8h}{}\label{_game_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Game.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Game.h}}
+
+
+This file contains the core of the game engine.  
+
+
+{\ttfamily \#include "{}Resources\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Window\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Thread\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Animation.\+h"{}}\newline
+{\ttfamily \#include "{}State.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34}{Start\+Game}} (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window\+\_\+manager, char \texorpdfstring{$\ast$}{*}starting\+\_\+state, \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}loading\+\_\+screen\+\_\+animation, const char \texorpdfstring{$\ast$}{*}key\+\_\+anim\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Starts the game with a specified loading screen animation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_game_8h_a888ff971426076920c336d7d3ad4840e}{Change\+State}} (char \texorpdfstring{$\ast$}{*}state\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Changes the current state of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the core of the game engine. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_game_8h_a888ff971426076920c336d7d3ad4840e}\index{Game.h@{Game.h}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{ChangeState()}{ChangeState()}}
+{\footnotesize\ttfamily \label{_game_8h_a888ff971426076920c336d7d3ad4840e} 
+void Change\+State (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{state\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Changes the current state of the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & state\+\_\+name Name of the new state. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34}\index{Game.h@{Game.h}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
+{\footnotesize\ttfamily \label{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34} 
+void Start\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window\+\_\+manager}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{starting\+\_\+state}{, }\item[{\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}}]{loading\+\_\+screen\+\_\+animation}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{key\+\_\+anim\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Starts the game with a specified loading screen animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+manager} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object for managing the application window. \\
+\hline
+{\em starting\+\_\+state} & Name of the starting state. \\
+\hline
+{\em loading\+\_\+screen\+\_\+animation} & Pointer to the \doxylink{struct_animation}{Animation} object for the loading screen. \\
+\hline
+{\em key\+\_\+anim\+\_\+name} & Name of the animation key to use for the loading screen. \\
+\hline
+\end{DoxyParams}

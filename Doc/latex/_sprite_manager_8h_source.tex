@@ -1,0 +1,63 @@
+\doxysection{Sprite\+Manager.\+h}
+\hypertarget{_sprite_manager_8h_source}{}\label{_sprite_manager_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/SpriteManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/SpriteManager.h}}
+\mbox{\hyperlink{_sprite_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{SpriteManager\_Data}}\ \mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{SpriteManager\_Data}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{SpriteManager\_Data}}*\ \mbox{\hyperlink{struct_sprite_manager_a6c144c86518c8307cc56f57cbb25f87c}{\_Data}};\ \ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \ \ \ \ sfSprite*\ (*push\_back)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ sfTexture*\ texture,\ sfBool\ reset\_rect);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_sprite_manager_ae85ba32701c1caacb3f2f6aac2853f4d}{draw}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ sfRenderWindow*\ window);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_sprite_manager_a0ce66caddb5e3f58e8e969b5430a712a}{destroy}})(\mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}**\ sprite\_manager);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ size\_t(*\mbox{\hyperlink{struct_sprite_manager_a729e0a8855b0cdfa6755feadfae851db}{size}})(\mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \ \ sfSprite*\ (*get\_by\_name)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ sfSprite*\ (*get\_by\_id)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_sprite_manager_a8e95aa9a1e48766becc35209d4fd6a3c}{remove\_by\_name}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_sprite_manager_a0cd787144f21f74e1563c5b0396ff020}{remove\_by\_id}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ sprite\_manager,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \mbox{\hyperlink{struct_sprite_manager}{SpriteManager}}*\ \mbox{\hyperlink{_sprite_manager_8h_a53ab84c136c01235f55d4d33c24e99cf}{CreateSpriteManager}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ sfVector2f\ \mbox{\hyperlink{_sprite_manager_8h_ab187f1802fa01c22f42999665f80965e}{sfSprite\_GetTopLeftPos}}(\textcolor{keyword}{const}\ sfSprite*\ sprite);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ sfVector2f\ \mbox{\hyperlink{_sprite_manager_8h_acfc2794ce9d832067e9297e898f52a42}{sfSprite\_GetCenterPos}}(\textcolor{keyword}{const}\ sfSprite*\ sprite);}
+
+\end{DoxyCode}

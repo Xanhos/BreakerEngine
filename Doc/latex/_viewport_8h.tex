@@ -1,0 +1,101 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Viewport.h File Reference}
+\hypertarget{_viewport_8h}{}\label{_viewport_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Viewport.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Viewport.h}}
+
+
+This file defines the \doxylink{struct_viewport}{Viewport} structure and functions for managing a viewport within a window.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_viewport}{Viewport}}
+\begin{DoxyCompactList}\small\item\em A structure used to manage a viewport within a window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Viewport \mbox{\hyperlink{_viewport_8h_a9c83a52d93b01a49e9d819ead8615060}{Viewport}}
+\begin{DoxyCompactList}\small\item\em Structure for managing a viewport in a window. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\+\_\+\+Data}} \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em Internal structure for holding data related to the viewport. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_viewport}{Viewport}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{Create\+Viewport}} (sf\+Vector2u window\+Size, sf\+Vector2f size, sf\+Float\+Rect port)
+\begin{DoxyCompactList}\small\item\em Creates a new viewport with the given size and area. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the \doxylink{struct_viewport}{Viewport} structure and functions for managing a viewport within a window. 
+
+This code shows how to create a viewport that can be used for various purposes, such as a mini-\/map or split screen.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Example\ usage\ of\ creating\ a\ new\ viewport:}}
+\DoxyCodeLine{\mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager\ =\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(1080,\ 720,\ \textcolor{stringliteral}{"{}SFML\_Works"{}},\ sfDefaultStyle,\ NULL);}
+\DoxyCodeLine{\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport\ =\ \mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{CreateViewport}}(window\_manager-\/>GetWindowSize(window\_manager),\ sfVector2f\_Create(100,\ 100),\ (sfFloatRect)\ \{\ 0,\ 0,\ 100,\ 100\ \});}
+
+\end{DoxyCode}
+
+
+The above code creates a viewport of size 100x100 at the top left corner of the window, with the viewport itself having the same dimensions. This can be useful for creating a mini-\/map or implementing split-\/screen functionality. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_viewport_8h_a9c83a52d93b01a49e9d819ead8615060}\index{Viewport.h@{Viewport.h}!Viewport@{Viewport}}
+\index{Viewport@{Viewport}!Viewport.h@{Viewport.h}}
+\doxysubsubsection{\texorpdfstring{Viewport}{Viewport}}
+{\footnotesize\ttfamily \label{_viewport_8h_a9c83a52d93b01a49e9d819ead8615060} 
+typedef struct Viewport Viewport}
+
+
+
+Structure for managing a viewport in a window. 
+
+\Hypertarget{_viewport_8h_a842a366565d6ddf46a7c18624a951836}\index{Viewport.h@{Viewport.h}!Viewport\_Data@{Viewport\_Data}}
+\index{Viewport\_Data@{Viewport\_Data}!Viewport.h@{Viewport.h}}
+\doxysubsubsection{\texorpdfstring{Viewport\_Data}{Viewport\_Data}}
+{\footnotesize\ttfamily \label{_viewport_8h_a842a366565d6ddf46a7c18624a951836} 
+typedef struct \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\+\_\+\+Data}} \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\+\_\+\+Data}}}
+
+
+
+Internal structure for holding data related to the viewport. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}\index{Viewport.h@{Viewport.h}!CreateViewport@{CreateViewport}}
+\index{CreateViewport@{CreateViewport}!Viewport.h@{Viewport.h}}
+\doxysubsubsection{\texorpdfstring{CreateViewport()}{CreateViewport()}}
+{\footnotesize\ttfamily \label{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806} 
+\mbox{\hyperlink{struct_viewport}{Viewport}} \texorpdfstring{$\ast$}{*} Create\+Viewport (\begin{DoxyParamCaption}\item[{sf\+Vector2u}]{window\+Size}{, }\item[{sf\+Vector2f}]{size}{, }\item[{sf\+Float\+Rect}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new viewport with the given size and area. 
+
+This function creates a new viewport with a specific size and area (sf\+Float\+Rect) to manage a portion of the window or to create effects like mini-\/maps or split-\/screens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Size} & The size of the window (width and height). \\
+\hline
+{\em size} & The size of the viewport (width and height). \\
+\hline
+{\em port} & The area (sf\+Float\+Rect) representing the viewport. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \doxylink{struct_viewport}{Viewport} instance.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Example\ of\ creating\ a\ new\ viewport}}
+\DoxyCodeLine{sfVector2u\ window\_size\ =\ \{\ 1080,\ 720\ \};}
+\DoxyCodeLine{sfVector2f\ viewport\_size\ =\ \{\ 100,\ 100\ \};}
+\DoxyCodeLine{sfFloatRect\ viewport\_area\ =\ \{\ 0,\ 0,\ 100,\ 100\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{struct_viewport}{Viewport}}*\ new\_viewport\ =\ \mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{CreateViewport}}(window\_size,\ viewport\_size,\ viewport\_area);}
+
+\end{DoxyCode}
+ 

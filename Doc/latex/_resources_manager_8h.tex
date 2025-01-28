@@ -1,0 +1,69 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Resources\+Manager.h File Reference}
+\hypertarget{_resources_manager_8h}{}\label{_resources_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ResourcesManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ResourcesManager.h}}
+
+
+This file contains all the data to manage all the resources used by the engine.  
+
+
+{\ttfamily \#include "{}Texture\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Audio\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Font\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Movie\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Sprite\+Manager.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_resources_manager_8h_ab3db73b44fe9c8f3b772f80b446afea5}{Init\+Resources\+Manager}} (const char \texorpdfstring{$\ast$}{*}resource\+\_\+directory\+\_\+)
+\begin{DoxyCompactList}\small\item\em Initializes the resources manager and loads resources from the specified directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_resources_manager_8h_a60e7a29e35b79e72ac1d5d0794b1e7c2}{Load\+Scene}} (const char \texorpdfstring{$\ast$}{*}scene\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Loads all the resources for a specific scene. This function typically loads textures, sounds, fonts, movies, and other resources required for the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313}{Destroy\+Resources\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the resources manager and releases all allocated resources. This function is called when shutting down the application to free up memory and unload resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the data to manage all the resources used by the engine. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313}\index{ResourcesManager.h@{ResourcesManager.h}!DestroyResourcesManager@{DestroyResourcesManager}}
+\index{DestroyResourcesManager@{DestroyResourcesManager}!ResourcesManager.h@{ResourcesManager.h}}
+\doxysubsubsection{\texorpdfstring{DestroyResourcesManager()}{DestroyResourcesManager()}}
+{\footnotesize\ttfamily \label{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313} 
+void Destroy\+Resources\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the resources manager and releases all allocated resources. This function is called when shutting down the application to free up memory and unload resources. 
+
+\Hypertarget{_resources_manager_8h_ab3db73b44fe9c8f3b772f80b446afea5}\index{ResourcesManager.h@{ResourcesManager.h}!InitResourcesManager@{InitResourcesManager}}
+\index{InitResourcesManager@{InitResourcesManager}!ResourcesManager.h@{ResourcesManager.h}}
+\doxysubsubsection{\texorpdfstring{InitResourcesManager()}{InitResourcesManager()}}
+{\footnotesize\ttfamily \label{_resources_manager_8h_ab3db73b44fe9c8f3b772f80b446afea5} 
+void Init\+Resources\+Manager (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{resource\+\_\+directory\+\_\+}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the resources manager and loads resources from the specified directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+\_\+directory\+\_\+} & \doxylink{struct_path}{Path} to the directory containing resources to load. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_resources_manager_8h_a60e7a29e35b79e72ac1d5d0794b1e7c2}\index{ResourcesManager.h@{ResourcesManager.h}!LoadScene@{LoadScene}}
+\index{LoadScene@{LoadScene}!ResourcesManager.h@{ResourcesManager.h}}
+\doxysubsubsection{\texorpdfstring{LoadScene()}{LoadScene()}}
+{\footnotesize\ttfamily \label{_resources_manager_8h_a60e7a29e35b79e72ac1d5d0794b1e7c2} 
+void Load\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Loads all the resources for a specific scene. This function typically loads textures, sounds, fonts, movies, and other resources required for the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+\_\+name} & Name of the scene whose resources should be loaded. \\
+\hline
+\end{DoxyParams}

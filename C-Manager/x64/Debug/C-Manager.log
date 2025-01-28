@@ -1,0 +1,10 @@
+﻿  Game.c
+C:\Users\y.grallan\Documents\GitCours\C\C-Manager\C-Manager\Game.c(30,1): warning C4113: 'void (__cdecl *)(WindowManager *)' est différent de 'void (__cdecl *)(WindowManager *,sfEvent *)' dans les listes de paramètres
+C:\Users\y.grallan\Documents\GitCours\C\C-Manager\C-Manager\Game.c(144,8): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Source.c
+  SpriteManager.c
+  State.c
+C:\Users\y.grallan\Documents\GitCours\C\C-Manager\C-Manager\State.c(24,9): warning C4113: 'void (__cdecl *)(WindowManager *)' est différent de 'void (__cdecl *)(WindowManager *,sfEvent *)' dans les listes de paramètres
+  WindowManager.c
+  Génération de code en cours...
+  C-Manager.vcxproj -> C:\Users\y.grallan\Documents\GitCours\C\C-Manager\x64\Debug\C-Manager.exe

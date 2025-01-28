@@ -1,0 +1,241 @@
+\doxysection{Tools.\+h}
+\hypertarget{_tools_8h_source}{}\label{_tools_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h}}
+\mbox{\hyperlink{_tools_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_system_8h}{FileSystem.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.h"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}SFML/Audio.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}SFML/System.h"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a00093d8489f25203bf7235e4ceaea4a5}{DeltaTime}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_tools_8h_aa242836903fc655abed70288a389a7e8}{resource\_directory}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MAX\_THREAD\ 10}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ KEY(key)\ sfKeyboard\_isKeyPressed(sfKey\#\#key)}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ KEY\_DOWN(key)\ sfKeyboard\_isKeyDown(sfKey\#\#key)}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ KEY\_UP(key)\ sfKeyboard\_isKeyUp(sfKey\#\#key)}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ STD\_LIST\_CREATE\_POINTER(type,\ size,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ stdList\_Create(sizeof(type*),\ size,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_TEMP\_LIST(name,\ type,\ initFunc,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ stdList*\ name\ =\ initFunc;\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ for\ (int\ i\ =\ 0;\ i\ <\ name-\/>size(name);\ i++)\ \{\ func\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ name-\/>destroy(\&name);}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST\_POINTER(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\#\#\_\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ type\ data\_container\_name\ =\ *data\_container\_name\#\#\_;\ \(\backslash\)}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/VECTOR\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ vector\_type\ AddVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ +\ b.x,\ a.y\ +\ b.y\};\ \(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ vector\_type\ SubVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ -\/\ b.x,\ a.y\ -\/\ b.y\};\ \(\backslash\)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ vector\_type\ MultiplyVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ *\ b,\ a.y\ *\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ vector\_type\ DivideVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ /\ b,\ a.y\ /\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a,\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ void\ PrintVector2\#\#suffixe(vector\_type\ vec,\ sfBool\ go\_to\_next\_line)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ NEW\_CHAR(sentence\_debug,\ 100)\ \(\backslash\)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}x\ =\ \%"{});\ \(\backslash\)}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}\ y\ =\ \%"{});\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ printf\_d(sentence\_debug,\ vec.x,\ vec.y);\ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ if\ (go\_to\_next\_line)\ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ printf("{}\(\backslash\)n"{});\ \(\backslash\)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Declare\ basic\ vector\ operations\ for\ vector2\ of\ any\ type,\ such\ as\ sfVector2f,\ sfVector2i,\ or\ sfVector2u.}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(vector\_type,\ suffix,\ type)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ AddVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ SubVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ MultiplyVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ DivideVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ void\ PrintVector2\#\#suffix(vector\_type\ vec);}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Implement\ basic\ vector\ operations\ for\ vector2\ of\ any\ type\ (e.g.,\ sfVector2f,\ sfVector2i,\ sfVector2u).}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \(\backslash\)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffix,\ type)}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{comment}{//\ Declare\ operations\ for\ specific\ vector\ types}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2f,\ f,\ \textcolor{keywordtype}{float})}
+\DoxyCodeLine{00275\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2i,\ i,\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00276\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2u,\ u,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/MATHS\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#define\ PI\ 3.14159265359}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ RAD2DEG\ 57.295779f}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ DEG2RAD\ 0.017453f}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ LERP(a,\ b,\ t)\ (b\ -\/\ a)\ *\ t\ +\ a}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#define\ MAX(a,\ b)\ a\ >=\ b\ ?\ a\ :\ b}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ MIN(a,\ b)\ a\ <=\ b\ ?\ a\ :\ b}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00335\ sfBool\ \mbox{\hyperlink{_tools_8h_aa4c422cc9fe6ae7047a81232cd66e69a}{Circle\_Collision}}(sfVector2f\ \_pos1,\ sfVector2f\ \_pos2,\ \textcolor{keywordtype}{float}\ \_rayon1,\ \textcolor{keywordtype}{float}\ \_rayon2);}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00343\ sfBool\ \mbox{\hyperlink{_tools_8h_af02f16bb83330b37c5649ed9994dde1b}{Rectangle\_Collision}}(sfFloatRect\ \_box1,\ sfFloatRect\ \_box2);}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00352\ sfBool\ \mbox{\hyperlink{_tools_8h_aaf3ec8e6e747dbbfe545df0e2d232b75}{PointInCircle}}(sfVector2f\ \_pos,\ sfVector2f\ \_circle\_pos,\ \textcolor{keywordtype}{float}\ \_rayon);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00360\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_aac41e11b0bd648fe5d1752a6d4dcd151}{rand\_int}}(\textcolor{keywordtype}{int}\ \_min,\ \textcolor{keywordtype}{int}\ \_max);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00368\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_tools_8h_a50d1e1e1742bd5a82c663b9a92d85efb}{rand\_float}}(\textcolor{keywordtype}{float}\ \_min,\ \textcolor{keywordtype}{float}\ \_max);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00376\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a141f35893cd11a0bcc60744d92ade08a}{GetDistance}}(sfVector2f\ a\_,\ sfVector2f\ b\_);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00383\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a3d2ffc0ed39037bc8a42b2df354f066e}{GetNorme}}(sfVector2f\ \_vec);}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00390\ sfVector2f\ \mbox{\hyperlink{_tools_8h_a71eee54b0d330ccc0f2ba98eb7f528fe}{NormalizeVector2f}}(sfVector2f\ \_vec);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00399\ sfVector2f\ \mbox{\hyperlink{_tools_8h_aa024171f82587a149a4ea49051560f28}{GetVectorFromAngle}}(sfVector2f\ pos,\ \textcolor{keywordtype}{float}\ lenght,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00409\ sfColor\ \mbox{\hyperlink{_tools_8h_a8c74579aee7ecc3d3526fbf0ce29c5e1}{CreateColor}}(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ b,\ \textcolor{keywordtype}{int}\ alpha);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00418\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_a1682cc798370918ebde08d37508b27f5}{iClamp}}(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a70075ccf88dff79e51d88948f9c0848d}{fClamp}}(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ printf\_d(string,\ ...)\ DebugPrint(string,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00439\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}\ \mbox{\hyperlink{_tools_8h_af35a7203fefa22e159b08f54140795cf}{thread\_info}};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00445\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}}
+\DoxyCodeLine{00446\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ stdList*\ \mbox{\hyperlink{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}{files\_info}};\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}{start}};\ }
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388}{end}};\ }
+\DoxyCodeLine{00450\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}{func}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*);\ }
+\DoxyCodeLine{00451\ \};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00457\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}\ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}};}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00464\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}\ \mbox{\hyperlink{struct_clock}{Clock}};}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00470\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}}
+\DoxyCodeLine{00471\ \{}
+\DoxyCodeLine{00472\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5af09b61cfe091e1a61f9a8cd7e0f5c2}{restartClock}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{00473\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a4a0b5eddb84e5adb5b62c49e71407796}{getDeltaTime}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{00474\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a89aec87b001521cf6756aa3079cade45}{frameRate}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{00475\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5f8d26db9230fe334d612409bfbe0737}{destroy}})(\mbox{\hyperlink{struct_clock}{Clock}}**\ clock);\ }
+\DoxyCodeLine{00476\ \ \ \ \ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}*\ \mbox{\hyperlink{struct_clock_a0a6026bc7406c7d96bcbc7db18a82560}{\_Data}};\ }
+\DoxyCodeLine{00477\ \};}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00483\ \mbox{\hyperlink{struct_clock}{Clock}}*\ \mbox{\hyperlink{_tools_8h_a249727cb5ea5710ac238eada4eb51102}{CreateClock}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00489\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a182b5348ee703bd6f89db3d8828022b7}{ToLower}}(\textcolor{keywordtype}{char}*\ sentence);}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00495\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_ad068043a1f5c416a4832436d3166db1c}{ToUpper}}(\textcolor{keywordtype}{char}*\ sentence);}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00502\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_tools_8h_a1d4705d2264c995a7f03677890702814}{StrAllocNCopy}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00510\ stdList*\ \mbox{\hyperlink{_tools_8h_a050e7c34961790b29b0c1e841a073728}{SearchFilesInfos}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}});}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}\ \mbox{\hyperlink{struct_files_info}{FilesInfo}};}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00521\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}}
+\DoxyCodeLine{00522\ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a8401323a88cc5e9e2ac6a6d0a40636b1}{m\_path}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
+\DoxyCodeLine{00525\ \};}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00535\ sfBool\ \mbox{\hyperlink{_tools_8h_a9ed615c3d70ccfc6b86ee474fc6ae58a}{sfKeyboard\_isKeyDown}}(sfKeyCode\ key);}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00545\ sfBool\ \mbox{\hyperlink{_tools_8h_a223d0114db502d1e32887d44a1a0e86c}{sfKeyboard\_isKeyUp}}(sfKeyCode\ key);}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00556\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a9dc6eaaf9f0d0c2262b023416b763799}{DebugPrint}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ ...);}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00563\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}{\_\_LoadWithThread}}(\textcolor{keywordtype}{void}*\ thread\_infos);}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00572\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a0cd769dadf11994f172a92b527409844}{\_\_LoadScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keywordtype}{void}\ (*func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*));}
+
+\end{DoxyCode}
