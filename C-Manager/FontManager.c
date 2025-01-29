@@ -23,7 +23,7 @@
 #include "FontManager.h"
 
 stdList* global_font_list, * scene_font_list;
-Font place_holder;
+Font font_place_holder;
 
 Font CreateFont(const char* path)
 {
@@ -61,7 +61,7 @@ void InitFontManager(void)
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "ttf"),
 				Font tmp = CreateFont(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
-				place_holder = tmp;
+				font_place_holder = tmp;
 			else
 				global_font_list->push_back(global_font_list, &tmp);
 				)
@@ -110,10 +110,10 @@ sfFont* GetFont(const char* name)
 					return tmp->m_font;
 					)
 
-			if (place_holder.m_font)
+			if (font_place_holder.m_font)
 			{
 				printf_d("Font %s not found, placeholder returned", name);
-				return place_holder.m_font;
+				return font_place_holder.m_font;
 			}
 
 	printf_d("No Font placeholder found, put a placeholder.ttf in your %s/ALL/Fonts folder", resource_directory);

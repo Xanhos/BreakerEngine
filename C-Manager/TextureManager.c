@@ -23,7 +23,7 @@
 #include "TextureManager.h"
 
 stdList* global_texture_list, * scene_texture_list;
-Texture place_holder;
+Texture texture_place_holder;
 
 
 Texture CreateTexture(const char* path)
@@ -31,6 +31,7 @@ Texture CreateTexture(const char* path)
 	Texture tmp;
 	Path tmpPath = fs_create_path(path);
 	tmp.m_texture = sfTexture_createFromFile(path, NULL);
+	sfVector2f size = { (float)sfTexture_getSize(tmp.m_texture).x, (float)sfTexture_getSize(tmp.m_texture).y };
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
@@ -52,13 +53,15 @@ void InitTextureManager(void)
 
 			global_texture_list = stdList_Create(sizeof(Texture), 0);
 			scene_texture_list = stdList_Create(sizeof(Texture), 0);
-			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "png"),
-				Texture tmp = CreateTexture(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
-			if (strcmp(tmp.m_name, "placeholder") == 0)
-				place_holder = tmp;
-			else
-				global_texture_list->push_back(global_texture_list, &tmp);
-				)
+			stdList* filesInfos = SearchFilesInfos(fs_path.path_data.m_path, "png"); 
+			for (int i = 0; i < filesInfos->size(filesInfos); i++) 
+			{
+				Texture tmp = CreateTexture(((FilesInfo*)filesInfos->getData(filesInfos, i))->m_path);
+				if (strcmp(tmp.m_name, "placeholder") == 0) 
+					texture_place_holder = tmp;
+				else global_texture_list->push_back(global_texture_list, &tmp);
+			} 
+			filesInfos->destroy(&filesInfos);
 		}
 	}
 	else
@@ -107,10 +110,10 @@ sfTexture* GetTexture(const char* name)
 					return tmp->m_texture;
 					)
 
-			if (place_holder.m_texture)
+			if (texture_place_holder.m_texture)
 			{
 				printf_d("Texture %s not found, placeholder returned", name);
-				return place_holder.m_texture;
+				return texture_place_holder.m_texture;
 			}
 
 	printf_d("No texture placeholder found, put a placeholder.png in your %s/ALL/Textures folder", resource_directory);

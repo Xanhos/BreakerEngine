@@ -79,6 +79,29 @@ char resource_directory[MAX_PATH_SIZE];
 * @return Boolean value indicating if the key is released.
 */
 #define KEY_UP(key) sfKeyboard_isKeyUp(sfKey##key)
+/**
+ * @def KEY(key)
+ * @brief Macro to check if a specific key is currently pressed.
+ * @param key The key to check (e.g., A, B, etc.).
+ * @return Boolean value indicating if the key is pressed.
+ */
+#define MOUSE(button) sfMouse_isButtonPressed(sfMouse##button)
+
+ /**
+  * @def KEY_DOWN(key)
+  * @brief Macro to check if a specific key has been pressed (down event).
+  * @param key The key to check (e.g., A, B, etc.).
+  * @return Boolean value indicating if the key is pressed.
+  */
+#define MOUSE_DOWN(button) sfMouse_isButtonDown(sfMouse##button)
+
+  /**
+   * @def KEY_UP(key)
+   * @brief Macro to check if a specific key has been released (up event).
+   * @param key The key to check (e.g., A, B, etc.).
+   * @return Boolean value indicating if the key is released.
+   */
+#define MOUSE_UP(button) sfMouse_isButtonUp(sfMouse##button)
 
 /**
 * @def STD_LIST_CREATE_POINTER(type, size, ...)
@@ -88,6 +111,16 @@ char resource_directory[MAX_PATH_SIZE];
 */
 #define STD_LIST_CREATE_POINTER(type, size, ...) \
   stdList_Create(sizeof(type*), size, __VA_ARGS__)
+
+
+/**
+* @def STD_VECTOR_CREATE_POINTER(type, size, ...)
+* @brief Macro to create a vector of pointers of a specific type.
+* @param type The type of data.
+* @param size The size of the vector.
+*/
+#define STD_VECTOR_CREATE_POINTER(type, size, ...) \
+  stdVector_Create(sizeof(type*), size, __VA_ARGS__)
 
 /**
 * @def FOR_EACH_TEMP_LIST(name, type, initFunc, func)
@@ -555,6 +588,26 @@ sfBool sfKeyboard_isKeyDown(sfKeyCode key);
 sfBool sfKeyboard_isKeyUp(sfKeyCode key);
 
 /**
+ * @brief Checks if a specific mouse button is currently pressed down.
+ *
+ * This function returns whether a given mouse button is pressed down in the current frame.
+ *
+ * @param button The mouse button to check.
+ * @return sfTrue if the mouse button is currently pressed down, sfFalse otherwise.
+ */
+sfBool sfMouse_isButtonDown(sfMouseButton button);
+
+/**
+ * @brief Checks if a specific mouse button has been released.
+ *
+ * This function returns whether a given mouse button has been released in the current frame.
+ *
+ * @param button The mouse button to check.
+ * @return sfTrue if the mouse button is currently released, sfFalse otherwise.
+ */
+sfBool sfMouse_isButtonUp(sfMouseButton button);
+
+/**
  * @brief Prints a formatted debug message.
  *
  * This function allows for formatted printing to the debug console, similar to printf.
@@ -580,3 +633,5 @@ void __LoadWithThread(void* thread_infos);
  * @param func The function to apply after loading the scene.
  */
 void __LoadScene(const char* scene, const char* extension, const char* type, void (*func)(const char*));
+
+void UpdateKeyAndMouseState(void);

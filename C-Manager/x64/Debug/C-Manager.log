@@ -1,17 +1,19 @@
-﻿  Tools.c
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(26,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(27,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(28,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(268,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(269,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+﻿  Source.c
   UI.c
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(58,78): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(58,127): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(278,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(282,81): warning C4090: 'return' : qualificateurs 'const' différents
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(285,75): warning C4090: 'return' : qualificateurs 'const' différents
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(288,65): warning C4090: 'return' : qualificateurs 'const' différents
+C:\Users\y.grallan\Documents\BreakerEngine\include\Vector.h(33,1): warning C4005: 'STD_CONVERT' : redéfinition de macro
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(91,99): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(91,166): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(90,12): warning C4101: 'rect' : variable locale non référencée
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(171,13): warning C4101: 'rect' : variable locale non référencée
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(352,10): warning C4133: '=' : types incompatibles - de 'sfRectangleShape *' à 'sfDrawable *'
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(355,10): warning C4133: '=' : types incompatibles - de 'sfCircleShape *' à 'sfDrawable *'
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(358,10): warning C4133: '=' : types incompatibles - de 'sfSprite *' à 'sfDrawable *'
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(399,78): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(399,127): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(532,14): warning C4047: 'initialisation' : les niveaux d'indirection de 'UIObject **' et de 'UIObject *' sont différents
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(543,63): warning C4047: 'fonction' : les niveaux d'indirection de 'stdVector **' et de 'stdVector *' sont différents
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(543,63): warning C4024: 'fonction via pointeur' : types différents pour le paramètre formel et réel 1
   Génération de code en cours...
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(293): warning C4715: 'UIObject_GetTexture' : les chemins de contrôle ne retournent pas tous une valeur
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(311): warning C4715: 'UIObject_GetTextureRect' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(281): warning C4715: 'UIObject_GetTextureRect' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\UI.c(263): warning C4715: 'UIObject_GetTexture' : les chemins de contrôle ne retournent pas tous une valeur
   C-Manager.vcxproj -> C:\Users\y.grallan\Documents\BreakerEngine\x64\Debug\C-Manager.exe

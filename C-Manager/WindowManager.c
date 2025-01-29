@@ -267,6 +267,7 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	window_manager->AddNewCustomParam = &AddNewCustomParam;
 	window_manager->GetCustomView = &GetView;
 	window_manager->SetCustomView = &SetView;
+	window_manager->GetMousePos = &GetMousePos;
 
 	return window_manager;
 }

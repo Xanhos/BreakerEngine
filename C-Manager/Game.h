@@ -45,6 +45,15 @@
 void StartGame(WindowManager* window_manager, char* starting_state, Animation* loading_screen_animation, const char* key_anim_name);
 
 /**
+ * @brief End the game and exit the StartGame function.
+ * @param WindowManager* window Window where the game is going.
+ *
+ * @warning pass in the destroy function of the current state and destroy the window
+ */
+void EndGame(WindowManager* window);
+
+
+/**
  * @brief Changes the current state of the application.
  * @param char state_name Name of the new state.
  */

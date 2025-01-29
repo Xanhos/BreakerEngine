@@ -37,10 +37,12 @@ struct clock_data
 struct key_data
 {
 	sfBool m_down;
+	sfBool m_hold;
 	sfBool m_up;
 };
 
 struct key_data key_info[sfKeyCount - 1];
+struct key_data mouse_info[sfMouseButtonCount - 1];
 
 static void Restart_clock(Clock* clock)
 {
@@ -197,6 +199,56 @@ void __LoadScene(const char* scene, const char* extension, const char* type, voi
 	}
 }
 
+void UpdateKeyAndMouseState(void)
+{
+	for (sfKeyCode i = 0; i < sfKeyCount - 1; i++)
+	{
+		if (sfKeyboard_isKeyPressed(((sfKeyCode)i)) && key_info[i].m_down == sfFalse && key_info[i].m_hold == sfFalse)
+		{
+			key_info[i].m_down = sfTrue;
+			key_info[i].m_hold = sfTrue;
+		}
+		else if (sfKeyboard_isKeyPressed(((sfKeyCode)i)) && key_info[i].m_hold == sfTrue)
+		{
+			key_info[i].m_down = sfFalse;
+			key_info[i].m_up = sfFalse;
+		}
+		else if (!sfKeyboard_isKeyPressed(((sfKeyCode)i)) && key_info[i].m_hold == sfTrue)
+		{
+			key_info[i].m_hold = sfFalse;
+			key_info[i].m_up = sfTrue;
+		}
+		else if (!sfKeyboard_isKeyPressed(((sfKeyCode)i)) && key_info[i].m_hold == sfFalse)
+		{
+			key_info[i].m_down = sfFalse;
+			key_info[i].m_up = sfFalse;
+		}
+	}
+	for (sfMouseButton i = 0; i < sfMouseButtonCount - 1; i++)
+	{
+		if (sfMouse_isButtonPressed(((sfMouseButton)i)) && mouse_info[i].m_down == sfFalse && mouse_info[i].m_hold == sfFalse)
+		{
+			mouse_info[i].m_down = sfTrue;
+			mouse_info[i].m_hold = sfTrue;
+		}
+		else if (sfMouse_isButtonPressed(((sfMouseButton)i)) && mouse_info[i].m_hold == sfTrue)
+		{
+			mouse_info[i].m_down = sfFalse;
+			mouse_info[i].m_up = sfFalse;
+		}
+		else if (!sfMouse_isButtonPressed(((sfMouseButton)i)) && mouse_info[i].m_hold == sfTrue)
+		{
+			mouse_info[i].m_hold = sfFalse;
+			mouse_info[i].m_up = sfTrue;
+		}
+		else if (!sfMouse_isButtonPressed(((sfMouseButton)i)) && mouse_info[i].m_hold == sfFalse)
+		{
+			mouse_info[i].m_down = sfFalse;
+			mouse_info[i].m_up = sfFalse;
+		}
+	}
+}
+
 
 sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2)
 {
@@ -283,8 +335,9 @@ sfVector2f GetVectorFromAngle(sfVector2f pos, float lenght, float angle)
 }
 
 sfColor CreateColor(int r, int g, int b, int alpha)
+
 {
-	return sfColor_fromRGBA(r, g, b, alpha);
+	return sfColor_fromRGBA(iClamp(r,0,255), iClamp(g, 0, 255), iClamp(b, 0, 255), iClamp(alpha, 0, 255));
 }
 
 
@@ -310,32 +363,22 @@ float fClamp(float value, float min, float max)
 
 sfBool sfKeyboard_isKeyDown(sfKeyCode key)
 {
-	if (sfKeyboard_isKeyPressed(key) && key_info[key].m_down == sfFalse)
-	{
-		key_info[key].m_down = sfTrue;
-		return sfTrue;
-	}
-	else if (!sfKeyboard_isKeyPressed(key) && key_info[key].m_down == sfTrue)
-	{
-		key_info[key].m_down = sfFalse;
-		return sfFalse;
-	}
-	return sfFalse;
+	return key_info[key].m_down;
 }
 
 sfBool sfKeyboard_isKeyUp(sfKeyCode key)
 {
-	if (!sfKeyboard_isKeyPressed(key) && key_info[key].m_up == sfTrue)
-	{
-		key_info[key].m_up = sfFalse;
-		return sfTrue;
-	}
-	else if (sfKeyboard_isKeyPressed(key) && key_info[key].m_up == sfFalse)
-	{
-		key_info[key].m_up = sfTrue;
-		return sfFalse;
-	}
-	return sfFalse;
+	return key_info[key].m_up;
+}
+
+sfBool sfMouse_isButtonDown(sfMouseButton button)
+{
+	return mouse_info[button].m_down;
+}
+
+sfBool sfMouse_isButtonUp(sfMouseButton button)
+{
+	return mouse_info[button].m_up;
 }
 
 void DebugPrint(const char* const string, ...)

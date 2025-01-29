@@ -25,7 +25,7 @@
 
 
 stdList* global_movie_list, * scene_movie_list;
-Movie place_holder;
+Movie movie_place_holder;
 
 Movie CreateMovie(const char* path)
 {
@@ -63,7 +63,7 @@ void InitMovieManager(void)
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "mp4"),
 				Movie tmp = CreateMovie(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
-				place_holder = tmp;
+				movie_place_holder = tmp;
 			else
 				global_movie_list->push_back(global_movie_list, &tmp);
 				)
@@ -113,10 +113,10 @@ sfeMovie* GetMovie(const char* name)
 					return tmp->m_movie;
 					)
 
-			if (place_holder.m_movie)
+			if (movie_place_holder.m_movie)
 			{
 				printf_d("Movie %s not found, placeholder returned", name);
-				return place_holder.m_movie;
+				return movie_place_holder.m_movie;
 			}
 
 	printf_d("No Movie placeholder found, put a placeholder.mp4 in your %s/ALL/Movies folder", resource_directory);

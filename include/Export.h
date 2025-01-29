@@ -27,6 +27,7 @@
 #define LIBSTD_API __declspec(dllimport)
 #endif
 
+
 #define FOR_EACH_TEMP(container,name,type,initFunc,func) container* name = initFunc;\
     for(int i =0; i < name->size(name);i++)\
     {func}\
@@ -39,9 +40,31 @@
 
 #define FOR_EACH_POINTER(container,type,it_name,data_container_name,func)for(int it_name = 0; it_name < container->size(container); it_name++)\
     {\
-    type* data_container_name##_ = STD_GETDATA(container,type,it_name);\
-    type data_container_name = *data_container_name##_;\
+    type** data_container_name##_ = STD_GETDATA(container,type*,it_name);\
+    type* data_container_name = *data_container_name##_;\
     func}
 
 
+#define PUSH_BACK(container, data) container->push_back(container, data)
+
+#define ERASE(container, index) container->erase(container, index)
+
+#define ERASE_FROM_IT(container, type, var_name, it) FOR_EACH(container, type, i, iterator, if (iterator->##var_name == it->##var_name) {ERASE(container, i); break;})
+
+#define ERASE_FROM_IT_POINTER(container, type, var_name, it) FOR_EACH_POINTER(container, type, i, iterator, if (iterator->##var_name == it->##var_name) {ERASE(container, i); break;})
+
+#define STD_GETDATA_FROM_PREDICATE(container,type, it,var_result_name ,predicate) type* ##var_result_name = NULL;\
+	FOR_EACH(container,type,i, it, \
+	if(predicate){\
+		##var_result_name = it; break;\
+})\
+
+#define STD_GETDATA_FROM_PREDICATE_POINTER(container,type, it,var_result_name ,predicate) type* ##var_result_name = NULL;\
+	FOR_EACH_POINTER(container,type,i, it, \
+	if(predicate){\
+		##var_result_name = it; break;\
+})\
+
 #define STD_GETDATA(container,type,index) ((type*)container->getData(container, index))
+
+#define STD_GETDATA_POINTER(container,type,index) ((type*)((type**)container->getData(container, index)))

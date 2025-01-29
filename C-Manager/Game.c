@@ -43,6 +43,7 @@ Animation* loading_screen;
 
 ThreadManager* thread_manager;
 sfBool is_changing_state;
+sfBool is_sub_state_delete;
 Clock* main_clock;
 
 
@@ -79,6 +80,29 @@ static sfBool UpdateSubState(WindowManager* window)
 	return sfTrue;
 }
 
+
+static sfBool RenderUISubState(WindowManager* window)
+{
+	if (active_sub_state_list->size(active_sub_state_list) > 0)
+	{
+		sfView* customView = window->GetCustomView(window);
+		sfRenderWindow_setView(window->GetWindow(window), sfRenderWindow_getDefaultView(window->GetWindow(window)));
+		int size = active_sub_state_list->size(active_sub_state_list) - 1;
+		while (size > -1)
+		{
+			SubState* state = STD_GETDATA(active_sub_state_list, SubState, size);
+			state->state.UIRender(window);
+			if (!state->display_of_below_state)
+				return sfFalse;
+			size--;
+		}
+		if (customView)
+			window->SetCustomView(window, customView);
+		return sfTrue;
+	}
+	return sfTrue;
+}
+
 static sfBool RenderSubState(WindowManager* window)
 {
 	if (active_sub_state_list->size(active_sub_state_list) > 0)
@@ -101,6 +125,7 @@ static sfBool RenderSubState(WindowManager* window)
 
 static void Update(WindowManager* window)
 {
+	UpdateKeyAndMouseState();
 	main_clock->restartClock(main_clock);
 	DeltaTime = main_clock->getDeltaTime(main_clock);
 	if (is_changing_state)
@@ -165,6 +190,8 @@ static void Update(WindowManager* window)
 		sfRenderWindow* rdwindow = window->GetWindow(window);
 		sfRenderWindow_clear(rdwindow, sfBlack);
 		sfBool render_main_state = RenderSubState(window);
+		RenderUISubState(window);
+		
 
 		if (actual_state.Render && render_main_state)
 		{
@@ -225,6 +252,8 @@ void PushSubState(char* state_name)
 			return;
 		}
 	};
+	printf_d("ERROR, UNKNOW SUB STATE !!!!\n");
+	return;
 }
 
 void PopSubState()
@@ -248,4 +277,9 @@ void StartGame(WindowManager* window_manager, char* starting_state, Animation* l
 		Update(window_manager);
 	}
 	ReportLeaks();
+}
+
+void EndGame(WindowManager* window)
+{
+	sfRenderWindow_close(window->GetWindow(window));
 }
