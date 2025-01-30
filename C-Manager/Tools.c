@@ -270,12 +270,118 @@ sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2)
 		return sfTrue;
 }
 
+sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect)
+{
+
+	float testX = pos.x;
+	float testY = pos.y;
+
+	if (pos.x < _rect.left)         testX = _rect.left;
+	else if (pos.x > _rect.left + _rect.width) testX = _rect.left + _rect.width;
+	if (pos.y < _rect.top)         testY = _rect.top;
+	else if (pos.y > _rect.top + _rect.height) testY = _rect.top + _rect.height;
+
+	float distX = pos.x - testX;
+	float distY = pos.y - testY;
+	float distance = sqrt((distX * distX) + (distY * distY));
+
+	if (distance <= radius) {
+		return sfTrue;
+	}
+	return sfFalse;
+}
+
 int iRand(int _min, int _max)
 {
 	if (_max > _min)
 		return rand() % (_max - _min + 1) + _min;
 	else
 		return _min;
+}
+
+sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r)
+{
+
+	sfBool inside1 = PointInCircle(start_line, circle_pos, r);
+	sfBool inside2 = PointInCircle(end_line, circle_pos, r);
+	if (inside1 || inside2)
+		return sfTrue;
+
+	float distX = start_line.x - end_line.x;
+	float distY = start_line.y - end_line.y;
+	float len = sqrt((distX * distX) + (distY * distY));
+
+	float dot = (((circle_pos.x - start_line.x) * (end_line.x - start_line.x)) + ((circle_pos.x - start_line.y) * (end_line.y - start_line.y))) / pow(len, 2);
+
+	float closestX = start_line.x + (dot * (end_line.x - start_line.x));
+	float closestY = end_line.y + (dot * (end_line.y - start_line.y));
+
+	sfBool onSegment = LinePoint_Collision(start_line, end_line, sfVector2f_Create(closestX, closestY), 0.1f);
+	if (!onSegment)
+		return sfFalse;
+
+
+	distX = closestX - circle_pos.x;
+	distY = closestY - circle_pos.y;
+	float distance = sqrt((distX * distX) + (distY * distY));
+
+	if (distance <= r) {
+		return sfTrue;
+	}
+	return sfFalse;
+}
+
+
+sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset)
+{
+
+	float d1 = GetDistance(point, start_line);
+	float d2 = GetDistance(point, end_line);
+
+	float lineLen = GetDistance(start_line, end_line);
+
+	float buffer = offset;   
+
+	if (d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen + buffer) {
+		return sfTrue;
+	}
+	return sfFalse;
+}
+sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two)
+{
+	// calculate the direction of the lines
+	float uA = ((end_line_two.x - start_line_two.x) * (start_line_one.y - start_line_two.y) - (end_line_two.y - start_line_two.y) * (start_line_one.x - start_line_two.x))
+		/ ((end_line_two.y - start_line_two.y) * (end_line_one.x - start_line_one.x) - (end_line_two.x - start_line_two.x) * (end_line_one.y - start_line_one.y));
+
+	float uB = ((end_line_one.x - start_line_one.x) * (start_line_one.y - start_line_two.y) - (end_line_one.y - start_line_one.y) * (start_line_one.x - start_line_two.x))
+		/ ((end_line_two.y - start_line_two.y) * (end_line_one.x - start_line_one.x) - (end_line_two.x - start_line_two.x) * (end_line_one.y - start_line_one.y));
+
+	// if uA and uB are between 0-1, lines are colliding
+	if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
+		// optionally, draw a circle where the lines meet
+		float intersectionX = start_line_one.x + (uA * (end_line_one.x - start_line_one.x));
+		float intersectionY = start_line_one.y + (uA * (end_line_one.y - start_line_one.y));
+		return sfTrue;
+	}
+	return sfFalse;
+}
+
+sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect)
+{
+
+	// check if the line has hit any of the rectangle's sides
+	// uses the Line/Line function below
+	sfBool left = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left, rect.top + rect.height));
+	sfBool right = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left + rect.width, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height));
+	sfBool top = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top));
+	sfBool bottom = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top + rect.height), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height));
+
+	// if ANY of the above are true, the line
+	// has hit the rectangle
+	if (left || right || top || bottom) {
+		return sfTrue;
+	}
+	return sfFalse;
 }
 
 sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon)

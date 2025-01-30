@@ -10,14 +10,14 @@ typedef enum
 
 struct UIObject_Data
 {
-	sfDrawable* drawable;
-	UIObject_Type type;
 	char* name;
+	sfDrawable* drawable;
 	UIObject_Transform transform;
 	sfColor color;
 	sfMouseButton mouse_button_trigger;
 	sfKeyCode key_button_trigger;
 	UIUpdateFunction callback;
+	UIObject_Type type;
 };
 
 struct UIObjectManager_Data

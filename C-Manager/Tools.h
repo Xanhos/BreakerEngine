@@ -378,6 +378,51 @@ sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float
 sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2);
 
 /**
+ * @brief Checks if a circle and a rectangle are in collision.
+ * @param pos The position of the circle.
+ * @param radius The radius of the circle.
+ * @param _rect The rectangle (position, width, height).
+ * @return True if there is a collision, false otherwise.
+ */
+sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect);
+
+/**
+* @brief Checks if a point is inside a circle.
+ * @param _pos The point to check.
+ * @param _circle_pos The position of the circle.
+ * @param _rayon The radius of the circle.
+ * @return True if the point is inside the circle, false otherwise. 
+*/
+sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r);
+
+/**
+ * @brief Checks if a point is inside a circle.
+ * @param _pos The point to check.
+ * @param _circle_pos The position of the circle.
+ * @param _rayon The radius of the circle.
+ * @return True if the point is inside the circle, false otherwise.
+ */
+sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset);
+
+/**
+ * @brief Checks if a point is inside a circle.
+ * @param _pos The point to check.
+ * @param _circle_pos The position of the circle.
+ * @param _rayon The radius of the circle.
+ * @return True if the point is inside the circle, false otherwise.
+ */
+sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two);
+
+/**
+ * @brief Checks if a point is inside a circle.
+ * @param _pos The point to check.
+ * @param _circle_pos The position of the circle.
+ * @param _rayon The radius of the circle.
+ * @return True if the point is inside the circle, false otherwise.
+ */
+sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect);
+
+/**
  * @brief Checks if a point is inside a circle.
  * @param _pos The point to check.
  * @param _circle_pos The position of the circle.
