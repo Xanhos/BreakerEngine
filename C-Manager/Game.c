@@ -156,6 +156,7 @@ static void Update(WindowManager* window)
 	if (thread_manager->GetThreadCount(thread_manager))
 	{
 		thread_manager->Update(thread_manager);
+		printf_d("Progress Value = %f\n\n", GetLoadingValue());
 		if (loading_screen)
 		{
 			loading_screen->Update(loading_screen, DeltaTime);

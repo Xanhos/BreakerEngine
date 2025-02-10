@@ -1,2 +1,6 @@
-﻿  ResourcesManager.c
+﻿  Game.c
+C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Game.c(267,8): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  ResourcesManager.c
+  Source.c
+  Génération de code en cours...
   C-Manager.vcxproj -> C:\Users\y.grallan\Documents\BreakerEngine\x64\Debug\C-Manager.exe

@@ -535,7 +535,9 @@ struct Thread_Info
     stdList* files_info; /**< The list of files to process. */
     int start; /**< The starting index for processing. */
     int end; /**< The ending index for processing. */
-   // float* progressValue;
+    float* progressValue;
+    float* totalSize;
+    float* currentSize;
     void (*func)(const char*); /**< The function to apply to each file. */
 };
 

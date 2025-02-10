@@ -86,7 +86,7 @@ void LoadMovie(const char* path)
 void LoadSceneMovie(const char* scene, float* progressValue)
 {
 	ClearSceneMovie();
-	__LoadScene(scene, "mp4", "Movies", progressValue, &CreateMovie);
+	__LoadScene(scene, "mp4", "Movies", progressValue, &LoadMovie);
 }
 
 void ClearSceneMovie(void)

@@ -37,6 +37,7 @@ void callback(UIObject* object, WindowManager* window)
 
 void InitSubState(WindowManager* windowManager)
 {
+	LoadScene("Menu");
 	uiManager = CreateUIObjectManager();
 	
 
@@ -136,7 +137,6 @@ REGISTER_C_STATE(___)
 int main(void)
 {
 	InitResourcesManager("../Ressources");
-	LoadScene("Menu");
 	StartGame(CreateWindowManager(1080, 720, "Test", sfDefaultStyle, NULL), "___", NULL, NULL);
 	ReportLeaks();
 }

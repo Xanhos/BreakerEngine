@@ -135,6 +135,8 @@ void __LoadWithThread(void* thread_infos)
 	for (int it = infos->start; it < infos->end; it++)
 	{
 		infos->func(STD_GETDATA(infos->files_info, FilesInfo, it)->m_path);
+		*infos->currentSize += GetFileSizeCustom(STD_GETDATA(infos->files_info, FilesInfo, it)->m_path) / 1000.f;
+		*infos->progressValue = *infos->currentSize / *infos->totalSize;
 	}
 }
 
@@ -159,7 +161,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 		}
 
 		//total size of the loading (in kb)
-		float totalSize = 0.f;
+		float totalSize = 0.f, currentSize = 0.f;
 
 		FOR_EACH_LIST(files_infos, FilesInfo, i, it,
 			totalSize += GetFileSizeCustom(it->m_path) / 1000.f;
@@ -181,8 +183,10 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 			.end = end,
 			.start = start,
 			.files_info = files_infos,
-			.func = func
-			//.progressValue = progressValue
+			.func = func,
+			.progressValue = progressValue,
+			.currentSize = &currentSize,
+			.totalSize = &totalSize
 			};
 
 			thread_infos->push_back(thread_infos, &tmp_thread_info);
