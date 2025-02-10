@@ -80,10 +80,10 @@ void Load_Font(const char* path)
 	scene_font_list->push_back(scene_font_list, &tmp);
 }
 
-void LoadSceneFont(const char* scene)
+void LoadSceneFont(const char* scene, float* progressValue)
 {
 	ClearSceneFont();
-	__LoadScene(scene, "ttf", "Fonts", &Load_Font);
+	__LoadScene(scene, "ttf", "Fonts",progressValue, &Load_Font);
 }
 
 void ClearSceneFont(void)

@@ -63,7 +63,7 @@ void InitTextureManager(void);
  * @brief Loads all textures associated with a specific scene.
  * @param scene Name of the scene for which textures should be loaded.
  */
-void LoadSceneTexture(const char* scene);
+void LoadSceneTexture(const char* scene, float* progressValue);
 
 /**
  * @brief Clears all textures associated with the current scene.

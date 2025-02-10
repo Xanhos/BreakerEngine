@@ -52,3 +52,5 @@ void LoadScene(const char* scene_name);
  * This function is called when shutting down the application to free up memory and unload resources.
  */
 void DestroyResourcesManager(void);
+
+float GetLoadingValue();

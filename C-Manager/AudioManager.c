@@ -122,11 +122,11 @@ void InitSoundManager(void)
 	}
 }
 
-void LoadSceneSound(const char* scene)
+void LoadSceneSound(const char* scene, float* soundProgressValue, float* musicProgressValue)
 {
 	ClearSceneSound();
-	__LoadScene(scene, "wav", "Sounds", &CreateSound);
-	__LoadScene(scene, "ogg", "Musics", &CreateMusic);
+	__LoadScene(scene, "wav", "Sounds",soundProgressValue ,&CreateSound);
+	__LoadScene(scene, "ogg", "Musics",musicProgressValue ,&CreateMusic);
 }
 
 void ClearSceneSound(void)

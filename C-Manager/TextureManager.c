@@ -78,10 +78,10 @@ void Load_Texture(const char* path)
 	scene_texture_list->push_back(scene_texture_list, &tmp);
 }
 
-void LoadSceneTexture(const char* scene)
+void LoadSceneTexture(const char* scene, float* progressValue)
 {
 	ClearSceneTexture();
-	__LoadScene(scene, "png", "Textures", &Load_Texture);
+	__LoadScene(scene, "png", "Textures",progressValue, &Load_Texture);
 }
 
 

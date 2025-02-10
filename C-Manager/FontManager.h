@@ -66,7 +66,7 @@ void InitFontManager(void);
  * @brief Loads fonts associated with a specific scene.
  * @param scene Name of the scene for which fonts should be loaded.
  */
-void LoadSceneFont(const char* scene);
+void LoadSceneFont(const char* scene, float* progressValue);
 
 /**
  * @brief Clears all fonts associated with the current scene.

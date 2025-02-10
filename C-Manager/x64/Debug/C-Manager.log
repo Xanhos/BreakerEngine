@@ -1,11 +1,2 @@
-﻿  Tools.c
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(26,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(27,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(28,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(286,19): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(312,14): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(314,142): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(326,19): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(437,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-C:\Users\y.grallan\Documents\BreakerEngine\C-Manager\Tools.c(438,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+﻿  ResourcesManager.c
   C-Manager.vcxproj -> C:\Users\y.grallan\Documents\BreakerEngine\x64\Debug\C-Manager.exe

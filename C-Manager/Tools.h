@@ -535,6 +535,7 @@ struct Thread_Info
     stdList* files_info; /**< The list of files to process. */
     int start; /**< The starting index for processing. */
     int end; /**< The ending index for processing. */
+   // float* progressValue;
     void (*func)(const char*); /**< The function to apply to each file. */
 };
 
@@ -663,6 +664,12 @@ sfBool sfMouse_isButtonUp(sfMouseButton button);
  */
 void DebugPrint(const char* const string, ...);
 
+/**
+ * @brief Get the size of a file.
+ *
+ * @param filePath the path of the file.
+ */
+float GetFileSizeCustom(const char* filePath);
 
 /**
  * @brief Loads files in a separate thread.
@@ -677,6 +684,6 @@ void __LoadWithThread(void* thread_infos);
  * @param type The type of scene to load.
  * @param func The function to apply after loading the scene.
  */
-void __LoadScene(const char* scene, const char* extension, const char* type, void (*func)(const char*));
+void __LoadScene(const char* scene, const char* extension, const char* type, float* progressValue ,void (*func)(const char*));
 
 void UpdateKeyAndMouseState(void);

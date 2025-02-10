@@ -90,7 +90,7 @@ void InitSoundManager(void);
  * @brief Loads sounds associated with a specific scene.
  * @param scene Name of the scene for which sounds should be loaded.
  */
-void LoadSceneSound(const char* scene);
+void LoadSceneSound(const char* scene, float* soundProgressValue, float* musicProgressValue);
 
 /**
  * @brief Clears all sounds associated with the current scene.

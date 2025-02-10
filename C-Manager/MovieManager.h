@@ -65,7 +65,7 @@ void InitMovieManager(void);
  * @brief Loads movies associated with a specific scene.
  * @param scene Name of the scene for which movies should be loaded.
  */
-void LoadSceneMovie(const char* scene);
+void LoadSceneMovie(const char* scene, float* progressValue);
 
 /**
  * @brief Clears all movies associated with the current scene.

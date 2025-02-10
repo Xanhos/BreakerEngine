@@ -136,6 +136,7 @@ REGISTER_C_STATE(___)
 int main(void)
 {
 	InitResourcesManager("../Ressources");
+	LoadScene("Menu");
 	StartGame(CreateWindowManager(1080, 720, "Test", sfDefaultStyle, NULL), "___", NULL, NULL);
 	ReportLeaks();
 }

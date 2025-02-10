@@ -138,7 +138,7 @@ void __LoadWithThread(void* thread_infos)
 	}
 }
 
-void __LoadScene(const char* scene, const char* extension, const char* type, void(*func)(const char*))
+void __LoadScene(const char* scene, const char* extension, const char* type, float* progressValue, void(*func)(const char*))
 {
 	NEW_CHAR(path, MAX_PATH_SIZE)
 		strcpy_s(path, MAX_PATH_SIZE, resource_directory);
@@ -158,6 +158,13 @@ void __LoadScene(const char* scene, const char* extension, const char* type, voi
 			return;
 		}
 
+		//total size of the loading (in kb)
+		float totalSize = 0.f;
+
+		FOR_EACH_LIST(files_infos, FilesInfo, i, it,
+			totalSize += GetFileSizeCustom(it->m_path) / 1000.f;
+			);
+
 		int nbrThread = files_infos->size(files_infos) < MAX_THREAD ? files_infos->size(files_infos) : MAX_THREAD;
 		int block_size = files_infos->size(files_infos) / nbrThread;
 
@@ -170,11 +177,13 @@ void __LoadScene(const char* scene, const char* extension, const char* type, voi
 			int start = i * block_size;
 			int end = (i == nbrThread - 1) ? files_infos->size(files_infos) : (i + 1) * block_size;
 
-			thread_info tmp_thread_info;
-			tmp_thread_info.end = end;
-			tmp_thread_info.start = start;
-			tmp_thread_info.files_info = files_infos;
-			tmp_thread_info.func = func;
+			thread_info tmp_thread_info = {
+			.end = end,
+			.start = start,
+			.files_info = files_infos,
+			.func = func
+			//.progressValue = progressValue
+			};
 
 			thread_infos->push_back(thread_infos, &tmp_thread_info);
 			sfThread* tmp_thread = NULL;
@@ -495,4 +504,17 @@ void DebugPrint(const char* const string, ...)
 	vprintf(string, args);
 	va_end(args);
 #endif // _DEBUG
+}
+
+float GetFileSizeCustom(const char* filePath)
+{
+	FILE* file = fopen(filePath, "r");
+	if (fseek(file, 0, SEEK_END) < 0)
+	{
+		fclose(file);
+		return 0.f;
+	}
+	long size = ftell(file);
+	fclose(file);
+	return size;
 }
