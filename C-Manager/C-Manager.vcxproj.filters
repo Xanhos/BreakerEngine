@@ -9,117 +9,123 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Source Files\ENGINE">
+      <UniqueIdentifier>{c53c539e-ff48-4224-8f42-0fe58e8990c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ENGINE">
+      <UniqueIdentifier>{351be9ac-c1e3-4f42-8524-f2b070a62cd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
     <ClInclude Include="AudioManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="dirent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="FileSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="FontManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="MemoryManagement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourcesManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tools.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="MovieManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Viewport.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="Particles.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcesManager.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadManager.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="Viewport.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileSystem.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FontManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemoryManagement.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourcesManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tools.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowManager.c">
+    <ClCompile Include="Source.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Animation.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
     <ClCompile Include="AudioManager.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystem.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManagement.c">
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
     <ClCompile Include="MovieManager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Viewport.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
     <ClCompile Include="Particles.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcesManager.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.c">
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
     <ClCompile Include="State.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadManager.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.c">
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
     <ClCompile Include="UI.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
-    <ClCompile Include="Source.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Viewport.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.c">
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
