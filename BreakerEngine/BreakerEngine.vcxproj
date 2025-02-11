@@ -25,11 +25,13 @@
     <ClInclude Include="FileSystem.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="InGame.h" />
     <ClInclude Include="MemoryManagement.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MovieManager.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Particles.h" />
+    <ClInclude Include="Pause.h" />
     <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="State.h" />
@@ -46,11 +48,13 @@
     <ClCompile Include="FileSystem.c" />
     <ClCompile Include="FontManager.c" />
     <ClCompile Include="Game.c" />
+    <ClCompile Include="InGame.c" />
     <ClCompile Include="MemoryManagement.c" />
     <ClCompile Include="Menu.c" />
     <ClCompile Include="MovieManager.c" />
     <ClCompile Include="Option.c" />
     <ClCompile Include="Particles.c" />
+    <ClCompile Include="Pause.c" />
     <ClCompile Include="ResourcesManager.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="SpriteManager.c" />
