@@ -1,0 +1,112 @@
+Fond
+0
+1920x1080
+1080
+
+Fond2
+1920x1080
+2160
+
+Fond3
+1920x1080
+3240
+
+Fond Ingame
+1920x1080
+4320
+
+Fond GameOver
+1920x1080
+5400
+
+Logo GA
+731x859
+6259
+
+Logo
+563x468
+6727
+
+How to play
+1512x877
+7604
+
+Coop
+1512x877
+8481
+
+Pause
+730x877
+9358
+
+Credits
+730x877
+10 235
+
+Score
+730x877
+11 112
+
+Options
+730x877
+11 989
+
+Options Bloc
+53x53
+12 042
+
+Options star
+51x49
+12 091
+
+GameOver
+951x635
+12 726
+
+Back
+358x142
+12 868
+
+Continue
+358x142
+13 010
+
+Coop
+358x142
+13 152
+
+How to play
+358x142
+13 294
+
+Options
+358x142
+13 436
+
+Quit
+358x142
+13 578
+
+Resume
+358x142
+13 720
+
+Score
+358x142
+13 862
+
+Score select
+358x142
+14 004
+
+Solo
+358x142
+14 146
+
+Selection Star
+102x97
+14 243
+
+Option bloc select
+67x67
+14 310

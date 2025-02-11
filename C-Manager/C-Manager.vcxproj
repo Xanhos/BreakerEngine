@@ -26,7 +26,9 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MemoryManagement.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MovieManager.h" />
+    <ClInclude Include="Option.h" />
     <ClInclude Include="Particles.h" />
     <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -45,7 +47,9 @@
     <ClCompile Include="FontManager.c" />
     <ClCompile Include="Game.c" />
     <ClCompile Include="MemoryManagement.c" />
+    <ClCompile Include="Menu.c" />
     <ClCompile Include="MovieManager.c" />
+    <ClCompile Include="Option.c" />
     <ClCompile Include="Particles.c" />
     <ClCompile Include="ResourcesManager.c" />
     <ClCompile Include="Source.c" />

@@ -198,6 +198,7 @@ static void UIObject_SetTextureRect(UIObject* object, sfIntRect rect)
 		break;
 	case SPRITE:
 		sfSprite_setTextureRect((sfSprite*)object->_Data->drawable, rect);
+		object->_Data->transform.size = sfVector2f_Create(rect.width, rect.height);
 		break;
 	default:
 		break;
@@ -473,7 +474,7 @@ static UIObject* UIObjectManager_GetFromName(UIObjectManager* manager, const cha
 
 static UIObject* UIObjectManager_GetFromIndex(UIObjectManager* manager, int index)
 {
-	return STD_GETDATA_POINTER(manager->_Data->uiobject_vector, UIObject, index);
+	return STD_GETDATA(manager->_Data->uiobject_vector, UIObject, index);
 }
 
 static void UIObjectManager_RemoveFromPointer(UIObjectManager* manager, UIObject* object)
@@ -520,7 +521,7 @@ static void UIObjectManager_RemoveFromName(UIObjectManager* manager, char* name)
 
 static void UIObjectManager_Update(UIObjectManager* manager, WindowManager* window)
 {
-	FOR_EACH_POINTER(manager->_Data->uiobject_vector, UIObject, i, it,
+	FOR_EACH_POINTER(manager->_Data->uiobject_vector, UIObject*, i, it,
 		UIObject_Update(it, window);
 		);
 }
@@ -537,10 +538,10 @@ static void UIObjectManager_Render(UIObjectManager* manager, WindowManager* wind
 
 static void UIObjectManager_Destroy(UIObjectManager** manager)
 {
-	FOR_EACH_POINTER((*manager)->_Data->uiobject_vector, UIObject, i, it,
+	FOR_EACH_POINTER((*manager)->_Data->uiobject_vector, UIObject*, i, it,
 		UIObject_Destroy(&it);
 		);
-	(*manager)->_Data->uiobject_vector->destroy((*manager)->_Data->uiobject_vector);
+	(*manager)->_Data->uiobject_vector->destroy(&(*manager)->_Data->uiobject_vector);
 	free((*manager)->_Data);
 	free(*manager);
 	*manager = NULL;
@@ -556,15 +557,15 @@ UIObjectManager* CreateUIObjectManager()
 	assert(object->_Data);
 	object->_Data->uiobject_vector = STD_VECTOR_CREATE_POINTER(UIObject, 0);
 
-	object->Add = &UIObjectManager_Add;
-	object->GetFromName = &UIObjectManager_GetFromName;
-	object->GetFromIndex = &UIObjectManager_GetFromIndex;
-	object->RemoveFromPointer = &UIObjectManager_RemoveFromPointer;
-	object->RemoveFromIndex = &UIObjectManager_RemoveFromIndex;
-	object->RemoveFromName = &UIObjectManager_RemoveFromName;
-	object->Update = &UIObjectManager_Update;
-	object->Render = &UIObjectManager_Render;
-	object->Destroy = &UIObjectManager_Destroy;
+	object->push_back = &UIObjectManager_Add;
+	object->get_by_name = &UIObjectManager_GetFromName;
+	object->get_by_index = &UIObjectManager_GetFromIndex;
+	object->remove_by_pointer = &UIObjectManager_RemoveFromPointer;
+	object->remove_by_index = &UIObjectManager_RemoveFromIndex;
+	object->remove_by_name = &UIObjectManager_RemoveFromName;
+	object->update = &UIObjectManager_Update;
+	object->draw = &UIObjectManager_Render;
+	object->destroy = &UIObjectManager_Destroy;
 
 	return object;
 }

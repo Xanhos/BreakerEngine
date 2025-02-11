@@ -36,7 +36,7 @@ typedef struct
 	sfBool display_of_below_state;
 } SubState;
 
-stdList* registered_sub_state_list,* active_sub_state_list;
+stdList* registered_sub_state_list, * active_sub_state_list;
 
 
 Animation* loading_screen;
@@ -156,7 +156,6 @@ static void Update(WindowManager* window)
 	if (thread_manager->GetThreadCount(thread_manager))
 	{
 		thread_manager->Update(thread_manager);
-		printf_d("Progress Value = %f\n\n", GetLoadingValue());
 		if (loading_screen)
 		{
 			loading_screen->Update(loading_screen, DeltaTime);
@@ -184,15 +183,15 @@ static void Update(WindowManager* window)
 				actual_state.UpdateEvent(window, event);
 		}
 
-		sfBool update_main_state = UpdateSubState(window);		
-			if (actual_state.Update && update_main_state)
-				actual_state.Update(window);
+		sfBool update_main_state = UpdateSubState(window);
+		if (actual_state.Update && update_main_state)
+			actual_state.Update(window);
 
 		sfRenderWindow* rdwindow = window->GetWindow(window);
 		sfRenderWindow_clear(rdwindow, sfBlack);
 		sfBool render_main_state = RenderSubState(window);
 		RenderUISubState(window);
-		
+
 
 		if (actual_state.Render && render_main_state)
 		{
@@ -244,10 +243,10 @@ void RegisterSubState(char* state_name, WindowManager* window, sfBool update_of_
 
 void PushSubState(char* state_name)
 {
-	for (int i = 0; i < registered_sub_state_list->size(registered_sub_state_list); i++) 
+	for (int i = 0; i < registered_sub_state_list->size(registered_sub_state_list); i++)
 	{
 		SubState* it = ((SubState*)registered_sub_state_list->getData(registered_sub_state_list, i));
-		if (strcmp(it->state.name, state_name) == 0) 
+		if (strcmp(it->state.name, state_name) == 0)
 		{
 			active_sub_state_list->push_back(active_sub_state_list, it);
 			return;

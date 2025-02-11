@@ -71,6 +71,12 @@
     <ClInclude Include="WindowManager.h">
       <Filter>Header Files\ENGINE</Filter>
     </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
@@ -126,6 +132,12 @@
     </ClCompile>
     <ClCompile Include="WindowManager.c">
       <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
