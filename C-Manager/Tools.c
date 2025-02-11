@@ -108,7 +108,7 @@ void ToUpper(char* sentence)
 
 char* StrAllocNCopy(const char* name)
 {
-	return _strdup(name);	
+	return _strdup(name);
 }
 
 stdList* SearchFilesInfos(const char* path, const char* extension)
@@ -165,7 +165,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 
 		FOR_EACH_LIST(files_infos, FilesInfo, i, it,
 			totalSize += GetFileSizeCustom(it->m_path) / 1000.f;
-			);
+		);
 
 		int nbrThread = files_infos->size(files_infos) < MAX_THREAD ? files_infos->size(files_infos) : MAX_THREAD;
 		int block_size = files_infos->size(files_infos) / nbrThread;
@@ -353,7 +353,7 @@ sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2
 
 	float lineLen = GetDistance(start_line, end_line);
 
-	float buffer = offset;   
+	float buffer = offset;
 
 	if (d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen + buffer) {
 		return sfTrue;
@@ -404,10 +404,10 @@ sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon)
 
 sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box)
 {
-	if (_pos.x >= _box.left &&         
-		_pos.x <= _box.left + _box.width &&    
-		_pos.y >= _box.top &&         
-		_pos.y <= _box.top + _box.height) {   
+	if (_pos.x >= _box.left &&
+		_pos.x <= _box.left + _box.width &&
+		_pos.y >= _box.top &&
+		_pos.y <= _box.top + _box.height) {
 		return sfTrue;
 	}
 	return sfFalse;
@@ -456,7 +456,7 @@ sfVector2f GetVectorFromAngle(sfVector2f pos, float lenght, float angle)
 sfColor CreateColor(int r, int g, int b, int alpha)
 
 {
-	return sfColor_fromRGBA(iClamp(r,0,255), iClamp(g, 0, 255), iClamp(b, 0, 255), iClamp(alpha, 0, 255));
+	return sfColor_fromRGBA(iClamp(r, 0, 255), iClamp(g, 0, 255), iClamp(b, 0, 255), iClamp(alpha, 0, 255));
 }
 
 

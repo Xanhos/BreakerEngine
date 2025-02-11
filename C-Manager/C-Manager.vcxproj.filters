@@ -82,9 +82,6 @@
     <ClCompile Include="ResourcesManager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteManager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -119,6 +116,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UI.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
