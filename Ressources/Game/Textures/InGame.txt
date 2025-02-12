@@ -1,0 +1,237 @@
+Propulsion joueur
+0
+95x51
+51
+
+Hypervitesse enemi
+5121x374
+425
+
+Hypervitesse joueur
+5121x374
+799
+
+météroite
+120x120
+919
+
+Point de compétence
+134x134
+1053
+
+Point d'amélioration
+134x134
+1187
+
+Boost de vie
+134x134
+1321
+
+Tir Basique
+26x19
+1340
+
+Impact basique
+36x34
+1374
+
+Tir fusils à pompe
+25x36
+1410
+
+Impact pompe
+45x42
+1452
+
+Mines
+35x35
+1487
+
+Explosion mines
+285x262
+1749
+
+Missile
+53x50
+1799
+
+Explosion missile
+228x212
+2011
+
+Tir Enemi basique
+33x31
+2042
+
+Tir Enemi 2
+33x31
+2073
+
+Tir enemi 3
+12x33
+2106
+
+Impact tir Enemi
+54x50
+2156
+
+Tir nemesis
+26x19
+2175
+
+Impact tir nemesis
+37x35
+2210
+
+Tentacule haut
+129x416
+2626
+
+Tentacule bas
+129x416
+3042
+
+Bombardier
+187x86
+3128
+
+Dégat subie bombardier
+187x86
+3214
+
+tireur
+173x86
+3300
+
+Dégat subie tireur
+173x86
+3386
+
+kamikaze
+119x99
+3485
+
+Dégat subie kamikaze
+119x99
+3584
+
+tank
+179x143
+3727
+
+Dégat subie tank
+180x143
+3870
+
+chargeur
+219x150
+4020
+
+Dégat subie chargeur
+219x150
+4170
+
+Nemesis
+229x130
+4300
+
+Dégat subie nemesis
+229x130
+4430
+
+Mini boss 1
+802x456
+4886
+
+Dégat subie Mini boss 1
+802x456
+5342
+
+Mini boss 2
+544x727
+6069
+
+Dégat subie Mini boss 2
+544x727
+6796
+
+
+
+P2
+
+Boss phase 1
+0
+1042x1479
+1479
+
+Dégat subie Boss phase 1
+636x346
+1825
+
+Boss phase 2
+1049x1658
+3483
+
+Dégat subie Boss phase 2
+146x152
+3635
+
+Tourelle
+346x206
+3841
+
+Boss phase 3
+1180x1658
+5499
+
+Dégat subie Boss phase 3
+385x496
+5995
+
+Vaisseau Joueur
+228x130
+6125
+
+Dégat subie Vaisseau Joueur
+228x130
+6255
+
+Joueur Coop
+269x274
+6529
+
+Dégat subie Joueur Coop
+269x274
+6803
+
+Coop 1
+259x151
+6954
+
+Coop2
+259x151
+7105
+
+Coop F1
+274x274
+7379
+
+Coop F2
+274x274
+7653
+
+Apparition bouclier
+378x378
+8031
+
+Disparition Bouclier
+378x378
+8409
+
+Mort Joueur
+418x348
+8757
+
+Morts Enemi
+305x254
+9011

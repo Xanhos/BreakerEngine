@@ -77,6 +77,15 @@
     <ClInclude Include="Option.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pause.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
@@ -137,6 +146,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Option.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InGame.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pause.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

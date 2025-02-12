@@ -23,20 +23,28 @@
 #include "Animation.h"
 #include "CParser/CParser.h"
 
+struct SimpleAnim_Data
+{
+	Animation_Key* anim;
+	sfSprite* renderer;
+};
+
 struct Animation_Key_Data
 {
 	char* m_name;
 
 	sfIntRect m_int_rect;
 	sfIntRect m_current_rect;
-	int m_row_number;
-	int m_line_size;
+	int m_number_of_line;
+	int m_frame_per_line;
 
 	int m_total_frame;
 	int m_current_frame;
 
 	float m_frame_time;
 	float m_frame_timer;
+
+	sfBool m_has_finish_anim;
 };
 
 
@@ -54,6 +62,17 @@ struct Animation_Data
 	sfBool m_stop_at_last_frame;
 };
 
+static void UpdateAnimationKeyRect(Animation_Key* anim_key)
+{
+	Animation_Key_Data* anim = anim_key->_Data;
+	sfIntRect current_rect = {
+		.left = anim->m_int_rect.left + anim->m_int_rect.width * (anim->m_current_frame % anim->m_frame_per_line),
+		.top = anim->m_int_rect.top + anim->m_int_rect.height * (anim->m_number_of_line ? (anim->m_current_frame / anim->m_frame_per_line) : 0),
+		.width = anim->m_int_rect.width,
+		.height = anim->m_int_rect.height
+	};
+	anim->m_current_rect = current_rect;
+}
 
 static void UpdateAnimationKey(Animation_Key* anim_key, sfBool animation_is_paused, sfBool animation_is_reverse, sfBool stop_at_last_frame, float deltaTime)
 {
@@ -66,22 +85,36 @@ static void UpdateAnimationKey(Animation_Key* anim_key, sfBool animation_is_paus
 		{
 			animation_is_reverse ? anim->m_current_frame-- : anim->m_current_frame++;
 
-			if (anim->m_current_frame < 0 && animation_is_reverse)
+			if (anim->m_has_finish_anim && animation_is_reverse)
+			{
 				anim->m_current_frame = anim->m_total_frame - 1;
-			else if (anim->m_current_frame > anim->m_total_frame - 1 && !animation_is_reverse)
+				anim->m_has_finish_anim = sfFalse;
+			}
+			else if (anim->m_current_frame < 0 && animation_is_reverse)
+			{
 				anim->m_current_frame = 0;
+				anim->m_has_finish_anim = sfTrue;
+				return;
+			}
+			else if (anim->m_current_frame > anim->m_total_frame - 1 && !animation_is_reverse)
+			{
+				anim->m_current_frame = anim->m_total_frame - 1;
+				anim->m_has_finish_anim = sfTrue;
+				return;
+			}
+			else if(anim->m_has_finish_anim && !animation_is_reverse)
+			{
+				anim->m_current_frame = 0;
+				anim->m_has_finish_anim = sfFalse;
+			}
 			anim->m_frame_timer = 0.f;
 		}
 	}
 
+	anim->m_has_finish_anim = sfFalse;
+	
 
-	sfIntRect current_rect = {
-		.left = anim->m_int_rect.left + anim->m_int_rect.width * (anim->m_current_frame % anim->m_line_size),
-		.top = anim->m_int_rect.top + anim->m_int_rect.height * (anim->m_row_number ? (anim->m_current_frame / anim->m_line_size) : 0),
-		.width = anim->m_int_rect.width,
-		.height = anim->m_int_rect.height
-	};
-	anim->m_current_rect = current_rect;
+	UpdateAnimationKeyRect(anim_key);
 }
 
 
@@ -100,16 +133,39 @@ static sfIntRect GetCurrentRect(Animation_Key* anim_key)
 	return anim_key->_Data->m_current_rect;
 }
 
+static sfBool HasFinishAnim(Animation_Key* anim_key)
+{
+	return anim_key->_Data->m_has_finish_anim;
+}
+
 static void SetCurrentFrame(Animation_Key* anim_key, int frame)
 {
 	anim_key->_Data->m_current_frame = frame;
 	anim_key->_Data->m_frame_timer = 0.f;
-	UpdateAnimationKey(anim_key, sfFalse, sfFalse, sfFalse, 0.f);
+	UpdateAnimationKeyRect(anim_key);
+}
+
+static const char* GetAnimationKeyName(Animation_Key* anim_key)
+{
+	return anim_key->_Data->m_name;
+}
+
+static sfBool IsRevert(Animation* anim)
+{
+	return anim->_Data->m_animation_is_reversed;
+}
+
+static sfBool IsPaused(Animation* anim)
+{
+	return anim->_Data->m_animation_is_paused;
+}
+static sfBool IsStoppedAtLastFrame(Animation* anim)
+{
+	return anim->_Data->m_stop_at_last_frame;
 }
 
 
-
-Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int line_size, int row_number, int total_frame, float frame_time)
+Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int number_of_line, int frame_per_line, int total_frame, float frame_time)
 {
 	Animation_Key* animation_key = calloc(1, sizeof(Animation_Key));
 	Animation_Key_Data* animation_key_data = calloc(1, sizeof(Animation_Key_Data));
@@ -118,8 +174,8 @@ Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int line_siz
 	animation_key_data->m_name = StrAllocNCopy(name);
 	animation_key_data->m_current_frame = 0;
 	animation_key_data->m_total_frame = total_frame;
-	animation_key_data->m_line_size = line_size;
-	animation_key_data->m_row_number = row_number;
+	animation_key_data->m_frame_per_line = frame_per_line;
+	animation_key_data->m_number_of_line = number_of_line;
 	animation_key_data->m_frame_time = frame_time;
 	animation_key_data->m_frame_timer = 0.f;
 	animation_key_data->m_int_rect = rect;
@@ -128,6 +184,8 @@ Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int line_siz
 	animation_key->GetTotalFrame = &GetTotalFrame;
 	animation_key->GetCurrentRect = &GetCurrentRect;
 	animation_key->SetCurrentFrame = &SetCurrentFrame;
+	animation_key->GetAnimationKeyName = &GetAnimationKeyName;
+	animation_key->HasFinishAnim = &HasFinishAnim;
 
 	animation_key->_Data = animation_key_data;
 	
@@ -139,6 +197,7 @@ static void ResetAnimationKey(Animation_Key* anim_key)
 {
 	anim_key->_Data->m_current_frame = 0;
 	anim_key->_Data->m_frame_timer = 0.f;
+	anim_key->_Data->m_has_finish_anim = sfFalse;
 }
 
 
@@ -200,6 +259,7 @@ void sfRenderWindow_drawAnimation(sfRenderWindow* window, Animation* anim, sfRen
 	sfRenderWindow_drawRectangleShape(window, anim->_Data->m_renderer, states);
 }
 
+
 static void DestroyAnimation(Animation** anim_data)
 {
 	Animation* anim = *anim_data;
@@ -233,6 +293,10 @@ Animation* CreateAnimation(const char* name, sfTexture* texture)
 	anim->Update = &UpdateAnim;
 	anim->AddAnimationKey = &AddAnimationKey;
 	anim->SelectAnimationKey = &SelectAnimKey;
+	anim->SetAnimationParameters = &SetAnimationParameters;
+	anim->IsPaused = &IsPaused;
+	anim->IsRevert = &IsRevert;
+	anim->IsStoppedAtLastFrame = &IsStoppedAtLastFrame;
 	anim->Destroy = &DestroyAnimation;
 	anim->GetRenderer = &GetRenderer;
 	anim->GetCurrentAnimationKey = &GetCurrentAnimationKey;
@@ -283,4 +347,49 @@ Animation* CreateAnimationFromFile(const char* path, sfTexture* texture)
 	}
 
 	return tmp;
+}
+
+static void SimpleAnimUpdate(SimpleAnim* anim, float deltaTime)
+{
+	UpdateAnimationKey(anim->_Data->anim, sfFalse, sfFalse, sfFalse, deltaTime);
+}
+
+static void SimpleAnimDraw(SimpleAnim* anim, sfRenderWindow* window, sfRenderStates* state)
+{
+	sfSprite_setTextureRect(anim->_Data->renderer, anim->_Data->anim->_Data->m_current_rect);
+	sfRenderWindow_drawSprite(window, anim->_Data->renderer, state);
+}
+
+static sfSprite* SimpleAnimGetRenderer(SimpleAnim* anim)
+{
+	return anim->_Data->renderer;
+}
+
+static void SimpleAnimDestroy(SimpleAnim** anim)
+{
+	sfSprite_destroy((*anim)->_Data->renderer);
+	free(((*anim)->_Data->anim->_Data->m_name));
+	free(((*anim)->_Data->anim->_Data));
+	free(((*anim)->_Data->anim));
+	free(((*anim)->_Data));
+	free(((*anim)));
+	*anim = NULL;
+}
+
+SimpleAnim* CreateSimpleAnim(sfTexture* texture, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time)
+{
+	SimpleAnim* anim = (SimpleAnim*)calloc(1, sizeof(SimpleAnim));
+	assert(anim);
+	anim->_Data = (SimpleAnim_Data*)calloc(1, sizeof(SimpleAnim_Data));
+	assert(anim->_Data);
+	anim->_Data->anim = CreateAnimationKey("SimpleAnim", rect, line_number, line_frame_number, total_frame, frame_time);
+	anim->_Data->renderer = sfSprite_create();
+	sfSprite_setTexture(anim->_Data->renderer, texture, sfTrue);
+
+	anim->Update = &SimpleAnimUpdate;
+	anim->Draw = &SimpleAnimDraw;
+	anim->Destroy = &SimpleAnimDestroy;
+	anim->GetRenderer = &SimpleAnimGetRenderer;
+
+	return anim;
 }

@@ -87,16 +87,14 @@ static sfBool RenderSubState(WindowManager* window)
 	{
 		sfView* customView = window->GetCustomView(window);
 		sfRenderWindow_setView(window->GetWindow(window), sfRenderWindow_getDefaultView(window->GetWindow(window)));
-		int size = active_sub_state_list->size(active_sub_state_list) - 1;
-		while (size > -1)
-		{
-			SubState* state = STD_GETDATA(active_sub_state_list, SubState, size);
-			state->state.Render(window);
-			state->state.UIRender(window);
-			if (!state->display_of_below_state)
+
+		FOR_EACH_LIST(active_sub_state_list,SubState,i,it,
+			it->state.Render(window);
+			it->state.UIRender(window);
+			if (!it->display_of_below_state)
 				return sfFalse;
-			size--;
-		}
+			)
+		
 		if (customView)
 			window->SetCustomView(window, customView);
 		return sfTrue;
@@ -211,6 +209,7 @@ static void Update(WindowManager* window)
 void ChangeMainState(char* state_name)
 {
 	new_state = GetState(state_name);
+	registered_sub_state_list->clear(registered_sub_state_list);
 	if (strcmp(new_state.name, "null") == 0)
 	{
 		printf_d("ERROR, UNKNOW STATE !!!!\n");

@@ -15,7 +15,7 @@
  *
  * @param name The name of the state.
  */
-#define DECLARE_HEADER_STATE(name)                               \
+#define DECLARE_HEADER_STATE(name)   \
 void Init##name(WindowManager*);                                  /**< Initializes the state. */ \
 void UpdateEvent##name(WindowManager*, sfEvent*);                           /**< Updates events for the state. */ \
 void Update##name(WindowManager*);                                /**< Updates the logic of the state. */ \
@@ -62,7 +62,9 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
     *
     * @param stateName The name of the state.
     */
-#define DECLARE_BLANK_STATE(stateName)                                      \
+#define DECLARE_BLANK_STATE(stateName) \
+UIObjectManager* UI##stateName##Manager;  \
+SpriteManager* Sprite##stateName##Manager; \
 void Init##stateName(WindowManager* windowManager)          /**< Initializes the state. */ \
 {                                                           \
                                                             \

@@ -1,5 +1,8 @@
 #include "State.h"
 #include "List.h"
+#include "UI.h"
+#include "SpriteManager.h"
+
 
 stdList* stateList = NULL;
 

@@ -78,6 +78,10 @@ struct Animation_Key
      * @param frame Frame index to set.
      */
     void (*SetCurrentFrame)(Animation_Key* anim_key, int frame);
+
+    const char* (*GetAnimationKeyName)(Animation_Key* anim_key);
+
+    sfBool(*HasFinishAnim)(Animation_Key* anim_key);
 };
 
 /**
@@ -116,6 +120,11 @@ struct Animation
      */
     Animation_Key* (*SelectAnimationKey)(Animation* anim, const char* name);
 
+    void (*SetAnimationParameters)(Animation* anim, sfBool is_paused, sfBool is_revert, sfBool is_stopped_at_last_frame);
+
+    sfBool(*IsRevert)(Animation* anim);
+    sfBool(*IsPaused)(Animation* anim);
+    sfBool(*IsStoppedAtLastFrame)(Animation* anim);
     /**
      * @brief Retrieves the current animation key.
      * @param anim Pointer to the animation.
@@ -154,7 +163,7 @@ struct Animation
  * @param frame_time Duration of each frame.
  * @return Pointer to the created animation key.
  */
-Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time);
+Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int number_of_line, int frame_per_line, int total_frame, float frame_time);
 
 /**
  * @brief Creates a new animation.
@@ -179,3 +188,17 @@ Animation* CreateAnimationFromFile(const char* path, sfTexture* texture);
  * @param states Render states to apply.
  */
 void sfRenderWindow_drawAnimation(sfRenderWindow* window, Animation* anim, sfRenderStates* states);
+
+typedef struct SimpleAnim SimpleAnim;
+typedef struct SimpleAnim_Data SimpleAnim_Data;
+
+struct SimpleAnim
+{
+    SimpleAnim_Data* _Data;
+    sfSprite* (*GetRenderer)(SimpleAnim* anim);
+    void (*Update)(SimpleAnim* anim,float deltaTime);
+    void (*Draw)(SimpleAnim* anim, sfRenderWindow* window, sfRenderStates* state);
+    void (*Destroy)(SimpleAnim** anim);
+};
+
+SimpleAnim* CreateSimpleAnim(sfTexture* texture, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time);

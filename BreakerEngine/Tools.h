@@ -38,6 +38,14 @@
 */
 
 
+typedef struct Transform Transform;
+struct Transform
+{
+    sfVector2f position;
+    sfVector2f velocity;
+    float angle;
+};
+
  /**
   * @def DeltaTime
   * @brief The time elapsed between the current and last frame.

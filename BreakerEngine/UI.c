@@ -298,6 +298,11 @@ static void UIObject_SetUpdateFunction(UIObject* object, UIUpdateFunction callba
 	object->_Data->callback = callback;
 }
 
+static sfBool UIObject_NameIs(UIObject* object, const char* name)
+{
+	return strcmp(object->_Data->name, name) == 0 ? sfTrue : sfFalse;
+}
+
 static void UIObject_Update(UIObject* object, WindowManager* window)
 {
 	sfVector2f mousePos = window->GetMousePos(window);
@@ -442,6 +447,8 @@ static UIObject* CreateUIObject(sfDrawable* shape, char* name, UIObject_Type typ
 	object->getTexture = &UIObject_GetTexture;
 	object->getTextureRect = &UIObject_GetTextureRect;
 	object->getIsVisible = &UIObject_GetIsVisible;
+
+	object->nameIs = &UIObject_NameIs;
 
 	object->update = &UIObject_Update;
 	object->render = &UIObject_Render;

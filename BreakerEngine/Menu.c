@@ -18,15 +18,15 @@ void UpdateUIVisual(UIObject* object, WindowManager* window)
 
 	if (object->isClicked)
 	{
-		if (strcmp(object->getName(object), "Play") == 0)
+		if (object->nameIs(object,"Play"))
 		{
-			printf_d("Game");
+			ChangeMainState("InGame");
 		}
-		else if (strcmp(object->getName(object), "Option") == 0)
+		else if (object->nameIs(object, "Option"))
 		{
 			PushSubState("Option");
 		}
-		else if (strcmp(object->getName(object), "Quit") == 0)
+		else if (object->nameIs(object, "Quit"))
 		{
 			EndGame(window);
 		}
@@ -57,10 +57,13 @@ void InitMainMenu(WindowManager* windowManager)
 
 	sfSprite* spriteHolder = spriteManager->push_back(spriteManager, "BG1", menu_spritesheet, sfTrue);
 	sfSprite_setTextureRect(spriteHolder, (sfIntRect) { 0, 0, 1920, 1080 });
+
 	spriteHolder = spriteManager->push_back(spriteManager, "BG2", menu_spritesheet, sfTrue);
 	sfSprite_setTextureRect(spriteHolder, (sfIntRect) { 0, 1080, 1920, 1080 });
+
 	spriteHolder = spriteManager->push_back(spriteManager, "BG3", menu_spritesheet, sfTrue);
 	sfSprite_setTextureRect(spriteHolder, (sfIntRect) { 0, 2160, 1920, 1080 });
+
 	spriteHolder = spriteManager->push_back(spriteManager, "Title", menu_spritesheet, sfTrue);
 	sfSprite_setTextureRect(spriteHolder, (sfIntRect) { 0, 6259, 563, 468 });
 	sfSprite_setPosition(spriteHolder, sfVector2f_Create(678, 42));
@@ -106,6 +109,7 @@ void UIRenderMainMenu(WindowManager* windowManager)
 {
 	spriteManager->draw(spriteManager, windowManager->GetWindow(windowManager), NULL);
 	UIManager->draw(UIManager, windowManager->GetWindow(windowManager), NULL);
+
 	if (isButtonHovered)
 		sfRenderWindow_drawSprite(windowManager->GetWindow(windowManager), starSelection, NULL);
 }

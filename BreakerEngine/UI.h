@@ -52,6 +52,8 @@ struct UIObject
 	sfIntRect(*getTextureRect)(UIObject* object); /**< Retrieves the texture rectangle of the UI object. */
 	sfBool(*getIsVisible)(UIObject* object);
 
+	sfBool(*nameIs)(UIObject* object, const char* name);
+
 	void (*update)(UIObject* object, WindowManager* window); /**< Updates the UI object. */
 	void (*render)(sfRenderWindow* window, UIObject* object, sfRenderStates* state); /**< Renders the UI object. */
 	void (*destroy)(UIObject** object); /**< Destroys the UI object. */
