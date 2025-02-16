@@ -86,17 +86,17 @@ static sfBool RenderSubState(WindowManager* window)
 	if (active_sub_state_list->size(active_sub_state_list) > 0)
 	{
 		sfView* customView = window->GetCustomView(window);
-		sfRenderWindow_setView(window->GetWindow(window), sfRenderWindow_getDefaultView(window->GetWindow(window)));
+		window->SetDefaultView(window);
 
-		FOR_EACH_LIST(active_sub_state_list,SubState,i,it,
+		FOR_EACH_LIST(active_sub_state_list, SubState, i, it,
 			it->state.Render(window);
-			it->state.UIRender(window);
-			if (!it->display_of_below_state)
-				return sfFalse;
+		it->state.UIRender(window);
+		if (!it->display_of_below_state)
+			return sfFalse;
 			)
-		
-		if (customView)
-			window->SetCustomView(window, customView);
+
+			if (customView)
+				window->SetCustomView(window, customView);
 		return sfTrue;
 	}
 	return sfTrue;
@@ -184,8 +184,7 @@ static void Update(WindowManager* window)
 		if (actual_state.Update && update_main_state)
 			actual_state.Update(window);
 
-		sfRenderWindow* rdwindow = window->GetWindow(window);
-		sfRenderWindow_clear(rdwindow, sfBlack);
+		window->Clear(window, sfBlack);
 
 		if (actual_state.Render && ShouldRenderMainState(window))
 		{
@@ -193,14 +192,14 @@ static void Update(WindowManager* window)
 			if (actual_state.UIRender)
 			{
 				sfView* customView = window->GetCustomView(window);
-				sfRenderWindow_setView(rdwindow, sfRenderWindow_getDefaultView(rdwindow));
+				window->SetDefaultView(window);
 				actual_state.UIRender(window);
 				if (customView)
 					window->SetCustomView(window, customView);
 			}
 		}
 		RenderSubState(window);
-		sfRenderWindow_display(rdwindow);
+		window->Display(window);
 	}
 }
 
@@ -260,6 +259,7 @@ void PopSubState()
 void StartGame(WindowManager* window_manager, char* starting_state, Animation* loading_screen_animation, const char* key_anim_name)
 {
 	srand(time(NULL));
+	GameWindow = window_manager;
 	loading_screen = loading_screen_animation;
 	if (loading_screen)
 		loading_screen->SelectAnimationKey(loading_screen, key_anim_name);

@@ -18,7 +18,7 @@ void UpdateUIVisual(UIObject* object, WindowManager* window)
 
 	if (object->isClicked)
 	{
-		if (object->nameIs(object,"Play"))
+		if (object->nameIs(object, "Play"))
 		{
 			ChangeMainState("InGame");
 		}
@@ -107,11 +107,11 @@ void RenderMainMenu(WindowManager* windowManager)
 
 void UIRenderMainMenu(WindowManager* windowManager)
 {
-	spriteManager->draw(spriteManager, windowManager->GetWindow(windowManager), NULL);
-	UIManager->draw(UIManager, windowManager->GetWindow(windowManager), NULL);
+	spriteManager->draw(spriteManager, windowManager, NULL);
+	UIManager->draw(UIManager, windowManager, NULL);
 
 	if (isButtonHovered)
-		sfRenderWindow_drawSprite(windowManager->GetWindow(windowManager), starSelection, NULL);
+		windowManager->DrawSprite(windowManager, starSelection, NULL);
 }
 
 void DestroyMainMenu(WindowManager* windowManager)

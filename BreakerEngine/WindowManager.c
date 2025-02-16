@@ -21,6 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "WindowManager.h"
+#include "Animation.h"
 
 typedef struct SoundInfo SoundInfo;
 struct SoundInfo
@@ -42,6 +43,8 @@ struct CustomParam
 struct WindowManager_Data
 {
 	sfRenderWindow* m_window;
+	sfRenderTexture* m_render_texture;
+	sfSprite* m_renderer;
 	char* m_title;
 	stdList* m_custom_param_list;
 	stdList* m_sound_list;
@@ -49,6 +52,7 @@ struct WindowManager_Data
 	sfView* m_custom_view;
 
 	sfVector2u m_size;
+	sfVector2u m_base_size;
 	sfBool m_fullscreen;
 	sfUint32 m_style;
 	sfEvent m_event;
@@ -95,7 +99,7 @@ static void AddNewCustomParam(const WindowManager* window_manager, const char* n
 		if (strcmp(name, it->m_name) == 0)
 			return;
 	)
-	custom_param.m_name = StrAllocNCopy(name);
+		custom_param.m_name = StrAllocNCopy(name);
 	custom_param.m_param_func = param_func;
 	custom_param.m_param_size = param_size;
 	custom_param.m_param = calloc(1, param_size);
@@ -131,10 +135,10 @@ static void AddNewSound(const WindowManager* window_manager, const char* name, f
 {
 	FOR_EACH_LIST(window_manager->_Data->m_sound_list, SoundInfo, i, it,
 		if (strcmp(name, it->m_name) == 0)
-			return;		 
-		)
+			return;
+			)
 
-	SoundInfo sound_info;
+		SoundInfo sound_info;
 	sound_info.m_name = StrAllocNCopy(name);
 	sound_info.m_volume = volume;
 
@@ -221,13 +225,85 @@ static sfVector2f GetMousePos(const WindowManager* window)
 static void SetView(const WindowManager* window, sfView* view)
 {
 	window->_Data->m_custom_view = view;
-	sfRenderWindow_setView(window->_Data->m_window, view);
+	sfRenderTexture_setView(window->_Data->m_render_texture, view);
 }
 
 static sfView* GetView(const WindowManager* window)
 {
 	return window->_Data->m_custom_view;
 }
+
+static void SetDefaultView(const WindowManager* window)
+{
+	sfRenderTexture_setView(window->_Data->m_render_texture, sfRenderTexture_getDefaultView(window->_Data->m_render_texture));
+}
+
+static sfView* GetDefaultView(const WindowManager* window)
+{
+	return sfRenderTexture_getDefaultView(window->_Data->m_render_texture);
+}
+
+static void Clear(const WindowManager* window, sfColor color)
+{
+	sfRenderTexture_clear(window->_Data->m_render_texture, color);
+	sfRenderWindow_clear(window->_Data->m_window, color);
+}
+
+static void Display(const WindowManager* window)
+{
+	sfRenderTexture_display(window->_Data->m_render_texture);
+	window->_Data->m_size = sfRenderWindow_getSize(window->_Data->m_window);
+	ScreenScaleFactorX = (float)window->_Data->m_size.x / (float)window->_Data->m_base_size.x;
+	ScreenScaleFactorY = (float)window->_Data->m_size.y / (float)window->_Data->m_base_size.y;
+	sfSprite_setTexture(window->_Data->m_renderer, sfRenderTexture_getTexture(window->_Data->m_render_texture), sfTrue);
+	sfRenderWindow_drawSprite(window->_Data->m_window, window->_Data->m_renderer, NULL);
+	sfRenderWindow_display(window->_Data->m_window);
+}
+
+static void WindowManagerDrawSprite(const WindowManager* window, const sfSprite* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawSprite(window->_Data->m_render_texture, object, state);
+}
+static void WindowManagerDrawText(const WindowManager* window, const sfText* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawText(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawShape(const WindowManager* window, const sfShape* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawShape(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawCircleShape(const WindowManager* window, const sfCircleShape* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawCircleShape(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawConvexShape(const WindowManager* window, const sfConvexShape* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawConvexShape(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawRectangleShape(const WindowManager* window, const sfRectangleShape* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawRectangleShape(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawVertexArray(const WindowManager* window, const sfVertexArray* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawVertexArray(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawVertexBuffer(const WindowManager* window, const sfVertexBuffer* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawVertexBuffer(window->_Data->m_render_texture, object, state);
+}
+
+static void WindowManagerDrawAnimation(const WindowManager* window, const Animation* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawRectangleShape(window->_Data->m_render_texture, object->GetRenderer(object), state);
+}
+
 
 static void DestroyWindowManager(WindowManager** window)
 {
@@ -250,8 +326,11 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	assert(window_manager);
 	WindowManager_Data* window_manager_data = calloc(1, sizeof(WindowManager_Data));
 	assert(window_manager_data);
-	window_manager_data->m_window = sfRenderWindow_create((sfVideoMode) { width, height, sfVideoMode_getDesktopMode().bitsPerPixel }, title, style, settings);
-	window_manager_data->m_size = (sfVector2u){ width,height };
+	window_manager_data->m_size = (sfVector2u){ MIN(width,sfVideoMode_getDesktopMode().width), MIN(height, sfVideoMode_getDesktopMode().height) };
+	window_manager_data->m_base_size = (sfVector2u){ width, height };
+	window_manager_data->m_render_texture = sfRenderTexture_create(width, height, sfFalse);
+	window_manager_data->m_renderer = sfSprite_create();
+	window_manager_data->m_window = sfRenderWindow_create((sfVideoMode) { window_manager_data->m_size.x, window_manager_data->m_size.y, sfVideoMode_getDesktopMode().bitsPerPixel }, title, style, settings);
 	window_manager_data->m_style = style;
 	window_manager_data->m_title = StrAllocNCopy(title);
 	window_manager_data->m_fullscreen = sfFullscreen & style ? sfTrue : sfFalse;
@@ -278,7 +357,25 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	window_manager->AddNewCustomParam = &AddNewCustomParam;
 	window_manager->GetCustomView = &GetView;
 	window_manager->SetCustomView = &SetView;
+	window_manager->SetDefaultView = &SetDefaultView;
+	window_manager->GetDefaultView = &GetDefaultView;
 	window_manager->GetMousePos = &GetMousePos;
+	window_manager->Clear = &Clear;
+	window_manager->Display = &Display;
+
+	window_manager->DrawSprite = &WindowManagerDrawSprite;
+	window_manager->DrawText = &WindowManagerDrawText;
+	window_manager->DrawShape = &WindowManagerDrawShape;
+	window_manager->DrawCircleShape = &WindowManagerDrawCircleShape;
+	window_manager->DrawConvexShape = &WindowManagerDrawConvexShape;
+	window_manager->DrawRectangleShape = &WindowManagerDrawRectangleShape;
+	window_manager->DrawVertexArray = &WindowManagerDrawVertexArray;
+	window_manager->DrawVertexBuffer = &WindowManagerDrawVertexBuffer;
+	window_manager->DrawAnimation = &WindowManagerDrawAnimation;
+
+	ScreenScaleFactorX = (float)window_manager->_Data->m_size.x / (float)window_manager->_Data->m_base_size.x;
+	ScreenScaleFactorY = (float)window_manager->_Data->m_size.y / (float)window_manager->_Data->m_base_size.y;
+	sfSprite_setScale(window_manager->_Data->m_renderer, sfVector2f_Create(ScreenScaleFactorX, ScreenScaleFactorY));
 
 	return window_manager;
 }

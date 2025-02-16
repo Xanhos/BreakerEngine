@@ -88,16 +88,16 @@ void UpdateEventOption(WindowManager* windowManager, sfEvent* evt)
 
 }
 
-void UpdateOption(WindowManager* windowManager) 
+void UpdateOption(WindowManager* windowManager)
 {
 	UIManagerOption->update(UIManagerOption, windowManager);
 
 	UIObject* fullscreen_button = UIManagerOption->get_by_name(UIManagerOption, "Fullscreen_button");
 	UIObject* back_button = UIManagerOption->get_by_name(UIManagerOption, "Back");
-	
+
 	spriteManagerOption->sprite_is_visible_by_name(spriteManagerOption, fullscreen_button->isHover, "fullscreen_square");
 	fullscreen_button->setIsVisible(fullscreen_button, windowManager->IsFullscreen(windowManager));
-	if (windowManager->GetTimer(windowManager) > 0.2f&&fullscreen_button->isClicked)
+	if (windowManager->GetTimer(windowManager) > 0.2f && fullscreen_button->isClicked)
 	{
 		windowManager->ResetTimer(windowManager);
 		windowManager->ToggleFullscreen(windowManager);
@@ -109,7 +109,7 @@ void UpdateOption(WindowManager* windowManager)
 	{
 		PopSubState();
 	}
-} 
+}
 
 void RenderOption(WindowManager* windowManager)
 {
@@ -118,8 +118,8 @@ void RenderOption(WindowManager* windowManager)
 
 void UIRenderOption(WindowManager* windowManager)
 {
-	spriteManagerOption->draw(spriteManagerOption, windowManager->GetWindow(windowManager), NULL);
-	UIManagerOption->draw(UIManagerOption, windowManager->GetWindow(windowManager), NULL);
+	spriteManagerOption->draw(spriteManagerOption, windowManager, NULL);
+	UIManagerOption->draw(UIManagerOption, windowManager, NULL);
 
 }
 

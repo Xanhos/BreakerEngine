@@ -21,7 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "Tools.h"
-
+#include "WindowManager.h"
 
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2f, f, float)
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2i, i, int)
@@ -262,9 +262,25 @@ void UpdateKeyAndMouseState(void)
 	}
 }
 
-
-sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2)
+sfVector2f ScaleVectorIfNotMouse(sfVector2f vec)
 {
+	return vec.x == sfMouse_getPositionRenderWindow(GameWindow->GetWindow(GameWindow)).x && vec.y == sfMouse_getPositionRenderWindow(GameWindow->GetWindow(GameWindow)).y ? vec : sfVector2f_Create(vec.x * ScreenScaleFactorX, vec.y * ScreenScaleFactorY);
+}
+
+sfFloatRect ScaleFloatRect(sfFloatRect rect)
+{
+	return (sfFloatRect) { rect.left* ScreenScaleFactorX, rect.top* ScreenScaleFactorY, rect.width* ScreenScaleFactorX, rect.height* ScreenScaleFactorY };
+}
+
+sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2, sfBool shouldScale)
+{
+	if (shouldScale)
+	{
+		_pos1 = ScaleVectorIfNotMouse(_pos1);
+		_pos2 = ScaleVectorIfNotMouse(_pos2);
+		_rayon1 *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+		_rayon2 *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+	}
 	if ((_pos1.x - _pos2.x) * (_pos1.x - _pos2.x) + (_pos1.y - _pos2.y) * (_pos1.y - _pos2.y) < (_rayon1 + _rayon2) * (_rayon1 + _rayon2))
 	{
 		return sfTrue;
@@ -272,20 +288,30 @@ sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float
 	else return sfFalse;
 }
 
-sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2)
+sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2, sfBool shouldScale)
 {
-	if ((_box2.left >= _box1.left + _box1.width)      // trop à droite
-		|| (_box2.left + _box2.width <= _box1.left) // trop à gauche
-		|| (_box2.top >= _box1.top + _box1.height) // trop en bas
-		|| (_box2.top + _box2.height <= _box1.top))  // trop en haut
+	if (shouldScale)
+	{
+		_box1 = ScaleFloatRect(_box1);
+		_box2 = ScaleFloatRect(_box2);
+	}
+	if ((_box2.left >= _box1.left + _box1.width)
+		|| (_box2.left + _box2.width <= _box1.left)
+		|| (_box2.top >= _box1.top + _box1.height)
+		|| (_box2.top + _box2.height <= _box1.top))
 		return sfFalse;
 	else
 		return sfTrue;
 }
 
-sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect)
+sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect, sfBool shouldScale)
 {
-
+	if (shouldScale)
+	{
+		pos = ScaleVectorIfNotMouse(pos);
+		radius *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+		_rect = ScaleFloatRect(_rect);
+	}
 	float testX = pos.x;
 	float testY = pos.y;
 
@@ -304,19 +330,17 @@ sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect)
 	return sfFalse;
 }
 
-int iRand(int _min, int _max)
+sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r, sfBool shouldScale)
 {
-	if (_max > _min)
-		return rand() % (_max - _min + 1) + _min;
-	else
-		return _min;
-}
-
-sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r)
-{
-
-	sfBool inside1 = PointInCircle(start_line, circle_pos, r);
-	sfBool inside2 = PointInCircle(end_line, circle_pos, r);
+	if (shouldScale)
+	{
+		start_line = ScaleVectorIfNotMouse(start_line);
+		end_line = ScaleVectorIfNotMouse(end_line);
+		circle_pos = ScaleVectorIfNotMouse(circle_pos);
+		r *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+	}
+	sfBool inside1 = PointInCircle(start_line, circle_pos, r, sfFalse);
+	sfBool inside2 = PointInCircle(end_line, circle_pos, r, sfFalse);
 	if (inside1 || inside2)
 		return sfTrue;
 
@@ -329,10 +353,9 @@ sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector
 	float closestX = start_line.x + (dot * (end_line.x - start_line.x));
 	float closestY = end_line.y + (dot * (end_line.y - start_line.y));
 
-	sfBool onSegment = LinePoint_Collision(start_line, end_line, sfVector2f_Create(closestX, closestY), 0.1f);
+	sfBool onSegment = LinePoint_Collision(start_line, end_line, sfVector2f_Create(closestX, closestY), 0.1f, sfFalse);
 	if (!onSegment)
 		return sfFalse;
-
 
 	distX = closestX - circle_pos.x;
 	distY = closestY - circle_pos.y;
@@ -344,73 +367,98 @@ sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector
 	return sfFalse;
 }
 
-
-sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset)
+sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset, sfBool shouldScale)
 {
+	if (shouldScale)
+	{
+		start_line = ScaleVectorIfNotMouse(start_line);
+		end_line = ScaleVectorIfNotMouse(end_line);
+		point = ScaleVectorIfNotMouse(point);
+		offset *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+	}
 
 	float d1 = GetDistance(point, start_line);
 	float d2 = GetDistance(point, end_line);
-
 	float lineLen = GetDistance(start_line, end_line);
-
 	float buffer = offset;
 
-	if (d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen + buffer) {
-		return sfTrue;
-	}
-	return sfFalse;
-}
-sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two)
-{
-	// calculate the direction of the lines
-	float uA = ((end_line_two.x - start_line_two.x) * (start_line_one.y - start_line_two.y) - (end_line_two.y - start_line_two.y) * (start_line_one.x - start_line_two.x))
-		/ ((end_line_two.y - start_line_two.y) * (end_line_one.x - start_line_one.x) - (end_line_two.x - start_line_two.x) * (end_line_one.y - start_line_one.y));
-
-	float uB = ((end_line_one.x - start_line_one.x) * (start_line_one.y - start_line_two.y) - (end_line_one.y - start_line_one.y) * (start_line_one.x - start_line_two.x))
-		/ ((end_line_two.y - start_line_two.y) * (end_line_one.x - start_line_one.x) - (end_line_two.x - start_line_two.x) * (end_line_one.y - start_line_one.y));
-
-	// if uA and uB are between 0-1, lines are colliding
-	if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
-		// optionally, draw a circle where the lines meet
-		float intersectionX = start_line_one.x + (uA * (end_line_one.x - start_line_one.x));
-		float intersectionY = start_line_one.y + (uA * (end_line_one.y - start_line_one.y));
-		return sfTrue;
-	}
-	return sfFalse;
+	return (d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen + buffer) ? sfTrue : sfFalse;
 }
 
-sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect)
+sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two, sfBool shouldScale)
 {
-
-	// check if the line has hit any of the rectangle's sides
-	// uses the Line/Line function below
-	sfBool left = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left, rect.top + rect.height));
-	sfBool right = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left + rect.width, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height));
-	sfBool top = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top));
-	sfBool bottom = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top + rect.height), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height));
-
-	// if ANY of the above are true, the line
-	// has hit the rectangle
-	if (left || right || top || bottom) {
-		return sfTrue;
+	if (shouldScale)
+	{
+		start_line_one = ScaleVectorIfNotMouse(start_line_one);
+		end_line_one = ScaleVectorIfNotMouse(end_line_one);
+		start_line_two = ScaleVectorIfNotMouse(start_line_two);
+		end_line_two = ScaleVectorIfNotMouse(end_line_two);
 	}
-	return sfFalse;
+
+	float denominator = ((end_line_two.y - start_line_two.y) * (end_line_one.x - start_line_one.x)) -
+		((end_line_two.x - start_line_two.x) * (end_line_one.y - start_line_one.y));
+
+	if (denominator == 0)
+		return sfFalse;
+
+	float uA = (((end_line_two.x - start_line_two.x) * (start_line_one.y - start_line_two.y)) -
+		((end_line_two.y - start_line_two.y) * (start_line_one.x - start_line_two.x))) / denominator;
+
+	float uB = (((end_line_one.x - start_line_one.x) * (start_line_one.y - start_line_two.y)) -
+		((end_line_one.y - start_line_one.y) * (start_line_one.x - start_line_two.x))) / denominator;
+
+	return (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) ? sfTrue : sfFalse;
 }
 
-sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon)
+sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect, sfBool shouldScale)
 {
+	if (shouldScale)
+	{
+		start_line = ScaleVectorIfNotMouse(start_line);
+		end_line = ScaleVectorIfNotMouse(end_line);
+		rect = ScaleFloatRect(rect);
+	}
+
+	sfBool left = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left, rect.top + rect.height), sfFalse);
+	sfBool right = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left + rect.width, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height), sfFalse);
+	sfBool top = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top), sfVector2f_Create(rect.left + rect.width, rect.top), sfFalse);
+	sfBool bottom = LineLine_Collision(start_line, end_line, sfVector2f_Create(rect.left, rect.top + rect.height), sfVector2f_Create(rect.left + rect.width, rect.top + rect.height), sfFalse);
+
+	return (left || right || top || bottom) ? sfTrue : sfFalse;
+}
+
+sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon, sfBool shouldScale)
+{
+	if (shouldScale)
+	{
+		_pos = ScaleVectorIfNotMouse(_pos);
+		_circle_pos = ScaleVectorIfNotMouse(_circle_pos);
+		_rayon *= MIN(ScreenScaleFactorX, ScreenScaleFactorY);
+	}
+
 	return ((_pos.x - _circle_pos.x) * (_pos.x - _circle_pos.x) + (_pos.y - _circle_pos.y) * (_pos.y - _circle_pos.y) < _rayon * _rayon);
 }
 
-sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box)
+sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box, sfBool shouldScale)
 {
-	if (_pos.x >= _box.left &&
+	if (shouldScale)
+	{
+		_pos = ScaleVectorIfNotMouse(_pos);
+		_box = ScaleFloatRect(_box);
+	}
+
+	return (_pos.x >= _box.left &&
 		_pos.x <= _box.left + _box.width &&
 		_pos.y >= _box.top &&
-		_pos.y <= _box.top + _box.height) {
-		return sfTrue;
-	}
-	return sfFalse;
+		_pos.y <= _box.top + _box.height);
+}
+
+int iRand(int _min, int _max)
+{
+	if (_max > _min)
+		return rand() % (_max - _min + 1) + _min;
+	else
+		return _min;
 }
 
 int rand_int(int _min, int _max)

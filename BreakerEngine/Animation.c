@@ -102,7 +102,7 @@ static void UpdateAnimationKey(Animation_Key* anim_key, sfBool animation_is_paus
 				anim->m_has_finish_anim = sfTrue;
 				return;
 			}
-			else if(anim->m_has_finish_anim && !animation_is_reverse)
+			else if (anim->m_has_finish_anim && !animation_is_reverse)
 			{
 				anim->m_current_frame = 0;
 				anim->m_has_finish_anim = sfFalse;
@@ -112,7 +112,7 @@ static void UpdateAnimationKey(Animation_Key* anim_key, sfBool animation_is_paus
 	}
 
 	anim->m_has_finish_anim = sfFalse;
-	
+
 
 	UpdateAnimationKeyRect(anim_key);
 }
@@ -188,7 +188,7 @@ Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int number_o
 	animation_key->HasFinishAnim = &HasFinishAnim;
 
 	animation_key->_Data = animation_key_data;
-	
+
 	return animation_key;
 }
 
@@ -254,17 +254,17 @@ static void UpdateAnim(Animation* anim, float deltaTime)
 	sfRectangleShape_setTextureRect(anim->_Data->m_renderer, anim->_Data->m_current_anim_key->_Data->m_current_rect);
 }
 
-void sfRenderWindow_drawAnimation(sfRenderWindow* window, Animation* anim, sfRenderStates* states)
+void sfRenderWindow_drawAnimation(WindowManager* window, Animation* anim, sfRenderStates* states)
 {
-	sfRenderWindow_drawRectangleShape(window, anim->_Data->m_renderer, states);
+	window->DrawRectangleShape(window, anim->_Data->m_renderer, states);
 }
 
 
 static void DestroyAnimation(Animation** anim_data)
 {
 	Animation* anim = *anim_data;
-	FOR_EACH_LIST_POINTER(anim->_Data->m_key_anim_list, Animation_Key*, it, tmp,		
-	free(tmp->_Data->m_name);
+	FOR_EACH_LIST_POINTER(anim->_Data->m_key_anim_list, Animation_Key*, it, tmp,
+		free(tmp->_Data->m_name);
 	free(tmp->_Data);
 	free(tmp);
 		);

@@ -12,7 +12,7 @@ static void UpdateUIPauseButton(UIObject* object, WindowManager* window)
 	int color = object->isHover ? 255 : 200;
 	object->setColor(object, CreateColor(color, color, color, 255));
 
-	if(object->isClicked)
+	if (object->isClicked)
 	{
 		if (object->nameIs(object, "ReturnToGame"))
 		{
@@ -29,7 +29,7 @@ static void UpdateUIPauseButton(UIObject* object, WindowManager* window)
 	}
 }
 
-void InitPause(WindowManager* windowManager) 
+void InitPause(WindowManager* windowManager)
 {
 	RegisterSubState("Option", windowManager, sfFalse, sfTrue);
 
@@ -60,28 +60,28 @@ void InitPause(WindowManager* windowManager)
 	UI_holder->setUpdateFunction(UI_holder, &UpdateUIPauseButton);
 }
 
-void UpdateEventPause(WindowManager* windowManager, sfEvent* evt) 
+void UpdateEventPause(WindowManager* windowManager, sfEvent* evt)
 {
 
 }
 
-void UpdatePause(WindowManager* windowManager) 
+void UpdatePause(WindowManager* windowManager)
 {
 	UIPauseManager->update(UIPauseManager, windowManager);
 }
 
-void RenderPause(WindowManager* windowManager) 
+void RenderPause(WindowManager* windowManager)
 {
 
 }
 
-void UIRenderPause(WindowManager* windowManager) 
+void UIRenderPause(WindowManager* windowManager)
 {
-	SpritePauseManager->draw(SpritePauseManager, windowManager->GetWindow(windowManager), NULL);
-	UIPauseManager->draw(UIPauseManager, windowManager->GetWindow(windowManager), NULL);
-} 
+	SpritePauseManager->draw(SpritePauseManager, windowManager, NULL);
+	UIPauseManager->draw(UIPauseManager, windowManager, NULL);
+}
 
-void DestroyPause(WindowManager* windowManager) 
+void DestroyPause(WindowManager* windowManager)
 {
 
 }

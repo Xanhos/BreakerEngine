@@ -55,7 +55,7 @@ struct UIObject
 	sfBool(*nameIs)(UIObject* object, const char* name);
 
 	void (*update)(UIObject* object, WindowManager* window); /**< Updates the UI object. */
-	void (*render)(sfRenderWindow* window, UIObject* object, sfRenderStates* state); /**< Renders the UI object. */
+	void (*render)(WindowManager* window, UIObject* object, sfRenderStates* state); /**< Renders the UI object. */
 	void (*destroy)(UIObject** object); /**< Destroys the UI object. */
 };
 
@@ -87,7 +87,7 @@ struct UIObjectManager
 	void (*remove_by_index)(UIObjectManager* manager, int index); /**< Removes a UI object by index. */
 	void (*remove_by_name)(UIObjectManager* manager, char* name); /**< Removes a UI object by name. */
 	void (*update)(UIObjectManager* manager, WindowManager* window); /**< Updates all UI objects in the manager. */
-	void (*draw)(UIObjectManager* manager, sfRenderWindow* window, sfRenderStates*); /**< Renders all UI objects in the manager. */
+	void (*draw)(UIObjectManager* manager, WindowManager* window, sfRenderStates*); /**< Renders all UI objects in the manager. */
 	void (*destroy)(UIObjectManager** manager); /**< Destroys the UI manager and its objects. */
 };
 

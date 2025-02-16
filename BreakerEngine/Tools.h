@@ -1,24 +1,24 @@
 /*
-    Author: GRALLAN Yann
+	Author: GRALLAN Yann
 
-    Description: An advanced game engine for CSFML
+	Description: An advanced game engine for CSFML
 
-    Date: 2025/01/22
+	Date: 2025/01/22
 
-    MIT License
+	MIT License
 
-    Copyright (c) 2025 GRALLAN Yann
+	Copyright (c) 2025 GRALLAN Yann
 
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #pragma once
 #include <stdio.h>
@@ -36,20 +36,23 @@
  * @file tools.h
  * @brief This file contains all the usefull tools for the engine.
 */
-
+struct WindowManager;
+struct WindowManager* GameWindow;
+float ScreenScaleFactorX;
+float ScreenScaleFactorY;
 
 typedef struct Transform Transform;
 struct Transform
 {
-    sfVector2f position;
-    sfVector2f velocity;
-    float angle;
+	sfVector2f position;
+	sfVector2f velocity;
+	float angle;
 };
 
- /**
-  * @def DeltaTime
-  * @brief The time elapsed between the current and last frame.
-  */
+/**
+ * @def DeltaTime
+ * @brief The time elapsed between the current and last frame.
+ */
 float DeltaTime;
 
 /**
@@ -64,183 +67,183 @@ char resource_directory[MAX_PATH_SIZE];
  */
 #define MAX_THREAD 10
 
-/**
-* @def KEY(key)
-* @brief Macro to check if a specific key is currently pressed.
-* @param key The key to check (e.g., A, B, etc.).
-* @return Boolean value indicating if the key is pressed.
-*/
-#define KEY(key) sfKeyboard_isKeyPressed(sfKey##key)
-
-/**
-* @def KEY_DOWN(key)
-* @brief Macro to check if a specific key has been pressed (down event).
-* @param key The key to check (e.g., A, B, etc.).
-* @return Boolean value indicating if the key is pressed.
-*/
-#define KEY_DOWN(key) sfKeyboard_isKeyDown(sfKey##key)
-
-/**
-* @def KEY_UP(key)
-* @brief Macro to check if a specific key has been released (up event).
-* @param key The key to check (e.g., A, B, etc.).
-* @return Boolean value indicating if the key is released.
-*/
-#define KEY_UP(key) sfKeyboard_isKeyUp(sfKey##key)
-/**
+ /**
  * @def KEY(key)
  * @brief Macro to check if a specific key is currently pressed.
  * @param key The key to check (e.g., A, B, etc.).
  * @return Boolean value indicating if the key is pressed.
  */
-#define MOUSE(button) sfMouse_isButtonPressed(sfMouse##button)
+#define KEY(key) sfKeyboard_isKeyPressed(sfKey##key)
 
  /**
-  * @def KEY_DOWN(key)
-  * @brief Macro to check if a specific key has been pressed (down event).
+ * @def KEY_DOWN(key)
+ * @brief Macro to check if a specific key has been pressed (down event).
+ * @param key The key to check (e.g., A, B, etc.).
+ * @return Boolean value indicating if the key is pressed.
+ */
+#define KEY_DOWN(key) sfKeyboard_isKeyDown(sfKey##key)
+
+ /**
+ * @def KEY_UP(key)
+ * @brief Macro to check if a specific key has been released (up event).
+ * @param key The key to check (e.g., A, B, etc.).
+ * @return Boolean value indicating if the key is released.
+ */
+#define KEY_UP(key) sfKeyboard_isKeyUp(sfKey##key)
+ /**
+  * @def KEY(key)
+  * @brief Macro to check if a specific key is currently pressed.
   * @param key The key to check (e.g., A, B, etc.).
   * @return Boolean value indicating if the key is pressed.
   */
-#define MOUSE_DOWN(button) sfMouse_isButtonDown(sfMouse##button)
+#define MOUSE(button) sfMouse_isButtonPressed(sfMouse##button)
 
   /**
-   * @def KEY_UP(key)
-   * @brief Macro to check if a specific key has been released (up event).
+   * @def KEY_DOWN(key)
+   * @brief Macro to check if a specific key has been pressed (down event).
    * @param key The key to check (e.g., A, B, etc.).
-   * @return Boolean value indicating if the key is released.
+   * @return Boolean value indicating if the key is pressed.
    */
+#define MOUSE_DOWN(button) sfMouse_isButtonDown(sfMouse##button)
+
+   /**
+	* @def KEY_UP(key)
+	* @brief Macro to check if a specific key has been released (up event).
+	* @param key The key to check (e.g., A, B, etc.).
+	* @return Boolean value indicating if the key is released.
+	*/
 #define MOUSE_UP(button) sfMouse_isButtonUp(sfMouse##button)
 
-/**
-* @def STD_LIST_CREATE_POINTER(type, size, ...)
-* @brief Macro to create a list of pointers of a specific type.
-* @param type The type of data.
-* @param size The size of the list.
-*/
+	/**
+	* @def STD_LIST_CREATE_POINTER(type, size, ...)
+	* @brief Macro to create a list of pointers of a specific type.
+	* @param type The type of data.
+	* @param size The size of the list.
+	*/
 #define STD_LIST_CREATE_POINTER(type, size, ...) \
   stdList_Create(sizeof(type*), size, __VA_ARGS__)
 
 
-/**
-* @def STD_VECTOR_CREATE_POINTER(type, size, ...)
-* @brief Macro to create a vector of pointers of a specific type.
-* @param type The type of data.
-* @param size The size of the vector.
-*/
+	/**
+	* @def STD_VECTOR_CREATE_POINTER(type, size, ...)
+	* @brief Macro to create a vector of pointers of a specific type.
+	* @param type The type of data.
+	* @param size The size of the vector.
+	*/
 #define STD_VECTOR_CREATE_POINTER(type, size, ...) \
   stdVector_Create(sizeof(type*), size, __VA_ARGS__)
 
-/**
-* @def FOR_EACH_TEMP_LIST(name, type, initFunc, func)
-* @brief Macro to iterate over a temporary list.
-* @param name The name of the list.
-* @param type The type of elements in the list.
-* @param initFunc The function to initialize the list.
-* @param func The function to apply to each element.
-*/
+	/**
+	* @def FOR_EACH_TEMP_LIST(name, type, initFunc, func)
+	* @brief Macro to iterate over a temporary list.
+	* @param name The name of the list.
+	* @param type The type of elements in the list.
+	* @param initFunc The function to initialize the list.
+	* @param func The function to apply to each element.
+	*/
 #define FOR_EACH_TEMP_LIST(name, type, initFunc, func) \
   stdList* name = initFunc; \
   for (int i = 0; i < name->size(name); i++) { func } \
   name->destroy(&name);
 
-/**
-* @def FOR_EACH_LIST(list, type, it_name, data_container_name, func)
-* @brief Macro to iterate over a list and apply a function to each element.
-* @param list The list to iterate over.
-* @param type The type of elements in the list.
-* @param it_name The iterator name.
-* @param data_container_name The name for the data container.
-* @param func The function to apply to each element.
-*/
+	/**
+	* @def FOR_EACH_LIST(list, type, it_name, data_container_name, func)
+	* @brief Macro to iterate over a list and apply a function to each element.
+	* @param list The list to iterate over.
+	* @param type The type of elements in the list.
+	* @param it_name The iterator name.
+	* @param data_container_name The name for the data container.
+	* @param func The function to apply to each element.
+	*/
 #define FOR_EACH_LIST(list, type, it_name, data_container_name, func) \
   for (int it_name = 0; it_name < list->size(list); it_name++) { \
     type* data_container_name = STD_GETDATA(list, type, it_name); \
     func }
 
-/**
-* @def FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)
-* @brief Macro to iterate over a list of pointers and apply a function to each element.
-* @param list The list to iterate over.
-* @param type The type of elements in the list.
-* @param it_name The iterator name.
-* @param data_container_name The name for the data container.
-* @param func The function to apply to each element.
-*/
+	/**
+	* @def FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)
+	* @brief Macro to iterate over a list of pointers and apply a function to each element.
+	* @param list The list to iterate over.
+	* @param type The type of elements in the list.
+	* @param it_name The iterator name.
+	* @param data_container_name The name for the data container.
+	* @param func The function to apply to each element.
+	*/
 #define FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func) \
   for (int it_name = 0; it_name < list->size(list); it_name++) { \
     type* data_container_name##_ = STD_GETDATA(list, type, it_name); \
     type data_container_name = *data_container_name##_; \
     func }
 
-//------------------------------------------VECTOR FUNCTION----------------------------------------------//
+	//------------------------------------------VECTOR FUNCTION----------------------------------------------//
 
-/**
-* @def DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to add two vectors.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for multiplication (e.g., float).
-*/
+	/**
+	* @def DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to add two vectors.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for multiplication (e.g., float).
+	*/
 #define DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type AddVector2##suffixe(vector_type a, vector_type b) { \
     return (vector_type){a.x + b.x, a.y + b.y}; \
   }
 
-/**
-* @def DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to subtract two vectors.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for multiplication (e.g., float).
-*/
+	/**
+	* @def DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to subtract two vectors.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for multiplication (e.g., float).
+	*/
 #define DECLARE_SUB_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type SubVector2##suffixe(vector_type a, vector_type b) { \
     return (vector_type){a.x - b.x, a.y - b.y}; \
   }
 
-/**
-* @def DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to multiply a vector by a scalar.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for multiplication (e.g., float).
-*/
+	/**
+	* @def DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to multiply a vector by a scalar.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for multiplication (e.g., float).
+	*/
 #define DECLARE_MULTIPLY_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type MultiplyVector2##suffixe(vector_type a, type b) { \
     return (vector_type){a.x * b, a.y * b}; \
   }
 
-   /**  
-* @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to divide a vector by a scalar.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for multiplication (e.g., float).
-*/
+	/**
+ * @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
+ * @brief Declares a function to divide a vector by a scalar.
+ * @param vector_type The type of vector (e.g., sfVector2f).
+ * @param suffixe The suffix for the function (e.g., f for float).
+ * @param type The type of scalar used for multiplication (e.g., float).
+ */
 #define DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type DivideVector2##suffixe(vector_type a, type b) { \
     return (vector_type){a.x / b, a.y / b}; \
   }
 
-/**
-* @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to create a vector of specified type and values.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for vector creation (e.g., float).
-*/
+ /**
+ * @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
+ * @brief Declares a function to create a vector of specified type and values.
+ * @param vector_type The type of vector (e.g., sfVector2f).
+ * @param suffixe The suffix for the function (e.g., f for float).
+ * @param type The type of scalar used for vector creation (e.g., float).
+ */
 #define DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type vector_type##_Create(type a, type b) { \
     return (vector_type){a, b}; \
   }
 
-/**
-* @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
-* @brief Declares a function to print the values of a vector.
-* @param vector_type The type of vector (e.g., sfVector2f).
-* @param suffixe The suffix for the function (e.g., f for float).
-* @param type The type of scalar used for printing (e.g., float).
-*/
+ /**
+ * @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
+ * @brief Declares a function to print the values of a vector.
+ * @param vector_type The type of vector (e.g., sfVector2f).
+ * @param suffixe The suffix for the function (e.g., f for float).
+ * @param type The type of scalar used for printing (e.g., float).
+ */
 #define DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type) \
   void PrintVector2##suffixe(vector_type vec, sfBool go_to_next_line) { \
     NEW_CHAR(sentence_debug, 100) \
@@ -253,7 +256,7 @@ char resource_directory[MAX_PATH_SIZE];
       printf("\n"); \
   }
 
-              // Declare basic vector operations for vector2 of any type, such as sfVector2f, sfVector2i, or sfVector2u.
+ // Declare basic vector operations for vector2 of any type, such as sfVector2f, sfVector2i, or sfVector2u.
 
 #define DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(vector_type, suffix, type)   \
     /**                                                                 \
@@ -319,7 +322,7 @@ DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(sfVector2i, i, int)
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(sfVector2u, u, unsigned int)
 
 
-              //------------------------------------------MATHS FUNCTION----------------------------------------------//
+//------------------------------------------MATHS FUNCTION----------------------------------------------//
 
 /**
 * @def PI
@@ -370,84 +373,96 @@ DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(sfVector2u, u, unsigned int)
 #define MIN(a, b) a <= b ? a : b
 
 /**
-* @brief Checks if two circles are in collision.
-* @param _pos1 The position of the first circle.
-* @param _pos2 The position of the second circle.
-* @param _rayon1 The radius of the first circle.
-* @param _rayon2 The radius of the second circle.
-* @return True if there is a collision, false otherwise.
-*/
-sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2);
+ * @brief Checks if two circles are in collision.
+ * @param _pos1 The position of the first circle.
+ * @param _pos2 The position of the second circle.
+ * @param _rayon1 The radius of the first circle.
+ * @param _rayon2 The radius of the second circle.
+ * @param shouldScale Whether to apply scaling adjustments.
+ * @return True if there is a collision, false otherwise.
+ */
+sfBool Circle_Collision(sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2, sfBool shouldScale);
 
 /**
  * @brief Checks if two rectangles are in collision.
  * @param _box1 The first rectangle (position, width, height).
  * @param _box2 The second rectangle (position, width, height).
+ * @param shouldScale Whether to apply scaling adjustments.
  * @return True if there is a collision, false otherwise.
  */
-sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2);
+sfBool Rectangle_Collision(sfFloatRect _box1, sfFloatRect _box2, sfBool shouldScale);
 
 /**
  * @brief Checks if a circle and a rectangle are in collision.
  * @param pos The position of the circle.
  * @param radius The radius of the circle.
  * @param _rect The rectangle (position, width, height).
+ * @param shouldScale Whether to apply scaling adjustments.
  * @return True if there is a collision, false otherwise.
  */
-sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect);
+sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect, sfBool shouldScale);
 
 /**
-* @brief Checks if a point is inside a circle.
- * @param _pos The point to check.
- * @param _circle_pos The position of the circle.
- * @param _rayon The radius of the circle.
- * @return True if the point is inside the circle, false otherwise. 
-*/
-sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r);
+ * @brief Checks if a line and a circle are in collision.
+ * @param start_line The start position of the line.
+ * @param end_line The end position of the line.
+ * @param circle_pos The position of the circle.
+ * @param r The radius of the circle.
+ * @param shouldScale Whether to apply scaling adjustments.
+ * @return True if there is a collision, false otherwise.
+ */
+sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r, sfBool shouldScale);
+
+/**
+ * @brief Checks if a point is on a line segment.
+ * @param start_line The start position of the line.
+ * @param end_line The end position of the line.
+ * @param point The point to check.
+ * @param offset The tolerance offset.
+ * @param shouldScale Whether to apply scaling adjustments.
+ * @return True if the point is on the line, false otherwise.
+ */
+sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset, sfBool shouldScale);
+
+/**
+ * @brief Checks if two line segments intersect.
+ * @param start_line_one The start position of the first line.
+ * @param end_line_one The end position of the first line.
+ * @param start_line_two The start position of the second line.
+ * @param end_line_two The end position of the second line.
+ * @param shouldScale Whether to apply scaling adjustments.
+ * @return True if there is a collision, false otherwise.
+ */
+sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two, sfBool shouldScale);
+
+/**
+ * @brief Checks if a line and a rectangle are in collision.
+ * @param start_line The start position of the line.
+ * @param end_line The end position of the line.
+ * @param rect The rectangle (position, width, height).
+ * @param shouldScale Whether to apply scaling adjustments.
+ * @return True if there is a collision, false otherwise.
+ */
+sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect, sfBool shouldScale);
 
 /**
  * @brief Checks if a point is inside a circle.
  * @param _pos The point to check.
  * @param _circle_pos The position of the circle.
  * @param _rayon The radius of the circle.
+ * @param shouldScale Whether to apply scaling adjustments.
  * @return True if the point is inside the circle, false otherwise.
  */
-sfBool LinePoint_Collision(sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset);
-
-/**
- * @brief Checks if a point is inside a circle.
- * @param _pos The point to check.
- * @param _circle_pos The position of the circle.
- * @param _rayon The radius of the circle.
- * @return True if the point is inside the circle, false otherwise.
- */
-sfBool LineLine_Collision(sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two);
-
-/**
- * @brief Checks if a point is inside a circle.
- * @param _pos The point to check.
- * @param _circle_pos The position of the circle.
- * @param _rayon The radius of the circle.
- * @return True if the point is inside the circle, false otherwise.
- */
-sfBool LineRect_Collision(sfVector2f start_line, sfVector2f end_line, sfFloatRect rect);
-
-/**
- * @brief Checks if a point is inside a circle.
- * @param _pos The point to check.
- * @param _circle_pos The position of the circle.
- * @param _rayon The radius of the circle.
- * @return True if the point is inside the circle, false otherwise.
- */
-sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon);
+sfBool PointInCircle(sfVector2f _pos, sfVector2f _circle_pos, float _rayon, sfBool shouldScale);
 
 /**
  * @brief Checks if a point is inside a rectangle.
  * @param _pos The point to check.
  * @param _box The rectangle (position, width, height).
+ * @param shouldScale Whether to apply scaling adjustments.
  * @return True if the point is inside the rectangle, false otherwise.
  */
-sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box);
+sfBool PointInRectangle(sfVector2f _pos, sfFloatRect _box, sfBool shouldScale);
 
 /**
  * @brief Generates a random integer between the given minimum and maximum values.
@@ -542,13 +557,13 @@ typedef struct Thread_Info thread_info;
  */
 struct Thread_Info
 {
-    stdList* files_info; /**< The list of files to process. */
-    int start; /**< The starting index for processing. */
-    int end; /**< The ending index for processing. */
-    float* progressValue;
-    float* totalSize;
-    float* currentSize;
-    void (*func)(const char*); /**< The function to apply to each file. */
+	stdList* files_info; /**< The list of files to process. */
+	int start; /**< The starting index for processing. */
+	int end; /**< The ending index for processing. */
+	float* progressValue;
+	float* totalSize;
+	float* currentSize;
+	void (*func)(const char*); /**< The function to apply to each file. */
 };
 
 /**
@@ -570,11 +585,11 @@ typedef struct Clock Clock;
  */
 struct Clock
 {
-    void (*restartClock)(Clock* clock); /**< Restarts the clock. */
-    float (*getDeltaTime)(Clock* clock); /**< Returns the time difference between frames. */
-    float (*frameRate)(Clock* clock); /**< Returns the current frame rate. */
-    void (*destroy)(Clock** clock); /**< Destroys the clock and frees resources. */
-    clock_data* _Data; /**< Internal data for managing the clock. */
+	void (*restartClock)(Clock* clock); /**< Restarts the clock. */
+	float (*getDeltaTime)(Clock* clock); /**< Returns the time difference between frames. */
+	float (*frameRate)(Clock* clock); /**< Returns the current frame rate. */
+	void (*destroy)(Clock** clock); /**< Destroys the clock and frees resources. */
+	clock_data* _Data; /**< Internal data for managing the clock. */
 };
 
 /**
@@ -621,8 +636,8 @@ typedef struct FilesInfo FilesInfo;
  */
 struct FilesInfo
 {
-    char m_name[MAX_PATH_SIZE]; /**< The name of the file. */
-    char m_path[MAX_PATH_SIZE]; /**< The full path to the file. */
+	char m_name[MAX_PATH_SIZE]; /**< The name of the file. */
+	char m_path[MAX_PATH_SIZE]; /**< The full path to the file. */
 };
 
 /**
@@ -696,6 +711,6 @@ void __LoadWithThread(void* thread_infos);
  * @param type The type of scene to load.
  * @param func The function to apply after loading the scene.
  */
-void __LoadScene(const char* scene, const char* extension, const char* type, float* progressValue ,void (*func)(const char*));
+void __LoadScene(const char* scene, const char* extension, const char* type, float* progressValue, void (*func)(const char*));
 
 void UpdateKeyAndMouseState(void);

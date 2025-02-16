@@ -1,28 +1,29 @@
 ﻿/*
-    Author: GRALLAN Yann
+	Author: GRALLAN Yann
 
-    Description: An advanced game engine for CSFML
+	Description: An advanced game engine for CSFML
 
-    Date: 2025/01/22
+	Date: 2025/01/22
 
-    MIT License
+	MIT License
 
-    Copyright (c) 2025 GRALLAN Yann
+	Copyright (c) 2025 GRALLAN Yann
 
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #pragma once
 #include "Tools.h"
 #include "string.h"
+#undef DrawText;
 
 /**
  * @file windowmanager.h
@@ -38,6 +39,8 @@
  * The above code creates a window of size 1080x720 with a title of "SFML_Works" and the default window style.
  */
 
+
+struct Animation;
 
 /**
  * @typedef WindowManager
@@ -57,195 +60,217 @@ typedef struct WindowManager_Data WindowManager_Data;
  */
 struct WindowManager
 {
-    WindowManager_Data* _Data; /**< Internal data for window manager. */
+	WindowManager_Data* _Data; /**< Internal data for window manager. */
 
-    /**
-     * @brief Checks if the window is currently in fullscreen mode.
-     * @param window The WindowManager instance.
-     * @return True if the window is fullscreen, false otherwise.
-     */
-    sfBool(*IsFullscreen)(const WindowManager* window);
+	/**
+	 * @brief Checks if the window is currently in fullscreen mode.
+	 * @param window The WindowManager instance.
+	 * @return True if the window is fullscreen, false otherwise.
+	 */
+	sfBool(*IsFullscreen)(const WindowManager* window);
 
-    /**
-     * @brief Toggles between fullscreen and windowed mode.
-     * @param window The WindowManager instance.
-     */
-    void (*ToggleFullscreen)(const WindowManager* window);
+	/**
+	 * @brief Toggles between fullscreen and windowed mode.
+	 * @param window The WindowManager instance.
+	 */
+	void (*ToggleFullscreen)(const WindowManager* window);
 
-    /**
-     * @brief Adds a new custom parameter to the window manager.
-     * @param window_manager The WindowManager instance.
-     * @param name The name of the custom parameter.
-     * @param param_func The function that handles the parameter.
-     * @param param_data The data for the custom parameter.
-     * @param param_size The size of the parameter data.
-     * 
-     * @code
-     * //Example of usage by adding a new custom parameter:
-     * void setFPSMax(const WindowManager* window, void* fps_max)
-     * {
-     *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
-     * }
-     * 
-     * int main(void)
-     * {
-     *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
-     *     unsigned int fps = 400;
-     *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
-     * }
-     * @endcode
-     */
-    void (*AddNewCustomParam)(const WindowManager* window_manager, const char* name, void (*param_func)(const WindowManager* window, void* param), const void* param_data, const size_t param_size);
+	/**
+	 * @brief Adds a new custom parameter to the window manager.
+	 * @param window_manager The WindowManager instance.
+	 * @param name The name of the custom parameter.
+	 * @param param_func The function that handles the parameter.
+	 * @param param_data The data for the custom parameter.
+	 * @param param_size The size of the parameter data.
+	 *
+	 * @code
+	 * //Example of usage by adding a new custom parameter:
+	 * void setFPSMax(const WindowManager* window, void* fps_max)
+	 * {
+	 *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
+	 * }
+	 *
+	 * int main(void)
+	 * {
+	 *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
+	 *     unsigned int fps = 400;
+	 *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
+	 * }
+	 * @endcode
+	 */
+	void (*AddNewCustomParam)(const WindowManager* window_manager, const char* name, void (*param_func)(const WindowManager* window, void* param), const void* param_data, const size_t param_size);
 
-    /**
-     * @brief Sets a custom parameter for the window manager.
-     * @param window The WindowManager instance.
-     * @param name The name of the custom parameter.
-     * @param param The new value of the parameter.
-     * 
-     * @code
-     * //Example of usage by getting a custom parameter:
-     * void setFPSMax(const WindowManager* window, void* fps_max)
-     * {
-     *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
-     * }
-     * 
-     * int main(void)
-     * {
-     *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
-     *     unsigned int fps = 400;
-     *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
-     *     
-     *     fps = 200;
-     *     window_manager->SetCustomParam(window_manager, "FPS", &fps); // Set the FPS limit to 200
-     *     window_manager->SetCustomParam(window_manager, "FPS", STD_CONVERT(unsigned int, 200)); // The use of STD_CONVERT macro is usefull to set the value directly
-     * }
-     * @endcode
-     */
-    void (*SetCustomParam)(const WindowManager* window, const char* name, const void* param);
+	/**
+	 * @brief Sets a custom parameter for the window manager.
+	 * @param window The WindowManager instance.
+	 * @param name The name of the custom parameter.
+	 * @param param The new value of the parameter.
+	 *
+	 * @code
+	 * //Example of usage by getting a custom parameter:
+	 * void setFPSMax(const WindowManager* window, void* fps_max)
+	 * {
+	 *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
+	 * }
+	 *
+	 * int main(void)
+	 * {
+	 *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
+	 *     unsigned int fps = 400;
+	 *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
+	 *
+	 *     fps = 200;
+	 *     window_manager->SetCustomParam(window_manager, "FPS", &fps); // Set the FPS limit to 200
+	 *     window_manager->SetCustomParam(window_manager, "FPS", STD_CONVERT(unsigned int, 200)); // The use of STD_CONVERT macro is usefull to set the value directly
+	 * }
+	 * @endcode
+	 */
+	void (*SetCustomParam)(const WindowManager* window, const char* name, const void* param);
 
-    /**
-     * @brief Retrieves a custom parameter from the window manager.
-     * @param window The WindowManager instance.
-     * @param name The name of the custom parameter.
-     * @return The custom parameter data.
-     * 
-     * @code
-     * //Example of usage by getting a custom parameter:
-     * void setFPSMax(const WindowManager* window, void* fps_max)
-     * {
-     *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
-     * }
-     * 
-     * int main(void)
-     * {
-     *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
-     *     unsigned int fps = 400;
-     *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
-     *     
-     *     unsigned int fpsLimt = *(unsigned int*)window_manager->GetCustomParam(window_manager, "FPS"); // Get the current FPS limit
-     * }
-     * @endcode
-     */
-    void* (*GetCustomParam)(const WindowManager* window, const char* name);
+	/**
+	 * @brief Retrieves a custom parameter from the window manager.
+	 * @param window The WindowManager instance.
+	 * @param name The name of the custom parameter.
+	 * @return The custom parameter data.
+	 *
+	 * @code
+	 * //Example of usage by getting a custom parameter:
+	 * void setFPSMax(const WindowManager* window, void* fps_max)
+	 * {
+	 *     sfRenderWindow_setFramerateLimit(window->GetWindow(window), *(unsigned int*)fps_max);
+	 * }
+	 *
+	 * int main(void)
+	 * {
+	 *     WindowManager* window_manager = CreateWindowManager(1080, 720, "SFML_Works", sfDefaultStyle, NULL);
+	 *     unsigned int fps = 400;
+	 *     window_manager->AddNewCustomParam(window_manager, "FPS", setFPSMax, &fps, sizeof(unsigned int)); // Add a custom parameter for setting the FPS limit
+	 *
+	 *     unsigned int fpsLimt = *(unsigned int*)window_manager->GetCustomParam(window_manager, "FPS"); // Get the current FPS limit
+	 * }
+	 * @endcode
+	 */
+	void* (*GetCustomParam)(const WindowManager* window, const char* name);
 
-    /**
-     * @brief Adds a new sound with the specified volume.
-     * @param window_manager The WindowManager instance.
-     * @param name The name of the sound.
-     * @param volume The volume of the sound (0.0 to 100.0).
-     */
-    void (*AddNewSound)(const WindowManager* window_manager, const char* name, float volume);
+	/**
+	 * @brief Adds a new sound with the specified volume.
+	 * @param window_manager The WindowManager instance.
+	 * @param name The name of the sound.
+	 * @param volume The volume of the sound (0.0 to 100.0).
+	 */
+	void (*AddNewSound)(const WindowManager* window_manager, const char* name, float volume);
 
-    /**
-     * @brief Sets the volume of a specific sound.
-     * @param window The WindowManager instance.
-     * @param name The name of the sound.
-     * @param volume The volume to set (0.0 to 100.0).
-     */
-    void (*SetSound)(const WindowManager* window, const char* name, float volume);
+	/**
+	 * @brief Sets the volume of a specific sound.
+	 * @param window The WindowManager instance.
+	 * @param name The name of the sound.
+	 * @param volume The volume to set (0.0 to 100.0).
+	 */
+	void (*SetSound)(const WindowManager* window, const char* name, float volume);
 
-    /**
-     * @brief Retrieves the volume of a specific sound.
-     * @param window The WindowManager instance.
-     * @param name The name of the sound.
-     * @return The current volume of the sound.
-     */
-    float (*GetSound)(const WindowManager* window, const char* name);
+	/**
+	 * @brief Retrieves the volume of a specific sound.
+	 * @param window The WindowManager instance.
+	 * @param name The name of the sound.
+	 * @return The current volume of the sound.
+	 */
+	float (*GetSound)(const WindowManager* window, const char* name);
 
-    /**
-     * @brief Retrieves the current timer value.
-     * @param window The WindowManager instance.
-     * @return The current timer value.
-     */
-    float (*GetTimer)(const WindowManager* window);
+	/**
+	 * @brief Retrieves the current timer value.
+	 * @param window The WindowManager instance.
+	 * @return The current timer value.
+	 */
+	float (*GetTimer)(const WindowManager* window);
 
-    /**
-     * @brief Resets the window manager's timer.
-     * @param window The WindowManager instance.
-     */
-    void (*ResetTimer)(const WindowManager* window);
+	/**
+	 * @brief Resets the window manager's timer.
+	 * @param window The WindowManager instance.
+	 */
+	void (*ResetTimer)(const WindowManager* window);
 
-    /**
-     * @brief Restarts the window manager's clock.
-     * @param window The WindowManager instance.
-     */
-    void (*RestartClock)(const WindowManager* window);
+	/**
+	 * @brief Restarts the window manager's clock.
+	 * @param window The WindowManager instance.
+	 */
+	void (*RestartClock)(const WindowManager* window);
 
-    /**
-     * @brief Retrieves the SFML window object.
-     * @param window The WindowManager instance.
-     * @return The SFML render window.
-     */
-    sfRenderWindow* (*GetWindow)(const WindowManager* window);
+	/**
+	 * @brief Retrieves the SFML window object.
+	 * @param window The WindowManager instance.
+	 * @return The SFML render window.
+	 */
+	sfRenderWindow* (*GetWindow)(const WindowManager* window);
 
-    /**
-     * @brief Retrieves the current event in the window manager.
-     * @param window The WindowManager instance.
-     * @return The current SFML event.
-     */
-    sfEvent* (*GetEvent)(const WindowManager* window);
+	/**
+	 * @brief Retrieves the current event in the window manager.
+	 * @param window The WindowManager instance.
+	 * @return The current SFML event.
+	 */
+	sfEvent* (*GetEvent)(const WindowManager* window);
 
-    /**
-     * @brief Polls for the next event in the window manager.
-     * @param window The WindowManager instance.
-     * @return True if an event is available, false otherwise.
-     */
-    sfBool(*PollEvent)(const WindowManager* window);
+	/**
+	 * @brief Polls for the next event in the window manager.
+	 * @param window The WindowManager instance.
+	 * @return True if an event is available, false otherwise.
+	 */
+	sfBool(*PollEvent)(const WindowManager* window);
 
-    /**
-     * @brief Retrieves the size of the window.
-     * @param window The WindowManager instance.
-     * @return The size of the window as an sfVector2u.
-     */
-    sfVector2u(*GetSize)(const WindowManager* window);
+	/**
+	 * @brief Retrieves the size of the window.
+	 * @param window The WindowManager instance.
+	 * @return The size of the window as an sfVector2u.
+	 */
+	sfVector2u(*GetSize)(const WindowManager* window);
 
-    /**
-     * @brief Retrieves the current mouse position in the window.
-     * @param window The WindowManager instance.
-     * @return The mouse position as an sfVector2f.
-     */
-    sfVector2f(*GetMousePos)(const WindowManager* window);
+	sfVector2u(*GetBaseSize)(const WindowManager* window);
 
-    /**
-     * @brief Sets a custom view for the window manager.
-     * @param window The WindowManager instance.
-     * @param view The new custom sfView to set.
-     */
-    void(*SetCustomView)(const WindowManager* window, sfView* view);
+	/**
+	 * @brief Retrieves the current mouse position in the window.
+	 * @param window The WindowManager instance.
+	 * @return The mouse position as an sfVector2f.
+	 */
+	sfVector2f(*GetMousePos)(const WindowManager* window);
 
-    /**
-     * @brief Retrieves the current custom view of the window manager.
-     * @param window The WindowManager instance.
-     * @return The current custom sfView.
-     */
-    sfView* (*GetCustomView)(const WindowManager* window);
+	/**
+	 * @brief Sets a custom view for the window manager.
+	 * @param window The WindowManager instance.
+	 * @param view The new custom sfView to set.
+	 */
+	void(*SetCustomView)(const WindowManager* window, sfView* view);
 
-    /**
-     * @brief Destroys the window manager and frees resources.
-     * @param window A pointer to the WindowManager instance to destroy.
-     */
-    void (*Destroy)(WindowManager** window);
+	/**
+	 * @brief Retrieves the current custom view of the window manager.
+	 * @param window The WindowManager instance.
+	 * @return The current custom sfView.
+	 */
+	sfView* (*GetCustomView)(const WindowManager* window);
+
+	void (*SetDefaultView)(const WindowManager* window);
+
+	sfView* (*GetDefaultView)(const WindowManager* window);
+
+	void (*Clear)(const WindowManager* window, sfColor color);
+
+	void(*Display)(const WindowManager* window);
+
+	void(*DrawSprite)(const WindowManager* window, const sfSprite* object, sfRenderStates* states);
+	void(*DrawText)(const WindowManager* window, const sfText* object, sfRenderStates* states);
+	void(*DrawShape)(const WindowManager* window, const sfShape* object, sfRenderStates* states);
+	void(*DrawCircleShape)(const WindowManager* window, const sfCircleShape* object, sfRenderStates* states);
+	void(*DrawConvexShape)(const WindowManager* window, const sfConvexShape* object, sfRenderStates* states);
+	void(*DrawRectangleShape)(const WindowManager* window, const sfRectangleShape* object, sfRenderStates* states);
+	void(*DrawVertexArray)(const WindowManager* window, const sfVertexArray* object, sfRenderStates* states);
+	void(*DrawVertexBuffer)(const WindowManager* window, const sfVertexBuffer* object, sfRenderStates* states);
+	void(*DrawAnimation)(const WindowManager* window, const struct Animation* object, sfRenderStates* states);
+
+
+
+	/**
+	 * @brief Destroys the window manager and frees resources.
+	 * @param window A pointer to the WindowManager instance to destroy.
+	 */
+	void (*Destroy)(WindowManager** window);
 };
 
 /**

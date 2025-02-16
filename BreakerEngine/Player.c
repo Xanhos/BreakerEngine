@@ -60,7 +60,7 @@ void UpdatePlayer(WindowManager* window)
 
 void DisplayPlayer(WindowManager* window)
 {
-	sfRenderWindow_drawAnimation(window->GetWindow(window), Player, NULL);
+	window->DrawAnimation(window, Player, NULL);
 }
 
 void DestroyPlayer()

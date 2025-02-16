@@ -312,8 +312,8 @@ static void UIObject_Update(UIObject* object, WindowManager* window)
 	object->isClicked = sfFalse;
 	object->isHover = sfFalse;
 
-	if ((object->_Data->type == CIRCLE && PointInCircle(mousePos, objectPos, objectSize.x)) ||
-		(object->_Data->type != CIRCLE && PointInRectangle(mousePos, (sfFloatRect) { objectPos.x - object->_Data->transform.origin.x, objectPos.y - object->_Data->transform.origin.y, objectSize.x, objectSize.y })))
+	if ((object->_Data->type == CIRCLE && PointInCircle(mousePos, objectPos, objectSize.x, sfTrue)) ||
+		(object->_Data->type != CIRCLE && PointInRectangle(mousePos, (sfFloatRect) { objectPos.x - object->_Data->transform.origin.x, objectPos.y - object->_Data->transform.origin.y, objectSize.x, objectSize.y }, sfTrue)))
 	{
 		object->isHover = sfTrue;
 		if (sfKeyboard_isKeyDown(object->_Data->key_button_trigger) || sfMouse_isButtonDown(object->_Data->mouse_button_trigger))
@@ -326,20 +326,20 @@ static void UIObject_Update(UIObject* object, WindowManager* window)
 
 }
 
-static void UIObject_Render(sfRenderWindow* window, UIObject* object, sfRenderStates* state)
+static void UIObject_Render(WindowManager* window, UIObject* object, sfRenderStates* state)
 {
 	if (!object->_Data->is_visible)
 		return;
 	switch (object->_Data->type)
 	{
 	case RECTANGLE:
-		sfRenderWindow_drawRectangleShape((window), (sfRectangleShape*)object->_Data->drawable, state);
+		window->DrawRectangleShape((window), (sfRectangleShape*)object->_Data->drawable, state);
 		break;
 	case CIRCLE:
-		sfRenderWindow_drawCircleShape((window), (sfCircleShape*)object->_Data->drawable, state);
+		window->DrawCircleShape((window), (sfCircleShape*)object->_Data->drawable, state);
 		break;
 	case SPRITE:
-		sfRenderWindow_drawSprite((window), (sfSprite*)object->_Data->drawable, state);
+		window->DrawSprite((window), (sfSprite*)object->_Data->drawable, state);
 		break;
 	default:
 		break;
@@ -549,7 +549,7 @@ static void UIObjectManager_Update(UIObjectManager* manager, WindowManager* wind
 		);
 }
 
-static void UIObjectManager_Render(UIObjectManager* manager, sfRenderWindow* window, sfRenderStates * states)
+static void UIObjectManager_Render(UIObjectManager* manager, WindowManager* window, sfRenderStates* states)
 {
 	for (int i = 0; i < manager->_Data->uiobject_vector->size(manager->_Data->uiobject_vector); i++)
 	{

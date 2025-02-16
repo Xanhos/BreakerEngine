@@ -66,11 +66,11 @@ static sfSprite* AddNewSprite(const SpriteManager* sprite_manager, const char* n
 	return sprite_holder.m_sprite;
 }
 
-static void Draw(const SpriteManager* sprite_manager, sfRenderWindow* window, sfRenderStates* states)
+static void Draw(const SpriteManager* sprite_manager, WindowManager* window, sfRenderStates* states)
 {
 	FOR_EACH_LIST(sprite_manager->_Data->m_sprite_list, SpriteHolder, i, tmp,
 		if (tmp->m_is_visible)
-			sfRenderWindow_drawSprite(window, tmp->m_sprite, states);
+			window->DrawSprite(window, tmp->m_sprite, states);
 			)
 }
 
