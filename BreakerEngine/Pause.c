@@ -83,7 +83,8 @@ void UIRenderPause(WindowManager* windowManager)
 
 void DestroyPause(WindowManager* windowManager)
 {
-
+	SpritePauseManager->destroy(&SpritePauseManager);
+	UIPauseManager->destroy(&UIPauseManager);
 }
 
-REGISTER_C_STATE(Pause)
+REGISTER_STATE(Pause)

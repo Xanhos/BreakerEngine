@@ -21,6 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "Particles.h"
+#include "MemoryManagement.h"
 
 typedef struct Particle Particle;
 struct Particle
@@ -64,7 +65,7 @@ struct Particles_Data
 
 static Particle* CreateParticle(Particles* particles)
 {
-	Particle* particle = calloc(1, sizeof(Particle));
+	Particle* particle = calloc_d(Particle, 1);
 	assert(particle);
 
 	particle->m_position = particles->_Data->m_position;
@@ -91,9 +92,9 @@ static sfBool UpdateParticle(Particles* particles, Particle* particle, float del
 
 static Particles* CreateParticles(ParticlesTypes type, sfVector2f position, sfVector2f origin, float radius, float angle_direction, float angle_spawn_spread, float speed, float rotation, int point_count, sfColor color, float despawn_time, float spawn_time, int spawn_count, float life_time)
 {
-	Particles* particles = calloc(1, sizeof(Particles));
+	Particles* particles = calloc_d(Particles, 1);
 	assert(particles);
-	Particles_Data* data = calloc(1, sizeof(Particles_Data));
+	Particles_Data* data = calloc_d(Particles_Data, 1);
 	assert(data);
 
 	data->m_particle_list = STD_LIST_CREATE_POINTER(Particle*, 0);
@@ -204,7 +205,7 @@ void UpdateParticles(Particles* particles, float deltaTime)
 	FOR_EACH_LIST_POINTER(data->m_particle_list, Particle*, i, it,
 		if (UpdateParticle(particles, it, deltaTime))
 		{
-			free(it);
+			free_d(it);
 			data->m_particle_list->erase(data->m_particle_list, i);
 			i--;
 		}

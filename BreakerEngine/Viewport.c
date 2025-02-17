@@ -21,6 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "Viewport.h"
+#include "MemoryManagement.h"
 
 struct Viewport_Data {
 	sfVector2u window_size;
@@ -67,9 +68,9 @@ static void Dezoom(Viewport* viewport, float factor)
 
 Viewport* CreateViewport(sfVector2u windowSize, sfVector2f size, sfFloatRect port)
 {
-	Viewport* viewport = calloc(1, sizeof(Viewport));
+	Viewport* viewport = calloc_d(Viewport, 1);
 	assert(viewport);
-	Viewport_Data* viewport_data = calloc(1, sizeof(Viewport_Data));
+	Viewport_Data* viewport_data = calloc_d(Viewport_Data, 1);;
 	assert(viewport_data);
 
 	viewport_data->window_size;

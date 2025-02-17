@@ -22,6 +22,7 @@
 */
 #include "WindowManager.h"
 #include "Animation.h"
+#include "MemoryManagement.h"
 
 typedef struct SoundInfo SoundInfo;
 struct SoundInfo
@@ -102,7 +103,7 @@ static void AddNewCustomParam(const WindowManager* window_manager, const char* n
 		custom_param.m_name = StrAllocNCopy(name);
 	custom_param.m_param_func = param_func;
 	custom_param.m_param_size = param_size;
-	custom_param.m_param = calloc(1, param_size);
+	custom_param.m_param = TrackerCalloc(1, param_size, "C:\\Users\\y.grallan\\Documents\\BreakerEngine\\BreakerEngine\\WindowManager.c", 106);
 	memcpy_s(custom_param.m_param, param_size, param_data, param_size);
 	window_manager->_Data->m_custom_param_list->push_back(window_manager->_Data->m_custom_param_list, &custom_param);
 	SetCustomParam(window_manager, name, param_data);
@@ -122,8 +123,8 @@ static void* GetCustomParam(const WindowManager* window, const char* name)
 static void DestroyCustomParam(WindowManager* window)
 {
 	FOR_EACH_LIST(window->_Data->m_custom_param_list, CustomParam, it, tmp,
-		free(tmp->m_name);
-	free(tmp->m_param);
+		free_d(tmp->m_name);
+	free_d(tmp->m_param);
 		)
 
 		window->_Data->m_custom_param_list->destroy(&window->_Data->m_custom_param_list);
@@ -171,7 +172,7 @@ static float GetWindowSound(const WindowManager* window, const char* name)
 static void DestroySound(WindowManager* window)
 {
 	FOR_EACH_LIST(window->_Data->m_sound_list, SoundInfo, it, tmp,
-		free(tmp->m_name);
+		free_d(tmp->m_name);
 		)
 
 		window->_Data->m_sound_list->destroy(&window->_Data->m_sound_list);
@@ -213,6 +214,12 @@ static sfVector2u GetWindowManagerSize(const WindowManager* window)
 {
 	return window->_Data->m_size;
 }
+
+static sfVector2u GetWindowManagerBaseSize(const WindowManager* window)
+{
+	return window->_Data->m_base_size;
+}
+
 
 static sfVector2f GetMousePos(const WindowManager* window)
 {
@@ -310,21 +317,21 @@ static void DestroyWindowManager(WindowManager** window)
 	DestroySound(*window);
 	DestroyCustomParam(*window);
 	WindowManager* tmp = *window;
-	free(tmp->_Data->m_title);
+	free_d(tmp->_Data->m_title);
 	tmp->_Data->m_window_clock->destroy(&tmp->_Data->m_window_clock);
 	sfRenderWindow_close(tmp->_Data->m_window);
 	sfRenderWindow_destroy(tmp->_Data->m_window);
-	free(tmp->_Data);
-	free(tmp);
+	free_d(tmp->_Data);
+	free_d(tmp);
 	*window = NULL;
 }
 
 
 WindowManager* CreateWindowManager(const unsigned int width, const unsigned int height, const char* title, const sfUint32 style, const sfContextSettings* settings)
 {
-	WindowManager* window_manager = calloc(1, sizeof(WindowManager));
+	WindowManager* window_manager = calloc_d(WindowManager, 1);
 	assert(window_manager);
-	WindowManager_Data* window_manager_data = calloc(1, sizeof(WindowManager_Data));
+	WindowManager_Data* window_manager_data = calloc_d(WindowManager_Data, 1);
 	assert(window_manager_data);
 	window_manager_data->m_size = (sfVector2u){ MIN(width,sfVideoMode_getDesktopMode().width), MIN(height, sfVideoMode_getDesktopMode().height) };
 	window_manager_data->m_base_size = (sfVector2u){ width, height };
@@ -342,6 +349,7 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	window_manager->Destroy = &DestroyWindowManager;
 	window_manager->GetEvent = &GetWindowEvent;
 	window_manager->GetSize = &GetWindowManagerSize;
+	window_manager->GetBaseSize = &GetWindowManagerBaseSize;
 	window_manager->GetSound = &GetWindowSound;
 	window_manager->GetTimer = &GetWindowTimer;
 	window_manager->GetWindow = &GetRenderWindow;

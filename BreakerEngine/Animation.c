@@ -22,6 +22,7 @@
 */
 #include "Animation.h"
 #include "CParser/CParser.h"
+#include "MemoryManagement.h"
 
 struct SimpleAnim_Data
 {
@@ -167,8 +168,8 @@ static sfBool IsStoppedAtLastFrame(Animation* anim)
 
 Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int number_of_line, int frame_per_line, int total_frame, float frame_time)
 {
-	Animation_Key* animation_key = calloc(1, sizeof(Animation_Key));
-	Animation_Key_Data* animation_key_data = calloc(1, sizeof(Animation_Key_Data));
+	Animation_Key* animation_key = calloc_d(Animation_Key, 1);
+	Animation_Key_Data* animation_key_data = calloc_d(Animation_Key_Data, 1);
 	assert(animation_key);
 	assert(animation_key_data);
 	animation_key_data->m_name = StrAllocNCopy(name);
@@ -264,21 +265,21 @@ static void DestroyAnimation(Animation** anim_data)
 {
 	Animation* anim = *anim_data;
 	FOR_EACH_LIST_POINTER(anim->_Data->m_key_anim_list, Animation_Key*, it, tmp,
-		free(tmp->_Data->m_name);
-	free(tmp->_Data);
-	free(tmp);
+		free_d(tmp->_Data->m_name);
+	free_d(tmp->_Data);
+	free_d(tmp);
 		);
-	free(anim->_Data->m_name);
-	free(anim->_Data);
-	free(anim);
+	free_d(anim->_Data->m_name);
+	free_d(anim->_Data);
+	free_d(anim);
 	*anim_data = NULL;
 }
 
 
 Animation* CreateAnimation(const char* name, sfTexture* texture)
 {
-	Animation* anim = calloc(1, sizeof(Animation));
-	Animation_Data* anim_data = calloc(1, sizeof(Animation_Data));
+	Animation* anim = calloc_d(Animation, 1);
+	Animation_Data* anim_data = calloc_d(Animation_Data, 1);
 	assert(anim);
 	assert(anim_data);
 	anim_data->m_name = StrAllocNCopy(name);
@@ -368,19 +369,19 @@ static sfSprite* SimpleAnimGetRenderer(SimpleAnim* anim)
 static void SimpleAnimDestroy(SimpleAnim** anim)
 {
 	sfSprite_destroy((*anim)->_Data->renderer);
-	free(((*anim)->_Data->anim->_Data->m_name));
-	free(((*anim)->_Data->anim->_Data));
-	free(((*anim)->_Data->anim));
-	free(((*anim)->_Data));
-	free(((*anim)));
+	free_d(((*anim)->_Data->anim->_Data->m_name));
+	free_d(((*anim)->_Data->anim->_Data));
+	free_d(((*anim)->_Data->anim));
+	free_d(((*anim)->_Data));
+	free_d(((*anim)));
 	*anim = NULL;
 }
 
 SimpleAnim* CreateSimpleAnim(sfTexture* texture, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time)
 {
-	SimpleAnim* anim = (SimpleAnim*)calloc(1, sizeof(SimpleAnim));
+	SimpleAnim* anim = calloc_d(SimpleAnim, 1);;
 	assert(anim);
-	anim->_Data = (SimpleAnim_Data*)calloc(1, sizeof(SimpleAnim_Data));
+	anim->_Data = calloc_d(SimpleAnim_Data, 1);
 	assert(anim->_Data);
 	anim->_Data->anim = CreateAnimationKey("SimpleAnim", rect, line_number, line_frame_number, total_frame, frame_time);
 	anim->_Data->renderer = sfSprite_create();

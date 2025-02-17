@@ -58,9 +58,12 @@ void DetrackerCalloc(void* ptr)
 			free(tmp->ptr);
 			totalFreed += tmp->size;
 			allocations->erase(allocations, it);
-			break;
+			return;
 		}
 			)
+
+
+	free(ptr);
 	
 }
 

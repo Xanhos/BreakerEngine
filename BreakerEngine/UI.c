@@ -1,5 +1,6 @@
 #include "UI.h"
 #include "Vector.h"
+#include "MemoryManagement.h"
 
 typedef enum
 {
@@ -266,6 +267,7 @@ static const sfTexture* UIObject_GetTexture(UIObject* object)
 		return sfSprite_getTexture((sfSprite*)object->_Data->drawable);
 		break;
 	default:
+		return NULL;
 		break;
 	}
 }
@@ -284,6 +286,7 @@ static sfIntRect UIObject_GetTextureRect(UIObject* object)
 		return sfSprite_getTextureRect((sfSprite*)object->_Data->drawable);
 		break;
 	default:
+		return (sfIntRect) { 0, 0, 0, 0 };
 		break;
 	}
 }
@@ -350,9 +353,9 @@ static void UIObject_Destroy(UIObject** object)
 {
 	UIObject_Data* data = (*object)->_Data;
 	UIObject_SetDrawable(*object, NULL);
-	free(data->name);
-	free(data);
-	free(*object);
+	free_d(data->name);
+	free_d(data);
+	free_d(*object);
 	*object = NULL;
 }
 
@@ -565,8 +568,8 @@ static void UIObjectManager_Destroy(UIObjectManager** manager)
 		UIObject_Destroy(&it);
 		);
 	(*manager)->_Data->uiobject_vector->destroy(&(*manager)->_Data->uiobject_vector);
-	free((*manager)->_Data);
-	free(*manager);
+	free_d((*manager)->_Data);
+	free_d(*manager);
 	*manager = NULL;
 }
 
@@ -574,9 +577,9 @@ static void UIObjectManager_Destroy(UIObjectManager** manager)
 
 UIObjectManager* CreateUIObjectManager()
 {
-	UIObjectManager* object = (UIObjectManager*)calloc(1, sizeof(UIObjectManager));
+	UIObjectManager* object = calloc_d(UIObjectManager, 1);
 	assert(object);
-	object->_Data = (UIObjectManager_Data*)calloc(1, sizeof(UIObjectManager_Data));
+	object->_Data = calloc_d(UIObjectManager_Data, 1);
 	assert(object->_Data);
 	object->_Data->uiobject_vector = STD_VECTOR_CREATE_POINTER(UIObject, 0);
 

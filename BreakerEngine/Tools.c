@@ -22,6 +22,7 @@
 */
 #include "Tools.h"
 #include "WindowManager.h"
+#include "MemoryManagement.h"
 
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2f, f, float)
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2i, i, int)
@@ -62,17 +63,17 @@ static float Frame_Rate(Clock* clock)
 static void Clock_Destroy(Clock** clock)
 {
 	sfClock_destroy((*clock)->_Data->m_clock);
-	free((*clock)->_Data);
-	free(*clock);
+	free_d((*clock)->_Data);
+	free_d(*clock);
 	*clock = NULL;
 }
 
 
 Clock* CreateClock()
 {
-	Clock* tmp = (Clock*)calloc(1, sizeof(Clock));
+	Clock* tmp = calloc_d(Clock, 1);
 	assert(tmp);
-	tmp->_Data = (clock_data*)calloc(1, sizeof(clock_data));
+	tmp->_Data = calloc_d(clock_data, 1);
 	assert(tmp->_Data);
 
 	tmp->_Data->m_clock = sfClock_create();
@@ -135,7 +136,7 @@ void __LoadWithThread(void* thread_infos)
 	for (int it = infos->start; it < infos->end; it++)
 	{
 		infos->func(STD_GETDATA(infos->files_info, FilesInfo, it)->m_path);
-		*infos->currentSize += GetFileSizeCustom(STD_GETDATA(infos->files_info, FilesInfo, it)->m_path) / 1000.f;
+		*infos->currentSize += 1;
 		*infos->progressValue = *infos->currentSize / *infos->totalSize;
 	}
 }
@@ -149,6 +150,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 	strcat_s(path, MAX_PATH_SIZE, "/");
 	strcat_s(path, MAX_PATH_SIZE, type);
 
+	*progressValue = 0.0f;
 	Path tmp_path = fs_create_path(path);
 	if (tmp_path.exist(&tmp_path))
 	{
@@ -160,11 +162,10 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 			return;
 		}
 
-		//total size of the loading (in kb)
 		float totalSize = 0.f, currentSize = 0.f;
 
 		FOR_EACH_LIST(files_infos, FilesInfo, i, it,
-			totalSize += GetFileSizeCustom(it->m_path) / 1000.f;
+			totalSize ++;
 		);
 
 		int nbrThread = files_infos->size(files_infos) < MAX_THREAD ? files_infos->size(files_infos) : MAX_THREAD;
@@ -210,6 +211,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 	{
 		printf_d("No %s directory found\n\n", path);
 	}
+	*progressValue = 1.0f;
 }
 
 void UpdateKeyAndMouseState(void)

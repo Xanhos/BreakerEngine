@@ -130,4 +130,4 @@ void DestroyOption(WindowManager* windowManager)
 }
 
 
-REGISTER_C_STATE(Option)
+REGISTER_STATE(Option)

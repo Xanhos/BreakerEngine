@@ -42,7 +42,7 @@
  * @param loading_screen_animation Pointer to the Animation object for the loading screen.
  * @param key_anim_name Name of the animation key to use for the loading screen.
  */
-void StartGame(WindowManager* window_manager, char* starting_state, Animation* loading_screen_animation, const char* key_anim_name);
+void StartGame(WindowManager* window_manager,const char* starting_state, const char* loading_state, void(*ResetLoadingStateFunc)(WindowManager* window));
 
 /**
  * @brief End the game and exit the StartGame function.

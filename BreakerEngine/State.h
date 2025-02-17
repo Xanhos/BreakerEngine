@@ -38,7 +38,7 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
    *
    * @param stateName The name of the state to register.
    */
-#define REGISTER_C_STATE(stateName)                                            \
+#define REGISTER_STATE(stateName)                                            \
     static void AddState##stateName##ToStateList()                             \
     {                                                                          \
         printf("Adding state %s\n", #stateName);                              /**< Prints the state being added. */ \
@@ -63,8 +63,6 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
     * @param stateName The name of the state.
     */
 #define DECLARE_BLANK_STATE(stateName) \
-UIObjectManager* UI##stateName##Manager;  \
-SpriteManager* Sprite##stateName##Manager; \
 void Init##stateName(WindowManager* windowManager)          /**< Initializes the state. */ \
 {                                                           \
                                                             \

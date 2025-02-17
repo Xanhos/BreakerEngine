@@ -27,7 +27,7 @@
 #include "time.h"
 
 
-StateInfo actual_state, new_state;
+StateInfo Current_state, New_state, Loading_state;
 
 typedef struct
 {
@@ -37,14 +37,16 @@ typedef struct
 } SubState;
 
 stdList* registered_sub_state_list, * active_sub_state_list;
+void(*ResetLoadingStateFunction)(WindowManager* window);
 
-
-Animation* loading_screen;
 
 ThreadManager* thread_manager;
 sfBool is_changing_state;
+sfBool has_loaded_state;
 sfBool is_sub_state_delete;
 Clock* main_clock;
+
+float loading_delay;
 
 
 typedef struct {
@@ -124,6 +126,7 @@ static void Update(WindowManager* window)
 {
 	UpdateKeyAndMouseState();
 	main_clock->restartClock(main_clock);
+	window->RestartClock(window);
 	DeltaTime = main_clock->getDeltaTime(main_clock);
 	if (is_changing_state)
 	{
@@ -133,67 +136,80 @@ static void Update(WindowManager* window)
 		active_sub_state_list->clear(active_sub_state_list);
 		registered_sub_state_list->clear(registered_sub_state_list);
 
-		if (actual_state.Destroy)
-			actual_state.Destroy(window);
+		if (Current_state.Destroy)
+			Current_state.Destroy(window);
 
-		if (new_state.Init)
+		if (New_state.Init)
 		{
 
 			InitThreadInfo init_thread_info;
-			init_thread_info.state_info = new_state;
+			init_thread_info.state_info = New_state;
 			init_thread_info.window_manager = window;
 
 			thread_manager->AddNewThread(thread_manager, &init_new_state, &init_thread_info, sfTrue, sizeof(init_thread_info));
 
 		}
-		actual_state = new_state;
+		Current_state = New_state;
+		loading_delay = 1.f;
 		is_changing_state = sfFalse;
+		has_loaded_state = sfFalse;
 	}
 
-	if (thread_manager->GetThreadCount(thread_manager))
+	if (!has_loaded_state)
 	{
 		thread_manager->Update(thread_manager);
-		if (loading_screen)
+		if (!thread_manager->GetThreadCount(thread_manager))
 		{
-			loading_screen->Update(loading_screen, DeltaTime);
-			sfRenderWindow* rdwindow = window->GetWindow(window);
-			sfRenderWindow_clear(rdwindow, sfBlack);
+ 			loading_delay -= DeltaTime;
+			if (loading_delay < 0.f)
+			{
+				has_loaded_state = sfTrue;
+			}
+		}
+		if (Loading_state.Update && strcmp(Loading_state.name, "null") != 0)
+		{
+			Loading_state.Update(window);
+			window->Clear(window, sfBlack);
 			sfView* customView = window->GetCustomView(window);
-			sfRenderWindow_setView(rdwindow, sfRenderWindow_getDefaultView(rdwindow));
-			sfRenderWindow_drawAnimation(rdwindow, loading_screen, NULL);
+			window->SetDefaultView(window);
+			if (Loading_state.Render)
+				Loading_state.Render(window);
+			if (Loading_state.Render)
+				Loading_state.UIRender(window);
 			if (customView)
 				window->SetCustomView(window, customView);
-			sfRenderWindow_display(rdwindow);
+			window->Display(window);
 		}
 	}
 	else
 	{
-		window->RestartClock(window);
+		if (ResetLoadingStateFunction)
+			ResetLoadingStateFunction(window);
 		while (sfRenderWindow_pollEvent(window->GetWindow(window), window->GetEvent(window)))
 		{
 			sfEvent* event = window->GetEvent(window);
 			if (event->type == sfEvtClosed)
 			{
-				sfRenderWindow_close(window->GetWindow(window));
+				EndGame(window);
 			}
-			if (actual_state.UpdateEvent)
-				actual_state.UpdateEvent(window, event);
+			if (Current_state.UpdateEvent)
+				Current_state.UpdateEvent(window, event);
 		}
 
 		sfBool update_main_state = UpdateSubState(window);
-		if (actual_state.Update && update_main_state)
-			actual_state.Update(window);
+		if (Current_state.Update && update_main_state)
+			Current_state.Update(window);
 
 		window->Clear(window, sfBlack);
 
-		if (actual_state.Render && ShouldRenderMainState(window))
+		if (Current_state.Render && ShouldRenderMainState(window))
 		{
-			actual_state.Render(window);
-			if (actual_state.UIRender)
+			Current_state.Render(window);
+			if (Current_state.UIRender)
 			{
 				sfView* customView = window->GetCustomView(window);
 				window->SetDefaultView(window);
-				actual_state.UIRender(window);
+				Current_state.UIRender(window);
 				if (customView)
 					window->SetCustomView(window, customView);
 			}
@@ -207,9 +223,8 @@ static void Update(WindowManager* window)
 
 void ChangeMainState(char* state_name)
 {
-	new_state = GetState(state_name);
-	registered_sub_state_list->clear(registered_sub_state_list);
-	if (strcmp(new_state.name, "null") == 0)
+	New_state = GetState(state_name);
+	if (strcmp(New_state.name, "null") == 0)
 	{
 		printf_d("ERROR, UNKNOW STATE !!!!\n");
 		return;
@@ -256,13 +271,27 @@ void PopSubState()
 	active_sub_state_list->erase(active_sub_state_list, active_sub_state_list->size(active_sub_state_list) - 1);
 }
 
-void StartGame(WindowManager* window_manager, char* starting_state, Animation* loading_screen_animation, const char* key_anim_name)
+static void CleanUpGame()
+{
+	FOR_EACH(registered_sub_state_list, StateInfo, i, it,
+		it->Destroy(GameWindow);
+		);
+	Current_state.Destroy(GameWindow);
+	main_clock->destroy(&main_clock);
+	thread_manager->Destroy(&thread_manager);
+	GameWindow->Destroy(&GameWindow);
+}
+
+
+void StartGame(WindowManager* window_manager, const char* starting_state, const char* loading_state, void(*ResetLoadingStateFunc)(WindowManager* window))
 {
 	srand(time(NULL));
 	GameWindow = window_manager;
-	loading_screen = loading_screen_animation;
-	if (loading_screen)
-		loading_screen->SelectAnimationKey(loading_screen, key_anim_name);
+	Loading_state = GetState(loading_state);
+	ResetLoadingStateFunction = ResetLoadingStateFunc;
+	loading_delay = 0.f;
+	if (Loading_state.Init)
+		Loading_state.Init(window_manager);
 	thread_manager = CreateThreadManager(2);
 	main_clock = CreateClock();
 	registered_sub_state_list = STD_LIST_CREATE(SubState, 0);
@@ -272,6 +301,7 @@ void StartGame(WindowManager* window_manager, char* starting_state, Animation* l
 	{
 		Update(window_manager);
 	}
+	CleanUpGame();
 	ReportLeaks();
 }
 

@@ -21,7 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "SpriteManager.h"
-
+#include "MemoryManagement.h"
 
 
 typedef struct SpriteHolder SpriteHolder;
@@ -79,12 +79,12 @@ static void DestroySpriteManager(SpriteManager** sprite_manager)
 	SpriteManager* s_manager = *sprite_manager;
 
 	FOR_EACH_LIST(s_manager->_Data->m_sprite_list, SpriteHolder, it, tmp,
-		free(tmp->name);
+		free_d(tmp->name);
 	sfSprite_destroy(tmp->m_sprite);
 		)
 		s_manager->_Data->m_sprite_list->destroy(&s_manager->_Data->m_sprite_list);
-	free(s_manager->_Data);
-	free(s_manager);
+	free_d(s_manager->_Data);
+	free_d(s_manager);
 	*sprite_manager = NULL;
 }
 
@@ -137,7 +137,7 @@ static void SetSpriteIsVisibleByName(const SpriteManager* sprite_manager, sfBool
 {
 	FOR_EACH_LIST(sprite_manager->_Data->m_sprite_list, SpriteHolder, it, tmp,
 		if (strcmp(tmp->name, name) == 0)
-			return tmp->m_is_visible = is_visible;
+			tmp->m_is_visible = is_visible;
 			)
 }
 
@@ -151,8 +151,8 @@ static void SetSpriteIsVisibleById(const SpriteManager* sprite_manager, sfBool i
 
 SpriteManager* CreateSpriteManager(void)
 {
-	SpriteManager* sprite_manager = calloc(1, sizeof(SpriteManager));
-	SpriteManager_Data* sprite_manager_data = calloc(1, sizeof(SpriteManager_Data));
+	SpriteManager* sprite_manager = calloc_d(SpriteManager, 1);
+	SpriteManager_Data* sprite_manager_data = calloc_d(SpriteManager_Data, 1);
 	assert(sprite_manager);
 	assert(sprite_manager_data);
 	sprite_manager_data->m_sprite_list = STD_LIST_CREATE(SpriteHolder, 0);

@@ -64,7 +64,7 @@ struct SpriteManager
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param window Pointer to the SFML render window to draw the sprites to.
 	 */
-	void (*draw)(const SpriteManager* sprite_manager, sfRenderWindow* window, sfRenderStates* states);
+	void (*draw)(const SpriteManager* sprite_manager, WindowManager* window, sfRenderStates* states);
 
 	/**
 	 * @brief Destroys the sprite manager and frees all associated resources.

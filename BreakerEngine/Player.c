@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Projectile.h"
 
 SimpleAnim* PlayerTrail;
 Animation* Player;
@@ -37,8 +38,10 @@ void UpdatePlayer(WindowManager* window)
 
 	if (KEY_DOWN(Space))
 	{
-		Player->SelectAnimationKey(Player, "Damage");
+		CreateProjectile(sfRectangleShape_getPosition(Player->GetRenderer(Player)), 10, sfTrue);
 	}
+
+
 	Animation_Key* anim_key = Player->GetCurrentAnimationKey(Player);
 	if (strcmp(anim_key->GetAnimationKeyName(anim_key), "Damage") == 0)
 	{
@@ -65,4 +68,6 @@ void DisplayPlayer(WindowManager* window)
 
 void DestroyPlayer()
 {
+	PlayerTrail->Destroy(&PlayerTrail);
+	Player->Destroy(&Player);
 }

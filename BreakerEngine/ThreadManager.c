@@ -21,6 +21,7 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "ThreadManager.h"
+#include "MemoryManagement.h"
 
 struct ThreadManager_Data
 {
@@ -55,7 +56,7 @@ static void ThreadFunction(void* data)
 
 static ThreadFunctionInfo* CreateThreadFunction(void (*func)(void*), void* data)
 {
-	ThreadFunctionInfo* thread_function_info = calloc(1, sizeof(ThreadFunctionInfo));
+	ThreadFunctionInfo* thread_function_info = calloc_d(ThreadFunctionInfo, 1);
 	assert(thread_function_info);
 	thread_function_info->func = func;
 	thread_function_info->func_data = data;
@@ -70,8 +71,8 @@ static void DestroyThreadFunction(ThreadFunctionInfo** thread_function_info)
 	sfThread_wait(abbreviate_thread_function_info->m_thread);
 	sfThread_destroy(abbreviate_thread_function_info->m_thread);
 	if (abbreviate_thread_function_info->m_data_is_copied)
-		free(abbreviate_thread_function_info->func_data);
-	free(abbreviate_thread_function_info);
+		free_d(abbreviate_thread_function_info->func_data);
+	free_d(abbreviate_thread_function_info);
 	*thread_function_info = NULL;
 }
 
@@ -97,7 +98,7 @@ static void AddNewThread(ThreadManager* thread_manager, void (*func)(void*), voi
 	UpdateThreadManager(thread_manager);
 	if (copy_data)
 	{
-		void* tmp = calloc(1, data_size);
+		void* tmp = TrackerCalloc(1, data_size, "C:\\Users\\y.grallan\\Documents\\BreakerEngine\\BreakerEngine\\ThreadManager.c", 101);
 		assert(tmp);
 		memcpy(tmp, func_data, data_size);
 		func_data = tmp;
@@ -115,15 +116,15 @@ static void DestroyThreadManager(ThreadManager** thread_manager)
 		UpdateThreadManager(*thread_manager);
 
 	(*thread_manager)->_Data->m_thread_list->destroy(&(*thread_manager)->_Data->m_thread_list);
-	free((*thread_manager)->_Data);
-	free(*thread_manager);
+	free_d((*thread_manager)->_Data);
+	free_d(*thread_manager);
 	*thread_manager = NULL;
 }
 
 ThreadManager* CreateThreadManager(size_t limit)
 {
-	ThreadManager* tmp = calloc(1, sizeof(ThreadManager));
-	ThreadManager_Data* tmp_data = calloc(1, sizeof(ThreadManager_Data));
+	ThreadManager* tmp = calloc_d(ThreadManager, 1);
+	ThreadManager_Data* tmp_data = calloc_d(ThreadManager_Data, 1);
 	assert(tmp);
 	assert(tmp_data);
 

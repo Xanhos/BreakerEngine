@@ -121,4 +121,4 @@ void DestroyMainMenu(WindowManager* windowManager)
 	sfSprite_destroy(starSelection);
 }
 
-REGISTER_C_STATE(MainMenu)
+REGISTER_STATE(MainMenu)
