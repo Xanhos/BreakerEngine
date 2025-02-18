@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "stdString.h"
 #include "Projectile.h"
+#include "Enemy.h"
 
 SpriteManager* SpriteInGameManager;
 
@@ -14,9 +15,6 @@ typedef struct {
 	Transform transform;
 } Projectiles;
 
-typedef struct {
-	Transform transform;
-} Enemy;
 
 
 static void UpdateParallax(int index)
@@ -72,6 +70,7 @@ void InitInGame(WindowManager* windowManager)
 
 	InitPlayer();
 	InitProjectiles();
+	InitEnemies();
 
 }
 
@@ -92,6 +91,7 @@ void UpdateInGame(WindowManager* windowManager)
 
 
 	UpdatePlayer(windowManager);
+	UpdateEnemies(windowManager);
 	UpdateProjectiles(windowManager);
 }
 
@@ -99,6 +99,7 @@ void RenderInGame(WindowManager* windowManager)
 {
 	SpriteInGameManager->draw(SpriteInGameManager, windowManager, NULL);
 	DisplayProjectiles(windowManager);
+	DisplayEnemies(windowManager);
 	DisplayPlayer(windowManager);
 }
 
@@ -112,6 +113,7 @@ void DestroyInGame(WindowManager* windowManager)
 	SpriteInGameManager->destroy(&SpriteInGameManager);
 	DestroyPlayer();
 	DestroyProjectiles();
+	DestroyEnemies();
 }
 
 REGISTER_STATE(InGame)

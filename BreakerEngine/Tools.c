@@ -465,12 +465,25 @@ int iRand(int _min, int _max)
 
 int rand_int(int _min, int _max)
 {
-	return rand() % (_max - _min) + _min;
+	if (_max > _min)
+		return rand() % (_max - _min + 1) + _min;
+	else
+		return _min;
 }
 
 double rand_float(float _min, float _max)
 {
 	return ((rand() / (double)RAND_MAX) * ((double)_max - (double)_min) + (double)_min);
+}
+
+sfVector2f GetRandomPosInRectangle(sfFloatRect rect)
+{
+	return sfVector2f_Create(rand_float(rect.left, rect.width), rand_float(rect.top, rect.height));
+}
+
+sfVector2f GetRandomPosInCircle(sfVector2f pos, float radius)
+{
+	return GetVectorFromAngle(pos, rand_float(0, radius), rand_float(0, 360));
 }
 
 

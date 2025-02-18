@@ -480,6 +480,11 @@ int rand_int(int _min, int _max);
  */
 double rand_float(float _min, float _max);
 
+sfVector2f GetRandomPosInRectangle(sfFloatRect rect);
+
+
+sfVector2f GetRandomPosInCircle(sfVector2f pos,float radius);
+
 /**
  * @brief Computes the distance between two points.
  * @param a_ The first point.

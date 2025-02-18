@@ -61,8 +61,8 @@ void UpdatePlayer(WindowManager* window)
 		}
 
 	}
-
-	sfRectangleShape_setPosition(Player->GetRenderer(Player), AddVector2f(sfRectangleShape_getPosition(Player->GetRenderer(Player)), MultiplyVector2f(velocity, DeltaTime * 400.f)));
+	PlayerPos = AddVector2f(sfRectangleShape_getPosition(Player->GetRenderer(Player)), MultiplyVector2f(velocity, DeltaTime * 400.f));
+	sfRectangleShape_setPosition(Player->GetRenderer(Player), PlayerPos);
 }
 
 void DisplayPlayer(WindowManager* window)

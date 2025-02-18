@@ -4,6 +4,8 @@
 #include "WindowManager.h"
 #include "Animation.h"
 
+sfVector2f PlayerPos;
+
 void InitPlayer();
 void UpdatePlayer(WindowManager* window);
 void DisplayPlayer(WindowManager* window);

@@ -7,6 +7,7 @@ typedef struct
 	Transform transform;
 	int damage;
 	sfFloatRect hitbox;
+	sfIntRect texture_rect;
 	sfBool isShotByPlayer;
 } Projectile;
 

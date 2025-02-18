@@ -87,6 +87,7 @@ void InitMainMenu(WindowManager* windowManager)
 	UIholder->setPosition(UIholder, sfVector2f_Create(781, 840));
 	UIholder->setUpdateFunction(UIholder, &UpdateUIVisual);
 
+
 }
 
 void UpdateEventMainMenu(WindowManager* windowManager, sfEvent* evt)
