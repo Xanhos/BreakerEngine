@@ -4,6 +4,8 @@
 SimpleAnim* PlayerTrail;
 Animation* Player;
 
+
+
 void InitPlayer()
 {
 	PlayerTrail = CreateSimpleAnim(GetTexture("ingamep1"), (sfIntRect) { 0, 0, 95, 51 }, 1, 3, 3, .1);
@@ -18,27 +20,29 @@ void UpdatePlayer(WindowManager* window)
 	Player->Update(Player, DeltaTime);
 
 	sfVector2f velocity = sfVector2f_Create(0, 0);
-	if (KEY(D))
+	sfVector2f pos = sfRectangleShape_getPosition(Player->GetRenderer(Player));
+
+	if (KEY(D) && pos.x < window->GetBaseSize(window).x - sfRectangleShape_getSize(Player->GetRenderer(Player)).x)
 	{
 		velocity.x = 10;
 	}
-	else if (KEY(Q))
+	else if (KEY(Q) && pos.x > 0)
 	{
 		velocity.x = -10;
 	}
-	if (KEY(S))
-	{
-		velocity.y = 10;
-	}
-	else if (KEY(Z))
+	if (KEY(Z) && pos.y > 0)
 	{
 		velocity.y = -10;
+	}
+	else if (KEY(S) && pos.y < window->GetBaseSize(window).y - sfRectangleShape_getSize(Player->GetRenderer(Player)).y)
+	{
+		velocity.y = 10;
 	}
 	velocity = NormalizeVector2f(velocity);
 
 	if (KEY_DOWN(Space))
 	{
-		CreateProjectile(sfRectangleShape_getPosition(Player->GetRenderer(Player)), 10, sfTrue);
+		CreateProjectile(AddVector2f(pos, sfVector2f_Create(120, 85)), 10, sfTrue);
 	}
 
 
@@ -70,4 +74,22 @@ void DestroyPlayer()
 {
 	PlayerTrail->Destroy(&PlayerTrail);
 	Player->Destroy(&Player);
+}
+
+void PlayerTakeDamage(int damage)
+{
+	Animation_Key* anim_key = Player->SelectAnimationKey(Player, "Damage");
+	anim_key->SetCurrentFrame(anim_key, 0);
+}
+
+sfFloatRect GetPlayerHitbox()
+{
+	sfVector2f pos = sfRectangleShape_getPosition(Player->GetRenderer(Player));
+	sfVector2f size = {
+		.x = Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).width,
+		.y = Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).height
+	};
+
+
+	return (sfFloatRect) { pos.x, pos.y, size.x, size.y };
 }

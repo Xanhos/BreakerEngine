@@ -1,7 +1,6 @@
 #include "Enemy.h"
-#include "Pool.h"
 
-stdPool* enemies_pool;
+stdList* enemies_pool;
 
 void CreateEnemy(sfVector2f pos, float health)
 {
@@ -15,6 +14,7 @@ void InitEnemies()
 
 void UpdateEnemies()
 {
+
 }
 
 void RenderEnemies(WindowManager* window)
@@ -23,4 +23,10 @@ void RenderEnemies(WindowManager* window)
 
 void DestroyEnemies()
 {
+	enemies_pool->destroy(&enemies_pool);
+}
+
+stdList* GetEnemyList()
+{
+	return enemies_pool;
 }

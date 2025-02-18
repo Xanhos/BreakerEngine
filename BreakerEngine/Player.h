@@ -8,3 +8,7 @@ void InitPlayer();
 void UpdatePlayer(WindowManager* window);
 void DisplayPlayer(WindowManager* window);
 void DestroyPlayer();
+
+void PlayerTakeDamage(int damage);
+
+sfFloatRect GetPlayerHitbox();

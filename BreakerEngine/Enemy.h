@@ -12,3 +12,5 @@ void InitEnemies();
 void UpdateEnemies();
 void RenderEnemies(WindowManager* window);
 void DestroyEnemies();
+
+stdList* GetEnemyList();
