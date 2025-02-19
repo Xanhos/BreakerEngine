@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/MemoryManagement.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/MemoryManagement.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -133,12 +133,15 @@ Functions</h2></td></tr>
 <tr class="memitem:afb4af6e453533a986de72a3edaf73b57" id="r_afb4af6e453533a986de72a3edaf73b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb4af6e453533a986de72a3edaf73b57">DetrackerCalloc</a> (void *ptr)</td></tr>
 <tr class="memdesc:afb4af6e453533a986de72a3edaf73b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees memory allocated by <code>TrackerCalloc</code> and removes it from tracking.  <br /></td></tr>
 <tr class="separator:afb4af6e453533a986de72a3edaf73b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5d5efabb0d9ea29bffa06669c469e9" id="r_acd5d5efabb0d9ea29bffa06669c469e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd5d5efabb0d9ea29bffa06669c469e9">ReportLeaks</a> (void)</td></tr>
-<tr class="memdesc:acd5d5efabb0d9ea29bffa06669c469e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations.  <br /></td></tr>
+<tr class="memitem:acd5d5efabb0d9ea29bffa06669c469e9" id="r_acd5d5efabb0d9ea29bffa06669c469e9"><td class="memItemLeft" align="right" valign="top"><a id="acd5d5efabb0d9ea29bffa06669c469e9" name="acd5d5efabb0d9ea29bffa06669c469e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportLeaks</b> (void)</td></tr>
+<tr class="memdesc:acd5d5efabb0d9ea29bffa06669c469e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. <br /></td></tr>
 <tr class="separator:acd5d5efabb0d9ea29bffa06669c469e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains a extension tools for the memory management of the engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_memory_management_8h_source.html">MemoryManagement.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8749d674b2a07b4d3af4c693291fba16" name="a8749d674b2a07b4d3af4c693291fba16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8749d674b2a07b4d3af4c693291fba16">&#9670;&#160;</a></span>calloc_d</h2>
@@ -171,6 +174,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory, cast to the specified type. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_memory_management_8h_source.html#l00039">39</a> of file <a class="el" href="_memory_management_8h_source.html">MemoryManagement.h</a>.</p>
+
 </div>
 </div>
 <a id="a1cbf7ed45db391747f19516c59909675" name="a1cbf7ed45db391747f19516c59909675"></a>
@@ -198,6 +203,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_memory_management_8h_source.html#l00046">46</a> of file <a class="el" href="_memory_management_8h_source.html">MemoryManagement.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -223,25 +230,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="acd5d5efabb0d9ea29bffa06669c469e9" name="acd5d5efabb0d9ea29bffa06669c469e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd5d5efabb0d9ea29bffa06669c469e9">&#9670;&#160;</a></span>ReportLeaks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ReportLeaks </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. </p>
 
 </div>
 </div>
@@ -293,7 +281,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_memory_management_8h.html">MemoryManagement.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_memory_management_8h.html">MemoryManagement.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

@@ -1,13 +1,15 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Tools.h File Reference}
-\hypertarget{_tools_8h}{}\label{_tools_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Tools.h File Reference}
+\hypertarget{_tools_8h}{}\label{_tools_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Tools.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Tools.h}}
 
 
-This file contains all the usefull tools for the engine.  
+This file contains all the useful tools for the engine.  
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}std\+String.\+h"{}}\newline
 {\ttfamily \#include "{}File\+System.\+h"{}}\newline
 {\ttfamily \#include "{}SFML/\+Graphics.\+h"{}}\newline
 {\ttfamily \#include "{}SFML/\+Audio.\+h"{}}\newline
@@ -15,6 +17,8 @@ This file contains all the usefull tools for the engine.
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{struct_transform}{Transform}}
+\begin{DoxyCompactList}\small\item\em Structure that represents the transformation of an object in the game. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_thread___info}{Thread\+\_\+\+Info}}
 \begin{DoxyCompactList}\small\item\em Contains information about the files to process in a thread. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_clock}{Clock}}
@@ -32,8 +36,16 @@ struct \mbox{\hyperlink{struct_files_info}{Files\+Info}}
 \begin{DoxyCompactList}\small\item\em Macro to check if a specific key has been pressed (down event). \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_tools_8h_ad0a7b532864eac73b919e2b0cee65c86}{KEY\+\_\+\+UP}}(key)
 \begin{DoxyCompactList}\small\item\em Macro to check if a specific key has been released (up event). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_tools_8h_a8aef656c1a18d80e57a4f193fb6f74c7}{MOUSE}}(button)
+\item 
+\#define \mbox{\hyperlink{_tools_8h_a7c1ded71963847e03f0110f0e7fa9c95}{MOUSE\+\_\+\+DOWN}}(button)
+\item 
+\#define \mbox{\hyperlink{_tools_8h_a08e677a427395e9e870f8180c17d826a}{MOUSE\+\_\+\+UP}}(button)
+\item 
 \#define \mbox{\hyperlink{_tools_8h_a989661ed710be7ad99d7e4d42ef0e041}{STD\+\_\+\+LIST\+\_\+\+CREATE\+\_\+\+POINTER}}(type,  size, ...)
 \begin{DoxyCompactList}\small\item\em Macro to create a list of pointers of a specific type. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_tools_8h_a346249fee71323a89aa453f48bf9945a}{STD\+\_\+\+VECTOR\+\_\+\+CREATE\+\_\+\+POINTER}}(type,  size, ...)
+\begin{DoxyCompactList}\small\item\em Macro to create a vector of pointers of a specific type. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_tools_8h_ad2f4fafec8015ab9f4c71ba0515fbb7a}{FOR\+\_\+\+EACH\+\_\+\+TEMP\+\_\+\+LIST}}(name,  type,  init\+Func,  func)
 \begin{DoxyCompactList}\small\item\em Macro to iterate over a temporary list. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_tools_8h_aa303f7f1220a109a146780828fee5801}{FOR\+\_\+\+EACH\+\_\+\+LIST}}(list,  type,  it\+\_\+name,  data\+\_\+container\+\_\+name,  func)
@@ -64,6 +76,8 @@ struct \mbox{\hyperlink{struct_files_info}{Files\+Info}}
 \begin{DoxyCompactList}\small\item\em The constant to convert degrees to radians. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_tools_8h_a578e4084d317c9cf12cdb05ac4e87a3a}{LERP}}(a,  b,  t)
 \begin{DoxyCompactList}\small\item\em Linearly interpolates between two values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_tools_8h_a4463c65409128be5ff8e1c4f40b9f12c}{INVERT\+\_\+\+LERP}}(a,  b,  value)
+\item 
 \#define \mbox{\hyperlink{_tools_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(a,  b)
 \begin{DoxyCompactList}\small\item\em Returns the maximum of two values. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_tools_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(a,  b)
@@ -72,6 +86,8 @@ struct \mbox{\hyperlink{struct_files_info}{Files\+Info}}
 \begin{DoxyCompactList}\small\item\em Prints a debug message with optional arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
+\item 
+typedef struct Transform \mbox{\hyperlink{_tools_8h_a512254f7ee8948f0323992006331503c}{Transform}}
 \item 
 typedef struct \mbox{\hyperlink{struct_thread___info}{Thread\+\_\+\+Info}} \mbox{\hyperlink{_tools_8h_af35a7203fefa22e159b08f54140795cf}{thread\+\_\+info}}
 \begin{DoxyCompactList}\small\item\em Structure for managing thread information. \end{DoxyCompactList}\item 
@@ -84,16 +100,32 @@ typedef struct Files\+Info \mbox{\hyperlink{_tools_8h_af5dd712d7984df8610ae8001b
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-sf\+Bool \mbox{\hyperlink{_tools_8h_aa4c422cc9fe6ae7047a81232cd66e69a}{Circle\+\_\+\+Collision}} (sf\+Vector2f \+\_\+pos1, sf\+Vector2f \+\_\+pos2, float \+\_\+rayon1, float \+\_\+rayon2)
+sf\+Bool \mbox{\hyperlink{_tools_8h_a89fc336cce3c95518e5f32c5c60cfb0c}{Circle\+\_\+\+Collision}} (sf\+Vector2f \+\_\+pos1, sf\+Vector2f \+\_\+pos2, float \+\_\+rayon1, float \+\_\+rayon2, sf\+Bool should\+Scale)
 \begin{DoxyCompactList}\small\item\em Checks if two circles are in collision. \end{DoxyCompactList}\item 
-sf\+Bool \mbox{\hyperlink{_tools_8h_af02f16bb83330b37c5649ed9994dde1b}{Rectangle\+\_\+\+Collision}} (sf\+Float\+Rect \+\_\+box1, sf\+Float\+Rect \+\_\+box2)
+sf\+Bool \mbox{\hyperlink{_tools_8h_a6a3bc44ca6401dca2bb5a0dd3655ceed}{Rectangle\+\_\+\+Collision}} (sf\+Float\+Rect \+\_\+box1, sf\+Float\+Rect \+\_\+box2, sf\+Bool should\+Scale)
 \begin{DoxyCompactList}\small\item\em Checks if two rectangles are in collision. \end{DoxyCompactList}\item 
-sf\+Bool \mbox{\hyperlink{_tools_8h_aaf3ec8e6e747dbbfe545df0e2d232b75}{Point\+In\+Circle}} (sf\+Vector2f \+\_\+pos, sf\+Vector2f \+\_\+circle\+\_\+pos, float \+\_\+rayon)
+sf\+Bool \mbox{\hyperlink{_tools_8h_ac6b0bc12e028113eff0ad556fdfca801}{Circle\+Rect\+\_\+\+Collision}} (sf\+Vector2f pos, float radius, sf\+Float\+Rect \+\_\+rect, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if a circle and a rectangle are in collision. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_af6bdfde77d9c015fc354fe69815dc30a}{Line\+Circle\+\_\+\+Collision}} (sf\+Vector2f start\+\_\+line, sf\+Vector2f end\+\_\+line, sf\+Vector2f circle\+\_\+pos, float r, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if a line and a circle are in collision. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_a18bd8de0e2092f9ffb5a7aa2499df90a}{Line\+Point\+\_\+\+Collision}} (sf\+Vector2f start\+\_\+line, sf\+Vector2f end\+\_\+line, sf\+Vector2f point, float offset, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if a point is on a line segment. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_abb2ab98470930f3c434975ec6f2f3bce}{Line\+Line\+\_\+\+Collision}} (sf\+Vector2f start\+\_\+line\+\_\+one, sf\+Vector2f end\+\_\+line\+\_\+one, sf\+Vector2f start\+\_\+line\+\_\+two, sf\+Vector2f end\+\_\+line\+\_\+two, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if two line segments intersect. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_a84ef668771271bd6624ee17462ac3bc4}{Line\+Rect\+\_\+\+Collision}} (sf\+Vector2f start\+\_\+line, sf\+Vector2f end\+\_\+line, sf\+Float\+Rect rect, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if a line and a rectangle are in collision. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_a7a023d4d22f7fbeed6a702afb6bee3e8}{Point\+In\+Circle}} (sf\+Vector2f \+\_\+pos, sf\+Vector2f \+\_\+circle\+\_\+pos, float \+\_\+rayon, sf\+Bool should\+Scale)
 \begin{DoxyCompactList}\small\item\em Checks if a point is inside a circle. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_a062c334ec8d5d63e6f89b10c5365a5f6}{Point\+In\+Rectangle}} (sf\+Vector2f \+\_\+pos, sf\+Float\+Rect \+\_\+box, sf\+Bool should\+Scale)
+\begin{DoxyCompactList}\small\item\em Checks if a point is inside a rectangle. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_tools_8h_aac41e11b0bd648fe5d1752a6d4dcd151}{rand\+\_\+int}} (int \+\_\+min, int \+\_\+max)
 \begin{DoxyCompactList}\small\item\em Generates a random integer between the given minimum and maximum values. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{_tools_8h_a50d1e1e1742bd5a82c663b9a92d85efb}{rand\+\_\+float}} (float \+\_\+min, float \+\_\+max)
 \begin{DoxyCompactList}\small\item\em Generates a random float between the given minimum and maximum values. \end{DoxyCompactList}\item 
+sf\+Vector2f \mbox{\hyperlink{_tools_8h_a3ec5f4a133c34ea877b827abd384e2d5}{Get\+Random\+Pos\+In\+Rectangle}} (sf\+Float\+Rect rect)
+\begin{DoxyCompactList}\small\item\em Returns a random position within a given rectangle. \end{DoxyCompactList}\item 
+sf\+Vector2f \mbox{\hyperlink{_tools_8h_a603b40916f559b2964c2640db0fd501a}{Get\+Random\+Pos\+In\+Circle}} (sf\+Vector2f pos, float radius)
+\begin{DoxyCompactList}\small\item\em Returns a random position within a given circle. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_tools_8h_a141f35893cd11a0bcc60744d92ade08a}{Get\+Distance}} (sf\+Vector2f a\+\_\+, sf\+Vector2f b\+\_\+)
 \begin{DoxyCompactList}\small\item\em Computes the distance between two points. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_tools_8h_a3d2ffc0ed39037bc8a42b2df354f066e}{Get\+Norme}} (sf\+Vector2f \+\_\+vec)
@@ -122,14 +154,28 @@ sf\+Bool \mbox{\hyperlink{_tools_8h_a9ed615c3d70ccfc6b86ee474fc6ae58a}{sf\+Keybo
 \begin{DoxyCompactList}\small\item\em Checks if a specific key is currently pressed down. \end{DoxyCompactList}\item 
 sf\+Bool \mbox{\hyperlink{_tools_8h_a223d0114db502d1e32887d44a1a0e86c}{sf\+Keyboard\+\_\+is\+Key\+Up}} (sf\+Key\+Code key)
 \begin{DoxyCompactList}\small\item\em Checks if a specific key has been released. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_acca1e44525e99a5898a3c2a6447b0c8e}{sf\+Mouse\+\_\+is\+Button\+Down}} (sf\+Mouse\+Button button)
+\begin{DoxyCompactList}\small\item\em Checks if a specific mouse button is currently pressed down. \end{DoxyCompactList}\item 
+sf\+Bool \mbox{\hyperlink{_tools_8h_a83c97b4f1e44f24b802cb3aedd20203f}{sf\+Mouse\+\_\+is\+Button\+Up}} (sf\+Mouse\+Button button)
+\begin{DoxyCompactList}\small\item\em Checks if a specific mouse button has been released. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_tools_8h_a9dc6eaaf9f0d0c2262b023416b763799}{Debug\+Print}} (const char \texorpdfstring{$\ast$}{*}const string,...)
 \begin{DoxyCompactList}\small\item\em Prints a formatted debug message. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_tools_8h_a9c88d97b0fac52a5a17b1cc657f2e6f5}{Get\+File\+Size\+Custom}} (const char \texorpdfstring{$\ast$}{*}file\+Path)
+\begin{DoxyCompactList}\small\item\em Get the size of a file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}{\+\_\+\+\_\+\+Load\+With\+Thread}} (void \texorpdfstring{$\ast$}{*}thread\+\_\+infos)
 \begin{DoxyCompactList}\small\item\em Loads files in a separate thread. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_tools_8h_a0cd769dadf11994f172a92b527409844}{\+\_\+\+\_\+\+Load\+Scene}} (const char \texorpdfstring{$\ast$}{*}scene, const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}}, const char \texorpdfstring{$\ast$}{*}type, void(\texorpdfstring{$\ast$}{*}func)(const char \texorpdfstring{$\ast$}{*}))
-\begin{DoxyCompactList}\small\item\em Loads a scene from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_tools_8h_ad3281270ea9a5a4fafc87205b6319347}{\+\_\+\+\_\+\+Load\+Scene}} (const char \texorpdfstring{$\ast$}{*}scene, const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}}, const char \texorpdfstring{$\ast$}{*}type, float \texorpdfstring{$\ast$}{*}progress\+Value, void(\texorpdfstring{$\ast$}{*}func)(const char \texorpdfstring{$\ast$}{*}))
+\begin{DoxyCompactList}\small\item\em Loads a scene from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_tools_8h_a1d0e12352a03c500541241cd1ce526af}{Update\+Key\+And\+Mouse\+State}} (void)
+\begin{DoxyCompactList}\small\item\em Updates the key and mouse states. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_tools_8h_ad61e757c26d102ec52c61a5cbfb2f983}{Game\+Window}}
+\item 
+float \mbox{\hyperlink{_tools_8h_ad241988a907b95432b3489546dc95b28}{Screen\+Scale\+FactorX}}
+\item 
+float \mbox{\hyperlink{_tools_8h_a3ff4f5baef7efd776e94537956e7ec68}{Screen\+Scale\+FactorY}}
 \item 
 float \mbox{\hyperlink{_tools_8h_a00093d8489f25203bf7235e4ceaea4a5}{Delta\+Time}}
 \item 
@@ -138,7 +184,11 @@ char \mbox{\hyperlink{_tools_8h_aa242836903fc655abed70288a389a7e8}{resource\+\_\
 
 
 \doxysubsection{Detailed Description}
-This file contains all the usefull tools for the engine. 
+This file contains all the useful tools for the engine. 
+
+It defines structures and global variables for managing the game window, handling transformations (such as position, velocity, and angle), and scaling. 
+
+Definition in file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 
 
@@ -169,6 +219,10 @@ Declares a function to add two vectors.
 {\em type} & The type of scalar used for multiplication (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00196}{196}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a1326b2a0a30bb998387386f4bb4d4429}\index{Tools.h@{Tools.h}!DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C@{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C}}
 \index{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C@{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C}}
@@ -185,11 +239,19 @@ Declares a function to add two vectors.
 \DoxyCodeLine{\ \ \ \ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffix,\ type)}
 
 \end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00291}{291}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}\index{Tools.h@{Tools.h}!DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H@{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}
 \index{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H@{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}
 {\footnotesize\ttfamily \label{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230} 
 \#define DECLARE\+\_\+\+ALL\+\_\+\+BASICS\+\_\+\+OPERATION\+\_\+\+VECTOR2\+\_\+\+IN\+\_\+H(\begin{DoxyParamCaption}\item[{}]{vector\+\_\+type}{, }\item[{}]{suffix}{, }\item[{}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00270}{270}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 \Hypertarget{_tools_8h_a01a95241ce487190b6d8512e3232d3aa}\index{Tools.h@{Tools.h}!DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C@{DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C}}
 \index{DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C@{DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C}!Tools.h@{Tools.h}}
@@ -217,6 +279,10 @@ Declares a function to create a vector of specified type and values.
 {\em type} & The type of scalar used for vector creation (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00244}{244}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a73c80110f8e46a9bceac9a013132e1d9}\index{Tools.h@{Tools.h}!DECLARE\_DIVIDE\_VECTOR2\_IN\_C@{DECLARE\_DIVIDE\_VECTOR2\_IN\_C}}
 \index{DECLARE\_DIVIDE\_VECTOR2\_IN\_C@{DECLARE\_DIVIDE\_VECTOR2\_IN\_C}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_DIVIDE\_VECTOR2\_IN\_C}{DECLARE\_DIVIDE\_VECTOR2\_IN\_C}}
@@ -243,6 +309,10 @@ Declares a function to divide a vector by a scalar.
 {\em type} & The type of scalar used for multiplication (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00232}{232}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a3a383943761523b7108a4d964bfe454e}\index{Tools.h@{Tools.h}!DECLARE\_MULTIPLY\_VECTOR2\_IN\_C@{DECLARE\_MULTIPLY\_VECTOR2\_IN\_C}}
 \index{DECLARE\_MULTIPLY\_VECTOR2\_IN\_C@{DECLARE\_MULTIPLY\_VECTOR2\_IN\_C}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_MULTIPLY\_VECTOR2\_IN\_C}{DECLARE\_MULTIPLY\_VECTOR2\_IN\_C}}
@@ -269,6 +339,10 @@ Declares a function to multiply a vector by a scalar.
 {\em type} & The type of scalar used for multiplication (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00220}{220}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a07e07d770e15eb18d764d89640b8c1dc}\index{Tools.h@{Tools.h}!DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C@{DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C}}
 \index{DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C@{DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C}{DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C}}
@@ -302,6 +376,10 @@ Declares a function to print the values of a vector.
 {\em type} & The type of scalar used for printing (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00256}{256}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a449861784cefce058b56128774219e75}\index{Tools.h@{Tools.h}!DECLARE\_SUB\_VECTOR2\_IN\_C@{DECLARE\_SUB\_VECTOR2\_IN\_C}}
 \index{DECLARE\_SUB\_VECTOR2\_IN\_C@{DECLARE\_SUB\_VECTOR2\_IN\_C}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DECLARE\_SUB\_VECTOR2\_IN\_C}{DECLARE\_SUB\_VECTOR2\_IN\_C}}
@@ -328,6 +406,10 @@ Declares a function to subtract two vectors.
 {\em type} & The type of scalar used for multiplication (e.\+g., float). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00208}{208}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_af7e8592d0a634bd3642e9fd508ea8022}\index{Tools.h@{Tools.h}!DEG2RAD@{DEG2RAD}}
 \index{DEG2RAD@{DEG2RAD}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{DEG2RAD}{DEG2RAD}}
@@ -338,6 +420,10 @@ Declares a function to subtract two vectors.
 
 The constant to convert degrees to radians. 
 
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00324}{324}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_aa303f7f1220a109a146780828fee5801}\index{Tools.h@{Tools.h}!FOR\_EACH\_LIST@{FOR\_EACH\_LIST}}
 \index{FOR\_EACH\_LIST@{FOR\_EACH\_LIST}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{FOR\_EACH\_LIST}{FOR\_EACH\_LIST}}
@@ -347,7 +433,7 @@ The constant to convert degrees to radians.
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ type*\ data\_container\_name\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ type*\ data\_container\_name\ =\ STD\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ func\ \}}
 
 \end{DoxyCode}
@@ -368,6 +454,10 @@ Macro to iterate over a list and apply a function to each element.
 {\em func} & The function to apply to each element. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00167}{167}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_aa10d3be3c5301eb9c00531987c8d7d1d}\index{Tools.h@{Tools.h}!FOR\_EACH\_LIST\_POINTER@{FOR\_EACH\_LIST\_POINTER}}
 \index{FOR\_EACH\_LIST\_POINTER@{FOR\_EACH\_LIST\_POINTER}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{FOR\_EACH\_LIST\_POINTER}{FOR\_EACH\_LIST\_POINTER}}
@@ -377,7 +467,7 @@ Macro to iterate over a list and apply a function to each element.
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ type*\ data\_container\_name\#\#\_\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ type*\ data\_container\_name\#\#\_\ =\ STD\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ type\ data\_container\_name\ =\ *data\_container\_name\#\#\_;\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ func\ \}}
 
@@ -399,6 +489,10 @@ Macro to iterate over a list of pointers and apply a function to each element.
 {\em func} & The function to apply to each element. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00181}{181}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_ad2f4fafec8015ab9f4c71ba0515fbb7a}\index{Tools.h@{Tools.h}!FOR\_EACH\_TEMP\_LIST@{FOR\_EACH\_TEMP\_LIST}}
 \index{FOR\_EACH\_TEMP\_LIST@{FOR\_EACH\_TEMP\_LIST}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{FOR\_EACH\_TEMP\_LIST}{FOR\_EACH\_TEMP\_LIST}}
@@ -427,6 +521,25 @@ Macro to iterate over a temporary list.
 {\em func} & The function to apply to each element. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00153}{153}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a4463c65409128be5ff8e1c4f40b9f12c}\index{Tools.h@{Tools.h}!INVERT\_LERP@{INVERT\_LERP}}
+\index{INVERT\_LERP@{INVERT\_LERP}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{INVERT\_LERP}{INVERT\_LERP}}
+{\footnotesize\ttfamily \label{_tools_8h_a4463c65409128be5ff8e1c4f40b9f12c} 
+\#define INVERT\+\_\+\+LERP(\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{, }\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(value\ -\/\ a)\ /\ (b\ -\/\ a)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00336}{336}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a0b09d102f5d5b02336b65bc5d6c1b5ef}\index{Tools.h@{Tools.h}!KEY@{KEY}}
 \index{KEY@{KEY}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{KEY}{KEY}}
@@ -450,6 +563,10 @@ Macro to check if a specific key is currently pressed.
 \begin{DoxyReturn}{Returns}
 Boolean value indicating if the key is pressed. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00085}{85}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a18dceb8e7df0a7a2fff7fdfc9e6b9708}\index{Tools.h@{Tools.h}!KEY\_DOWN@{KEY\_DOWN}}
 \index{KEY\_DOWN@{KEY\_DOWN}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{KEY\_DOWN}{KEY\_DOWN}}
@@ -473,6 +590,10 @@ Macro to check if a specific key has been pressed (down event).
 \begin{DoxyReturn}{Returns}
 Boolean value indicating if the key is pressed. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00093}{93}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_ad0a7b532864eac73b919e2b0cee65c86}\index{Tools.h@{Tools.h}!KEY\_UP@{KEY\_UP}}
 \index{KEY\_UP@{KEY\_UP}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{KEY\_UP}{KEY\_UP}}
@@ -496,6 +617,10 @@ Macro to check if a specific key has been released (up event).
 \begin{DoxyReturn}{Returns}
 Boolean value indicating if the key is released. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00101}{101}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a578e4084d317c9cf12cdb05ac4e87a3a}\index{Tools.h@{Tools.h}!LERP@{LERP}}
 \index{LERP@{LERP}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{LERP}{LERP}}
@@ -523,6 +648,10 @@ Linearly interpolates between two values.
 \begin{DoxyReturn}{Returns}
 The interpolated value. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00334}{334}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}\index{Tools.h@{Tools.h}!MAX@{MAX}}
 \index{MAX@{MAX}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{MAX}{MAX}}
@@ -548,6 +677,10 @@ Returns the maximum of two values.
 \begin{DoxyReturn}{Returns}
 The maximum of a and b. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00345}{345}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a04922e4673a244d94b12566890b2e96c}\index{Tools.h@{Tools.h}!MAX\_THREAD@{MAX\_THREAD}}
 \index{MAX\_THREAD@{MAX\_THREAD}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{MAX\_THREAD}{MAX\_THREAD}}
@@ -557,6 +690,10 @@ The maximum of a and b.
 
 
 The maximum number of threads allowed. 
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00077}{77}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 \Hypertarget{_tools_8h_a3acffbd305ee72dcd4593c0d8af64a4f}\index{Tools.h@{Tools.h}!MIN@{MIN}}
 \index{MIN@{MIN}!Tools.h@{Tools.h}}
@@ -583,6 +720,55 @@ Returns the minimum of two values.
 \begin{DoxyReturn}{Returns}
 The minimum of a and b. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00354}{354}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a8aef656c1a18d80e57a4f193fb6f74c7}\index{Tools.h@{Tools.h}!MOUSE@{MOUSE}}
+\index{MOUSE@{MOUSE}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE}{MOUSE}}
+{\footnotesize\ttfamily \label{_tools_8h_a8aef656c1a18d80e57a4f193fb6f74c7} 
+\#define MOUSE(\begin{DoxyParamCaption}\item[{}]{button}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sfMouse\_isButtonPressed(sfMouse\#\#button)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00108}{108}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a7c1ded71963847e03f0110f0e7fa9c95}\index{Tools.h@{Tools.h}!MOUSE\_DOWN@{MOUSE\_DOWN}}
+\index{MOUSE\_DOWN@{MOUSE\_DOWN}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_DOWN}{MOUSE\_DOWN}}
+{\footnotesize\ttfamily \label{_tools_8h_a7c1ded71963847e03f0110f0e7fa9c95} 
+\#define MOUSE\+\_\+\+DOWN(\begin{DoxyParamCaption}\item[{}]{button}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_tools_8h_acca1e44525e99a5898a3c2a6447b0c8e}{sfMouse\_isButtonDown}}(sfMouse\#\#button)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00116}{116}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a08e677a427395e9e870f8180c17d826a}\index{Tools.h@{Tools.h}!MOUSE\_UP@{MOUSE\_UP}}
+\index{MOUSE\_UP@{MOUSE\_UP}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_UP}{MOUSE\_UP}}
+{\footnotesize\ttfamily \label{_tools_8h_a08e677a427395e9e870f8180c17d826a} 
+\#define MOUSE\+\_\+\+UP(\begin{DoxyParamCaption}\item[{}]{button}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_tools_8h_a83c97b4f1e44f24b802cb3aedd20203f}{sfMouse\_isButtonUp}}(sfMouse\#\#button)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00124}{124}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a598a3330b3c21701223ee0ca14316eca}\index{Tools.h@{Tools.h}!PI@{PI}}
 \index{PI@{PI}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{PI}{PI}}
@@ -592,6 +778,10 @@ The minimum of a and b.
 
 
 The constant value of Pi. 
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00312}{312}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 \Hypertarget{_tools_8h_a6f60d39d2266b161fb6f8ef4c5191ae4}\index{Tools.h@{Tools.h}!printf\_d@{printf\_d}}
 \index{printf\_d@{printf\_d}!Tools.h@{Tools.h}}
@@ -615,6 +805,10 @@ Prints a debug message with optional arguments.
 {\em ...} & The arguments to include in the debug message. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00543}{543}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_ac5a945020d3528355cda82d383676736}\index{Tools.h@{Tools.h}!RAD2DEG@{RAD2DEG}}
 \index{RAD2DEG@{RAD2DEG}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{RAD2DEG}{RAD2DEG}}
@@ -624,6 +818,10 @@ Prints a debug message with optional arguments.
 
 
 The constant to convert radians to degrees. 
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00318}{318}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 \Hypertarget{_tools_8h_a989661ed710be7ad99d7e4d42ef0e041}\index{Tools.h@{Tools.h}!STD\_LIST\_CREATE\_POINTER@{STD\_LIST\_CREATE\_POINTER}}
 \index{STD\_LIST\_CREATE\_POINTER@{STD\_LIST\_CREATE\_POINTER}!Tools.h@{Tools.h}}
@@ -649,6 +847,36 @@ Macro to create a list of pointers of a specific type.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00132}{132}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a346249fee71323a89aa453f48bf9945a}\index{Tools.h@{Tools.h}!STD\_VECTOR\_CREATE\_POINTER@{STD\_VECTOR\_CREATE\_POINTER}}
+\index{STD\_VECTOR\_CREATE\_POINTER@{STD\_VECTOR\_CREATE\_POINTER}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{STD\_VECTOR\_CREATE\_POINTER}{STD\_VECTOR\_CREATE\_POINTER}}
+{\footnotesize\ttfamily \label{_tools_8h_a346249fee71323a89aa453f48bf9945a} 
+\#define STD\+\_\+\+VECTOR\+\_\+\+CREATE\+\_\+\+POINTER(\begin{DoxyParamCaption}\item[{}]{type}{, }\item[{}]{size}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ stdVector\_Create(\textcolor{keyword}{sizeof}(type*),\ size,\ \_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+
+
+Macro to create a vector of pointers of a specific type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of data. \\
+\hline
+{\em size} & The size of the vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00142}{142}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+
+
 \doxysubsection{Typedef Documentation}
 \Hypertarget{_tools_8h_a0bdcd2de337a1ed81d38b7e779af2145}\index{Tools.h@{Tools.h}!Clock@{Clock}}
 \index{Clock@{Clock}!Tools.h@{Tools.h}}
@@ -660,6 +888,10 @@ typedef struct Clock Clock}
 
 Structure for managing time and frame rate. 
 
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00575}{575}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}\index{Tools.h@{Tools.h}!clock\_data@{clock\_data}}
 \index{clock\_data@{clock\_data}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{clock\_data}{clock\_data}}
@@ -670,6 +902,10 @@ typedef struct \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clo
 
 Structure for internal data related to the clock. 
 
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00569}{569}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_af5dd712d7984df8610ae8001b3230d0f}\index{Tools.h@{Tools.h}!FilesInfo@{FilesInfo}}
 \index{FilesInfo@{FilesInfo}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{FilesInfo}{FilesInfo}}
@@ -679,6 +915,10 @@ typedef struct Files\+Info Files\+Info}
 
 
 Structure for managing file information. 
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00626}{626}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 
 \Hypertarget{_tools_8h_af35a7203fefa22e159b08f54140795cf}\index{Tools.h@{Tools.h}!thread\_info@{thread\_info}}
 \index{thread\_info@{thread\_info}!Tools.h@{Tools.h}}
@@ -692,16 +932,32 @@ Structure for managing thread information.
 
 
 
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00548}{548}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a512254f7ee8948f0323992006331503c}\index{Tools.h@{Tools.h}!Transform@{Transform}}
+\index{Transform@{Transform}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{Transform}{Transform}}
+{\footnotesize\ttfamily \label{_tools_8h_a512254f7ee8948f0323992006331503c} 
+typedef struct Transform Transform}
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00053}{53}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{_tools_8h_a0cd769dadf11994f172a92b527409844}\index{Tools.h@{Tools.h}!\_\_LoadScene@{\_\_LoadScene}}
+\Hypertarget{_tools_8h_ad3281270ea9a5a4fafc87205b6319347}\index{Tools.h@{Tools.h}!\_\_LoadScene@{\_\_LoadScene}}
 \index{\_\_LoadScene@{\_\_LoadScene}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{\_\_LoadScene()}{\_\_LoadScene()}}
-{\footnotesize\ttfamily \label{_tools_8h_a0cd769dadf11994f172a92b527409844} 
-void \+\_\+\+\_\+\+Load\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{extension}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{type}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{func~}{)(const char \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_tools_8h_ad3281270ea9a5a4fafc87205b6319347} 
+void \+\_\+\+\_\+\+Load\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{extension}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{type}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{progress\+Value}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{func~}{)(const char \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})}
 
 
 
 Loads a scene from a file. 
+
+This function loads a scene from the specified file path, with support for different file types and extensions. A callback function can be provided to perform actions after the scene is loaded.
 
 
 \begin{DoxyParams}{Parameters}
@@ -711,7 +967,9 @@ Loads a scene from a file.
 \hline
 {\em type} & The type of scene to load. \\
 \hline
-{\em func} & The function to apply after loading the scene. \\
+{\em progress\+Value} & A pointer to track the progress of the loading. \\
+\hline
+{\em func} & A callback function to execute after loading the scene. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}\index{Tools.h@{Tools.h}!\_\_LoadWithThread@{\_\_LoadWithThread}}
@@ -724,16 +982,18 @@ void \+\_\+\+\_\+\+Load\+With\+Thread (\begin{DoxyParamCaption}\item[{void \texo
 
 Loads files in a separate thread. 
 
+This function loads the specified files asynchronously in a separate thread to avoid blocking the main thread.
+
 
 \begin{DoxyParams}{Parameters}
 {\em thread\+\_\+infos} & The information about the thread to load the files. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_tools_8h_aa4c422cc9fe6ae7047a81232cd66e69a}\index{Tools.h@{Tools.h}!Circle\_Collision@{Circle\_Collision}}
+\Hypertarget{_tools_8h_a89fc336cce3c95518e5f32c5c60cfb0c}\index{Tools.h@{Tools.h}!Circle\_Collision@{Circle\_Collision}}
 \index{Circle\_Collision@{Circle\_Collision}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{Circle\_Collision()}{Circle\_Collision()}}
-{\footnotesize\ttfamily \label{_tools_8h_aa4c422cc9fe6ae7047a81232cd66e69a} 
-sf\+Bool Circle\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{\+\_\+pos1}{, }\item[{sf\+Vector2f}]{\+\_\+pos2}{, }\item[{float}]{\+\_\+rayon1}{, }\item[{float}]{\+\_\+rayon2}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_tools_8h_a89fc336cce3c95518e5f32c5c60cfb0c} 
+sf\+Bool Circle\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{\+\_\+pos1}{, }\item[{sf\+Vector2f}]{\+\_\+pos2}{, }\item[{float}]{\+\_\+rayon1}{, }\item[{float}]{\+\_\+rayon2}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
 
 
 
@@ -748,6 +1008,32 @@ Checks if two circles are in collision.
 {\em \+\_\+rayon1} & The radius of the first circle. \\
 \hline
 {\em \+\_\+rayon2} & The radius of the second circle. \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_ac6b0bc12e028113eff0ad556fdfca801}\index{Tools.h@{Tools.h}!CircleRect\_Collision@{CircleRect\_Collision}}
+\index{CircleRect\_Collision@{CircleRect\_Collision}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{CircleRect\_Collision()}{CircleRect\_Collision()}}
+{\footnotesize\ttfamily \label{_tools_8h_ac6b0bc12e028113eff0ad556fdfca801} 
+sf\+Bool Circle\+Rect\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{pos}{, }\item[{float}]{radius}{, }\item[{sf\+Float\+Rect}]{\+\_\+rect}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a circle and a rectangle are in collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the circle. \\
+\hline
+{\em radius} & The radius of the circle. \\
+\hline
+{\em \+\_\+rect} & The rectangle (position, width, height). \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -851,6 +1137,24 @@ Computes the distance between two points.
 \begin{DoxyReturn}{Returns}
 The distance between the two points. 
 \end{DoxyReturn}
+\Hypertarget{_tools_8h_a9c88d97b0fac52a5a17b1cc657f2e6f5}\index{Tools.h@{Tools.h}!GetFileSizeCustom@{GetFileSizeCustom}}
+\index{GetFileSizeCustom@{GetFileSizeCustom}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{GetFileSizeCustom()}{GetFileSizeCustom()}}
+{\footnotesize\ttfamily \label{_tools_8h_a9c88d97b0fac52a5a17b1cc657f2e6f5} 
+float Get\+File\+Size\+Custom (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Get the size of a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & the path of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The size of the file in bytes. 
+\end{DoxyReturn}
 \Hypertarget{_tools_8h_a3d2ffc0ed39037bc8a42b2df354f066e}\index{Tools.h@{Tools.h}!GetNorme@{GetNorme}}
 \index{GetNorme@{GetNorme}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{GetNorme()}{GetNorme()}}
@@ -868,6 +1172,44 @@ Computes the norm (magnitude) of a vector.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The norm of the vector. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a603b40916f559b2964c2640db0fd501a}\index{Tools.h@{Tools.h}!GetRandomPosInCircle@{GetRandomPosInCircle}}
+\index{GetRandomPosInCircle@{GetRandomPosInCircle}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{GetRandomPosInCircle()}{GetRandomPosInCircle()}}
+{\footnotesize\ttfamily \label{_tools_8h_a603b40916f559b2964c2640db0fd501a} 
+sf\+Vector2f Get\+Random\+Pos\+In\+Circle (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{pos}{, }\item[{float}]{radius}{}\end{DoxyParamCaption})}
+
+
+
+Returns a random position within a given circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The center position of the circle. \\
+\hline
+{\em radius} & The radius of the circle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random position inside the circle. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a3ec5f4a133c34ea877b827abd384e2d5}\index{Tools.h@{Tools.h}!GetRandomPosInRectangle@{GetRandomPosInRectangle}}
+\index{GetRandomPosInRectangle@{GetRandomPosInRectangle}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{GetRandomPosInRectangle()}{GetRandomPosInRectangle()}}
+{\footnotesize\ttfamily \label{_tools_8h_a3ec5f4a133c34ea877b827abd384e2d5} 
+sf\+Vector2f Get\+Random\+Pos\+In\+Rectangle (\begin{DoxyParamCaption}\item[{sf\+Float\+Rect}]{rect}{}\end{DoxyParamCaption})}
+
+
+
+Returns a random position within a given rectangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & The rectangle (position, width, height) to get the random position within. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random position inside the rectangle. 
 \end{DoxyReturn}
 \Hypertarget{_tools_8h_aa024171f82587a149a4ea49051560f28}\index{Tools.h@{Tools.h}!GetVectorFromAngle@{GetVectorFromAngle}}
 \index{GetVectorFromAngle@{GetVectorFromAngle}!Tools.h@{Tools.h}}
@@ -913,6 +1255,108 @@ Clamps an integer value between a minimum and maximum.
 \begin{DoxyReturn}{Returns}
 The clamped value. 
 \end{DoxyReturn}
+\Hypertarget{_tools_8h_af6bdfde77d9c015fc354fe69815dc30a}\index{Tools.h@{Tools.h}!LineCircle\_Collision@{LineCircle\_Collision}}
+\index{LineCircle\_Collision@{LineCircle\_Collision}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{LineCircle\_Collision()}{LineCircle\_Collision()}}
+{\footnotesize\ttfamily \label{_tools_8h_af6bdfde77d9c015fc354fe69815dc30a} 
+sf\+Bool Line\+Circle\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{start\+\_\+line}{, }\item[{sf\+Vector2f}]{end\+\_\+line}{, }\item[{sf\+Vector2f}]{circle\+\_\+pos}{, }\item[{float}]{r}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a line and a circle are in collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+line} & The start position of the line. \\
+\hline
+{\em end\+\_\+line} & The end position of the line. \\
+\hline
+{\em circle\+\_\+pos} & The position of the circle. \\
+\hline
+{\em r} & The radius of the circle. \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_abb2ab98470930f3c434975ec6f2f3bce}\index{Tools.h@{Tools.h}!LineLine\_Collision@{LineLine\_Collision}}
+\index{LineLine\_Collision@{LineLine\_Collision}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{LineLine\_Collision()}{LineLine\_Collision()}}
+{\footnotesize\ttfamily \label{_tools_8h_abb2ab98470930f3c434975ec6f2f3bce} 
+sf\+Bool Line\+Line\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{start\+\_\+line\+\_\+one}{, }\item[{sf\+Vector2f}]{end\+\_\+line\+\_\+one}{, }\item[{sf\+Vector2f}]{start\+\_\+line\+\_\+two}{, }\item[{sf\+Vector2f}]{end\+\_\+line\+\_\+two}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if two line segments intersect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+line\+\_\+one} & The start position of the first line. \\
+\hline
+{\em end\+\_\+line\+\_\+one} & The end position of the first line. \\
+\hline
+{\em start\+\_\+line\+\_\+two} & The start position of the second line. \\
+\hline
+{\em end\+\_\+line\+\_\+two} & The end position of the second line. \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a18bd8de0e2092f9ffb5a7aa2499df90a}\index{Tools.h@{Tools.h}!LinePoint\_Collision@{LinePoint\_Collision}}
+\index{LinePoint\_Collision@{LinePoint\_Collision}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{LinePoint\_Collision()}{LinePoint\_Collision()}}
+{\footnotesize\ttfamily \label{_tools_8h_a18bd8de0e2092f9ffb5a7aa2499df90a} 
+sf\+Bool Line\+Point\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{start\+\_\+line}{, }\item[{sf\+Vector2f}]{end\+\_\+line}{, }\item[{sf\+Vector2f}]{point}{, }\item[{float}]{offset}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a point is on a line segment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+line} & The start position of the line. \\
+\hline
+{\em end\+\_\+line} & The end position of the line. \\
+\hline
+{\em point} & The point to check. \\
+\hline
+{\em offset} & The tolerance offset. \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the point is on the line, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a84ef668771271bd6624ee17462ac3bc4}\index{Tools.h@{Tools.h}!LineRect\_Collision@{LineRect\_Collision}}
+\index{LineRect\_Collision@{LineRect\_Collision}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{LineRect\_Collision()}{LineRect\_Collision()}}
+{\footnotesize\ttfamily \label{_tools_8h_a84ef668771271bd6624ee17462ac3bc4} 
+sf\+Bool Line\+Rect\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{start\+\_\+line}{, }\item[{sf\+Vector2f}]{end\+\_\+line}{, }\item[{sf\+Float\+Rect}]{rect}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a line and a rectangle are in collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+line} & The start position of the line. \\
+\hline
+{\em end\+\_\+line} & The end position of the line. \\
+\hline
+{\em rect} & The rectangle (position, width, height). \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, false otherwise. 
+\end{DoxyReturn}
 \Hypertarget{_tools_8h_a71eee54b0d330ccc0f2ba98eb7f528fe}\index{Tools.h@{Tools.h}!NormalizeVector2f@{NormalizeVector2f}}
 \index{NormalizeVector2f@{NormalizeVector2f}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{NormalizeVector2f()}{NormalizeVector2f()}}
@@ -931,11 +1375,11 @@ Normalizes a vector (scales it to have a unit length).
 \begin{DoxyReturn}{Returns}
 The normalized vector. 
 \end{DoxyReturn}
-\Hypertarget{_tools_8h_aaf3ec8e6e747dbbfe545df0e2d232b75}\index{Tools.h@{Tools.h}!PointInCircle@{PointInCircle}}
+\Hypertarget{_tools_8h_a7a023d4d22f7fbeed6a702afb6bee3e8}\index{Tools.h@{Tools.h}!PointInCircle@{PointInCircle}}
 \index{PointInCircle@{PointInCircle}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{PointInCircle()}{PointInCircle()}}
-{\footnotesize\ttfamily \label{_tools_8h_aaf3ec8e6e747dbbfe545df0e2d232b75} 
-sf\+Bool Point\+In\+Circle (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{\+\_\+pos}{, }\item[{sf\+Vector2f}]{\+\_\+circle\+\_\+pos}{, }\item[{float}]{\+\_\+rayon}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_tools_8h_a7a023d4d22f7fbeed6a702afb6bee3e8} 
+sf\+Bool Point\+In\+Circle (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{\+\_\+pos}{, }\item[{sf\+Vector2f}]{\+\_\+circle\+\_\+pos}{, }\item[{float}]{\+\_\+rayon}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
 
 
 
@@ -949,9 +1393,33 @@ Checks if a point is inside a circle.
 \hline
 {\em \+\_\+rayon} & The radius of the circle. \\
 \hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if the point is inside the circle, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a062c334ec8d5d63e6f89b10c5365a5f6}\index{Tools.h@{Tools.h}!PointInRectangle@{PointInRectangle}}
+\index{PointInRectangle@{PointInRectangle}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{PointInRectangle()}{PointInRectangle()}}
+{\footnotesize\ttfamily \label{_tools_8h_a062c334ec8d5d63e6f89b10c5365a5f6} 
+sf\+Bool Point\+In\+Rectangle (\begin{DoxyParamCaption}\item[{sf\+Vector2f}]{\+\_\+pos}{, }\item[{sf\+Float\+Rect}]{\+\_\+box}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a point is inside a rectangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+pos} & The point to check. \\
+\hline
+{\em \+\_\+box} & The rectangle (position, width, height). \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the point is inside the rectangle, false otherwise. 
 \end{DoxyReturn}
 \Hypertarget{_tools_8h_a50d1e1e1742bd5a82c663b9a92d85efb}\index{Tools.h@{Tools.h}!rand\_float@{rand\_float}}
 \index{rand\_float@{rand\_float}!Tools.h@{Tools.h}}
@@ -993,11 +1461,11 @@ Generates a random integer between the given minimum and maximum values.
 \begin{DoxyReturn}{Returns}
 A random integer between \+\_\+min and \+\_\+max. 
 \end{DoxyReturn}
-\Hypertarget{_tools_8h_af02f16bb83330b37c5649ed9994dde1b}\index{Tools.h@{Tools.h}!Rectangle\_Collision@{Rectangle\_Collision}}
+\Hypertarget{_tools_8h_a6a3bc44ca6401dca2bb5a0dd3655ceed}\index{Tools.h@{Tools.h}!Rectangle\_Collision@{Rectangle\_Collision}}
 \index{Rectangle\_Collision@{Rectangle\_Collision}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{Rectangle\_Collision()}{Rectangle\_Collision()}}
-{\footnotesize\ttfamily \label{_tools_8h_af02f16bb83330b37c5649ed9994dde1b} 
-sf\+Bool Rectangle\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Float\+Rect}]{\+\_\+box1}{, }\item[{sf\+Float\+Rect}]{\+\_\+box2}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_tools_8h_a6a3bc44ca6401dca2bb5a0dd3655ceed} 
+sf\+Bool Rectangle\+\_\+\+Collision (\begin{DoxyParamCaption}\item[{sf\+Float\+Rect}]{\+\_\+box1}{, }\item[{sf\+Float\+Rect}]{\+\_\+box2}{, }\item[{sf\+Bool}]{should\+Scale}{}\end{DoxyParamCaption})}
 
 
 
@@ -1008,6 +1476,8 @@ Checks if two rectangles are in collision.
 {\em \+\_\+box1} & The first rectangle (position, width, height). \\
 \hline
 {\em \+\_\+box2} & The second rectangle (position, width, height). \\
+\hline
+{\em should\+Scale} & Whether to apply scaling adjustments. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -1073,6 +1543,46 @@ This function returns whether a given key has been released in the current frame
 \begin{DoxyReturn}{Returns}
 sf\+True if the key is currently released, sf\+False otherwise. 
 \end{DoxyReturn}
+\Hypertarget{_tools_8h_acca1e44525e99a5898a3c2a6447b0c8e}\index{Tools.h@{Tools.h}!sfMouse\_isButtonDown@{sfMouse\_isButtonDown}}
+\index{sfMouse\_isButtonDown@{sfMouse\_isButtonDown}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{sfMouse\_isButtonDown()}{sfMouse\_isButtonDown()}}
+{\footnotesize\ttfamily \label{_tools_8h_acca1e44525e99a5898a3c2a6447b0c8e} 
+sf\+Bool sf\+Mouse\+\_\+is\+Button\+Down (\begin{DoxyParamCaption}\item[{sf\+Mouse\+Button}]{button}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a specific mouse button is currently pressed down. 
+
+This function returns whether a given mouse button is pressed down in the current frame.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The mouse button to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if the mouse button is currently pressed down, sf\+False otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_tools_8h_a83c97b4f1e44f24b802cb3aedd20203f}\index{Tools.h@{Tools.h}!sfMouse\_isButtonUp@{sfMouse\_isButtonUp}}
+\index{sfMouse\_isButtonUp@{sfMouse\_isButtonUp}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{sfMouse\_isButtonUp()}{sfMouse\_isButtonUp()}}
+{\footnotesize\ttfamily \label{_tools_8h_a83c97b4f1e44f24b802cb3aedd20203f} 
+sf\+Bool sf\+Mouse\+\_\+is\+Button\+Up (\begin{DoxyParamCaption}\item[{sf\+Mouse\+Button}]{button}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a specific mouse button has been released. 
+
+This function returns whether a given mouse button has been released in the current frame.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The mouse button to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if the mouse button is currently released, sf\+False otherwise. 
+\end{DoxyReturn}
 \Hypertarget{_tools_8h_a1d4705d2264c995a7f03677890702814}\index{Tools.h@{Tools.h}!StrAllocNCopy@{StrAllocNCopy}}
 \index{StrAllocNCopy@{StrAllocNCopy}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{StrAllocNCopy()}{StrAllocNCopy()}}
@@ -1121,7 +1631,17 @@ Converts a string to uppercase.
 {\em sentence} & The string to convert. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{_tools_8h_a1d0e12352a03c500541241cd1ce526af}\index{Tools.h@{Tools.h}!UpdateKeyAndMouseState@{UpdateKeyAndMouseState}}
+\index{UpdateKeyAndMouseState@{UpdateKeyAndMouseState}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{UpdateKeyAndMouseState()}{UpdateKeyAndMouseState()}}
+{\footnotesize\ttfamily \label{_tools_8h_a1d0e12352a03c500541241cd1ce526af} 
+void Update\+Key\+And\+Mouse\+State (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Updates the key and mouse states. 
+
+This function updates the current state of the keys and mouse buttons for the current frame. 
 
 \doxysubsection{Variable Documentation}
 \Hypertarget{_tools_8h_a00093d8489f25203bf7235e4ceaea4a5}\index{Tools.h@{Tools.h}!DeltaTime@{DeltaTime}}
@@ -1130,9 +1650,47 @@ Converts a string to uppercase.
 {\footnotesize\ttfamily \label{_tools_8h_a00093d8489f25203bf7235e4ceaea4a5} 
 float Delta\+Time}
 
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00065}{65}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_ad61e757c26d102ec52c61a5cbfb2f983}\index{Tools.h@{Tools.h}!GameWindow@{GameWindow}}
+\index{GameWindow@{GameWindow}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{GameWindow}{GameWindow}}
+{\footnotesize\ttfamily \label{_tools_8h_ad61e757c26d102ec52c61a5cbfb2f983} 
+struct \mbox{\hyperlink{struct_window_manager}{Window\+Manager}}\texorpdfstring{$\ast$}{*} Game\+Window}
+
+Pointer to the \doxylink{struct_window_manager}{Window\+Manager} structure responsible for managing the game window. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00043}{43}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{_tools_8h_aa242836903fc655abed70288a389a7e8}\index{Tools.h@{Tools.h}!resource\_directory@{resource\_directory}}
 \index{resource\_directory@{resource\_directory}!Tools.h@{Tools.h}}
 \doxysubsubsection{\texorpdfstring{resource\_directory}{resource\_directory}}
 {\footnotesize\ttfamily \label{_tools_8h_aa242836903fc655abed70288a389a7e8} 
 char resource\+\_\+directory\mbox{[}\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\+\_\+\+PATH\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00071}{71}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_ad241988a907b95432b3489546dc95b28}\index{Tools.h@{Tools.h}!ScreenScaleFactorX@{ScreenScaleFactorX}}
+\index{ScreenScaleFactorX@{ScreenScaleFactorX}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{ScreenScaleFactorX}{ScreenScaleFactorX}}
+{\footnotesize\ttfamily \label{_tools_8h_ad241988a907b95432b3489546dc95b28} 
+float Screen\+Scale\+FactorX}
+
+Scaling factor for the X-\/axis of the screen, used for scaling graphics to the window size. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00044}{44}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{_tools_8h_a3ff4f5baef7efd776e94537956e7ec68}\index{Tools.h@{Tools.h}!ScreenScaleFactorY@{ScreenScaleFactorY}}
+\index{ScreenScaleFactorY@{ScreenScaleFactorY}!Tools.h@{Tools.h}}
+\doxysubsubsection{\texorpdfstring{ScreenScaleFactorY}{ScreenScaleFactorY}}
+{\footnotesize\ttfamily \label{_tools_8h_a3ff4f5baef7efd776e94537956e7ec68} 
+float Screen\+Scale\+FactorY}
+
+Scaling factor for the Y-\/axis of the screen, used for scaling graphics to the window size. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00045}{45}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
 

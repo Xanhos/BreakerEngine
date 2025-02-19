@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -130,9 +130,17 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a9b9e8e8e880e79c01cb93246c701b294" id="r_a9b9e8e8e880e79c01cb93246c701b294"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b9e8e8e880e79c01cb93246c701b294">SetCurrentFrame</a> )(<a class="el" href="struct_animation___key.html">Animation_Key</a> *anim_key, int frame)</td></tr>
 <tr class="memdesc:a9b9e8e8e880e79c01cb93246c701b294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current frame index.  <br /></td></tr>
 <tr class="separator:a9b9e8e8e880e79c01cb93246c701b294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611d06b7ee1b9cc54e70f767a1e6168a" id="r_a611d06b7ee1b9cc54e70f767a1e6168a"><td class="memItemLeft" align="right" valign="top">const char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a611d06b7ee1b9cc54e70f767a1e6168a">GetAnimationKeyName</a> )(<a class="el" href="struct_animation___key.html">Animation_Key</a> *anim_key)</td></tr>
+<tr class="memdesc:a611d06b7ee1b9cc54e70f767a1e6168a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the name of the animation key.  <br /></td></tr>
+<tr class="separator:a611d06b7ee1b9cc54e70f767a1e6168a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f64f149810a78299af4758b0b2452b2" id="r_a2f64f149810a78299af4758b0b2452b2"><td class="memItemLeft" align="right" valign="top">sfBool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f64f149810a78299af4758b0b2452b2">HasFinishAnim</a> )(<a class="el" href="struct_animation___key.html">Animation_Key</a> *anim_key)</td></tr>
+<tr class="memdesc:a2f64f149810a78299af4758b0b2452b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the animation has finished playing.  <br /></td></tr>
+<tr class="separator:a2f64f149810a78299af4758b0b2452b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulates data and functions for managing an animation key. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00049">49</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a59741eda27f31a1fe86f9b08b9480575" name="a59741eda27f31a1fe86f9b08b9480575"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59741eda27f31a1fe86f9b08b9480575">&#9670;&#160;</a></span>_Data</h2>
@@ -146,6 +154,33 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pointer to internal data for the animation key. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00051">51</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="a611d06b7ee1b9cc54e70f767a1e6168a" name="a611d06b7ee1b9cc54e70f767a1e6168a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611d06b7ee1b9cc54e70f767a1e6168a">&#9670;&#160;</a></span>GetAnimationKeyName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char *(* GetAnimationKeyName) (<a class="el" href="struct_animation___key.html">Animation_Key</a> *anim_key)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the name of the animation key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim_key</td><td>Pointer to the animation key. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Name of the animation key. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00086">86</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -170,6 +205,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Current frame index. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00065">65</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="ad07f288e71bfbdcaeaa63ef4e4b006d9" name="ad07f288e71bfbdcaeaa63ef4e4b006d9"></a>
@@ -192,6 +229,8 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_texture.html" title="Represents a texture object, storing the texture data and its metadata.">Texture</a> rectangle for the current frame. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00072">72</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -216,6 +255,33 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Total number of frames. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00058">58</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="a2f64f149810a78299af4758b0b2452b2" name="a2f64f149810a78299af4758b0b2452b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f64f149810a78299af4758b0b2452b2">&#9670;&#160;</a></span>HasFinishAnim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool(* HasFinishAnim) (<a class="el" href="struct_animation___key.html">Animation_Key</a> *anim_key)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the animation has finished playing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim_key</td><td>Pointer to the animation key. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if the animation has finished, otherwise sfFalse. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00093">93</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="a9b9e8e8e880e79c01cb93246c701b294" name="a9b9e8e8e880e79c01cb93246c701b294"></a>
@@ -239,10 +305,12 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00079">79</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

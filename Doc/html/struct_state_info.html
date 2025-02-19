@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -109,7 +109,7 @@ $(function(){initNavTree('struct_state_info.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Contains function pointers for managing the lifecycle of a state in the application.  
+<p>Contains function pointers for managing the lifecycle of a state in the application. This structure allows the state manager to store the necessary functions for each state and execute them at the appropriate points in the application's lifecycle.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
@@ -138,7 +138,9 @@ Data Fields</h2></td></tr>
 <tr class="separator:add4e5cb6dba66fecd677db0fe79e9be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains function pointers for managing the lifecycle of a state in the application. </p>
+<div class="textblock"><p>Contains function pointers for managing the lifecycle of a state in the application. This structure allows the state manager to store the necessary functions for each state and execute them at the appropriate points in the application's lifecycle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00102">102</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="add4e5cb6dba66fecd677db0fe79e9be7" name="add4e5cb6dba66fecd677db0fe79e9be7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add4e5cb6dba66fecd677db0fe79e9be7">&#9670;&#160;</a></span>Destroy</h2>
@@ -155,10 +157,12 @@ Data Fields</h2></td></tr>
 <p>Destroys and cleans up the state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for cleanup. </td></tr>
+    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for cleanup. This function is called when the state is being destroyed to release any resources and cleanup. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00147">147</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -177,10 +181,12 @@ Data Fields</h2></td></tr>
 <p>Initializes the state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for managing the application window. </td></tr>
+    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for managing the application window. This function is called once when the state is first created, and it should set up any necessary resources for the state. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00111">111</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -196,6 +202,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The name of the state. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00104">104</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -214,10 +222,12 @@ Data Fields</h2></td></tr>
 <p>Renders the state visuals. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for rendering. </td></tr>
+    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for rendering. This function is called every frame to render the state’s visuals to the screen, such as sprites, backgrounds, etc. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00133">133</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -236,10 +246,12 @@ Data Fields</h2></td></tr>
 <p>Renders the user interface of the state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for UI rendering. </td></tr>
+    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for UI rendering. This function is called to render any UI elements specific to the state, like buttons, labels, etc. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00140">140</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -258,10 +270,12 @@ Data Fields</h2></td></tr>
 <p>Updates the state logic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for state updates. </td></tr>
+    <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for state updates. This function is called on every frame update to process the logic of the state, such as moving objects or updating variables. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00126">126</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -281,15 +295,17 @@ Data Fields</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for event handling. </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SFML event structure. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointer to the SFML event structure. This function handles input events like key presses or mouse clicks specific to this state. </td></tr>
   </table>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00119">119</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_state_8h_source.html">State.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_state_8h_source.html">State.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

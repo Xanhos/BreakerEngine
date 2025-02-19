@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/Game.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/Game.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -121,26 +121,41 @@ $(function(){initNavTree('_game_8h.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9192f490d1bf76e4dd171b2c101c2b34" id="r_a9192f490d1bf76e4dd171b2c101c2b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9192f490d1bf76e4dd171b2c101c2b34">StartGame</a> (<a class="el" href="struct_window_manager.html">WindowManager</a> *window_manager, char *starting_state, <a class="el" href="struct_animation.html">Animation</a> *loading_screen_animation, const char *key_anim_name)</td></tr>
-<tr class="memdesc:a9192f490d1bf76e4dd171b2c101c2b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the game with a specified loading screen animation.  <br /></td></tr>
-<tr class="separator:a9192f490d1bf76e4dd171b2c101c2b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a888ff971426076920c336d7d3ad4840e" id="r_a888ff971426076920c336d7d3ad4840e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a888ff971426076920c336d7d3ad4840e">ChangeState</a> (char *state_name)</td></tr>
-<tr class="memdesc:a888ff971426076920c336d7d3ad4840e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current state of the application.  <br /></td></tr>
-<tr class="separator:a888ff971426076920c336d7d3ad4840e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9b03801ff0c87e2c299290ae5108ac" id="r_a5b9b03801ff0c87e2c299290ae5108ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b9b03801ff0c87e2c299290ae5108ac">StartGame</a> (<a class="el" href="struct_window_manager.html">WindowManager</a> *window_manager, const char *starting_state, const char *loading_state, void(*ResetLoadingStateFunc)(<a class="el" href="struct_window_manager.html">WindowManager</a> *window))</td></tr>
+<tr class="memdesc:a5b9b03801ff0c87e2c299290ae5108ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the game with a specified loading screen animation.  <br /></td></tr>
+<tr class="separator:a5b9b03801ff0c87e2c299290ae5108ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf564c7f1160a157bb48f546e7b1698" id="r_a5cf564c7f1160a157bb48f546e7b1698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cf564c7f1160a157bb48f546e7b1698">EndGame</a> (<a class="el" href="struct_window_manager.html">WindowManager</a> *window)</td></tr>
+<tr class="memdesc:a5cf564c7f1160a157bb48f546e7b1698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the game and exits the StartGame function.  <br /></td></tr>
+<tr class="separator:a5cf564c7f1160a157bb48f546e7b1698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c71e7f77f3542e3c52d5ee1838003a" id="r_a35c71e7f77f3542e3c52d5ee1838003a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35c71e7f77f3542e3c52d5ee1838003a">ChangeMainState</a> (const char *state_name)</td></tr>
+<tr class="memdesc:a35c71e7f77f3542e3c52d5ee1838003a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current state of the application.  <br /></td></tr>
+<tr class="separator:a35c71e7f77f3542e3c52d5ee1838003a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d53454948499cf8a28cc7c9a4e267f" id="r_a07d53454948499cf8a28cc7c9a4e267f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07d53454948499cf8a28cc7c9a4e267f">RegisterSubState</a> (char *state_name, <a class="el" href="struct_window_manager.html">WindowManager</a> *window, sfBool update_of_below_state, sfBool display_of_below_state)</td></tr>
+<tr class="memdesc:a07d53454948499cf8a28cc7c9a4e267f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a sub-state to the application.  <br /></td></tr>
+<tr class="separator:a07d53454948499cf8a28cc7c9a4e267f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa576699d6bc218b2660467b2a54d2e5b" id="r_aa576699d6bc218b2660467b2a54d2e5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa576699d6bc218b2660467b2a54d2e5b">PushSubState</a> (char *state_name)</td></tr>
+<tr class="memdesc:aa576699d6bc218b2660467b2a54d2e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a sub-state onto the state stack.  <br /></td></tr>
+<tr class="separator:aa576699d6bc218b2660467b2a54d2e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445c51d1e270341ee8f7fc15adcc0fb4" id="r_a445c51d1e270341ee8f7fc15adcc0fb4"><td class="memItemLeft" align="right" valign="top"><a id="a445c51d1e270341ee8f7fc15adcc0fb4" name="a445c51d1e270341ee8f7fc15adcc0fb4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PopSubState</b> ()</td></tr>
+<tr class="memdesc:a445c51d1e270341ee8f7fc15adcc0fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops the current sub-state from the stack, returning to the previous state. <br /></td></tr>
+<tr class="separator:a445c51d1e270341ee8f7fc15adcc0fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the core of the game engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_game_8h_source.html">Game.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a888ff971426076920c336d7d3ad4840e" name="a888ff971426076920c336d7d3ad4840e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a888ff971426076920c336d7d3ad4840e">&#9670;&#160;</a></span>ChangeState()</h2>
+<a id="a35c71e7f77f3542e3c52d5ee1838003a" name="a35c71e7f77f3542e3c52d5ee1838003a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c71e7f77f3542e3c52d5ee1838003a">&#9670;&#160;</a></span>ChangeMainState()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ChangeState </td>
+          <td class="memname">void ChangeMainState </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>state_name</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>state_name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -149,15 +164,108 @@ Functions</h2></td></tr>
 <p>Changes the current state of the application. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">char</td><td>state_name Name of the new state. </td></tr>
+    <tr><td class="paramname">state_name</td><td>Name of the new state. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a9192f490d1bf76e4dd171b2c101c2b34" name="a9192f490d1bf76e4dd171b2c101c2b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9192f490d1bf76e4dd171b2c101c2b34">&#9670;&#160;</a></span>StartGame()</h2>
+<a id="a5cf564c7f1160a157bb48f546e7b1698" name="a5cf564c7f1160a157bb48f546e7b1698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf564c7f1160a157bb48f546e7b1698">&#9670;&#160;</a></span>EndGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EndGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_window_manager.html">WindowManager</a> *</td>          <td class="paramname"><span class="paramname"><em>window</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ends the game and exits the StartGame function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>This function should call the destroy function of the current state and destroy the window. </dd></dl>
+
+</div>
+</div>
+<a id="aa576699d6bc218b2660467b2a54d2e5b" name="aa576699d6bc218b2660467b2a54d2e5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa576699d6bc218b2660467b2a54d2e5b">&#9670;&#160;</a></span>PushSubState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PushSubState </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>state_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pushes a sub-state onto the state stack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state_name</td><td>Name of the sub-state to push. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a07d53454948499cf8a28cc7c9a4e267f" name="a07d53454948499cf8a28cc7c9a4e267f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d53454948499cf8a28cc7c9a4e267f">&#9670;&#160;</a></span>RegisterSubState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RegisterSubState </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>state_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_window_manager.html">WindowManager</a> *</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>update_of_below_state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>display_of_below_state</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a sub-state to the application. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state_name</td><td>Name of the sub-state. </td></tr>
+    <tr><td class="paramname">window</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object. </td></tr>
+    <tr><td class="paramname">update_of_below_state</td><td>Boolean indicating if the state below should continue updating. </td></tr>
+    <tr><td class="paramname">display_of_below_state</td><td>Boolean indicating if the state below should continue rendering. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b9b03801ff0c87e2c299290ae5108ac" name="a5b9b03801ff0c87e2c299290ae5108ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b9b03801ff0c87e2c299290ae5108ac">&#9670;&#160;</a></span>StartGame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,17 +278,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>starting_state</em></span>, </td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>starting_state</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_animation.html">Animation</a> *</td>          <td class="paramname"><span class="paramname"><em>loading_screen_animation</em></span>, </td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>loading_state</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key_anim_name</em></span>&#160;)</td>
+          <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>ResetLoadingStateFunc&#160;</em></span>)(<a class="el" href="struct_window_manager.html">WindowManager</a> *window)&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -190,8 +298,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">window_manager</td><td>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> object for managing the application window. </td></tr>
     <tr><td class="paramname">starting_state</td><td>Name of the starting state. </td></tr>
-    <tr><td class="paramname">loading_screen_animation</td><td>Pointer to the <a class="el" href="struct_animation.html" title="Encapsulates data and functions for managing animations.">Animation</a> object for the loading screen. </td></tr>
-    <tr><td class="paramname">key_anim_name</td><td>Name of the animation key to use for the loading screen. </td></tr>
+    <tr><td class="paramname">loading_state</td><td>Name of the loading state. </td></tr>
+    <tr><td class="paramname">ResetLoadingStateFunc</td><td>Function pointer to reset the loading state. </td></tr>
   </table>
   </dd>
 </dl>
@@ -203,7 +311,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

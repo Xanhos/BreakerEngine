@@ -27,17 +27,15 @@
 #include "MovieManager.h"
 #include "SpriteManager.h"
 
-
 /**
  * @file resourcesmanager.h
  * @brief This file contains all the data to manage all the resources used by the engine.
  */
 
-
-/**
- * @brief Initializes the resources manager and loads resources from the specified directory.
- * @param resource_directory_ Path to the directory containing resources to load.
- */
+ /**
+  * @brief Initializes the resources manager and loads resources from the specified directory.
+  * @param resource_directory_ Path to the directory containing resources to load.
+  */
 void InitResourcesManager(const char* resource_directory_);
 
 /**
@@ -53,4 +51,8 @@ void LoadScene(const char* scene_name);
  */
 void DestroyResourcesManager(void);
 
+/**
+ * @brief Retrieves the current loading progress of the resources manager.
+ * @return A float value representing the percentage of resources loaded (0.0 to 1.0).
+ */
 float GetLoadingValue();

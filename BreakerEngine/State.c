@@ -17,7 +17,7 @@ void __RegisterState(StateInfo stateInfo)
 	stateList->push_back(stateList, &stateInfo);
 }
 
-StateInfo GetState(char* name)
+StateInfo GetState(const char* name)
 {
 	FOR_EACH_LIST(stateList, StateInfo, i, it,
 		if (strcmp(name, it->name) == 0)

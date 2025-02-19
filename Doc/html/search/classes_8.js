@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowmanager_0',['WindowManager',['../struct_window_manager.html',1,'']]]
+  ['viewport_0',['Viewport',['../struct_viewport.html',1,'']]]
 ];

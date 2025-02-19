@@ -12,11 +12,11 @@ void CreateProjectile(sfVector2f position, int damage, sfBool shotByPlayer)
 {
 	Projectile projectile;
 	projectile.transform.position = position;
-	projectile.transform.velocity = sfVector2f_Create(shotByPlayer ? 1 : -1, 0);
+	projectile.transform.velocity = sfVector2f_Create(shotByPlayer ? 1.f : -1.f, 0.f);
 	projectile.damage = damage;
 	projectile.isShotByPlayer = shotByPlayer;
 	projectile.texture_rect = shotByPlayer ? (sfIntRect) { 0, 1321, 26, 19 } : (sfIntRect) { 0, 2011, 33, 31 };
-	projectile.hitbox = (sfFloatRect){ 0,0,projectile.texture_rect.width, projectile.texture_rect.height };
+	projectile.hitbox = (sfFloatRect){ 0, 0, (float)projectile.texture_rect.width, (float)projectile.texture_rect.height };
 
 	projectiles_list->push_back(projectiles_list, &projectile);
 }
@@ -37,7 +37,7 @@ void UpdateProjectiles(WindowManager* window)
 		it->transform.position = AddVector2f(it->transform.position, MultiplyVector2f(it->transform.velocity, 1000.f * DeltaTime));
 		it->hitbox.left = it->transform.position.x;
 		it->hitbox.top = it->transform.position.y;
-		if (!PointInRectangle(it->transform.position, (sfFloatRect) { 0, 0, window->GetBaseSize(window).x, window->GetBaseSize(window).y }, 0))
+		if (!PointInRectangle(it->transform.position, (sfFloatRect) { 0, 0, (float)window->GetBaseSize(window).x, (float)window->GetBaseSize(window).y }, 0))
 		{
 			projectiles_list->erase(projectiles_list, i);
 			i--;
@@ -54,7 +54,7 @@ void UpdateProjectiles(WindowManager* window)
 			FOR_EACH(GetEnemyList(),Enemy,j,enemy,
 				if (Rectangle_Collision(it->hitbox, enemy->hitbox, sfFalse))
 				{
-					EnemyTakeDamage(enemy, it->damage, AddVector2f(it->transform.position, sfVector2f_Create(it->hitbox.width, it->hitbox.height * .5f)));
+					EnemyTakeDamage(enemy, (float)it->damage, AddVector2f(it->transform.position, sfVector2f_Create((float)it->hitbox.width, (float)it->hitbox.height * .5f)));
 					projectiles_list->erase(projectiles_list, i);
 					i--;
 				})

@@ -1,241 +1,290 @@
 \doxysection{Tools.\+h}
-\hypertarget{_tools_8h_source}{}\label{_tools_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Tools.h}}
+\hypertarget{_tools_8h_source}{}\label{_tools_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Tools.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Tools.h}}
 \mbox{\hyperlink{_tools_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <math.h>}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_system_8h}{FileSystem.h}}"{}}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.h"{}}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}SFML/Audio.h"{}}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}SFML/System.h"{}}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a00093d8489f25203bf7235e4ceaea4a5}{DeltaTime}};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00049\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_tools_8h_aa242836903fc655abed70288a389a7e8}{resource\_directory}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MAX\_THREAD\ 10}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ KEY(key)\ sfKeyboard\_isKeyPressed(sfKey\#\#key)}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ KEY\_DOWN(key)\ sfKeyboard\_isKeyDown(sfKey\#\#key)}}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ KEY\_UP(key)\ sfKeyboard\_isKeyUp(sfKey\#\#key)}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ STD\_LIST\_CREATE\_POINTER(type,\ size,\ ...)\ \(\backslash\)}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ stdList\_Create(sizeof(type*),\ size,\ \_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_TEMP\_LIST(name,\ type,\ initFunc,\ func)\ \(\backslash\)}}
-\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ stdList*\ name\ =\ initFunc;\ \(\backslash\)}}
-\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ for\ (int\ i\ =\ 0;\ i\ <\ name-\/>size(name);\ i++)\ \{\ func\ \}\ \(\backslash\)}}
-\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ name-\/>destroy(\&name);}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
-\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
-\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST\_POINTER(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
-\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\#\#\_\ =\ STD\_LIST\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
-\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ type\ data\_container\_name\ =\ *data\_container\_name\#\#\_;\ \(\backslash\)}}
-\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/VECTOR\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ vector\_type\ AddVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ +\ b.x,\ a.y\ +\ b.y\};\ \(\backslash\)}}
-\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ vector\_type\ SubVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ -\/\ b.x,\ a.y\ -\/\ b.y\};\ \(\backslash\)}}
-\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ vector\_type\ MultiplyVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ *\ b,\ a.y\ *\ b\};\ \(\backslash\)}}
-\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ vector\_type\ DivideVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ /\ b,\ a.y\ /\ b\};\ \(\backslash\)}}
-\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a,\ b\};\ \(\backslash\)}}
-\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
-\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ void\ PrintVector2\#\#suffixe(vector\_type\ vec,\ sfBool\ go\_to\_next\_line)\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ NEW\_CHAR(sentence\_debug,\ 100)\ \(\backslash\)}}
-\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}x\ =\ \%"{});\ \(\backslash\)}}
-\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
-\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}\ y\ =\ \%"{});\ \(\backslash\)}}
-\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
-\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ printf\_d(sentence\_debug,\ vec.x,\ vec.y);\ \(\backslash\)}}
-\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ if\ (go\_to\_next\_line)\ \(\backslash\)}}
-\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ printf("{}\(\backslash\)n"{});\ \(\backslash\)}}
-\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Declare\ basic\ vector\ operations\ for\ vector2\ of\ any\ type,\ such\ as\ sfVector2f,\ sfVector2i,\ or\ sfVector2u.}}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(vector\_type,\ suffix,\ type)\ \ \ \(\backslash\)}}
-\DoxyCodeLine{00216\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ AddVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00224\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ SubVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00232\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ MultiplyVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00240\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ DivideVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00248\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00256\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ void\ PrintVector2\#\#suffix(vector\_type\ vec);}}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \textcolor{comment}{//\ Implement\ basic\ vector\ operations\ for\ vector2\ of\ any\ type\ (e.g.,\ sfVector2f,\ sfVector2i,\ sfVector2u).}}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \(\backslash\)}}
-\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffix,\ type)}}
-\DoxyCodeLine{00271\ }
-\DoxyCodeLine{00272\ \textcolor{comment}{//\ Declare\ operations\ for\ specific\ vector\ types}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2f,\ f,\ \textcolor{keywordtype}{float})}
-\DoxyCodeLine{00275\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2i,\ i,\ \textcolor{keywordtype}{int})}
-\DoxyCodeLine{00276\ \mbox{\hyperlink{_tools_8h_a9253b6ec833c0c5646f3cb4a3eb56230}{DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H}}(sfVector2u,\ u,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ }
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/MATHS\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
-\DoxyCodeLine{00280\ }
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#define\ PI\ 3.14159265359}}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ RAD2DEG\ 57.295779f}}
-\DoxyCodeLine{00292\ }
-\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ DEG2RAD\ 0.017453f}}
-\DoxyCodeLine{00298\ }
-\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ LERP(a,\ b,\ t)\ (b\ -\/\ a)\ *\ t\ +\ a}}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#define\ MAX(a,\ b)\ a\ >=\ b\ ?\ a\ :\ b}}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ MIN(a,\ b)\ a\ <=\ b\ ?\ a\ :\ b}}
-\DoxyCodeLine{00326\ }
-\DoxyCodeLine{00335\ sfBool\ \mbox{\hyperlink{_tools_8h_aa4c422cc9fe6ae7047a81232cd66e69a}{Circle\_Collision}}(sfVector2f\ \_pos1,\ sfVector2f\ \_pos2,\ \textcolor{keywordtype}{float}\ \_rayon1,\ \textcolor{keywordtype}{float}\ \_rayon2);}
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00343\ sfBool\ \mbox{\hyperlink{_tools_8h_af02f16bb83330b37c5649ed9994dde1b}{Rectangle\_Collision}}(sfFloatRect\ \_box1,\ sfFloatRect\ \_box2);}
-\DoxyCodeLine{00344\ }
-\DoxyCodeLine{00352\ sfBool\ \mbox{\hyperlink{_tools_8h_aaf3ec8e6e747dbbfe545df0e2d232b75}{PointInCircle}}(sfVector2f\ \_pos,\ sfVector2f\ \_circle\_pos,\ \textcolor{keywordtype}{float}\ \_rayon);}
-\DoxyCodeLine{00353\ }
-\DoxyCodeLine{00360\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_aac41e11b0bd648fe5d1752a6d4dcd151}{rand\_int}}(\textcolor{keywordtype}{int}\ \_min,\ \textcolor{keywordtype}{int}\ \_max);}
-\DoxyCodeLine{00361\ }
-\DoxyCodeLine{00368\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_tools_8h_a50d1e1e1742bd5a82c663b9a92d85efb}{rand\_float}}(\textcolor{keywordtype}{float}\ \_min,\ \textcolor{keywordtype}{float}\ \_max);}
-\DoxyCodeLine{00369\ }
-\DoxyCodeLine{00376\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a141f35893cd11a0bcc60744d92ade08a}{GetDistance}}(sfVector2f\ a\_,\ sfVector2f\ b\_);}
-\DoxyCodeLine{00377\ }
-\DoxyCodeLine{00383\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a3d2ffc0ed39037bc8a42b2df354f066e}{GetNorme}}(sfVector2f\ \_vec);}
-\DoxyCodeLine{00384\ }
-\DoxyCodeLine{00390\ sfVector2f\ \mbox{\hyperlink{_tools_8h_a71eee54b0d330ccc0f2ba98eb7f528fe}{NormalizeVector2f}}(sfVector2f\ \_vec);}
-\DoxyCodeLine{00391\ }
-\DoxyCodeLine{00399\ sfVector2f\ \mbox{\hyperlink{_tools_8h_aa024171f82587a149a4ea49051560f28}{GetVectorFromAngle}}(sfVector2f\ pos,\ \textcolor{keywordtype}{float}\ lenght,\ \textcolor{keywordtype}{float}\ angle);}
-\DoxyCodeLine{00400\ }
-\DoxyCodeLine{00409\ sfColor\ \mbox{\hyperlink{_tools_8h_a8c74579aee7ecc3d3526fbf0ce29c5e1}{CreateColor}}(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ b,\ \textcolor{keywordtype}{int}\ alpha);}
-\DoxyCodeLine{00410\ }
-\DoxyCodeLine{00418\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_a1682cc798370918ebde08d37508b27f5}{iClamp}}(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
-\DoxyCodeLine{00419\ }
-\DoxyCodeLine{00427\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a70075ccf88dff79e51d88948f9c0848d}{fClamp}}(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{00428\ }
-\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ printf\_d(string,\ ...)\ DebugPrint(string,\ \_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00439\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}\ \mbox{\hyperlink{_tools_8h_af35a7203fefa22e159b08f54140795cf}{thread\_info}};}
-\DoxyCodeLine{00440\ }
-\DoxyCodeLine{00445\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}}
-\DoxyCodeLine{00446\ \{}
-\DoxyCodeLine{00447\ \ \ \ \ stdList*\ \mbox{\hyperlink{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}{files\_info}};\ }
-\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}{start}};\ }
-\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388}{end}};\ }
-\DoxyCodeLine{00450\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}{func}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*);\ }
-\DoxyCodeLine{00451\ \};}
-\DoxyCodeLine{00452\ }
-\DoxyCodeLine{00457\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}\ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}};}
-\DoxyCodeLine{00458\ }
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00464\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}\ \mbox{\hyperlink{struct_clock}{Clock}};}
-\DoxyCodeLine{00465\ }
-\DoxyCodeLine{00470\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}}
-\DoxyCodeLine{00471\ \{}
-\DoxyCodeLine{00472\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5af09b61cfe091e1a61f9a8cd7e0f5c2}{restartClock}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
-\DoxyCodeLine{00473\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a4a0b5eddb84e5adb5b62c49e71407796}{getDeltaTime}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
-\DoxyCodeLine{00474\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a89aec87b001521cf6756aa3079cade45}{frameRate}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
-\DoxyCodeLine{00475\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5f8d26db9230fe334d612409bfbe0737}{destroy}})(\mbox{\hyperlink{struct_clock}{Clock}}**\ clock);\ }
-\DoxyCodeLine{00476\ \ \ \ \ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}*\ \mbox{\hyperlink{struct_clock_a0a6026bc7406c7d96bcbc7db18a82560}{\_Data}};\ }
-\DoxyCodeLine{00477\ \};}
-\DoxyCodeLine{00478\ }
-\DoxyCodeLine{00483\ \mbox{\hyperlink{struct_clock}{Clock}}*\ \mbox{\hyperlink{_tools_8h_a249727cb5ea5710ac238eada4eb51102}{CreateClock}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00484\ }
-\DoxyCodeLine{00489\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a182b5348ee703bd6f89db3d8828022b7}{ToLower}}(\textcolor{keywordtype}{char}*\ sentence);}
-\DoxyCodeLine{00490\ }
-\DoxyCodeLine{00495\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_ad068043a1f5c416a4832436d3166db1c}{ToUpper}}(\textcolor{keywordtype}{char}*\ sentence);}
-\DoxyCodeLine{00496\ }
-\DoxyCodeLine{00502\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_tools_8h_a1d4705d2264c995a7f03677890702814}{StrAllocNCopy}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
-\DoxyCodeLine{00503\ }
-\DoxyCodeLine{00510\ stdList*\ \mbox{\hyperlink{_tools_8h_a050e7c34961790b29b0c1e841a073728}{SearchFilesInfos}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}});}
-\DoxyCodeLine{00511\ }
-\DoxyCodeLine{00515\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}\ \mbox{\hyperlink{struct_files_info}{FilesInfo}};}
-\DoxyCodeLine{00516\ }
-\DoxyCodeLine{00521\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}}
-\DoxyCodeLine{00522\ \{}
-\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
-\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a8401323a88cc5e9e2ac6a6d0a40636b1}{m\_path}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
-\DoxyCodeLine{00525\ \};}
-\DoxyCodeLine{00526\ }
-\DoxyCodeLine{00535\ sfBool\ \mbox{\hyperlink{_tools_8h_a9ed615c3d70ccfc6b86ee474fc6ae58a}{sfKeyboard\_isKeyDown}}(sfKeyCode\ key);}
-\DoxyCodeLine{00536\ }
-\DoxyCodeLine{00545\ sfBool\ \mbox{\hyperlink{_tools_8h_a223d0114db502d1e32887d44a1a0e86c}{sfKeyboard\_isKeyUp}}(sfKeyCode\ key);}
-\DoxyCodeLine{00546\ }
-\DoxyCodeLine{00556\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a9dc6eaaf9f0d0c2262b023416b763799}{DebugPrint}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ ...);}
-\DoxyCodeLine{00557\ }
-\DoxyCodeLine{00558\ }
-\DoxyCodeLine{00563\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}{\_\_LoadWithThread}}(\textcolor{keywordtype}{void}*\ thread\_infos);}
-\DoxyCodeLine{00564\ }
-\DoxyCodeLine{00572\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a0cd769dadf11994f172a92b527409844}{\_\_LoadScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keywordtype}{void}\ (*func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}stdString.h"{}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_system_8h}{FileSystem.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.h"{}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}SFML/Audio.h"{}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}SFML/System.h"{}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00043}\mbox{\hyperlink{_tools_8h_ad61e757c26d102ec52c61a5cbfb2f983}{00043}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ \mbox{\hyperlink{_tools_8h_ad61e757c26d102ec52c61a5cbfb2f983}{GameWindow}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00044}\mbox{\hyperlink{_tools_8h_ad241988a907b95432b3489546dc95b28}{00044}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_ad241988a907b95432b3489546dc95b28}{ScreenScaleFactorX}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00045}\mbox{\hyperlink{_tools_8h_a3ff4f5baef7efd776e94537956e7ec68}{00045}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a3ff4f5baef7efd776e94537956e7ec68}{ScreenScaleFactorY}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00053}00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_transform}{Transform}}\ \mbox{\hyperlink{struct_transform}{Transform}};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00054}\mbox{\hyperlink{struct_transform}{00054}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_transform}{Transform}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00056}\mbox{\hyperlink{struct_transform_a3d92ec5abf8d6d77cdd0fecda1eb671a}{00056}}\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_transform_a3d92ec5abf8d6d77cdd0fecda1eb671a}{position}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00057}\mbox{\hyperlink{struct_transform_aa8b98133a38820e7b5d8ccaa0631dd96}{00057}}\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_transform_aa8b98133a38820e7b5d8ccaa0631dd96}{velocity}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00058}\mbox{\hyperlink{struct_transform_ab8ef1bf8a70cc07c6d55823c390a7e76}{00058}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_transform_ab8ef1bf8a70cc07c6d55823c390a7e76}{angle}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00059}00059\ \};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00065}00065\ \textcolor{keywordtype}{float}\ DeltaTime;}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00071}00071\ \textcolor{keywordtype}{char}\ resource\_directory[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00077}\mbox{\hyperlink{_tools_8h_a04922e4673a244d94b12566890b2e96c}{00077}}\ \textcolor{preprocessor}{\#define\ MAX\_THREAD\ 10}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00085}\mbox{\hyperlink{_tools_8h_a0b09d102f5d5b02336b65bc5d6c1b5ef}{00085}}\ \textcolor{preprocessor}{\#define\ KEY(key)\ sfKeyboard\_isKeyPressed(sfKey\#\#key)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00093}\mbox{\hyperlink{_tools_8h_a18dceb8e7df0a7a2fff7fdfc9e6b9708}{00093}}\ \textcolor{preprocessor}{\#define\ KEY\_DOWN(key)\ sfKeyboard\_isKeyDown(sfKey\#\#key)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00101}\mbox{\hyperlink{_tools_8h_ad0a7b532864eac73b919e2b0cee65c86}{00101}}\ \textcolor{preprocessor}{\#define\ KEY\_UP(key)\ sfKeyboard\_isKeyUp(sfKey\#\#key)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00108}00108\ \textcolor{preprocessor}{\#define\ MOUSE(button)\ sfMouse\_isButtonPressed(sfMouse\#\#button)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00116}00116\ \textcolor{preprocessor}{\#define\ MOUSE\_DOWN(button)\ sfMouse\_isButtonDown(sfMouse\#\#button)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00124}00124\ \textcolor{preprocessor}{\#define\ MOUSE\_UP(button)\ sfMouse\_isButtonUp(sfMouse\#\#button)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00132}\mbox{\hyperlink{_tools_8h_a989661ed710be7ad99d7e4d42ef0e041}{00132}}\ \textcolor{preprocessor}{\#define\ STD\_LIST\_CREATE\_POINTER(type,\ size,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00133}00133\ \textcolor{preprocessor}{\ \ stdList\_Create(sizeof(type*),\ size,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00142}\mbox{\hyperlink{_tools_8h_a346249fee71323a89aa453f48bf9945a}{00142}}\ \textcolor{preprocessor}{\#define\ STD\_VECTOR\_CREATE\_POINTER(type,\ size,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00143}00143\ \textcolor{preprocessor}{\ \ stdVector\_Create(sizeof(type*),\ size,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00153}\mbox{\hyperlink{_tools_8h_ad2f4fafec8015ab9f4c71ba0515fbb7a}{00153}}\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_TEMP\_LIST(name,\ type,\ initFunc,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00154}00154\ \textcolor{preprocessor}{\ \ stdList*\ name\ =\ initFunc;\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00155}00155\ \textcolor{preprocessor}{\ \ for\ (int\ i\ =\ 0;\ i\ <\ name-\/>size(name);\ i++)\ \{\ func\ \}\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00156}00156\ \textcolor{preprocessor}{\ \ name-\/>destroy(\&name);}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00167}\mbox{\hyperlink{_tools_8h_aa303f7f1220a109a146780828fee5801}{00167}}\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00168}00168\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00169}00169\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\ =\ STD\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00170}00170\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00181}\mbox{\hyperlink{_tools_8h_aa10d3be3c5301eb9c00531987c8d7d1d}{00181}}\ \textcolor{preprocessor}{\#define\ FOR\_EACH\_LIST\_POINTER(list,\ type,\ it\_name,\ data\_container\_name,\ func)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00182}00182\ \textcolor{preprocessor}{\ \ for\ (int\ it\_name\ =\ 0;\ it\_name\ <\ list-\/>size(list);\ it\_name++)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00183}00183\ \textcolor{preprocessor}{\ \ \ \ type*\ data\_container\_name\#\#\_\ =\ STD\_GETDATA(list,\ type,\ it\_name);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00184}00184\ \textcolor{preprocessor}{\ \ \ \ type\ data\_container\_name\ =\ *data\_container\_name\#\#\_;\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00185}00185\ \textcolor{preprocessor}{\ \ \ \ func\ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/VECTOR\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00196}\mbox{\hyperlink{_tools_8h_a52424edd1c9354e5d19078ed409bcc9f}{00196}}\ \textcolor{preprocessor}{\#define\ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00197}00197\ \textcolor{preprocessor}{\ \ vector\_type\ AddVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00198}00198\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ +\ b.x,\ a.y\ +\ b.y\};\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00199}00199\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00208}\mbox{\hyperlink{_tools_8h_a449861784cefce058b56128774219e75}{00208}}\ \textcolor{preprocessor}{\#define\ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00209}00209\ \textcolor{preprocessor}{\ \ vector\_type\ SubVector2\#\#suffixe(vector\_type\ a,\ vector\_type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00210}00210\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ -\/\ b.x,\ a.y\ -\/\ b.y\};\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00211}00211\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00220}\mbox{\hyperlink{_tools_8h_a3a383943761523b7108a4d964bfe454e}{00220}}\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00221}00221\ \textcolor{preprocessor}{\ \ vector\_type\ MultiplyVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00222}00222\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ *\ b,\ a.y\ *\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00223}00223\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00232}\mbox{\hyperlink{_tools_8h_a73c80110f8e46a9bceac9a013132e1d9}{00232}}\ \textcolor{preprocessor}{\#define\ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00233}00233\ \textcolor{preprocessor}{\ \ vector\_type\ DivideVector2\#\#suffixe(vector\_type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00234}00234\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a.x\ /\ b,\ a.y\ /\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00235}00235\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00244}\mbox{\hyperlink{_tools_8h_a01a95241ce487190b6d8512e3232d3aa}{00244}}\ \textcolor{preprocessor}{\#define\ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00245}00245\ \textcolor{preprocessor}{\ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00246}00246\ \textcolor{preprocessor}{\ \ \ \ return\ (vector\_type)\{a,\ b\};\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00247}00247\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00256}\mbox{\hyperlink{_tools_8h_a07e07d770e15eb18d764d89640b8c1dc}{00256}}\ \textcolor{preprocessor}{\#define\ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffixe,\ type)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00257}00257\ \textcolor{preprocessor}{\ \ void\ PrintVector2\#\#suffixe(vector\_type\ vec,\ sfBool\ go\_to\_next\_line)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00258}00258\ \textcolor{preprocessor}{\ \ \ \ NEW\_CHAR(sentence\_debug,\ 100)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00259}00259\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}x\ =\ \%"{});\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00260}00260\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00261}00261\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ "{}\ y\ =\ \%"{});\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00262}00262\ \textcolor{preprocessor}{\ \ \ \ strcat\_s(sentence\_debug,\ 100,\ \#suffixe);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00263}00263\ \textcolor{preprocessor}{\ \ \ \ printf\_d(sentence\_debug,\ vec.x,\ vec.y);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00264}00264\ \textcolor{preprocessor}{\ \ \ \ if\ (go\_to\_next\_line)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00265}00265\ \textcolor{preprocessor}{\ \ \ \ \ \ printf("{}\(\backslash\)n"{});\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00266}00266\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00268}00268\ \ \textcolor{comment}{//\ Declare\ basic\ vector\ operations\ for\ vector2\ of\ any\ type,\ such\ as\ sfVector2f,\ sfVector2i,\ or\ sfVector2u.}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00270}00270\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(vector\_type,\ suffix,\ type)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00271}00271\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00277}00277\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ AddVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00278}00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00279}00279\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00285}00285\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ SubVector2\#\#suffix(vector\_type\ a,\ vector\_type\ b);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00286}00286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00287}00287\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00293}00293\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ MultiplyVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00294}00294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00295}00295\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00301}00301\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ DivideVector2\#\#suffix(vector\_type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00302}00302\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00303}00303\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00309}00309\ \textcolor{preprocessor}{\ \ \ \ vector\_type\ vector\_type\#\#\_Create(type\ a,\ type\ b);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00310}00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00311}00311\ \textcolor{preprocessor}{}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00315}00315\ \textcolor{preprocessor}{\ \ \ \ void\ PrintVector2\#\#suffix(vector\_type\ vec);}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00317}00317\ \textcolor{comment}{//\ Implement\ basic\ vector\ operations\ for\ vector2\ of\ any\ type\ (e.g.,\ sfVector2f,\ sfVector2i,\ sfVector2u).}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00318}\mbox{\hyperlink{_tools_8h_ac5a945020d3528355cda82d383676736}{00318}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00319}00319\ \textcolor{preprocessor}{\#define\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00320}00320\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_ADD\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00321}00321\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_SUB\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00322}00322\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_MULTIPLY\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00323}00323\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_DIVIDE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00324}\mbox{\hyperlink{_tools_8h_af7e8592d0a634bd3642e9fd508ea8022}{00324}}\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_CREATE\_METHODE\_VECTOR2\_IN\_C(vector\_type,\ suffix,\ type)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00325}00325\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_PRINT\_VECTOR\_VALUE\_IN\_C(vector\_type,\ suffix,\ type)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00327}00327\ \textcolor{comment}{//\ Declare\ operations\ for\ specific\ vector\ types}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00329}00329\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(sfVector2f,\ f,\ \textcolor{keywordtype}{float})}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00330}00330\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(sfVector2i,\ i,\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00331}00331\ DECLARE\_ALL\_BASICS\_OPERATION\_VECTOR2\_IN\_H(sfVector2u,\ u,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00334}\mbox{\hyperlink{_tools_8h_a578e4084d317c9cf12cdb05ac4e87a3a}{00334}}\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/MATHS\ FUNCTION-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00340}00340\ \textcolor{preprocessor}{\#define\ PI\ 3.14159265359}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00346}00346\ \textcolor{preprocessor}{\#define\ RAD2DEG\ 57.295779f}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00352}00352\ \textcolor{preprocessor}{\#define\ DEG2RAD\ 0.017453f}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00362}00362\ \textcolor{preprocessor}{\#define\ LERP(a,\ b,\ t)\ (b\ -\/\ a)\ *\ t\ +\ a}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00364}00364\ \textcolor{preprocessor}{\#define\ INVERT\_LERP(a,\ b,\ value)\ (value\ -\/\ a)\ /\ (b\ -\/\ a)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00365}\mbox{\hyperlink{_tools_8h_a89fc336cce3c95518e5f32c5c60cfb0c}{00365}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00373}00373\ \textcolor{preprocessor}{\#define\ MAX(a,\ b)\ a\ >=\ b\ ?\ a\ :\ b}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00374}\mbox{\hyperlink{_tools_8h_a6a3bc44ca6401dca2bb5a0dd3655ceed}{00374}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00382}00382\ \textcolor{preprocessor}{\#define\ MIN(a,\ b)\ a\ <=\ b\ ?\ a\ :\ b}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00393}00393\ sfBool\ \mbox{\hyperlink{_tools_8h_a89fc336cce3c95518e5f32c5c60cfb0c}{Circle\_Collision}}(sfVector2f\ \_pos1,\ sfVector2f\ \_pos2,\ \textcolor{keywordtype}{float}\ \_rayon1,\ \textcolor{keywordtype}{float}\ \_rayon2,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00402}00402\ sfBool\ \mbox{\hyperlink{_tools_8h_a6a3bc44ca6401dca2bb5a0dd3655ceed}{Rectangle\_Collision}}(sfFloatRect\ \_box1,\ sfFloatRect\ \_box2,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00412}00412\ sfBool\ \mbox{\hyperlink{_tools_8h_ac6b0bc12e028113eff0ad556fdfca801}{CircleRect\_Collision}}(sfVector2f\ pos,\ \textcolor{keywordtype}{float}\ radius,\ sfFloatRect\ \_rect,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00423}00423\ sfBool\ \mbox{\hyperlink{_tools_8h_af6bdfde77d9c015fc354fe69815dc30a}{LineCircle\_Collision}}(sfVector2f\ start\_line,\ sfVector2f\ end\_line,\ sfVector2f\ circle\_pos,\ \textcolor{keywordtype}{float}\ r,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00434}00434\ sfBool\ \mbox{\hyperlink{_tools_8h_a18bd8de0e2092f9ffb5a7aa2499df90a}{LinePoint\_Collision}}(sfVector2f\ start\_line,\ sfVector2f\ end\_line,\ sfVector2f\ point,\ \textcolor{keywordtype}{float}\ offset,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00445}00445\ sfBool\ \mbox{\hyperlink{_tools_8h_abb2ab98470930f3c434975ec6f2f3bce}{LineLine\_Collision}}(sfVector2f\ start\_line\_one,\ sfVector2f\ end\_line\_one,\ sfVector2f\ start\_line\_two,\ sfVector2f\ end\_line\_two,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00446}\mbox{\hyperlink{_tools_8h_a062c334ec8d5d63e6f89b10c5365a5f6}{00446}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00455}00455\ sfBool\ \mbox{\hyperlink{_tools_8h_a84ef668771271bd6624ee17462ac3bc4}{LineRect\_Collision}}(sfVector2f\ start\_line,\ sfVector2f\ end\_line,\ sfFloatRect\ rect,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00465}00465\ sfBool\ \mbox{\hyperlink{_tools_8h_a7a023d4d22f7fbeed6a702afb6bee3e8}{PointInCircle}}(sfVector2f\ \_pos,\ sfVector2f\ \_circle\_pos,\ \textcolor{keywordtype}{float}\ \_rayon,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00474}00474\ sfBool\ \mbox{\hyperlink{_tools_8h_a062c334ec8d5d63e6f89b10c5365a5f6}{PointInRectangle}}(sfVector2f\ \_pos,\ sfFloatRect\ \_box,\ sfBool\ shouldScale);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00482}00482\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_aac41e11b0bd648fe5d1752a6d4dcd151}{rand\_int}}(\textcolor{keywordtype}{int}\ \_min,\ \textcolor{keywordtype}{int}\ \_max);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00490}00490\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_tools_8h_a50d1e1e1742bd5a82c663b9a92d85efb}{rand\_float}}(\textcolor{keywordtype}{float}\ \_min,\ \textcolor{keywordtype}{float}\ \_max);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00497}00497\ sfVector2f\ \mbox{\hyperlink{_tools_8h_a3ec5f4a133c34ea877b827abd384e2d5}{GetRandomPosInRectangle}}(sfFloatRect\ rect);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00505}00505\ sfVector2f\ \mbox{\hyperlink{_tools_8h_a603b40916f559b2964c2640db0fd501a}{GetRandomPosInCircle}}(sfVector2f\ pos,\ \textcolor{keywordtype}{float}\ radius);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00513}00513\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a141f35893cd11a0bcc60744d92ade08a}{GetDistance}}(sfVector2f\ a\_,\ sfVector2f\ b\_);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00520}00520\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a3d2ffc0ed39037bc8a42b2df354f066e}{GetNorme}}(sfVector2f\ \_vec);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00527}\mbox{\hyperlink{_tools_8h_a1682cc798370918ebde08d37508b27f5}{00527}}\ sfVector2f\ \mbox{\hyperlink{_tools_8h_a71eee54b0d330ccc0f2ba98eb7f528fe}{NormalizeVector2f}}(sfVector2f\ \_vec);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00536}\mbox{\hyperlink{_tools_8h_a70075ccf88dff79e51d88948f9c0848d}{00536}}\ sfVector2f\ \mbox{\hyperlink{_tools_8h_aa024171f82587a149a4ea49051560f28}{GetVectorFromAngle}}(sfVector2f\ pos,\ \textcolor{keywordtype}{float}\ lenght,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00546}00546\ sfColor\ \mbox{\hyperlink{_tools_8h_a8c74579aee7ecc3d3526fbf0ce29c5e1}{CreateColor}}(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ b,\ \textcolor{keywordtype}{int}\ alpha);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00547}00547\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00555}00555\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_tools_8h_a1682cc798370918ebde08d37508b27f5}{iClamp}}(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00556}\mbox{\hyperlink{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}{00556}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00564}00564\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a70075ccf88dff79e51d88948f9c0848d}{fClamp}}(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00565}00565\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00571}00571\ \textcolor{preprocessor}{\#define\ printf\_d(string,\ ...)\ DebugPrint(string,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00576}00576\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}\ \mbox{\hyperlink{_tools_8h_af35a7203fefa22e159b08f54140795cf}{thread\_info}};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00582}00582\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread___info}{Thread\_Info}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00583}\mbox{\hyperlink{struct_clock_a5af09b61cfe091e1a61f9a8cd7e0f5c2}{00583}}\ \{}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00584}\mbox{\hyperlink{struct_clock_a4a0b5eddb84e5adb5b62c49e71407796}{00584}}\ \ \ \ \ stdList*\ \mbox{\hyperlink{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}{files\_info}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00585}\mbox{\hyperlink{struct_clock_a89aec87b001521cf6756aa3079cade45}{00585}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}{start}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00586}\mbox{\hyperlink{struct_clock_a5f8d26db9230fe334d612409bfbe0737}{00586}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388}{end}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00587}\mbox{\hyperlink{struct_clock_a0a6026bc7406c7d96bcbc7db18a82560}{00587}}\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{struct_thread___info_a82de35f11a33285a827bdc838c8f7cdf}{progressValue}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00588}00588\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{struct_thread___info_aa774e64ab73211ac168c125b8cdb7f4e}{totalSize}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00589}00589\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{struct_thread___info_a06936021e05807fb2b8356a58994280e}{currentSize}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00590}00590\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}{func}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*);\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00591}00591\ \};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00597}00597\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}\ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00603}00603\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}\ \mbox{\hyperlink{struct_clock}{Clock}};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00609}00609\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_clock}{Clock}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00610}00610\ \{}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00611}00611\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5af09b61cfe091e1a61f9a8cd7e0f5c2}{restartClock}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00612}00612\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a4a0b5eddb84e5adb5b62c49e71407796}{getDeltaTime}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00613}\mbox{\hyperlink{_tools_8h_a1d4705d2264c995a7f03677890702814}{00613}}\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_clock_a89aec87b001521cf6756aa3079cade45}{frameRate}})(\mbox{\hyperlink{struct_clock}{Clock}}*\ clock);\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00614}00614\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_clock_a5f8d26db9230fe334d612409bfbe0737}{destroy}})(\mbox{\hyperlink{struct_clock}{Clock}}**\ clock);\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00615}00615\ \ \ \ \ \mbox{\hyperlink{_tools_8h_a8560b43d4f50c0fdc094b9ff6b63b33d}{clock\_data}}*\ \mbox{\hyperlink{struct_clock_a0a6026bc7406c7d96bcbc7db18a82560}{\_Data}};\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00616}00616\ \};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00622}00622\ \mbox{\hyperlink{struct_clock}{Clock}}*\ \mbox{\hyperlink{_tools_8h_a249727cb5ea5710ac238eada4eb51102}{CreateClock}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00623}00623\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00628}00628\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a182b5348ee703bd6f89db3d8828022b7}{ToLower}}(\textcolor{keywordtype}{char}*\ sentence);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00629}00629\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00634}\mbox{\hyperlink{struct_files_info_a77eb90782b126ca2be2d28378390070e}{00634}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_ad068043a1f5c416a4832436d3166db1c}{ToUpper}}(\textcolor{keywordtype}{char}*\ sentence);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00635}\mbox{\hyperlink{struct_files_info_a8401323a88cc5e9e2ac6a6d0a40636b1}{00635}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00641}00641\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_tools_8h_a1d4705d2264c995a7f03677890702814}{StrAllocNCopy}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00642}00642\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00649}00649\ stdList*\ \mbox{\hyperlink{_tools_8h_a050e7c34961790b29b0c1e841a073728}{SearchFilesInfos}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}});}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00654}00654\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}\ \mbox{\hyperlink{struct_files_info}{FilesInfo}};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00655}00655\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00660}00660\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_files_info}{FilesInfo}}}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00661}00661\ \{}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00662}00662\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00663}00663\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_files_info_a8401323a88cc5e9e2ac6a6d0a40636b1}{m\_path}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00664}00664\ \};}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00674}00674\ sfBool\ \mbox{\hyperlink{_tools_8h_a9ed615c3d70ccfc6b86ee474fc6ae58a}{sfKeyboard\_isKeyDown}}(sfKeyCode\ key);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00675}00675\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00684}00684\ sfBool\ \mbox{\hyperlink{_tools_8h_a223d0114db502d1e32887d44a1a0e86c}{sfKeyboard\_isKeyUp}}(sfKeyCode\ key);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00685}00685\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00694}00694\ sfBool\ \mbox{\hyperlink{_tools_8h_acca1e44525e99a5898a3c2a6447b0c8e}{sfMouse\_isButtonDown}}(sfMouseButton\ button);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00695}\mbox{\hyperlink{_tools_8h_a9c88d97b0fac52a5a17b1cc657f2e6f5}{00695}}\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00704}\mbox{\hyperlink{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}{00704}}\ sfBool\ \mbox{\hyperlink{_tools_8h_a83c97b4f1e44f24b802cb3aedd20203f}{sfMouse\_isButtonUp}}(sfMouseButton\ button);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00705}00705\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00715}00715\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a9dc6eaaf9f0d0c2262b023416b763799}{DebugPrint}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ ...);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00723}00723\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_tools_8h_a9c88d97b0fac52a5a17b1cc657f2e6f5}{GetFileSizeCustom}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filePath);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00724}00724\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00732}00732\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_af9118514836bc6f13f7b476eb705d9fd}{\_\_LoadWithThread}}(\textcolor{keywordtype}{void}*\ thread\_infos);}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00733}00733\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00746}00746\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_ad3281270ea9a5a4fafc87205b6319347}{\_\_LoadScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_file_system_8h_a5b15c77f4e101f8bbd92fe586762430e}{extension}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keywordtype}{float}*\ progressValue,\ \textcolor{keywordtype}{void}\ (*func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00747}00747\ }
+\DoxyCodeLine{\Hypertarget{_tools_8h_source_l00753}00753\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_tools_8h_a1d0e12352a03c500541241cd1ce526af}{UpdateKeyAndMouseState}}(\textcolor{keywordtype}{void});}
 
 \end{DoxyCode}

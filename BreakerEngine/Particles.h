@@ -28,10 +28,10 @@
  * @brief This file defines the Particles system structure and functions for managing a particles.
  */
 
-/**
- * @typedef Particles_Data
- * @brief Opaque structure that holds the internal data of the particles system.
- */
+ /**
+  * @typedef Particles_Data
+  * @brief Opaque structure that holds the internal data of the particles system.
+  */
 typedef struct Particles_Data Particles_Data;
 
 /**
@@ -77,7 +77,7 @@ struct ParticleParam
     float angle_direction;            /**< The initial direction angle of the particle. */
     float angle_spawn_spread;         /**< Spread of the particle spawn in terms of angle. */
     float speed;                      /**< Speed of the particle's movement. */
-    float random_speed_boost;               /**< Speed of the particle's movement. */
+    float random_speed_boost;         /**< Random boost to the speed of the particle. */
     float rotation;                   /**< Rotation of the particle. */
     float random_spawn_rotation;      /**< Random rotation at the spawn of the particle. */
     sfColor color;                    /**< Color of the particle. */
@@ -95,7 +95,6 @@ struct Particles
 {
     Particles_Data* _Data;  /**< Internal data for managing particles. */
 
-
     /**
      * @brief Updates the particle system by advancing the particles based on the elapsed time.
      * @param particles Pointer to the Particles object to update.
@@ -103,8 +102,17 @@ struct Particles
      */
     void (*Update)(Particles* particles, float deltaTime);
 
+    /**
+     * @brief Checks if the particle system has finished its lifecycle.
+     * @param particles Pointer to the Particles object.
+     * @return sfTrue if the system has finished, sfFalse otherwise.
+     */
     sfBool(*HasFinish)(Particles* particles);
 
+    /**
+     * @brief Destroys the particle system and frees allocated memory.
+     * @param particles Pointer to the pointer of the Particles object to be destroyed.
+     */
     void (*Destroy)(Particles** particles);
 };
 
@@ -143,10 +151,9 @@ Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, 
  */
 void sfRenderWindow_drawParticles(sfRenderWindow* render_window, Particles* particles, sfRenderStates* state);
 
-
 /**
  * @brief Renders the particles into a render texture.
- * @param render_window Pointer to the SFML render window.
+ * @param render_texture Pointer to the SFML render texture.
  * @param particles Pointer to the Particles object to render.
  * @param state Render states to apply while drawing the particles.
  */

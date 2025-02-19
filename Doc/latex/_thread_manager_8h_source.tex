@@ -1,51 +1,51 @@
 \doxysection{Thread\+Manager.\+h}
-\hypertarget{_thread_manager_8h_source}{}\label{_thread_manager_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ThreadManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ThreadManager.h}}
+\hypertarget{_thread_manager_8h_source}{}\label{_thread_manager_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/ThreadManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/ThreadManager.h}}
 \mbox{\hyperlink{_thread_manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}List.h"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}SFML/System.h"{}}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}}\ \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}\ \mbox{\hyperlink{struct_thread_manager}{ThreadManager}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}}
-\DoxyCodeLine{00058\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}}*\ \mbox{\hyperlink{struct_thread_manager_a0621dc75309a153931333e0791f98d7a}{\_Data}};\ }
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00071\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a333c9117391745797cc33d5935e58f34}{AddNewThread}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager,\ void\ (*func)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}*\ func\_data,\ sfBool\ copy\_data,\ \textcolor{keywordtype}{size\_t}\ data\_size);}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00078\ \ \ \ \ size\_t(*\mbox{\hyperlink{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd}{GetThreadCount}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00084\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae}{Update}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00090\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209}{Destroy}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}**\ thread\_manager);}
-\DoxyCodeLine{00091\ \};}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00098\ \mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ \mbox{\hyperlink{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}{CreateThreadManager}}(\textcolor{keywordtype}{size\_t}\ limit);}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}List.h"{}}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}SFML/System.h"{}}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00045}\mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{00045}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}}\ \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}};}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00051}\mbox{\hyperlink{_thread_manager_8h_a9a6bb720b545cd20bb13c0a0947dc050}{00051}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}\ \mbox{\hyperlink{struct_thread_manager}{ThreadManager}};}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00057}\mbox{\hyperlink{struct_thread_manager}{00057}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00059}\mbox{\hyperlink{struct_thread_manager_a0621dc75309a153931333e0791f98d7a}{00059}}\ \ \ \ \ \mbox{\hyperlink{_thread_manager_8h_a24994db2e17804a04c5ede725ea070f8}{ThreadManager\_Data}}*\ \mbox{\hyperlink{struct_thread_manager_a0621dc75309a153931333e0791f98d7a}{\_Data}};\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00071}\mbox{\hyperlink{struct_thread_manager_a333c9117391745797cc33d5935e58f34}{00071}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a333c9117391745797cc33d5935e58f34}{AddNewThread}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager,\ void\ (*func)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}*\ func\_data,\ sfBool\ copy\_data,\ \textcolor{keywordtype}{size\_t}\ data\_size);}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00078}\mbox{\hyperlink{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd}{00078}}\ \ \ \ \ size\_t(*\mbox{\hyperlink{struct_thread_manager_adc00c20addb7c1ca1b894fec56c730fd}{GetThreadCount}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager);}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00084}\mbox{\hyperlink{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae}{00084}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a96742cf679674d8622333ed27c0aa1ae}{Update}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ thread\_manager);}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00090}\mbox{\hyperlink{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209}{00090}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_manager_a5c9a442416c696e91f6f4bfa94d2e209}{Destroy}})(\mbox{\hyperlink{struct_thread_manager}{ThreadManager}}**\ thread\_manager);}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00091}00091\ \};}
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_thread_manager_8h_source_l00098}\mbox{\hyperlink{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}{00098}}\ \mbox{\hyperlink{struct_thread_manager}{ThreadManager}}*\ \mbox{\hyperlink{_thread_manager_8h_a99dc40445f277bf0294f56b0687b5dd1}{CreateThreadManager}}(\textcolor{keywordtype}{size\_t}\ limit);}
 
 \end{DoxyCode}

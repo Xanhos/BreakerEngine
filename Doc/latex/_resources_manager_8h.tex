@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Resources\+Manager.h File Reference}
-\hypertarget{_resources_manager_8h}{}\label{_resources_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ResourcesManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/ResourcesManager.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Resources\+Manager.h File Reference}
+\hypertarget{_resources_manager_8h}{}\label{_resources_manager_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/ResourcesManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/ResourcesManager.h}}
 
 
 This file contains all the data to manage all the resources used by the engine.  
@@ -17,8 +17,11 @@ void \mbox{\hyperlink{_resources_manager_8h_ab3db73b44fe9c8f3b772f80b446afea5}{I
 \begin{DoxyCompactList}\small\item\em Initializes the resources manager and loads resources from the specified directory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_resources_manager_8h_a60e7a29e35b79e72ac1d5d0794b1e7c2}{Load\+Scene}} (const char \texorpdfstring{$\ast$}{*}scene\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Loads all the resources for a specific scene. This function typically loads textures, sounds, fonts, movies, and other resources required for the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313}{Destroy\+Resources\+Manager}} (void)
-\begin{DoxyCompactList}\small\item\em Destroys the resources manager and releases all allocated resources. This function is called when shutting down the application to free up memory and unload resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313}\label{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313} 
+void {\bfseries Destroy\+Resources\+Manager} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the resources manager and releases all allocated resources. This function is called when shutting down the application to free up memory and unload resources. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_resources_manager_8h_aa0b9fc3b34d8aafdb45ce60d0e776faf}{Get\+Loading\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current loading progress of the resources manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -26,17 +29,24 @@ This file contains all the data to manage all the resources used by the engine.
 
 
 
+Definition in file \mbox{\hyperlink{_resources_manager_8h_source}{Resources\+Manager.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313}\index{ResourcesManager.h@{ResourcesManager.h}!DestroyResourcesManager@{DestroyResourcesManager}}
-\index{DestroyResourcesManager@{DestroyResourcesManager}!ResourcesManager.h@{ResourcesManager.h}}
-\doxysubsubsection{\texorpdfstring{DestroyResourcesManager()}{DestroyResourcesManager()}}
-{\footnotesize\ttfamily \label{_resources_manager_8h_a0af9b9f6da222433d20e865039be0313} 
-void Destroy\+Resources\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+\Hypertarget{_resources_manager_8h_aa0b9fc3b34d8aafdb45ce60d0e776faf}\index{ResourcesManager.h@{ResourcesManager.h}!GetLoadingValue@{GetLoadingValue}}
+\index{GetLoadingValue@{GetLoadingValue}!ResourcesManager.h@{ResourcesManager.h}}
+\doxysubsubsection{\texorpdfstring{GetLoadingValue()}{GetLoadingValue()}}
+{\footnotesize\ttfamily \label{_resources_manager_8h_aa0b9fc3b34d8aafdb45ce60d0e776faf} 
+float Get\+Loading\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Destroys the resources manager and releases all allocated resources. This function is called when shutting down the application to free up memory and unload resources. 
+Retrieves the current loading progress of the resources manager. 
 
+\begin{DoxyReturn}{Returns}
+A float value representing the percentage of resources loaded (0.\+0 to 1.\+0). 
+\end{DoxyReturn}
 \Hypertarget{_resources_manager_8h_ab3db73b44fe9c8f3b772f80b446afea5}\index{ResourcesManager.h@{ResourcesManager.h}!InitResourcesManager@{InitResourcesManager}}
 \index{InitResourcesManager@{InitResourcesManager}!ResourcesManager.h@{ResourcesManager.h}}
 \doxysubsubsection{\texorpdfstring{InitResourcesManager()}{InitResourcesManager()}}

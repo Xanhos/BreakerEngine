@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -124,6 +124,18 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a3623e1f4009f033090b16de3eacd3006" id="r_a3623e1f4009f033090b16de3eacd3006"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation___key.html">Animation_Key</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3623e1f4009f033090b16de3eacd3006">SelectAnimationKey</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim, const char *name)</td></tr>
 <tr class="memdesc:a3623e1f4009f033090b16de3eacd3006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects an animation key by its name.  <br /></td></tr>
 <tr class="separator:a3623e1f4009f033090b16de3eacd3006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f538e93e78d8965894b66486e1c395" id="r_ab4f538e93e78d8965894b66486e1c395"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4f538e93e78d8965894b66486e1c395">SetAnimationParameters</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim, sfBool is_paused, sfBool is_revert, sfBool is_stopped_at_last_frame)</td></tr>
+<tr class="memdesc:ab4f538e93e78d8965894b66486e1c395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets various animation parameters.  <br /></td></tr>
+<tr class="separator:ab4f538e93e78d8965894b66486e1c395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cadd534aebfaa5912b49e3f889152c4" id="r_a0cadd534aebfaa5912b49e3f889152c4"><td class="memItemLeft" align="right" valign="top">sfBool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cadd534aebfaa5912b49e3f889152c4">IsRevert</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim)</td></tr>
+<tr class="memdesc:a0cadd534aebfaa5912b49e3f889152c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the animation is reversed.  <br /></td></tr>
+<tr class="separator:a0cadd534aebfaa5912b49e3f889152c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ef828d573b1617c37b0e6a73bf6b22" id="r_a84ef828d573b1617c37b0e6a73bf6b22"><td class="memItemLeft" align="right" valign="top">sfBool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84ef828d573b1617c37b0e6a73bf6b22">IsPaused</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim)</td></tr>
+<tr class="memdesc:a84ef828d573b1617c37b0e6a73bf6b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the animation is paused.  <br /></td></tr>
+<tr class="separator:a84ef828d573b1617c37b0e6a73bf6b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cb56742653148e2887ed9eb346d102" id="r_ae6cb56742653148e2887ed9eb346d102"><td class="memItemLeft" align="right" valign="top">sfBool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6cb56742653148e2887ed9eb346d102">IsStoppedAtLastFrame</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim)</td></tr>
+<tr class="memdesc:ae6cb56742653148e2887ed9eb346d102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the animation stops at the last frame.  <br /></td></tr>
+<tr class="separator:ae6cb56742653148e2887ed9eb346d102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac94aaeef37785b7dfe8fab38a12224d6" id="r_ac94aaeef37785b7dfe8fab38a12224d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation___key.html">Animation_Key</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac94aaeef37785b7dfe8fab38a12224d6">GetCurrentAnimationKey</a> )(<a class="el" href="struct_animation.html">Animation</a> *anim)</td></tr>
 <tr class="memdesc:ac94aaeef37785b7dfe8fab38a12224d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current animation key.  <br /></td></tr>
 <tr class="separator:ac94aaeef37785b7dfe8fab38a12224d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +151,8 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulates data and functions for managing animations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00112">112</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a3558d4c58b753cbdeaefe1af5df0ff29" name="a3558d4c58b753cbdeaefe1af5df0ff29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3558d4c58b753cbdeaefe1af5df0ff29">&#9670;&#160;</a></span>_Data</h2>
@@ -152,6 +166,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pointer to internal data for the animation. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00114">114</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -177,6 +193,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the added animation key. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00122">122</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="a76ee2779e38edb1d57c0e1fe724b8058" name="a76ee2779e38edb1d57c0e1fe724b8058"></a>
@@ -198,6 +216,8 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00187">187</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -222,6 +242,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the current animation key. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00167">167</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="a8490d705ff41cce09406d911639d1408" name="a8490d705ff41cce09406d911639d1408"></a>
@@ -244,6 +266,83 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the rectangle shape used for rendering. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00174">174</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="a84ef828d573b1617c37b0e6a73bf6b22" name="a84ef828d573b1617c37b0e6a73bf6b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ef828d573b1617c37b0e6a73bf6b22">&#9670;&#160;</a></span>IsPaused</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool(* IsPaused) (<a class="el" href="struct_animation.html">Animation</a> *anim)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the animation is paused. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>Pointer to the animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if paused, otherwise sfFalse. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00153">153</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="a0cadd534aebfaa5912b49e3f889152c4" name="a0cadd534aebfaa5912b49e3f889152c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cadd534aebfaa5912b49e3f889152c4">&#9670;&#160;</a></span>IsRevert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool(* IsRevert) (<a class="el" href="struct_animation.html">Animation</a> *anim)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the animation is reversed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>Pointer to the animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if reversed, otherwise sfFalse. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00146">146</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="ae6cb56742653148e2887ed9eb346d102" name="ae6cb56742653148e2887ed9eb346d102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6cb56742653148e2887ed9eb346d102">&#9670;&#160;</a></span>IsStoppedAtLastFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool(* IsStoppedAtLastFrame) (<a class="el" href="struct_animation.html">Animation</a> *anim)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the animation stops at the last frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>Pointer to the animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if it stops at the last frame, otherwise sfFalse. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00160">160</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -269,6 +368,35 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the selected animation key. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00130">130</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="ab4f538e93e78d8965894b66486e1c395" name="ab4f538e93e78d8965894b66486e1c395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f538e93e78d8965894b66486e1c395">&#9670;&#160;</a></span>SetAnimationParameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* SetAnimationParameters) (<a class="el" href="struct_animation.html">Animation</a> *anim, sfBool is_paused, sfBool is_revert, sfBool is_stopped_at_last_frame)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets various animation parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>Pointer to the animation. </td></tr>
+    <tr><td class="paramname">is_paused</td><td>Whether the animation is paused. </td></tr>
+    <tr><td class="paramname">is_revert</td><td>Whether the animation plays in reverse. </td></tr>
+    <tr><td class="paramname">is_stopped_at_last_frame</td><td>Whether the animation stops at the last frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00139">139</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="a54299950d4adb931928f36bbc3ee2ca6" name="a54299950d4adb931928f36bbc3ee2ca6"></a>
@@ -292,10 +420,12 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00181">181</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

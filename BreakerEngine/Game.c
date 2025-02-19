@@ -221,7 +221,7 @@ static void Update(WindowManager* window)
 
 
 
-void ChangeMainState(char* state_name)
+void ChangeMainState(const char* state_name)
 {
 	New_state = GetState(state_name);
 	if (strcmp(New_state.name, "null") == 0)
@@ -285,7 +285,7 @@ static void CleanUpGame()
 
 void StartGame(WindowManager* window_manager, const char* starting_state, const char* loading_state, void(*ResetLoadingStateFunc)(WindowManager* window))
 {
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 	GameWindow = window_manager;
 	Loading_state = GetState(loading_state);
 	ResetLoadingStateFunction = ResetLoadingStateFunc;

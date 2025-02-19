@@ -44,18 +44,52 @@ sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a0202
 \begin{DoxyCompactList}\small\item\em Polls for the next event in the window manager. \end{DoxyCompactList}\item 
 sf\+Vector2u(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a79fee84e5d31d39a39e4b86507ccff1e}{Get\+Size}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
 \begin{DoxyCompactList}\small\item\em Retrieves the size of the window. \end{DoxyCompactList}\item 
+sf\+Vector2u(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a6f17e8d5c38a296882186b0eec25f10b}{Get\+Base\+Size}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\item 
 sf\+Vector2f(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_af28c35c1130f6e86cde0759edd3aa190}{Get\+Mouse\+Pos}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
 \begin{DoxyCompactList}\small\item\em Retrieves the current mouse position in the window. \end{DoxyCompactList}\item 
 void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}{Set\+Custom\+View}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, sf\+View \texorpdfstring{$\ast$}{*}view)
 \begin{DoxyCompactList}\small\item\em Sets a custom view for the window manager. \end{DoxyCompactList}\item 
 sf\+View \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a93754040317634faa644ad6f7b62a595}{Get\+Custom\+View}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
 \begin{DoxyCompactList}\small\item\em Retrieves the current custom view of the window manager. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a39dc8cb847bb5f6aad980cda88ac3046}{Set\+Default\+View}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Sets the default view for the window manager. \end{DoxyCompactList}\item 
+sf\+View \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a90fbd0e054ab0c05f508cda5ecba9d05}{Get\+Default\+View}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Retrieves the default view for the window manager. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_afe5be974c3c5a6f0c29d274e99f4ba37}{Clear}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, sf\+Color color)
+\begin{DoxyCompactList}\small\item\em Clears the window with the given color. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a9c2be0601236f129e849c8392545194b}{Display}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Displays the window content. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_ac3f298878291030b8f9cee2fd728f9fc}{Draw\+Sprite}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Sprite \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a sprite object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_ace737681a64dbe16f1fcf0b340177521}{Draw\+Text}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Text \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a text object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a6f8a1c5618477aa25afad319a27f7795}{Draw\+Shape}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a shape object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a4f9198d908123d7e554b546663a4c085}{Draw\+Circle\+Shape}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Circle\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a circle shape object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a94c7d25d2b1df2e3966a33ad4682de3d}{Draw\+Convex\+Shape}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Convex\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a convex shape object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_ab56d6a3aa252e73bc156251098fbcdec}{Draw\+Rectangle\+Shape}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a rectangle shape object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a98271ac55478493af8df97fb00e5c41f}{Draw\+Vertex\+Array}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Vertex\+Array \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a vertex array object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a0a0e8b98ea5ab8784c2a595fdc3d3109}{Draw\+Vertex\+Buffer}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Vertex\+Buffer \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws a vertex buffer object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a8240c2dbede59fb03ad57a0fb056b718}{Draw\+Animation}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const struct \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws an animation object to the window. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_a75503994ea45d10b611ffc390bd05aa4}{Draw\+Particles}} )(const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const struct \mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Draws particle effects to the window. \end{DoxyCompactList}\item 
 void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_window_manager_adf6981e088309db1c29e39f0242329e0}{Destroy}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window)
 \begin{DoxyCompactList}\small\item\em Destroys the window manager and frees resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A structure that manages window operations and custom parameters. 
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00060}{60}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+
 
 \doxysubsection{Field Documentation}
 \Hypertarget{struct_window_manager_a62e59607bebbefbcd02200d18a19ab59}\index{WindowManager@{WindowManager}!\_Data@{\_Data}}
@@ -64,7 +98,11 @@ A structure that manages window operations and custom parameters.
 {\footnotesize\ttfamily \label{struct_window_manager_a62e59607bebbefbcd02200d18a19ab59} 
 \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{Window\+Manager\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
 
-Internal data for window manager. \Hypertarget{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}\index{WindowManager@{WindowManager}!AddNewCustomParam@{AddNewCustomParam}}
+Internal data for window manager. 
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00062}{62}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}\index{WindowManager@{WindowManager}!AddNewCustomParam@{AddNewCustomParam}}
 \index{AddNewCustomParam@{AddNewCustomParam}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{AddNewCustomParam}{AddNewCustomParam}}
 {\footnotesize\ttfamily \label{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c} 
@@ -103,7 +141,11 @@ Adds a new custom parameter to the window manager.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- \Hypertarget{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32}\index{WindowManager@{WindowManager}!AddNewSound@{AddNewSound}}
+ 
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00100}{100}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32}\index{WindowManager@{WindowManager}!AddNewSound@{AddNewSound}}
 \index{AddNewSound@{AddNewSound}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{AddNewSound}{AddNewSound}}
 {\footnotesize\ttfamily \label{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32} 
@@ -122,6 +164,31 @@ Adds a new sound with the specified volume.
 {\em volume} & The volume of the sound (0.\+0 to 100.\+0). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00160}{160}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_afe5be974c3c5a6f0c29d274e99f4ba37}\index{WindowManager@{WindowManager}!Clear@{Clear}}
+\index{Clear@{Clear}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{Clear}{Clear}}
+{\footnotesize\ttfamily \label{struct_window_manager_afe5be974c3c5a6f0c29d274e99f4ba37} 
+void(\texorpdfstring{$\ast$}{*} Clear) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, sf\+Color color)}
+
+
+
+Clears the window with the given color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em color} & The color to clear the window with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00266}{266}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_adf6981e088309db1c29e39f0242329e0}\index{WindowManager@{WindowManager}!Destroy@{Destroy}}
 \index{Destroy@{Destroy}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
@@ -137,6 +204,269 @@ Destroys the window manager and frees resources.
 {\em window} & A pointer to the \doxylink{struct_window_manager}{Window\+Manager} instance to destroy. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00359}{359}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a9c2be0601236f129e849c8392545194b}\index{WindowManager@{WindowManager}!Display@{Display}}
+\index{Display@{Display}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{Display}{Display}}
+{\footnotesize\ttfamily \label{struct_window_manager_a9c2be0601236f129e849c8392545194b} 
+void(\texorpdfstring{$\ast$}{*} Display) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Displays the window content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00272}{272}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a8240c2dbede59fb03ad57a0fb056b718}\index{WindowManager@{WindowManager}!DrawAnimation@{DrawAnimation}}
+\index{DrawAnimation@{DrawAnimation}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawAnimation}{DrawAnimation}}
+{\footnotesize\ttfamily \label{struct_window_manager_a8240c2dbede59fb03ad57a0fb056b718} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Animation) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const struct \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws an animation object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The animation object to draw. \\
+\hline
+{\em states} & Render states for the animation. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00344}{344}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a4f9198d908123d7e554b546663a4c085}\index{WindowManager@{WindowManager}!DrawCircleShape@{DrawCircleShape}}
+\index{DrawCircleShape@{DrawCircleShape}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawCircleShape}{DrawCircleShape}}
+{\footnotesize\ttfamily \label{struct_window_manager_a4f9198d908123d7e554b546663a4c085} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Circle\+Shape) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Circle\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a circle shape object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The circle shape object to draw. \\
+\hline
+{\em states} & Render states for the circle shape. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00304}{304}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a94c7d25d2b1df2e3966a33ad4682de3d}\index{WindowManager@{WindowManager}!DrawConvexShape@{DrawConvexShape}}
+\index{DrawConvexShape@{DrawConvexShape}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawConvexShape}{DrawConvexShape}}
+{\footnotesize\ttfamily \label{struct_window_manager_a94c7d25d2b1df2e3966a33ad4682de3d} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Convex\+Shape) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Convex\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a convex shape object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The convex shape object to draw. \\
+\hline
+{\em states} & Render states for the convex shape. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00312}{312}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a75503994ea45d10b611ffc390bd05aa4}\index{WindowManager@{WindowManager}!DrawParticles@{DrawParticles}}
+\index{DrawParticles@{DrawParticles}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawParticles}{DrawParticles}}
+{\footnotesize\ttfamily \label{struct_window_manager_a75503994ea45d10b611ffc390bd05aa4} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Particles) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const struct \mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws particle effects to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The particles object to draw. \\
+\hline
+{\em states} & Render states for the particles. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00352}{352}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_ab56d6a3aa252e73bc156251098fbcdec}\index{WindowManager@{WindowManager}!DrawRectangleShape@{DrawRectangleShape}}
+\index{DrawRectangleShape@{DrawRectangleShape}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawRectangleShape}{DrawRectangleShape}}
+{\footnotesize\ttfamily \label{struct_window_manager_ab56d6a3aa252e73bc156251098fbcdec} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Rectangle\+Shape) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a rectangle shape object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The rectangle shape object to draw. \\
+\hline
+{\em states} & Render states for the rectangle shape. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00320}{320}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a6f8a1c5618477aa25afad319a27f7795}\index{WindowManager@{WindowManager}!DrawShape@{DrawShape}}
+\index{DrawShape@{DrawShape}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawShape}{DrawShape}}
+{\footnotesize\ttfamily \label{struct_window_manager_a6f8a1c5618477aa25afad319a27f7795} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Shape) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Shape \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a shape object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The shape object to draw. \\
+\hline
+{\em states} & Render states for the shape. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00296}{296}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_ac3f298878291030b8f9cee2fd728f9fc}\index{WindowManager@{WindowManager}!DrawSprite@{DrawSprite}}
+\index{DrawSprite@{DrawSprite}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawSprite}{DrawSprite}}
+{\footnotesize\ttfamily \label{struct_window_manager_ac3f298878291030b8f9cee2fd728f9fc} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Sprite) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Sprite \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a sprite object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The sprite object to draw. \\
+\hline
+{\em states} & Render states for the sprite. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00280}{280}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_ace737681a64dbe16f1fcf0b340177521}\index{WindowManager@{WindowManager}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawText}{DrawText}}
+{\footnotesize\ttfamily \label{struct_window_manager_ace737681a64dbe16f1fcf0b340177521} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Text) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Text \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a text object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The text object to draw. \\
+\hline
+{\em states} & Render states for the text. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00288}{288}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a98271ac55478493af8df97fb00e5c41f}\index{WindowManager@{WindowManager}!DrawVertexArray@{DrawVertexArray}}
+\index{DrawVertexArray@{DrawVertexArray}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawVertexArray}{DrawVertexArray}}
+{\footnotesize\ttfamily \label{struct_window_manager_a98271ac55478493af8df97fb00e5c41f} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Vertex\+Array) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Vertex\+Array \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a vertex array object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The vertex array object to draw. \\
+\hline
+{\em states} & Render states for the vertex array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00328}{328}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a0a0e8b98ea5ab8784c2a595fdc3d3109}\index{WindowManager@{WindowManager}!DrawVertexBuffer@{DrawVertexBuffer}}
+\index{DrawVertexBuffer@{DrawVertexBuffer}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{DrawVertexBuffer}{DrawVertexBuffer}}
+{\footnotesize\ttfamily \label{struct_window_manager_a0a0e8b98ea5ab8784c2a595fdc3d3109} 
+void(\texorpdfstring{$\ast$}{*} Draw\+Vertex\+Buffer) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, const sf\+Vertex\+Buffer \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)}
+
+
+
+Draws a vertex buffer object to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+{\em object} & The vertex buffer object to draw. \\
+\hline
+{\em states} & Render states for the vertex buffer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00336}{336}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a6f17e8d5c38a296882186b0eec25f10b}\index{WindowManager@{WindowManager}!GetBaseSize@{GetBaseSize}}
+\index{GetBaseSize@{GetBaseSize}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{GetBaseSize}{GetBaseSize}}
+{\footnotesize\ttfamily \label{struct_window_manager_a6f17e8d5c38a296882186b0eec25f10b} 
+sf\+Vector2u(\texorpdfstring{$\ast$}{*} Get\+Base\+Size) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00225}{225}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_aaac51aa56b484e12f2447f043e06cd4e}\index{WindowManager@{WindowManager}!GetCustomParam@{GetCustomParam}}
 \index{GetCustomParam@{GetCustomParam}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetCustomParam}{GetCustomParam}}
@@ -170,12 +500,16 @@ The custom parameter data.
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ window\_manager\ =\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(1080,\ 720,\ \textcolor{stringliteral}{"{}SFML\_Works"{}},\ sfDefaultStyle,\ NULL);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ fps\ =\ 400;}
 \DoxyCodeLine{\ \ \ \ window\_manager-\/>\mbox{\hyperlink{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}{AddNewCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}},\ setFPSMax,\ \&fps,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ Add\ a\ custom\ parameter\ for\ setting\ the\ FPS\ limit}}
-\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ fpsLimt\ =\ *(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*)window\_manager-\/>\mbox{\hyperlink{struct_window_manager_aaac51aa56b484e12f2447f043e06cd4e}{GetCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}});\ \textcolor{comment}{//\ Get\ the\ current\ FPS\ limit}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- \Hypertarget{struct_window_manager_a93754040317634faa644ad6f7b62a595}\index{WindowManager@{WindowManager}!GetCustomView@{GetCustomView}}
+ 
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00152}{152}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a93754040317634faa644ad6f7b62a595}\index{WindowManager@{WindowManager}!GetCustomView@{GetCustomView}}
 \index{GetCustomView@{GetCustomView}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetCustomView}{GetCustomView}}
 {\footnotesize\ttfamily \label{struct_window_manager_a93754040317634faa644ad6f7b62a595} 
@@ -193,6 +527,32 @@ Retrieves the current custom view of the window manager.
 \begin{DoxyReturn}{Returns}
 The current custom sf\+View. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00246}{246}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a90fbd0e054ab0c05f508cda5ecba9d05}\index{WindowManager@{WindowManager}!GetDefaultView@{GetDefaultView}}
+\index{GetDefaultView@{GetDefaultView}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{GetDefaultView}{GetDefaultView}}
+{\footnotesize\ttfamily \label{struct_window_manager_a90fbd0e054ab0c05f508cda5ecba9d05} 
+sf\+View \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Get\+Default\+View) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Retrieves the default view for the window manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The default sf\+View. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00259}{259}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_afef585a227405807d3eb92214d78b144}\index{WindowManager@{WindowManager}!GetEvent@{GetEvent}}
 \index{GetEvent@{GetEvent}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetEvent}{GetEvent}}
@@ -211,6 +571,10 @@ Retrieves the current event in the window manager.
 \begin{DoxyReturn}{Returns}
 The current SFML event. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00209}{209}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_af28c35c1130f6e86cde0759edd3aa190}\index{WindowManager@{WindowManager}!GetMousePos@{GetMousePos}}
 \index{GetMousePos@{GetMousePos}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetMousePos}{GetMousePos}}
@@ -229,6 +593,10 @@ Retrieves the current mouse position in the window.
 \begin{DoxyReturn}{Returns}
 The mouse position as an sf\+Vector2f. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00232}{232}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a79fee84e5d31d39a39e4b86507ccff1e}\index{WindowManager@{WindowManager}!GetSize@{GetSize}}
 \index{GetSize@{GetSize}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetSize}{GetSize}}
@@ -247,6 +615,10 @@ Retrieves the size of the window.
 \begin{DoxyReturn}{Returns}
 The size of the window as an sf\+Vector2u. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00223}{223}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a7806a4d20f6dda8adc96c2dfedcef0af}\index{WindowManager@{WindowManager}!GetSound@{GetSound}}
 \index{GetSound@{GetSound}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetSound}{GetSound}}
@@ -267,6 +639,10 @@ Retrieves the volume of a specific sound.
 \begin{DoxyReturn}{Returns}
 The current volume of the sound. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00176}{176}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_ad0903b6aa12b69b9257d9a655b0ea3a9}\index{WindowManager@{WindowManager}!GetTimer@{GetTimer}}
 \index{GetTimer@{GetTimer}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetTimer}{GetTimer}}
@@ -285,6 +661,10 @@ Retrieves the current timer value.
 \begin{DoxyReturn}{Returns}
 The current timer value. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00183}{183}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a991ece2e0688e3031b8113ccbe385727}\index{WindowManager@{WindowManager}!GetWindow@{GetWindow}}
 \index{GetWindow@{GetWindow}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{GetWindow}{GetWindow}}
@@ -303,6 +683,10 @@ Retrieves the SFML window object.
 \begin{DoxyReturn}{Returns}
 The SFML render window. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00202}{202}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_afacfacfd32636ef93505c18003dd0d2e}\index{WindowManager@{WindowManager}!IsFullscreen@{IsFullscreen}}
 \index{IsFullscreen@{IsFullscreen}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{IsFullscreen}{IsFullscreen}}
@@ -321,6 +705,10 @@ Checks if the window is currently in fullscreen mode.
 \begin{DoxyReturn}{Returns}
 True if the window is fullscreen, false otherwise. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00069}{69}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a0202631fb4c2a13a52f8f7673bfee3ee}\index{WindowManager@{WindowManager}!PollEvent@{PollEvent}}
 \index{PollEvent@{PollEvent}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{PollEvent}{PollEvent}}
@@ -339,6 +727,10 @@ Polls for the next event in the window manager.
 \begin{DoxyReturn}{Returns}
 True if an event is available, false otherwise. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00216}{216}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_acc5cfb81127c486f8dbbd32e112b96ed}\index{WindowManager@{WindowManager}!ResetTimer@{ResetTimer}}
 \index{ResetTimer@{ResetTimer}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{ResetTimer}{ResetTimer}}
@@ -354,6 +746,10 @@ Resets the window manager\textquotesingle{}s timer.
 {\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00189}{189}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a0658aa4588b4cf6f1e45609cfebe485a}\index{WindowManager@{WindowManager}!RestartClock@{RestartClock}}
 \index{RestartClock@{RestartClock}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{RestartClock}{RestartClock}}
@@ -369,6 +765,10 @@ Restarts the window manager\textquotesingle{}s clock.
 {\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00195}{195}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}\index{WindowManager@{WindowManager}!SetCustomParam@{SetCustomParam}}
 \index{SetCustomParam@{SetCustomParam}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{SetCustomParam}{SetCustomParam}}
@@ -401,14 +801,18 @@ Sets a custom parameter for the window manager.
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{WindowManager}}*\ window\_manager\ =\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(1080,\ 720,\ \textcolor{stringliteral}{"{}SFML\_Works"{}},\ sfDefaultStyle,\ NULL);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ fps\ =\ 400;}
 \DoxyCodeLine{\ \ \ \ window\_manager-\/>\mbox{\hyperlink{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}{AddNewCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}},\ setFPSMax,\ \&fps,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ Add\ a\ custom\ parameter\ for\ setting\ the\ FPS\ limit}}
-\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ fps\ =\ 200;}
 \DoxyCodeLine{\ \ \ \ window\_manager-\/>\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{SetCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}},\ \&fps);\ \textcolor{comment}{//\ Set\ the\ FPS\ limit\ to\ 200}}
-\DoxyCodeLine{\ \ \ \ window\_manager-\/>\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{SetCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}},\ STD\_CONVERT(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int},\ 200));\ \textcolor{comment}{//\ The\ use\ of\ STD\_CONVERT\ macro\ is\ usefull\ to\ set\ the\ value\ directly}}
+\DoxyCodeLine{\ \ \ \ window\_manager-\/>\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{SetCustomParam}}(window\_manager,\ \textcolor{stringliteral}{"{}FPS"{}},\ STD\_CONVERT(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int},\ 200));\ \textcolor{comment}{//\ The\ use\ of\ STD\_CONVERT\ macro\ is\ useful\ to\ set\ the\ value\ directly}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- \Hypertarget{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}\index{WindowManager@{WindowManager}!SetCustomView@{SetCustomView}}
+ 
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00127}{127}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}\index{WindowManager@{WindowManager}!SetCustomView@{SetCustomView}}
 \index{SetCustomView@{SetCustomView}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{SetCustomView}{SetCustomView}}
 {\footnotesize\ttfamily \label{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9} 
@@ -425,6 +829,29 @@ Sets a custom view for the window manager.
 {\em view} & The new custom sf\+View to set. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00239}{239}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+\Hypertarget{struct_window_manager_a39dc8cb847bb5f6aad980cda88ac3046}\index{WindowManager@{WindowManager}!SetDefaultView@{SetDefaultView}}
+\index{SetDefaultView@{SetDefaultView}!WindowManager@{WindowManager}}
+\doxysubsubsection{\texorpdfstring{SetDefaultView}{SetDefaultView}}
+{\footnotesize\ttfamily \label{struct_window_manager_a39dc8cb847bb5f6aad980cda88ac3046} 
+void(\texorpdfstring{$\ast$}{*} Set\+Default\+View) (const \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Sets the default view for the window manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The \doxylink{struct_window_manager}{Window\+Manager} instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00252}{252}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a8600d560c40c0e3614fe6523d08face1}\index{WindowManager@{WindowManager}!SetSound@{SetSound}}
 \index{SetSound@{SetSound}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{SetSound}{SetSound}}
@@ -444,6 +871,10 @@ Sets the volume of a specific sound.
 {\em volume} & The volume to set (0.\+0 to 100.\+0). \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00168}{168}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
 \Hypertarget{struct_window_manager_a95562274075293d323aa466cccc52a7a}\index{WindowManager@{WindowManager}!ToggleFullscreen@{ToggleFullscreen}}
 \index{ToggleFullscreen@{ToggleFullscreen}!WindowManager@{WindowManager}}
 \doxysubsubsection{\texorpdfstring{ToggleFullscreen}{ToggleFullscreen}}
@@ -461,6 +892,10 @@ Toggles between fullscreen and windowed mode.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_window_manager_8h_source_l00075}{75}} of file \mbox{\hyperlink{_window_manager_8h_source}{Window\+Manager.\+h}}.
+
+
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_window_manager_8h}{Window\+Manager.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_window_manager_8h}{Window\+Manager.\+h}}\end{DoxyCompactItemize}

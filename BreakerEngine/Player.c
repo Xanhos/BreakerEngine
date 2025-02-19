@@ -9,7 +9,7 @@ sfText* PlayerScoreText;
 
 void InitPlayer()
 {
-	PlayerTrail = CreateSimpleAnim(GetTexture("ingamep1"), (sfIntRect) { 0, 0, 95, 51 }, 1, 3, 3, .1);
+	PlayerTrail = CreateSimpleAnim(GetTexture("ingamep1"), (sfIntRect) { 0, 0, 95, 51 }, 1, 3, 3, .1f);
 	Player = CreateAnimation("Player", GetTexture("ingamep2"));
 	Player->AddAnimationKey(Player, CreateAnimationKey("Idle", (sfIntRect) { 0, 5995, 228, 130 }, 1, 1, 1, 1));
 	Player->AddAnimationKey(Player, CreateAnimationKey("Damage", (sfIntRect) { 0, 6125, 228, 130 }, 1, 3, 3, .5f / 6.f));
@@ -101,8 +101,8 @@ sfFloatRect GetPlayerHitbox()
 {
 	sfVector2f pos = sfRectangleShape_getPosition(Player->GetRenderer(Player));
 	sfVector2f size = {
-		.x = Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).width,
-		.y = Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).height
+		.x = (float)Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).width,
+		.y = (float)Player->GetCurrentAnimationKey(Player)->GetCurrentRect(Player->GetCurrentAnimationKey(Player)).height
 	};
 
 

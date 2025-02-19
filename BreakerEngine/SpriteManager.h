@@ -32,18 +32,21 @@
  /**
   * @typedef SpriteManager_Data
   * @brief Opaque structure that holds the internal data of the sprite manager.
+  * This is used to hide the internal details of the implementation and is not directly accessible from outside the SpriteManager.
   */
 typedef struct SpriteManager_Data SpriteManager_Data;
 
 /**
  * @typedef SpriteManager
  * @brief Manages a collection of sprites and provides functions to manipulate and render them.
+ * This structure provides various functions to add, draw, remove, and access sprites by their name or index.
  */
 typedef struct SpriteManager SpriteManager;
 
 /**
  * @struct SpriteManager
  * @brief Contains function pointers to manage sprites in a sprite collection.
+ * This structure acts as an interface to perform sprite management operations.
  */
 struct SpriteManager
 {
@@ -56,6 +59,7 @@ struct SpriteManager
 	 * @param texture The texture to use for the sprite.
 	 * @param reset_rect Flag to reset the sprite's rectangle bounds.
 	 * @return Pointer to the newly added sprite.
+	 * This function adds a new sprite with a specified texture and optional reset for the sprite's bounds.
 	 */
 	sfSprite* (*push_back)(const SpriteManager* sprite_manager, const char* name, const sfTexture* texture, sfBool reset_rect);
 
@@ -63,12 +67,14 @@ struct SpriteManager
 	 * @brief Draws all sprites managed by the sprite manager to the specified window.
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param window Pointer to the SFML render window to draw the sprites to.
+	 * This function draws all sprites managed by the SpriteManager on the given window using SFML's rendering system.
 	 */
 	void (*draw)(const SpriteManager* sprite_manager, WindowManager* window, sfRenderStates* states);
 
 	/**
 	 * @brief Destroys the sprite manager and frees all associated resources.
 	 * @param sprite_manager Pointer to the pointer of the SpriteManager object to destroy.
+	 * This function releases all resources associated with the sprite manager and removes all sprites from memory.
 	 */
 	void (*destroy)(SpriteManager** sprite_manager);
 
@@ -76,6 +82,7 @@ struct SpriteManager
 	 * @brief Returns the number of sprites managed by the sprite manager.
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @return The number of sprites in the manager.
+	 * This function returns the total number of sprites currently managed by the SpriteManager.
 	 */
 	size_t(*size)(SpriteManager* sprite_manager);
 
@@ -84,6 +91,7 @@ struct SpriteManager
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param name The name of the sprite to retrieve.
 	 * @return Pointer to the sprite if found, or NULL if not found.
+	 * This function allows the retrieval of a sprite by its unique name.
 	 */
 	sfSprite* (*get_by_name)(const SpriteManager* sprite_manager, const char* name);
 
@@ -92,6 +100,7 @@ struct SpriteManager
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param index The index of the sprite to retrieve.
 	 * @return Pointer to the sprite if found, or NULL if not found.
+	 * This function allows the retrieval of a sprite by its index in the collection.
 	 */
 	sfSprite* (*get_by_id)(const SpriteManager* sprite_manager, int index);
 
@@ -99,6 +108,7 @@ struct SpriteManager
 	 * @brief Removes a sprite by its name.
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param name The name of the sprite to remove.
+	 * This function removes a sprite from the manager using its name.
 	 */
 	void (*remove_by_name)(const SpriteManager* sprite_manager, const char* name);
 
@@ -106,16 +116,33 @@ struct SpriteManager
 	 * @brief Removes a sprite by its index.
 	 * @param sprite_manager Pointer to the SpriteManager object.
 	 * @param index The index of the sprite to remove.
+	 * This function removes a sprite from the manager using its index.
 	 */
 	void (*remove_by_id)(const SpriteManager* sprite_manager, int index);
 
+	/**
+	 * @brief Sets the visibility of a sprite by its name.
+	 * @param sprite_manager Pointer to the SpriteManager object.
+	 * @param is_visible Flag indicating whether the sprite should be visible.
+	 * @param sprite_name The name of the sprite to set visibility for.
+	 * This function changes the visibility of a sprite based on its name.
+	 */
 	void (*sprite_is_visible_by_name)(const SpriteManager* sprite_manager, sfBool is_visible, const char* sprite_name);
+
+	/**
+	 * @brief Sets the visibility of a sprite by its index.
+	 * @param sprite_manager Pointer to the SpriteManager object.
+	 * @param is_visible Flag indicating whether the sprite should be visible.
+	 * @param sprite_id The index of the sprite to set visibility for.
+	 * This function changes the visibility of a sprite based on its index.
+	 */
 	void (*sprite_is_visible_by_id)(const SpriteManager* sprite_manager, sfBool is_visible, int sprite_id);
 };
 
 /**
  * @brief Creates a new SpriteManager object.
  * @return Pointer to the newly created SpriteManager object.
+ * This function allocates and initializes a new SpriteManager instance.
  */
 SpriteManager* CreateSpriteManager(void);
 
@@ -123,6 +150,7 @@ SpriteManager* CreateSpriteManager(void);
  * @brief Gets the top-left position of a sprite.
  * @param sprite Pointer to the sprite.
  * @return The top-left position of the sprite as a sfVector2f.
+ * This function returns the top-left corner position of the sprite in the window's coordinate system.
  */
 sfVector2f sfSprite_GetTopLeftPos(const sfSprite* sprite);
 
@@ -130,5 +158,6 @@ sfVector2f sfSprite_GetTopLeftPos(const sfSprite* sprite);
  * @brief Gets the center position of a sprite.
  * @param sprite Pointer to the sprite.
  * @return The center position of the sprite as a sfVector2f.
+ * This function returns the center position of the sprite in the window's coordinate system.
  */
 sfVector2f sfSprite_GetCenterPos(const sfSprite* sprite);

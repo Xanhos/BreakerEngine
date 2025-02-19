@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/Tools.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/Tools.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -113,11 +113,13 @@ $(function(){initNavTree('_tools_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains all the usefull tools for the engine.  
+<p>This file contains all the useful tools for the engine.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;stdString.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_file_system_8h_source.html">FileSystem.h</a>&quot;</code><br />
 <code>#include &quot;SFML/Graphics.h&quot;</code><br />
 <code>#include &quot;SFML/Audio.h&quot;</code><br />
@@ -127,6 +129,9 @@ $(function(){initNavTree('_tools_8h.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_transform.html">Transform</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents the transformation of an object in the game.  <a href="struct_transform.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_thread___info.html">Thread_Info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains information about the files to process in a thread.  <a href="struct_thread___info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,9 +156,18 @@ Macros</h2></td></tr>
 <tr class="memitem:ad0a7b532864eac73b919e2b0cee65c86" id="r_ad0a7b532864eac73b919e2b0cee65c86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0a7b532864eac73b919e2b0cee65c86">KEY_UP</a>(key)</td></tr>
 <tr class="memdesc:ad0a7b532864eac73b919e2b0cee65c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if a specific key has been released (up event).  <br /></td></tr>
 <tr class="separator:ad0a7b532864eac73b919e2b0cee65c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aef656c1a18d80e57a4f193fb6f74c7" id="r_a8aef656c1a18d80e57a4f193fb6f74c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aef656c1a18d80e57a4f193fb6f74c7">MOUSE</a>(button)</td></tr>
+<tr class="separator:a8aef656c1a18d80e57a4f193fb6f74c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1ded71963847e03f0110f0e7fa9c95" id="r_a7c1ded71963847e03f0110f0e7fa9c95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c1ded71963847e03f0110f0e7fa9c95">MOUSE_DOWN</a>(button)</td></tr>
+<tr class="separator:a7c1ded71963847e03f0110f0e7fa9c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e677a427395e9e870f8180c17d826a" id="r_a08e677a427395e9e870f8180c17d826a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08e677a427395e9e870f8180c17d826a">MOUSE_UP</a>(button)</td></tr>
+<tr class="separator:a08e677a427395e9e870f8180c17d826a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a989661ed710be7ad99d7e4d42ef0e041" id="r_a989661ed710be7ad99d7e4d42ef0e041"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a989661ed710be7ad99d7e4d42ef0e041">STD_LIST_CREATE_POINTER</a>(type,  size, ...)</td></tr>
 <tr class="memdesc:a989661ed710be7ad99d7e4d42ef0e041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to create a list of pointers of a specific type.  <br /></td></tr>
 <tr class="separator:a989661ed710be7ad99d7e4d42ef0e041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346249fee71323a89aa453f48bf9945a" id="r_a346249fee71323a89aa453f48bf9945a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a346249fee71323a89aa453f48bf9945a">STD_VECTOR_CREATE_POINTER</a>(type,  size, ...)</td></tr>
+<tr class="memdesc:a346249fee71323a89aa453f48bf9945a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to create a vector of pointers of a specific type.  <br /></td></tr>
+<tr class="separator:a346249fee71323a89aa453f48bf9945a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2f4fafec8015ab9f4c71ba0515fbb7a" id="r_ad2f4fafec8015ab9f4c71ba0515fbb7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2f4fafec8015ab9f4c71ba0515fbb7a">FOR_EACH_TEMP_LIST</a>(name,  type,  initFunc,  func)</td></tr>
 <tr class="memdesc:ad2f4fafec8015ab9f4c71ba0515fbb7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to iterate over a temporary list.  <br /></td></tr>
 <tr class="separator:ad2f4fafec8015ab9f4c71ba0515fbb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +211,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a578e4084d317c9cf12cdb05ac4e87a3a" id="r_a578e4084d317c9cf12cdb05ac4e87a3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a578e4084d317c9cf12cdb05ac4e87a3a">LERP</a>(a,  b,  t)</td></tr>
 <tr class="memdesc:a578e4084d317c9cf12cdb05ac4e87a3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
 <tr class="separator:a578e4084d317c9cf12cdb05ac4e87a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4463c65409128be5ff8e1c4f40b9f12c" id="r_a4463c65409128be5ff8e1c4f40b9f12c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4463c65409128be5ff8e1c4f40b9f12c">INVERT_LERP</a>(a,  b,  value)</td></tr>
+<tr class="separator:a4463c65409128be5ff8e1c4f40b9f12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa99ec4acc4ecb2dc3c2d05da15d0e3f" id="r_afa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa99ec4acc4ecb2dc3c2d05da15d0e3f">MAX</a>(a,  b)</td></tr>
 <tr class="memdesc:afa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum of two values.  <br /></td></tr>
 <tr class="separator:afa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +225,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a512254f7ee8948f0323992006331503c" id="r_a512254f7ee8948f0323992006331503c"><td class="memItemLeft" align="right" valign="top">typedef struct Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a512254f7ee8948f0323992006331503c">Transform</a></td></tr>
+<tr class="separator:a512254f7ee8948f0323992006331503c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af35a7203fefa22e159b08f54140795cf" id="r_af35a7203fefa22e159b08f54140795cf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_thread___info.html">Thread_Info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af35a7203fefa22e159b08f54140795cf">thread_info</a></td></tr>
 <tr class="memdesc:af35a7203fefa22e159b08f54140795cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for managing thread information.  <br /></td></tr>
 <tr class="separator:af35a7203fefa22e159b08f54140795cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -224,21 +242,45 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa4c422cc9fe6ae7047a81232cd66e69a" id="r_aa4c422cc9fe6ae7047a81232cd66e69a"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4c422cc9fe6ae7047a81232cd66e69a">Circle_Collision</a> (sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2)</td></tr>
-<tr class="memdesc:aa4c422cc9fe6ae7047a81232cd66e69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two circles are in collision.  <br /></td></tr>
-<tr class="separator:aa4c422cc9fe6ae7047a81232cd66e69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af02f16bb83330b37c5649ed9994dde1b" id="r_af02f16bb83330b37c5649ed9994dde1b"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af02f16bb83330b37c5649ed9994dde1b">Rectangle_Collision</a> (sfFloatRect _box1, sfFloatRect _box2)</td></tr>
-<tr class="memdesc:af02f16bb83330b37c5649ed9994dde1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two rectangles are in collision.  <br /></td></tr>
-<tr class="separator:af02f16bb83330b37c5649ed9994dde1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf3ec8e6e747dbbfe545df0e2d232b75" id="r_aaf3ec8e6e747dbbfe545df0e2d232b75"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf3ec8e6e747dbbfe545df0e2d232b75">PointInCircle</a> (sfVector2f _pos, sfVector2f _circle_pos, float _rayon)</td></tr>
-<tr class="memdesc:aaf3ec8e6e747dbbfe545df0e2d232b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a point is inside a circle.  <br /></td></tr>
-<tr class="separator:aaf3ec8e6e747dbbfe545df0e2d232b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89fc336cce3c95518e5f32c5c60cfb0c" id="r_a89fc336cce3c95518e5f32c5c60cfb0c"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89fc336cce3c95518e5f32c5c60cfb0c">Circle_Collision</a> (sfVector2f _pos1, sfVector2f _pos2, float _rayon1, float _rayon2, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a89fc336cce3c95518e5f32c5c60cfb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two circles are in collision.  <br /></td></tr>
+<tr class="separator:a89fc336cce3c95518e5f32c5c60cfb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3bc44ca6401dca2bb5a0dd3655ceed" id="r_a6a3bc44ca6401dca2bb5a0dd3655ceed"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a3bc44ca6401dca2bb5a0dd3655ceed">Rectangle_Collision</a> (sfFloatRect _box1, sfFloatRect _box2, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a6a3bc44ca6401dca2bb5a0dd3655ceed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two rectangles are in collision.  <br /></td></tr>
+<tr class="separator:a6a3bc44ca6401dca2bb5a0dd3655ceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b0bc12e028113eff0ad556fdfca801" id="r_ac6b0bc12e028113eff0ad556fdfca801"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6b0bc12e028113eff0ad556fdfca801">CircleRect_Collision</a> (sfVector2f pos, float radius, sfFloatRect _rect, sfBool shouldScale)</td></tr>
+<tr class="memdesc:ac6b0bc12e028113eff0ad556fdfca801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a circle and a rectangle are in collision.  <br /></td></tr>
+<tr class="separator:ac6b0bc12e028113eff0ad556fdfca801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bdfde77d9c015fc354fe69815dc30a" id="r_af6bdfde77d9c015fc354fe69815dc30a"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6bdfde77d9c015fc354fe69815dc30a">LineCircle_Collision</a> (sfVector2f start_line, sfVector2f end_line, sfVector2f circle_pos, float r, sfBool shouldScale)</td></tr>
+<tr class="memdesc:af6bdfde77d9c015fc354fe69815dc30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a line and a circle are in collision.  <br /></td></tr>
+<tr class="separator:af6bdfde77d9c015fc354fe69815dc30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18bd8de0e2092f9ffb5a7aa2499df90a" id="r_a18bd8de0e2092f9ffb5a7aa2499df90a"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18bd8de0e2092f9ffb5a7aa2499df90a">LinePoint_Collision</a> (sfVector2f start_line, sfVector2f end_line, sfVector2f point, float offset, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a18bd8de0e2092f9ffb5a7aa2499df90a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a point is on a line segment.  <br /></td></tr>
+<tr class="separator:a18bd8de0e2092f9ffb5a7aa2499df90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2ab98470930f3c434975ec6f2f3bce" id="r_abb2ab98470930f3c434975ec6f2f3bce"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb2ab98470930f3c434975ec6f2f3bce">LineLine_Collision</a> (sfVector2f start_line_one, sfVector2f end_line_one, sfVector2f start_line_two, sfVector2f end_line_two, sfBool shouldScale)</td></tr>
+<tr class="memdesc:abb2ab98470930f3c434975ec6f2f3bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two line segments intersect.  <br /></td></tr>
+<tr class="separator:abb2ab98470930f3c434975ec6f2f3bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ef668771271bd6624ee17462ac3bc4" id="r_a84ef668771271bd6624ee17462ac3bc4"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84ef668771271bd6624ee17462ac3bc4">LineRect_Collision</a> (sfVector2f start_line, sfVector2f end_line, sfFloatRect rect, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a84ef668771271bd6624ee17462ac3bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a line and a rectangle are in collision.  <br /></td></tr>
+<tr class="separator:a84ef668771271bd6624ee17462ac3bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a023d4d22f7fbeed6a702afb6bee3e8" id="r_a7a023d4d22f7fbeed6a702afb6bee3e8"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a023d4d22f7fbeed6a702afb6bee3e8">PointInCircle</a> (sfVector2f _pos, sfVector2f _circle_pos, float _rayon, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a7a023d4d22f7fbeed6a702afb6bee3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a point is inside a circle.  <br /></td></tr>
+<tr class="separator:a7a023d4d22f7fbeed6a702afb6bee3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062c334ec8d5d63e6f89b10c5365a5f6" id="r_a062c334ec8d5d63e6f89b10c5365a5f6"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a062c334ec8d5d63e6f89b10c5365a5f6">PointInRectangle</a> (sfVector2f _pos, sfFloatRect _box, sfBool shouldScale)</td></tr>
+<tr class="memdesc:a062c334ec8d5d63e6f89b10c5365a5f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a point is inside a rectangle.  <br /></td></tr>
+<tr class="separator:a062c334ec8d5d63e6f89b10c5365a5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac41e11b0bd648fe5d1752a6d4dcd151" id="r_aac41e11b0bd648fe5d1752a6d4dcd151"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac41e11b0bd648fe5d1752a6d4dcd151">rand_int</a> (int _min, int _max)</td></tr>
 <tr class="memdesc:aac41e11b0bd648fe5d1752a6d4dcd151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between the given minimum and maximum values.  <br /></td></tr>
 <tr class="separator:aac41e11b0bd648fe5d1752a6d4dcd151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50d1e1e1742bd5a82c663b9a92d85efb" id="r_a50d1e1e1742bd5a82c663b9a92d85efb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50d1e1e1742bd5a82c663b9a92d85efb">rand_float</a> (float _min, float _max)</td></tr>
 <tr class="memdesc:a50d1e1e1742bd5a82c663b9a92d85efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random float between the given minimum and maximum values.  <br /></td></tr>
 <tr class="separator:a50d1e1e1742bd5a82c663b9a92d85efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec5f4a133c34ea877b827abd384e2d5" id="r_a3ec5f4a133c34ea877b827abd384e2d5"><td class="memItemLeft" align="right" valign="top">sfVector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec5f4a133c34ea877b827abd384e2d5">GetRandomPosInRectangle</a> (sfFloatRect rect)</td></tr>
+<tr class="memdesc:a3ec5f4a133c34ea877b827abd384e2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random position within a given rectangle.  <br /></td></tr>
+<tr class="separator:a3ec5f4a133c34ea877b827abd384e2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603b40916f559b2964c2640db0fd501a" id="r_a603b40916f559b2964c2640db0fd501a"><td class="memItemLeft" align="right" valign="top">sfVector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a603b40916f559b2964c2640db0fd501a">GetRandomPosInCircle</a> (sfVector2f pos, float radius)</td></tr>
+<tr class="memdesc:a603b40916f559b2964c2640db0fd501a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random position within a given circle.  <br /></td></tr>
+<tr class="separator:a603b40916f559b2964c2640db0fd501a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a141f35893cd11a0bcc60744d92ade08a" id="r_a141f35893cd11a0bcc60744d92ade08a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a141f35893cd11a0bcc60744d92ade08a">GetDistance</a> (sfVector2f a_, sfVector2f b_)</td></tr>
 <tr class="memdesc:a141f35893cd11a0bcc60744d92ade08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the distance between two points.  <br /></td></tr>
 <tr class="separator:a141f35893cd11a0bcc60744d92ade08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,25 +323,46 @@ Functions</h2></td></tr>
 <tr class="memitem:a223d0114db502d1e32887d44a1a0e86c" id="r_a223d0114db502d1e32887d44a1a0e86c"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a223d0114db502d1e32887d44a1a0e86c">sfKeyboard_isKeyUp</a> (sfKeyCode key)</td></tr>
 <tr class="memdesc:a223d0114db502d1e32887d44a1a0e86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a specific key has been released.  <br /></td></tr>
 <tr class="separator:a223d0114db502d1e32887d44a1a0e86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca1e44525e99a5898a3c2a6447b0c8e" id="r_acca1e44525e99a5898a3c2a6447b0c8e"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acca1e44525e99a5898a3c2a6447b0c8e">sfMouse_isButtonDown</a> (sfMouseButton button)</td></tr>
+<tr class="memdesc:acca1e44525e99a5898a3c2a6447b0c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a specific mouse button is currently pressed down.  <br /></td></tr>
+<tr class="separator:acca1e44525e99a5898a3c2a6447b0c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c97b4f1e44f24b802cb3aedd20203f" id="r_a83c97b4f1e44f24b802cb3aedd20203f"><td class="memItemLeft" align="right" valign="top">sfBool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83c97b4f1e44f24b802cb3aedd20203f">sfMouse_isButtonUp</a> (sfMouseButton button)</td></tr>
+<tr class="memdesc:a83c97b4f1e44f24b802cb3aedd20203f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a specific mouse button has been released.  <br /></td></tr>
+<tr class="separator:a83c97b4f1e44f24b802cb3aedd20203f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dc6eaaf9f0d0c2262b023416b763799" id="r_a9dc6eaaf9f0d0c2262b023416b763799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dc6eaaf9f0d0c2262b023416b763799">DebugPrint</a> (const char *const string,...)</td></tr>
 <tr class="memdesc:a9dc6eaaf9f0d0c2262b023416b763799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a formatted debug message.  <br /></td></tr>
 <tr class="separator:a9dc6eaaf9f0d0c2262b023416b763799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c88d97b0fac52a5a17b1cc657f2e6f5" id="r_a9c88d97b0fac52a5a17b1cc657f2e6f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c88d97b0fac52a5a17b1cc657f2e6f5">GetFileSizeCustom</a> (const char *filePath)</td></tr>
+<tr class="memdesc:a9c88d97b0fac52a5a17b1cc657f2e6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of a file.  <br /></td></tr>
+<tr class="separator:a9c88d97b0fac52a5a17b1cc657f2e6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9118514836bc6f13f7b476eb705d9fd" id="r_af9118514836bc6f13f7b476eb705d9fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9118514836bc6f13f7b476eb705d9fd">__LoadWithThread</a> (void *thread_infos)</td></tr>
 <tr class="memdesc:af9118514836bc6f13f7b476eb705d9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads files in a separate thread.  <br /></td></tr>
 <tr class="separator:af9118514836bc6f13f7b476eb705d9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cd769dadf11994f172a92b527409844" id="r_a0cd769dadf11994f172a92b527409844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cd769dadf11994f172a92b527409844">__LoadScene</a> (const char *scene, const char *<a class="el" href="_file_system_8h.html#a5b15c77f4e101f8bbd92fe586762430e">extension</a>, const char *type, void(*func)(const char *))</td></tr>
-<tr class="memdesc:a0cd769dadf11994f172a92b527409844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a scene from a file.  <br /></td></tr>
-<tr class="separator:a0cd769dadf11994f172a92b527409844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3281270ea9a5a4fafc87205b6319347" id="r_ad3281270ea9a5a4fafc87205b6319347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3281270ea9a5a4fafc87205b6319347">__LoadScene</a> (const char *scene, const char *<a class="el" href="_file_system_8h.html#a5b15c77f4e101f8bbd92fe586762430e">extension</a>, const char *type, float *progressValue, void(*func)(const char *))</td></tr>
+<tr class="memdesc:ad3281270ea9a5a4fafc87205b6319347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a scene from a file.  <br /></td></tr>
+<tr class="separator:ad3281270ea9a5a4fafc87205b6319347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d0e12352a03c500541241cd1ce526af" id="r_a1d0e12352a03c500541241cd1ce526af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d0e12352a03c500541241cd1ce526af">UpdateKeyAndMouseState</a> (void)</td></tr>
+<tr class="memdesc:a1d0e12352a03c500541241cd1ce526af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the key and mouse states.  <br /></td></tr>
+<tr class="separator:a1d0e12352a03c500541241cd1ce526af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ad61e757c26d102ec52c61a5cbfb2f983" id="r_ad61e757c26d102ec52c61a5cbfb2f983"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_window_manager.html">WindowManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad61e757c26d102ec52c61a5cbfb2f983">GameWindow</a></td></tr>
+<tr class="separator:ad61e757c26d102ec52c61a5cbfb2f983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad241988a907b95432b3489546dc95b28" id="r_ad241988a907b95432b3489546dc95b28"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad241988a907b95432b3489546dc95b28">ScreenScaleFactorX</a></td></tr>
+<tr class="separator:ad241988a907b95432b3489546dc95b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff4f5baef7efd776e94537956e7ec68" id="r_a3ff4f5baef7efd776e94537956e7ec68"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ff4f5baef7efd776e94537956e7ec68">ScreenScaleFactorY</a></td></tr>
+<tr class="separator:a3ff4f5baef7efd776e94537956e7ec68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00093d8489f25203bf7235e4ceaea4a5" id="r_a00093d8489f25203bf7235e4ceaea4a5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00093d8489f25203bf7235e4ceaea4a5">DeltaTime</a></td></tr>
 <tr class="separator:a00093d8489f25203bf7235e4ceaea4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa242836903fc655abed70288a389a7e8" id="r_aa242836903fc655abed70288a389a7e8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa242836903fc655abed70288a389a7e8">resource_directory</a> [<a class="el" href="_file_system_8h.html#a4620eb783fd7aaa1d61fe4fdaa750d74">MAX_PATH_SIZE</a>]</td></tr>
 <tr class="separator:aa242836903fc655abed70288a389a7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains all the usefull tools for the engine. </p>
+<div class="textblock"><p>This file contains all the useful tools for the engine. </p>
+<p>It defines structures and global variables for managing the game window, handling transformations (such as position, velocity, and angle), and scaling. </p>
+
+<p class="definition">Definition in file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a52424edd1c9354e5d19078ed409bcc9f" name="a52424edd1c9354e5d19078ed409bcc9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52424edd1c9354e5d19078ed409bcc9f">&#9670;&#160;</a></span>DECLARE_ADD_VECTOR2_IN_C</h2>
@@ -338,6 +401,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00196">196</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a1326b2a0a30bb998387386f4bb4d4429" name="a1326b2a0a30bb998387386f4bb4d4429"></a>
@@ -369,8 +434,10 @@ Variables</h2></td></tr>
 <div class="line">    DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffix, type)                    \</div>
 <div class="line">    DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffix, type)            \</div>
 <div class="line">    DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffix, type)</div>
-<div class="ttc" id="a_tools_8h_html_a52424edd1c9354e5d19078ed409bcc9f"><div class="ttname"><a href="#a52424edd1c9354e5d19078ed409bcc9f">DECLARE_ADD_VECTOR2_IN_C</a></div><div class="ttdeci">#define DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)</div><div class="ttdoc">Declares a function to add two vectors.</div><div class="ttdef"><b>Definition</b> Tools.h:141</div></div>
+<div class="ttc" id="a_tools_8h_html_a52424edd1c9354e5d19078ed409bcc9f"><div class="ttname"><a href="#a52424edd1c9354e5d19078ed409bcc9f">DECLARE_ADD_VECTOR2_IN_C</a></div><div class="ttdeci">#define DECLARE_ADD_VECTOR2_IN_C(vector_type, suffixe, type)</div><div class="ttdoc">Declares a function to add two vectors.</div><div class="ttdef"><b>Definition</b> <a href="_tools_8h_source.html#l00196">Tools.h:196</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00291">291</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a9253b6ec833c0c5646f3cb4a3eb56230" name="a9253b6ec833c0c5646f3cb4a3eb56230"></a>
@@ -396,6 +463,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00270">270</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -436,6 +505,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00244">244</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a73c80110f8e46a9bceac9a013132e1d9" name="a73c80110f8e46a9bceac9a013132e1d9"></a>
@@ -475,6 +546,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00232">232</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a3a383943761523b7108a4d964bfe454e" name="a3a383943761523b7108a4d964bfe454e"></a>
@@ -513,6 +586,8 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00220">220</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -560,6 +635,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00256">256</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a449861784cefce058b56128774219e75" name="a449861784cefce058b56128774219e75"></a>
@@ -599,6 +676,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00208">208</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="af7e8592d0a634bd3642e9fd508ea8022" name="af7e8592d0a634bd3642e9fd508ea8022"></a>
@@ -614,6 +693,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The constant to convert degrees to radians. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00324">324</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -651,7 +732,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> it_name = 0; it_name &lt; list-&gt;size(list); it_name++) { \</div>
-<div class="line">    type* data_container_name = STD_LIST_GETDATA(list, type, it_name); \</div>
+<div class="line">    type* data_container_name = STD_GETDATA(list, type, it_name); \</div>
 <div class="line">    func }</div>
 </div><!-- fragment -->
 <p>Macro to iterate over a list and apply a function to each element. </p>
@@ -665,6 +746,8 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00167">167</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -702,7 +785,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> it_name = 0; it_name &lt; list-&gt;size(list); it_name++) { \</div>
-<div class="line">    type* data_container_name##_ = STD_LIST_GETDATA(list, type, it_name); \</div>
+<div class="line">    type* data_container_name##_ = STD_GETDATA(list, type, it_name); \</div>
 <div class="line">    type data_container_name = *data_container_name##_; \</div>
 <div class="line">    func }</div>
 </div><!-- fragment -->
@@ -717,6 +800,8 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00181">181</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -763,6 +848,37 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00153">153</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a4463c65409128be5ff8e1c4f40b9f12c" name="a4463c65409128be5ff8e1c4f40b9f12c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4463c65409128be5ff8e1c4f40b9f12c">&#9670;&#160;</a></span>INVERT_LERP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INVERT_LERP</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">(value - a) / (b - a)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00336">336</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a0b09d102f5d5b02336b65bc5d6c1b5ef" name="a0b09d102f5d5b02336b65bc5d6c1b5ef"></a>
@@ -789,6 +905,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Boolean value indicating if the key is pressed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00085">85</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -818,6 +936,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Boolean value indicating if the key is pressed. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00093">93</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="ad0a7b532864eac73b919e2b0cee65c86" name="ad0a7b532864eac73b919e2b0cee65c86"></a>
@@ -845,6 +965,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Boolean value indicating if the key is released. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00101">101</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -884,6 +1006,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The interpolated value. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00334">334</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="afa99ec4acc4ecb2dc3c2d05da15d0e3f" name="afa99ec4acc4ecb2dc3c2d05da15d0e3f"></a>
@@ -916,6 +1040,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The maximum of a and b. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00345">345</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a04922e4673a244d94b12566890b2e96c" name="a04922e4673a244d94b12566890b2e96c"></a>
@@ -931,6 +1057,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The maximum number of threads allowed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00077">77</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -964,6 +1092,70 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The minimum of a and b. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00354">354</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a8aef656c1a18d80e57a4f193fb6f74c7" name="a8aef656c1a18d80e57a4f193fb6f74c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aef656c1a18d80e57a4f193fb6f74c7">&#9670;&#160;</a></span>MOUSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">sfMouse_isButtonPressed(sfMouse##button)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00108">108</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a7c1ded71963847e03f0110f0e7fa9c95" name="a7c1ded71963847e03f0110f0e7fa9c95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1ded71963847e03f0110f0e7fa9c95">&#9670;&#160;</a></span>MOUSE_DOWN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_DOWN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#acca1e44525e99a5898a3c2a6447b0c8e">sfMouse_isButtonDown</a>(sfMouse##button)</div>
+<div class="ttc" id="a_tools_8h_html_acca1e44525e99a5898a3c2a6447b0c8e"><div class="ttname"><a href="#acca1e44525e99a5898a3c2a6447b0c8e">sfMouse_isButtonDown</a></div><div class="ttdeci">sfBool sfMouse_isButtonDown(sfMouseButton button)</div><div class="ttdoc">Checks if a specific mouse button is currently pressed down.</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00116">116</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a08e677a427395e9e870f8180c17d826a" name="a08e677a427395e9e870f8180c17d826a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e677a427395e9e870f8180c17d826a">&#9670;&#160;</a></span>MOUSE_UP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_UP</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a83c97b4f1e44f24b802cb3aedd20203f">sfMouse_isButtonUp</a>(sfMouse##button)</div>
+<div class="ttc" id="a_tools_8h_html_a83c97b4f1e44f24b802cb3aedd20203f"><div class="ttname"><a href="#a83c97b4f1e44f24b802cb3aedd20203f">sfMouse_isButtonUp</a></div><div class="ttdeci">sfBool sfMouse_isButtonUp(sfMouseButton button)</div><div class="ttdoc">Checks if a specific mouse button has been released.</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00124">124</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a598a3330b3c21701223ee0ca14316eca" name="a598a3330b3c21701223ee0ca14316eca"></a>
@@ -979,6 +1171,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The constant value of Pi. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00312">312</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -1012,6 +1206,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00543">543</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="ac5a945020d3528355cda82d383676736" name="ac5a945020d3528355cda82d383676736"></a>
@@ -1027,6 +1223,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The constant to convert radians to degrees. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00318">318</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -1064,6 +1262,46 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00132">132</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a346249fee71323a89aa453f48bf9945a" name="a346249fee71323a89aa453f48bf9945a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a346249fee71323a89aa453f48bf9945a">&#9670;&#160;</a></span>STD_VECTOR_CREATE_POINTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STD_VECTOR_CREATE_POINTER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  stdVector_Create(<span class="keyword">sizeof</span>(type*), size, __VA_ARGS__)</div>
+</div><!-- fragment -->
+<p>Macro to create a vector of pointers of a specific type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type of data. </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00142">142</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -1081,6 +1319,8 @@ Variables</h2></td></tr>
 
 <p>Structure for managing time and frame rate. </p>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00575">575</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a8560b43d4f50c0fdc094b9ff6b63b33d" name="a8560b43d4f50c0fdc094b9ff6b63b33d"></a>
@@ -1096,6 +1336,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Structure for internal data related to the clock. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00569">569</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -1113,6 +1355,8 @@ Variables</h2></td></tr>
 
 <p>Structure for managing file information. </p>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00626">626</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="af35a7203fefa22e159b08f54140795cf" name="af35a7203fefa22e159b08f54140795cf"></a>
@@ -1129,11 +1373,29 @@ Variables</h2></td></tr>
 
 <p>Structure for managing thread information. </p>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00548">548</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a512254f7ee8948f0323992006331503c" name="a512254f7ee8948f0323992006331503c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512254f7ee8948f0323992006331503c">&#9670;&#160;</a></span>Transform</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Transform Transform</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00053">53</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0cd769dadf11994f172a92b527409844" name="a0cd769dadf11994f172a92b527409844"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cd769dadf11994f172a92b527409844">&#9670;&#160;</a></span>__LoadScene()</h2>
+<a id="ad3281270ea9a5a4fafc87205b6319347" name="ad3281270ea9a5a4fafc87205b6319347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3281270ea9a5a4fafc87205b6319347">&#9670;&#160;</a></span>__LoadScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1156,18 +1418,25 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>progressValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>func&#160;</em></span>)(const char *)&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Loads a scene from a file. </p>
+<p>This function loads a scene from the specified file path, with support for different file types and extensions. A callback function can be provided to perform actions after the scene is loaded.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>The scene to load. </td></tr>
     <tr><td class="paramname">extension</td><td>The file extension of the scene. </td></tr>
     <tr><td class="paramname">type</td><td>The type of scene to load. </td></tr>
-    <tr><td class="paramname">func</td><td>The function to apply after loading the scene. </td></tr>
+    <tr><td class="paramname">progressValue</td><td>A pointer to track the progress of the loading. </td></tr>
+    <tr><td class="paramname">func</td><td>A callback function to execute after loading the scene. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1190,6 +1459,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads files in a separate thread. </p>
+<p>This function loads the specified files asynchronously in a separate thread to avoid blocking the main thread.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">thread_infos</td><td>The information about the thread to load the files. </td></tr>
@@ -1199,8 +1469,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa4c422cc9fe6ae7047a81232cd66e69a" name="aa4c422cc9fe6ae7047a81232cd66e69a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4c422cc9fe6ae7047a81232cd66e69a">&#9670;&#160;</a></span>Circle_Collision()</h2>
+<a id="a89fc336cce3c95518e5f32c5c60cfb0c" name="a89fc336cce3c95518e5f32c5c60cfb0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89fc336cce3c95518e5f32c5c60cfb0c">&#9670;&#160;</a></span>Circle_Collision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1223,7 +1493,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>_rayon2</em></span>&#160;)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>_rayon2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1235,6 +1510,50 @@ Variables</h2></td></tr>
     <tr><td class="paramname">_pos2</td><td>The position of the second circle. </td></tr>
     <tr><td class="paramname">_rayon1</td><td>The radius of the first circle. </td></tr>
     <tr><td class="paramname">_rayon2</td><td>The radius of the second circle. </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if there is a collision, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ac6b0bc12e028113eff0ad556fdfca801" name="ac6b0bc12e028113eff0ad556fdfca801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b0bc12e028113eff0ad556fdfca801">&#9670;&#160;</a></span>CircleRect_Collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool CircleRect_Collision </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>_rect</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a circle and a rectangle are in collision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position of the circle. </td></tr>
+    <tr><td class="paramname">radius</td><td>The radius of the circle. </td></tr>
+    <tr><td class="paramname">_rect</td><td>The rectangle (position, width, height). </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1404,6 +1723,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9c88d97b0fac52a5a17b1cc657f2e6f5" name="a9c88d97b0fac52a5a17b1cc657f2e6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c88d97b0fac52a5a17b1cc657f2e6f5">&#9670;&#160;</a></span>GetFileSizeCustom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GetFileSizeCustom </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the size of a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>the path of the file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The size of the file in bytes. </dd></dl>
+
+</div>
+</div>
 <a id="a3d2ffc0ed39037bc8a42b2df354f066e" name="a3d2ffc0ed39037bc8a42b2df354f066e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d2ffc0ed39037bc8a42b2df354f066e">&#9670;&#160;</a></span>GetNorme()</h2>
 
@@ -1427,6 +1772,63 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The norm of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a603b40916f559b2964c2640db0fd501a" name="a603b40916f559b2964c2640db0fd501a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a603b40916f559b2964c2640db0fd501a">&#9670;&#160;</a></span>GetRandomPosInCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfVector2f GetRandomPosInCircle </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random position within a given circle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The center position of the circle. </td></tr>
+    <tr><td class="paramname">radius</td><td>The radius of the circle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A random position inside the circle. </dd></dl>
+
+</div>
+</div>
+<a id="a3ec5f4a133c34ea877b827abd384e2d5" name="a3ec5f4a133c34ea877b827abd384e2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec5f4a133c34ea877b827abd384e2d5">&#9670;&#160;</a></span>GetRandomPosInRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfVector2f GetRandomPosInRectangle </td>
+          <td>(</td>
+          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random position within a given rectangle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>The rectangle (position, width, height) to get the random position within. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A random position inside the rectangle. </dd></dl>
 
 </div>
 </div>
@@ -1504,6 +1906,196 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="af6bdfde77d9c015fc354fe69815dc30a" name="af6bdfde77d9c015fc354fe69815dc30a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6bdfde77d9c015fc354fe69815dc30a">&#9670;&#160;</a></span>LineCircle_Collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool LineCircle_Collision </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>start_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>end_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>circle_pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a line and a circle are in collision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_line</td><td>The start position of the line. </td></tr>
+    <tr><td class="paramname">end_line</td><td>The end position of the line. </td></tr>
+    <tr><td class="paramname">circle_pos</td><td>The position of the circle. </td></tr>
+    <tr><td class="paramname">r</td><td>The radius of the circle. </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if there is a collision, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="abb2ab98470930f3c434975ec6f2f3bce" name="abb2ab98470930f3c434975ec6f2f3bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb2ab98470930f3c434975ec6f2f3bce">&#9670;&#160;</a></span>LineLine_Collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool LineLine_Collision </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>start_line_one</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>end_line_one</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>start_line_two</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>end_line_two</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if two line segments intersect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_line_one</td><td>The start position of the first line. </td></tr>
+    <tr><td class="paramname">end_line_one</td><td>The end position of the first line. </td></tr>
+    <tr><td class="paramname">start_line_two</td><td>The start position of the second line. </td></tr>
+    <tr><td class="paramname">end_line_two</td><td>The end position of the second line. </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if there is a collision, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a18bd8de0e2092f9ffb5a7aa2499df90a" name="a18bd8de0e2092f9ffb5a7aa2499df90a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18bd8de0e2092f9ffb5a7aa2499df90a">&#9670;&#160;</a></span>LinePoint_Collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool LinePoint_Collision </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>start_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>end_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a point is on a line segment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_line</td><td>The start position of the line. </td></tr>
+    <tr><td class="paramname">end_line</td><td>The end position of the line. </td></tr>
+    <tr><td class="paramname">point</td><td>The point to check. </td></tr>
+    <tr><td class="paramname">offset</td><td>The tolerance offset. </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the point is on the line, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a84ef668771271bd6624ee17462ac3bc4" name="a84ef668771271bd6624ee17462ac3bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ef668771271bd6624ee17462ac3bc4">&#9670;&#160;</a></span>LineRect_Collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool LineRect_Collision </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>start_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>end_line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>rect</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a line and a rectangle are in collision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_line</td><td>The start position of the line. </td></tr>
+    <tr><td class="paramname">end_line</td><td>The end position of the line. </td></tr>
+    <tr><td class="paramname">rect</td><td>The rectangle (position, width, height). </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if there is a collision, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a71eee54b0d330ccc0f2ba98eb7f528fe" name="a71eee54b0d330ccc0f2ba98eb7f528fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71eee54b0d330ccc0f2ba98eb7f528fe">&#9670;&#160;</a></span>NormalizeVector2f()</h2>
 
@@ -1530,8 +2122,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aaf3ec8e6e747dbbfe545df0e2d232b75" name="aaf3ec8e6e747dbbfe545df0e2d232b75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf3ec8e6e747dbbfe545df0e2d232b75">&#9670;&#160;</a></span>PointInCircle()</h2>
+<a id="a7a023d4d22f7fbeed6a702afb6bee3e8" name="a7a023d4d22f7fbeed6a702afb6bee3e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a023d4d22f7fbeed6a702afb6bee3e8">&#9670;&#160;</a></span>PointInCircle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1549,7 +2141,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>_rayon</em></span>&#160;)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>_rayon</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1560,10 +2157,48 @@ Variables</h2></td></tr>
     <tr><td class="paramname">_pos</td><td>The point to check. </td></tr>
     <tr><td class="paramname">_circle_pos</td><td>The position of the circle. </td></tr>
     <tr><td class="paramname">_rayon</td><td>The radius of the circle. </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the point is inside the circle, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a062c334ec8d5d63e6f89b10c5365a5f6" name="a062c334ec8d5d63e6f89b10c5365a5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062c334ec8d5d63e6f89b10c5365a5f6">&#9670;&#160;</a></span>PointInRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool PointInRectangle </td>
+          <td>(</td>
+          <td class="paramtype">sfVector2f</td>          <td class="paramname"><span class="paramname"><em>_pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>_box</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a point is inside a rectangle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_pos</td><td>The point to check. </td></tr>
+    <tr><td class="paramname">_box</td><td>The rectangle (position, width, height). </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the point is inside the rectangle, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1629,8 +2264,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af02f16bb83330b37c5649ed9994dde1b" name="af02f16bb83330b37c5649ed9994dde1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af02f16bb83330b37c5649ed9994dde1b">&#9670;&#160;</a></span>Rectangle_Collision()</h2>
+<a id="a6a3bc44ca6401dca2bb5a0dd3655ceed" name="a6a3bc44ca6401dca2bb5a0dd3655ceed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3bc44ca6401dca2bb5a0dd3655ceed">&#9670;&#160;</a></span>Rectangle_Collision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1643,7 +2278,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>_box2</em></span>&#160;)</td>
+          <td class="paramtype">sfFloatRect</td>          <td class="paramname"><span class="paramname"><em>_box2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfBool</td>          <td class="paramname"><span class="paramname"><em>shouldScale</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1653,6 +2293,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">_box1</td><td>The first rectangle (position, width, height). </td></tr>
     <tr><td class="paramname">_box2</td><td>The second rectangle (position, width, height). </td></tr>
+    <tr><td class="paramname">shouldScale</td><td>Whether to apply scaling adjustments. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1745,6 +2386,60 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="acca1e44525e99a5898a3c2a6447b0c8e" name="acca1e44525e99a5898a3c2a6447b0c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acca1e44525e99a5898a3c2a6447b0c8e">&#9670;&#160;</a></span>sfMouse_isButtonDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool sfMouse_isButtonDown </td>
+          <td>(</td>
+          <td class="paramtype">sfMouseButton</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a specific mouse button is currently pressed down. </p>
+<p>This function returns whether a given mouse button is pressed down in the current frame.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>The mouse button to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if the mouse button is currently pressed down, sfFalse otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a83c97b4f1e44f24b802cb3aedd20203f" name="a83c97b4f1e44f24b802cb3aedd20203f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c97b4f1e44f24b802cb3aedd20203f">&#9670;&#160;</a></span>sfMouse_isButtonUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool sfMouse_isButtonUp </td>
+          <td>(</td>
+          <td class="paramtype">sfMouseButton</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a specific mouse button has been released. </p>
+<p>This function returns whether a given mouse button has been released in the current frame.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>The mouse button to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if the mouse button is currently released, sfFalse otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a1d4705d2264c995a7f03677890702814" name="a1d4705d2264c995a7f03677890702814"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d4705d2264c995a7f03677890702814">&#9670;&#160;</a></span>StrAllocNCopy()</h2>
 
@@ -1821,6 +2516,26 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a1d0e12352a03c500541241cd1ce526af" name="a1d0e12352a03c500541241cd1ce526af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0e12352a03c500541241cd1ce526af">&#9670;&#160;</a></span>UpdateKeyAndMouseState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UpdateKeyAndMouseState </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the key and mouse states. </p>
+<p>This function updates the current state of the keys and mouse buttons for the current frame. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a00093d8489f25203bf7235e4ceaea4a5" name="a00093d8489f25203bf7235e4ceaea4a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00093d8489f25203bf7235e4ceaea4a5">&#9670;&#160;</a></span>DeltaTime</h2>
@@ -1833,6 +2548,25 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00065">65</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="ad61e757c26d102ec52c61a5cbfb2f983" name="ad61e757c26d102ec52c61a5cbfb2f983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61e757c26d102ec52c61a5cbfb2f983">&#9670;&#160;</a></span>GameWindow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_window_manager.html">WindowManager</a>* GameWindow</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to the <a class="el" href="struct_window_manager.html" title="A structure that manages window operations and custom parameters.">WindowManager</a> structure responsible for managing the game window. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00043">43</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -1848,6 +2582,42 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00071">71</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="ad241988a907b95432b3489546dc95b28" name="ad241988a907b95432b3489546dc95b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad241988a907b95432b3489546dc95b28">&#9670;&#160;</a></span>ScreenScaleFactorX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ScreenScaleFactorX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Scaling factor for the X-axis of the screen, used for scaling graphics to the window size. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00044">44</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a3ff4f5baef7efd776e94537956e7ec68" name="a3ff4f5baef7efd776e94537956e7ec68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff4f5baef7efd776e94537956e7ec68">&#9670;&#160;</a></span>ScreenScaleFactorY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ScreenScaleFactorY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Scaling factor for the Y-axis of the screen, used for scaling graphics to the window size. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00045">45</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -1855,7 +2625,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_tools_8h.html">Tools.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_tools_8h.html">Tools.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

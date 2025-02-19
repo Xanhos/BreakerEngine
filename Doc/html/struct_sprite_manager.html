@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -109,7 +109,7 @@ $(function(){initNavTree('struct_sprite_manager.html',''); initResizable(true); 
 </div><!--header-->
 <div class="contents">
 
-<p>Contains function pointers to manage sprites in a sprite collection.  
+<p>Contains function pointers to manage sprites in a sprite collection. This structure acts as an interface to perform sprite management operations.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>&gt;</code></p>
@@ -121,9 +121,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a806ba93cdce68508a030b94c35e49f3e" id="r_a806ba93cdce68508a030b94c35e49f3e"><td class="memItemLeft" align="right" valign="top">sfSprite *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a806ba93cdce68508a030b94c35e49f3e">push_back</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, const char *name, const sfTexture *texture, sfBool reset_rect)</td></tr>
 <tr class="memdesc:a806ba93cdce68508a030b94c35e49f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new sprite to the manager.  <br /></td></tr>
 <tr class="separator:a806ba93cdce68508a030b94c35e49f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae85ba32701c1caacb3f2f6aac2853f4d" id="r_ae85ba32701c1caacb3f2f6aac2853f4d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85ba32701c1caacb3f2f6aac2853f4d">draw</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfRenderWindow *window)</td></tr>
-<tr class="memdesc:ae85ba32701c1caacb3f2f6aac2853f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all sprites managed by the sprite manager to the specified window.  <br /></td></tr>
-<tr class="separator:ae85ba32701c1caacb3f2f6aac2853f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5bf4318729e045ff509c1a5c43fe780" id="r_ae5bf4318729e045ff509c1a5c43fe780"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5bf4318729e045ff509c1a5c43fe780">draw</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, <a class="el" href="struct_window_manager.html">WindowManager</a> *window, sfRenderStates *states)</td></tr>
+<tr class="memdesc:ae5bf4318729e045ff509c1a5c43fe780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all sprites managed by the sprite manager to the specified window.  <br /></td></tr>
+<tr class="separator:ae5bf4318729e045ff509c1a5c43fe780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ce66caddb5e3f58e8e969b5430a712a" id="r_a0ce66caddb5e3f58e8e969b5430a712a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ce66caddb5e3f58e8e969b5430a712a">destroy</a> )(<a class="el" href="struct_sprite_manager.html">SpriteManager</a> **sprite_manager)</td></tr>
 <tr class="memdesc:a0ce66caddb5e3f58e8e969b5430a712a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the sprite manager and frees all associated resources.  <br /></td></tr>
 <tr class="separator:a0ce66caddb5e3f58e8e969b5430a712a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,9 +142,17 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a0cd787144f21f74e1563c5b0396ff020" id="r_a0cd787144f21f74e1563c5b0396ff020"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cd787144f21f74e1563c5b0396ff020">remove_by_id</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, int index)</td></tr>
 <tr class="memdesc:a0cd787144f21f74e1563c5b0396ff020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a sprite by its index.  <br /></td></tr>
 <tr class="separator:a0cd787144f21f74e1563c5b0396ff020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a784f3aa4f5ff80305b1208473896f4" id="r_a5a784f3aa4f5ff80305b1208473896f4"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a784f3aa4f5ff80305b1208473896f4">sprite_is_visible_by_name</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfBool is_visible, const char *sprite_name)</td></tr>
+<tr class="memdesc:a5a784f3aa4f5ff80305b1208473896f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the visibility of a sprite by its name.  <br /></td></tr>
+<tr class="separator:a5a784f3aa4f5ff80305b1208473896f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd0cf0f4728f49ca59c9209a041ea79d" id="r_acd0cf0f4728f49ca59c9209a041ea79d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd0cf0f4728f49ca59c9209a041ea79d">sprite_is_visible_by_id</a> )(const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfBool is_visible, int sprite_id)</td></tr>
+<tr class="memdesc:acd0cf0f4728f49ca59c9209a041ea79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the visibility of a sprite by its index.  <br /></td></tr>
+<tr class="separator:acd0cf0f4728f49ca59c9209a041ea79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains function pointers to manage sprites in a sprite collection. </p>
+<div class="textblock"><p>Contains function pointers to manage sprites in a sprite collection. This structure acts as an interface to perform sprite management operations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00051">51</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a6c144c86518c8307cc56f57cbb25f87c" name="a6c144c86518c8307cc56f57cbb25f87c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c144c86518c8307cc56f57cbb25f87c">&#9670;&#160;</a></span>_Data</h2>
@@ -158,6 +166,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Internal data for managing sprites. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00053">53</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -176,21 +186,23 @@ Data Fields</h2></td></tr>
 <p>Destroys the sprite manager and frees all associated resources. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the pointer of the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object to destroy. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the pointer of the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object to destroy. This function releases all resources associated with the sprite manager and removes all sprites from memory. </td></tr>
   </table>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00079">79</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
+
 </div>
 </div>
-<a id="ae85ba32701c1caacb3f2f6aac2853f4d" name="ae85ba32701c1caacb3f2f6aac2853f4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae85ba32701c1caacb3f2f6aac2853f4d">&#9670;&#160;</a></span>draw</h2>
+<a id="ae5bf4318729e045ff509c1a5c43fe780" name="ae5bf4318729e045ff509c1a5c43fe780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5bf4318729e045ff509c1a5c43fe780">&#9670;&#160;</a></span>draw</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* draw) (const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfRenderWindow *window)</td>
+          <td class="memname">void(* draw) (const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, <a class="el" href="struct_window_manager.html">WindowManager</a> *window, sfRenderStates *states)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,11 +210,13 @@ Data Fields</h2></td></tr>
 <p>Draws all sprites managed by the sprite manager to the specified window. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
-    <tr><td class="paramname">window</td><td>Pointer to the SFML render window to draw the sprites to. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">window</td><td>Pointer to the SFML render window to draw the sprites to. This function draws all sprites managed by the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> on the given window using SFML's rendering system. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00072">72</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -221,12 +235,14 @@ Data Fields</h2></td></tr>
 <p>Retrieves a sprite by its index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
     <tr><td class="paramname">index</td><td>The index of the sprite to retrieve. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the sprite if found, or NULL if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the sprite if found, or NULL if not found. This function allows the retrieval of a sprite by its index in the collection. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00105">105</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -245,12 +261,14 @@ Data Fields</h2></td></tr>
 <p>Retrieves a sprite by its name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
     <tr><td class="paramname">name</td><td>The name of the sprite to retrieve. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the sprite if found, or NULL if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the sprite if found, or NULL if not found. This function allows the retrieval of a sprite by its unique name. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00096">96</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -269,14 +287,16 @@ Data Fields</h2></td></tr>
 <p>Adds a new sprite to the manager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
     <tr><td class="paramname">name</td><td>The name to assign to the new sprite. </td></tr>
     <tr><td class="paramname">texture</td><td>The texture to use for the sprite. </td></tr>
     <tr><td class="paramname">reset_rect</td><td>Flag to reset the sprite's rectangle bounds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly added sprite. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly added sprite. This function adds a new sprite with a specified texture and optional reset for the sprite's bounds. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00064">64</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -295,11 +315,13 @@ Data Fields</h2></td></tr>
 <p>Removes a sprite by its index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
-    <tr><td class="paramname">index</td><td>The index of the sprite to remove. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the sprite to remove. This function removes a sprite from the manager using its index. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00121">121</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -318,11 +340,13 @@ Data Fields</h2></td></tr>
 <p>Removes a sprite by its name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
-    <tr><td class="paramname">name</td><td>The name of the sprite to remove. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the sprite to remove. This function removes a sprite from the manager using its name. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00113">113</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
@@ -341,16 +365,70 @@ Data Fields</h2></td></tr>
 <p>Returns the number of sprites managed by the sprite manager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection.">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of sprites in the manager. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of sprites in the manager. This function returns the total number of sprites currently managed by the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00087">87</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
+
+</div>
+</div>
+<a id="acd0cf0f4728f49ca59c9209a041ea79d" name="acd0cf0f4728f49ca59c9209a041ea79d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0cf0f4728f49ca59c9209a041ea79d">&#9670;&#160;</a></span>sprite_is_visible_by_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* sprite_is_visible_by_id) (const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfBool is_visible, int sprite_id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the visibility of a sprite by its index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">is_visible</td><td>Flag indicating whether the sprite should be visible. </td></tr>
+    <tr><td class="paramname">sprite_id</td><td>The index of the sprite to set visibility for. This function changes the visibility of a sprite based on its index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00139">139</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a5a784f3aa4f5ff80305b1208473896f4" name="a5a784f3aa4f5ff80305b1208473896f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a784f3aa4f5ff80305b1208473896f4">&#9670;&#160;</a></span>sprite_is_visible_by_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* sprite_is_visible_by_name) (const <a class="el" href="struct_sprite_manager.html">SpriteManager</a> *sprite_manager, sfBool is_visible, const char *sprite_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the visibility of a sprite by its name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_manager</td><td>Pointer to the <a class="el" href="struct_sprite_manager.html" title="Contains function pointers to manage sprites in a sprite collection. This structure acts as an interf...">SpriteManager</a> object. </td></tr>
+    <tr><td class="paramname">is_visible</td><td>Flag indicating whether the sprite should be visible. </td></tr>
+    <tr><td class="paramname">sprite_name</td><td>The name of the sprite to set visibility for. This function changes the visibility of a sprite based on its name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_sprite_manager_8h_source.html#l00130">130</a> of file <a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_sprite_manager_8h_source.html">SpriteManager.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -13,11 +13,21 @@ Represents a particle system containing multiple particles.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_particles_a825dfbbbbbbac68f474b9aeca83ebfb0}{\+\_\+\+Data}}
-\end{DoxyCompactItemize}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_particles_a1e44cfe2e04c13935deb003bcf1e113d}{Update}} )(\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles, float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the particle system by advancing the particles based on the elapsed time. \end{DoxyCompactList}\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_particles_a9c98bc9ce58f170d1f93fcbaeb27fdf4}{Has\+Finish}} )(\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles)
+\begin{DoxyCompactList}\small\item\em Checks if the particle system has finished its lifecycle. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_particles_a95e8d942a66d8508fbc7180b0b2d6a9b}{Destroy}} )(\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}particles)
+\begin{DoxyCompactList}\small\item\em Destroys the particle system and frees allocated memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Represents a particle system containing multiple particles. 
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00094}{94}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+
 
 \doxysubsection{Field Documentation}
 \Hypertarget{struct_particles_a825dfbbbbbbac68f474b9aeca83ebfb0}\index{Particles@{Particles}!\_Data@{\_Data}}
@@ -28,6 +38,72 @@ Represents a particle system containing multiple particles.
 
 Internal data for managing particles. 
 
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00096}{96}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+\Hypertarget{struct_particles_a95e8d942a66d8508fbc7180b0b2d6a9b}\index{Particles@{Particles}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Particles@{Particles}}
+\doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
+{\footnotesize\ttfamily \label{struct_particles_a95e8d942a66d8508fbc7180b0b2d6a9b} 
+void(\texorpdfstring{$\ast$}{*} Destroy) (\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}particles)}
+
+
+
+Destroys the particle system and frees allocated memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Pointer to the pointer of the \doxylink{struct_particles}{Particles} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00116}{116}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+\Hypertarget{struct_particles_a9c98bc9ce58f170d1f93fcbaeb27fdf4}\index{Particles@{Particles}!HasFinish@{HasFinish}}
+\index{HasFinish@{HasFinish}!Particles@{Particles}}
+\doxysubsubsection{\texorpdfstring{HasFinish}{HasFinish}}
+{\footnotesize\ttfamily \label{struct_particles_a9c98bc9ce58f170d1f93fcbaeb27fdf4} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} Has\+Finish) (\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles)}
+
+
+
+Checks if the particle system has finished its lifecycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Pointer to the \doxylink{struct_particles}{Particles} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if the system has finished, sf\+False otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00110}{110}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+\Hypertarget{struct_particles_a1e44cfe2e04c13935deb003bcf1e113d}\index{Particles@{Particles}!Update@{Update}}
+\index{Update@{Update}!Particles@{Particles}}
+\doxysubsubsection{\texorpdfstring{Update}{Update}}
+{\footnotesize\ttfamily \label{struct_particles_a1e44cfe2e04c13935deb003bcf1e113d} 
+void(\texorpdfstring{$\ast$}{*} Update) (\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles, float delta\+Time)}
+
+
+
+Updates the particle system by advancing the particles based on the elapsed time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Pointer to the \doxylink{struct_particles}{Particles} object to update. \\
+\hline
+{\em delta\+Time} & The time elapsed since the last update (in seconds). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00103}{103}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_particles_8h}{Particles.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_particles_8h}{Particles.\+h}}\end{DoxyCompactItemize}

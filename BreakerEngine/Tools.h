@@ -34,19 +34,28 @@
 
 /**
  * @file tools.h
- * @brief This file contains all the usefull tools for the engine.
-*/
-struct WindowManager;
-struct WindowManager* GameWindow;
-float ScreenScaleFactorX;
-float ScreenScaleFactorY;
+ * @brief This file contains all the useful tools for the engine.
+ *
+ * It defines structures and global variables for managing the game window,
+ * handling transformations (such as position, velocity, and angle), and scaling.
+ */
 
+struct WindowManager* GameWindow; /**< Pointer to the WindowManager structure responsible for managing the game window. */
+float ScreenScaleFactorX; /**< Scaling factor for the X-axis of the screen, used for scaling graphics to the window size. */
+float ScreenScaleFactorY; /**< Scaling factor for the Y-axis of the screen, used for scaling graphics to the window size. */
+
+/**
+ * @struct Transform
+ * @brief Structure that represents the transformation of an object in the game.
+ *
+ * It stores the position, velocity, and angle of an object to handle its movement and rotation.
+ */
 typedef struct Transform Transform;
 struct Transform
 {
-	sfVector2f position;
-	sfVector2f velocity;
-	float angle;
+	sfVector2f position; /**< The position of the object in 2D space. */
+	sfVector2f velocity; /**< The velocity of the object in 2D space, affecting its movement. */
+	float angle; /**< The angle of rotation for the object in degrees. */
 };
 
 /**
@@ -480,10 +489,20 @@ int rand_int(int _min, int _max);
  */
 double rand_float(float _min, float _max);
 
+/**
+ * @brief Returns a random position within a given rectangle.
+ * @param rect The rectangle (position, width, height) to get the random position within.
+ * @return A random position inside the rectangle.
+ */
 sfVector2f GetRandomPosInRectangle(sfFloatRect rect);
 
-
-sfVector2f GetRandomPosInCircle(sfVector2f pos,float radius);
+/**
+ * @brief Returns a random position within a given circle.
+ * @param pos The center position of the circle.
+ * @param radius The radius of the circle.
+ * @return A random position inside the circle.
+ */
+sfVector2f GetRandomPosInCircle(sfVector2f pos, float radius);
 
 /**
  * @brief Computes the distance between two points.
@@ -565,9 +584,9 @@ struct Thread_Info
 	stdList* files_info; /**< The list of files to process. */
 	int start; /**< The starting index for processing. */
 	int end; /**< The ending index for processing. */
-	float* progressValue;
-	float* totalSize;
-	float* currentSize;
+	float* progressValue; /**< Pointer to track the progress value. */
+	float* totalSize; /**< Pointer to track the total size of the files. */
+	float* currentSize; /**< Pointer to track the current size during processing. */
 	void (*func)(const char*); /**< The function to apply to each file. */
 };
 
@@ -576,7 +595,6 @@ struct Thread_Info
  * @brief Structure for internal data related to the clock.
  */
 typedef struct clock_data clock_data;
-
 
 /**
  * @typedef Clock
@@ -700,22 +718,36 @@ void DebugPrint(const char* const string, ...);
  * @brief Get the size of a file.
  *
  * @param filePath the path of the file.
+ * @return The size of the file in bytes.
  */
 float GetFileSizeCustom(const char* filePath);
 
 /**
  * @brief Loads files in a separate thread.
+ *
+ * This function loads the specified files asynchronously in a separate thread to avoid blocking the main thread.
+ *
  * @param thread_infos The information about the thread to load the files.
  */
 void __LoadWithThread(void* thread_infos);
 
 /**
  * @brief Loads a scene from a file.
+ *
+ * This function loads a scene from the specified file path, with support for different file types and extensions.
+ * A callback function can be provided to perform actions after the scene is loaded.
+ *
  * @param scene The scene to load.
  * @param extension The file extension of the scene.
  * @param type The type of scene to load.
- * @param func The function to apply after loading the scene.
+ * @param progressValue A pointer to track the progress of the loading.
+ * @param func A callback function to execute after loading the scene.
  */
 void __LoadScene(const char* scene, const char* extension, const char* type, float* progressValue, void (*func)(const char*));
 
+/**
+ * @brief Updates the key and mouse states.
+ *
+ * This function updates the current state of the keys and mouse buttons for the current frame.
+ */
 void UpdateKeyAndMouseState(void);

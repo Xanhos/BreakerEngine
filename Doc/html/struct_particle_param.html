@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -130,8 +130,12 @@ Data Fields</h2></td></tr>
 <tr class="separator:aa36595d8831b8673fcc0ab5424b5ed23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7e4724cf57d59513b39c5ecc81adc8" id="r_a7f7e4724cf57d59513b39c5ecc81adc8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f7e4724cf57d59513b39c5ecc81adc8">speed</a></td></tr>
 <tr class="separator:a7f7e4724cf57d59513b39c5ecc81adc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade81f6bd17aa02630820c3dc2be458cb" id="r_ade81f6bd17aa02630820c3dc2be458cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade81f6bd17aa02630820c3dc2be458cb">random_speed_boost</a></td></tr>
+<tr class="separator:ade81f6bd17aa02630820c3dc2be458cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fc5a0e5fca1a310e6bfa125bf80042e" id="r_a1fc5a0e5fca1a310e6bfa125bf80042e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc5a0e5fca1a310e6bfa125bf80042e">rotation</a></td></tr>
 <tr class="separator:a1fc5a0e5fca1a310e6bfa125bf80042e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d620efcea23126fa7481d0a0e8a08e1" id="r_a9d620efcea23126fa7481d0a0e8a08e1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d620efcea23126fa7481d0a0e8a08e1">random_spawn_rotation</a></td></tr>
+<tr class="separator:a9d620efcea23126fa7481d0a0e8a08e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5541683434a97a0952d7259c9b8a907c" id="r_a5541683434a97a0952d7259c9b8a907c"><td class="memItemLeft" align="right" valign="top">sfColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5541683434a97a0952d7259c9b8a907c">color</a></td></tr>
 <tr class="separator:a5541683434a97a0952d7259c9b8a907c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbc09f9c13f4527fd75c65473e57618" id="r_a6dbc09f9c13f4527fd75c65473e57618"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dbc09f9c13f4527fd75c65473e57618">despawn_time</a></td></tr>
@@ -145,6 +149,8 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the parameters to configure individual particles' behavior. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00071">71</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="acc669dc3a59a1bea8d76b9c416d6bd9b" name="acc669dc3a59a1bea8d76b9c416d6bd9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc669dc3a59a1bea8d76b9c416d6bd9b">&#9670;&#160;</a></span>angle_direction</h2>
@@ -158,6 +164,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The initial direction angle of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00077">77</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -174,6 +182,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Spread of the particle spawn in terms of angle. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00078">78</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a5541683434a97a0952d7259c9b8a907c" name="a5541683434a97a0952d7259c9b8a907c"></a>
@@ -188,6 +198,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Color of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00083">83</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -204,6 +216,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Time until the particle despawns. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00084">84</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a6a35b23c4be19f855a4a742299bb46f6" name="a6a35b23c4be19f855a4a742299bb46f6"></a>
@@ -218,6 +232,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Total lifetime of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00087">87</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -234,6 +250,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>The origin point for the particle spawn (for rotation). </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00075">75</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a3d92ec5abf8d6d77cdd0fecda1eb671a" name="a3d92ec5abf8d6d77cdd0fecda1eb671a"></a>
@@ -248,6 +266,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Initial position of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00074">74</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -264,6 +284,42 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Radius used for particle dispersion or area of effect. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00076">76</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
+</div>
+</div>
+<a id="a9d620efcea23126fa7481d0a0e8a08e1" name="a9d620efcea23126fa7481d0a0e8a08e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d620efcea23126fa7481d0a0e8a08e1">&#9670;&#160;</a></span>random_spawn_rotation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float random_spawn_rotation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Random rotation at the spawn of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00082">82</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
+</div>
+</div>
+<a id="ade81f6bd17aa02630820c3dc2be458cb" name="ade81f6bd17aa02630820c3dc2be458cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade81f6bd17aa02630820c3dc2be458cb">&#9670;&#160;</a></span>random_speed_boost</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float random_speed_boost</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Random boost to the speed of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00080">80</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a1fc5a0e5fca1a310e6bfa125bf80042e" name="a1fc5a0e5fca1a310e6bfa125bf80042e"></a>
@@ -278,6 +334,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Rotation of the particle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00081">81</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -294,6 +352,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of particles to spawn at once. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00086">86</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a4a9e1ed1d40fd6a7405341d605ed13f2" name="a4a9e1ed1d40fd6a7405341d605ed13f2"></a>
@@ -308,6 +368,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Time for the particle to spawn. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00085">85</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -324,6 +386,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Speed of the particle's movement. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00079">79</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="aaf118343039d4de829f702b754fef810" name="aaf118343039d4de829f702b754fef810"></a>
@@ -339,10 +403,12 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Type of particle behavior (e.g., ONE_TIME, LIFE_TIME, ALWAYS). </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00073">73</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_particles_8h_source.html">Particles.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_particles_8h_source.html">Particles.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

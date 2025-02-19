@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['deltatime_0',['DeltaTime',['../_tools_8h.html#a00093d8489f25203bf7235e4ceaea4a5',1,'Tools.h']]],
-  ['despawn_5ftime_1',['despawn_time',['../struct_particle_param.html#a6dbc09f9c13f4527fd75c65473e57618',1,'ParticleParam']]],
-  ['destroy_2',['Destroy',['../struct_animation.html#a76ee2779e38edb1d57c0e1fe724b8058',1,'Animation::Destroy'],['../struct_state_info.html#add4e5cb6dba66fecd677db0fe79e9be7',1,'StateInfo::Destroy'],['../struct_thread_manager.html#a5c9a442416c696e91f6f4bfa94d2e209',1,'ThreadManager::Destroy'],['../struct_window_manager.html#adf6981e088309db1c29e39f0242329e0',1,'WindowManager::Destroy']]],
-  ['destroy_3',['destroy',['../struct_sprite_manager.html#a0ce66caddb5e3f58e8e969b5430a712a',1,'SpriteManager::destroy'],['../struct_clock.html#a5f8d26db9230fe334d612409bfbe0737',1,'Clock::destroy']]],
-  ['dezoom_4',['Dezoom',['../struct_viewport.html#ab26c657035d4c4aa42544c9410083888',1,'Viewport']]],
-  ['draw_5',['draw',['../struct_sprite_manager.html#ae85ba32701c1caacb3f2f6aac2853f4d',1,'SpriteManager']]]
+  ['despawn_5ftime_0',['despawn_time',['../struct_particle_param.html#a6dbc09f9c13f4527fd75c65473e57618',1,'ParticleParam']]],
+  ['destroy_1',['Destroy',['../struct_animation.html#a76ee2779e38edb1d57c0e1fe724b8058',1,'Animation::Destroy'],['../struct_simple_anim.html#a94b5e629a5958a4780b8b726e857e6c3',1,'SimpleAnim::Destroy'],['../struct_particles.html#a95e8d942a66d8508fbc7180b0b2d6a9b',1,'Particles::Destroy'],['../struct_state_info.html#add4e5cb6dba66fecd677db0fe79e9be7',1,'StateInfo::Destroy'],['../struct_thread_manager.html#a5c9a442416c696e91f6f4bfa94d2e209',1,'ThreadManager::Destroy'],['../struct_window_manager.html#adf6981e088309db1c29e39f0242329e0',1,'WindowManager::Destroy']]],
+  ['destroy_2',['destroy',['../struct_sprite_manager.html#a0ce66caddb5e3f58e8e969b5430a712a',1,'SpriteManager::destroy'],['../struct_clock.html#a5f8d26db9230fe334d612409bfbe0737',1,'Clock::destroy'],['../struct_u_i_object.html#a128c2c37b4b08b26adc941a93d322a51',1,'UIObject::destroy'],['../struct_u_i_object_manager.html#a5033f777522da75e43893960f21400b9',1,'UIObjectManager::destroy']]],
+  ['dezoom_3',['Dezoom',['../struct_viewport.html#ab26c657035d4c4aa42544c9410083888',1,'Viewport']]],
+  ['display_4',['Display',['../struct_window_manager.html#a9c2be0601236f129e849c8392545194b',1,'WindowManager']]],
+  ['draw_5',['Draw',['../struct_simple_anim.html#ac79cf4d03e1ef9c783489db8e420daac',1,'SimpleAnim']]],
+  ['draw_6',['draw',['../struct_sprite_manager.html#ae5bf4318729e045ff509c1a5c43fe780',1,'SpriteManager::draw'],['../struct_u_i_object_manager.html#a2dc35b206c3a6f881a4c67d4b5493573',1,'UIObjectManager::draw']]],
+  ['drawanimation_7',['DrawAnimation',['../struct_window_manager.html#a8240c2dbede59fb03ad57a0fb056b718',1,'WindowManager']]],
+  ['drawcircleshape_8',['DrawCircleShape',['../struct_window_manager.html#a4f9198d908123d7e554b546663a4c085',1,'WindowManager']]],
+  ['drawconvexshape_9',['DrawConvexShape',['../struct_window_manager.html#a94c7d25d2b1df2e3966a33ad4682de3d',1,'WindowManager']]],
+  ['drawparticles_10',['DrawParticles',['../struct_window_manager.html#a75503994ea45d10b611ffc390bd05aa4',1,'WindowManager']]],
+  ['drawrectangleshape_11',['DrawRectangleShape',['../struct_window_manager.html#ab56d6a3aa252e73bc156251098fbcdec',1,'WindowManager']]],
+  ['drawshape_12',['DrawShape',['../struct_window_manager.html#a6f8a1c5618477aa25afad319a27f7795',1,'WindowManager']]],
+  ['drawsprite_13',['DrawSprite',['../struct_window_manager.html#ac3f298878291030b8f9cee2fd728f9fc',1,'WindowManager']]],
+  ['drawtext_14',['DrawText',['../struct_window_manager.html#ace737681a64dbe16f1fcf0b340177521',1,'WindowManager']]],
+  ['drawvertexarray_15',['DrawVertexArray',['../struct_window_manager.html#a98271ac55478493af8df97fb00e5c41f',1,'WindowManager']]],
+  ['drawvertexbuffer_16',['DrawVertexBuffer',['../struct_window_manager.html#a0a0e8b98ea5ab8784c2a595fdc3d3109',1,'WindowManager']]]
 ];

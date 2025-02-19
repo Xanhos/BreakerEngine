@@ -8,6 +8,8 @@ var struct_particle_param =
     [ "origin", "struct_particle_param.html#a68a462316ed4b4eed741995eb4aae733", null ],
     [ "position", "struct_particle_param.html#a3d92ec5abf8d6d77cdd0fecda1eb671a", null ],
     [ "radius", "struct_particle_param.html#a5050a760c11da521cd4aee6336f6529f", null ],
+    [ "random_spawn_rotation", "struct_particle_param.html#a9d620efcea23126fa7481d0a0e8a08e1", null ],
+    [ "random_speed_boost", "struct_particle_param.html#ade81f6bd17aa02630820c3dc2be458cb", null ],
     [ "rotation", "struct_particle_param.html#a1fc5a0e5fca1a310e6bfa125bf80042e", null ],
     [ "spawn_count", "struct_particle_param.html#a45d9f6536f5d062fb5bfe7fb45bc4382", null ],
     [ "spawn_time", "struct_particle_param.html#a4a9e1ed1d40fd6a7405341d605ed13f2", null ],

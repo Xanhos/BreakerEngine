@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -118,9 +118,20 @@ $(function(){initNavTree('struct_particles.html',''); initResizable(true); });
 Data Fields</h2></td></tr>
 <tr class="memitem:a825dfbbbbbbac68f474b9aeca83ebfb0" id="r_a825dfbbbbbbac68f474b9aeca83ebfb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_particles_8h.html#a3253c86324e0c22c5311eb3efd9af5bb">Particles_Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a825dfbbbbbbac68f474b9aeca83ebfb0">_Data</a></td></tr>
 <tr class="separator:a825dfbbbbbbac68f474b9aeca83ebfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e44cfe2e04c13935deb003bcf1e113d" id="r_a1e44cfe2e04c13935deb003bcf1e113d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e44cfe2e04c13935deb003bcf1e113d">Update</a> )(<a class="el" href="struct_particles.html">Particles</a> *particles, float deltaTime)</td></tr>
+<tr class="memdesc:a1e44cfe2e04c13935deb003bcf1e113d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the particle system by advancing the particles based on the elapsed time.  <br /></td></tr>
+<tr class="separator:a1e44cfe2e04c13935deb003bcf1e113d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c98bc9ce58f170d1f93fcbaeb27fdf4" id="r_a9c98bc9ce58f170d1f93fcbaeb27fdf4"><td class="memItemLeft" align="right" valign="top">sfBool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c98bc9ce58f170d1f93fcbaeb27fdf4">HasFinish</a> )(<a class="el" href="struct_particles.html">Particles</a> *particles)</td></tr>
+<tr class="memdesc:a9c98bc9ce58f170d1f93fcbaeb27fdf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the particle system has finished its lifecycle.  <br /></td></tr>
+<tr class="separator:a9c98bc9ce58f170d1f93fcbaeb27fdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e8d942a66d8508fbc7180b0b2d6a9b" id="r_a95e8d942a66d8508fbc7180b0b2d6a9b"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95e8d942a66d8508fbc7180b0b2d6a9b">Destroy</a> )(<a class="el" href="struct_particles.html">Particles</a> **particles)</td></tr>
+<tr class="memdesc:a95e8d942a66d8508fbc7180b0b2d6a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the particle system and frees allocated memory.  <br /></td></tr>
+<tr class="separator:a95e8d942a66d8508fbc7180b0b2d6a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a particle system containing multiple particles. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00094">94</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a825dfbbbbbbac68f474b9aeca83ebfb0" name="a825dfbbbbbbac68f474b9aeca83ebfb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a825dfbbbbbbac68f474b9aeca83ebfb0">&#9670;&#160;</a></span>_Data</h2>
@@ -135,10 +146,86 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Internal data for managing particles. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00096">96</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
+</div>
+</div>
+<a id="a95e8d942a66d8508fbc7180b0b2d6a9b" name="a95e8d942a66d8508fbc7180b0b2d6a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e8d942a66d8508fbc7180b0b2d6a9b">&#9670;&#160;</a></span>Destroy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Destroy) (<a class="el" href="struct_particles.html">Particles</a> **particles)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroys the particle system and frees allocated memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td>Pointer to the pointer of the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> object to be destroyed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00116">116</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
+</div>
+</div>
+<a id="a9c98bc9ce58f170d1f93fcbaeb27fdf4" name="a9c98bc9ce58f170d1f93fcbaeb27fdf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c98bc9ce58f170d1f93fcbaeb27fdf4">&#9670;&#160;</a></span>HasFinish</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sfBool(* HasFinish) (<a class="el" href="struct_particles.html">Particles</a> *particles)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the particle system has finished its lifecycle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td>Pointer to the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sfTrue if the system has finished, sfFalse otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00110">110</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
+</div>
+</div>
+<a id="a1e44cfe2e04c13935deb003bcf1e113d" name="a1e44cfe2e04c13935deb003bcf1e113d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e44cfe2e04c13935deb003bcf1e113d">&#9670;&#160;</a></span>Update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Update) (<a class="el" href="struct_particles.html">Particles</a> *particles, float deltaTime)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the particle system by advancing the particles based on the elapsed time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td>Pointer to the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> object to update. </td></tr>
+    <tr><td class="paramname">deltaTime</td><td>The time elapsed since the last update (in seconds). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00103">103</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_particles_8h_source.html">Particles.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_particles_8h_source.html">Particles.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

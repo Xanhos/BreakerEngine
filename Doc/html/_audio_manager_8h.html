@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/AudioManager.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/AudioManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -147,14 +147,16 @@ Functions</h2></td></tr>
 <tr class="memitem:aacd687b998410396ffda684df6e8b707" id="r_aacd687b998410396ffda684df6e8b707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacd687b998410396ffda684df6e8b707">DeleteMusic</a> (<a class="el" href="struct_music.html">Music</a> *music)</td></tr>
 <tr class="memdesc:aacd687b998410396ffda684df6e8b707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a music object and releases its associated resources.  <br /></td></tr>
 <tr class="separator:aacd687b998410396ffda684df6e8b707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19a30e005630efa6447f03cb39f4da6f" id="r_a19a30e005630efa6447f03cb39f4da6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19a30e005630efa6447f03cb39f4da6f">InitSoundManager</a> (void)</td></tr>
-<tr class="memdesc:a19a30e005630efa6447f03cb39f4da6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the sound manager. This function sets up the necessary resources and data structures for sound management.  <br /></td></tr>
+<tr class="memitem:a19a30e005630efa6447f03cb39f4da6f" id="r_a19a30e005630efa6447f03cb39f4da6f"><td class="memItemLeft" align="right" valign="top"><a id="a19a30e005630efa6447f03cb39f4da6f" name="a19a30e005630efa6447f03cb39f4da6f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitSoundManager</b> (void)</td></tr>
+<tr class="memdesc:a19a30e005630efa6447f03cb39f4da6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the sound manager. This function sets up the necessary resources and data structures for sound management. <br /></td></tr>
 <tr class="separator:a19a30e005630efa6447f03cb39f4da6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8edbabe5eb6a71fe117796dd228c7c35" id="r_a8edbabe5eb6a71fe117796dd228c7c35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8edbabe5eb6a71fe117796dd228c7c35">LoadSceneSound</a> (const char *scene)</td></tr>
-<tr class="memdesc:a8edbabe5eb6a71fe117796dd228c7c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads sounds associated with a specific scene.  <br /></td></tr>
-<tr class="separator:a8edbabe5eb6a71fe117796dd228c7c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9485054817526044ee91e76d1598b5ca" id="r_a9485054817526044ee91e76d1598b5ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9485054817526044ee91e76d1598b5ca">ClearSceneSound</a> (void)</td></tr>
-<tr class="memdesc:a9485054817526044ee91e76d1598b5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all sounds associated with the current scene. This function frees memory and unloads scene-specific sounds.  <br /></td></tr>
+<tr class="memitem:a2d9c50e846a8e27293a2e6297267207d" id="r_a2d9c50e846a8e27293a2e6297267207d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d9c50e846a8e27293a2e6297267207d">LoadSceneSound</a> (const char *scene, float *soundProgressValue, float *musicProgressValue)</td></tr>
+<tr class="memdesc:a2d9c50e846a8e27293a2e6297267207d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads sounds associated with a specific scene.  <br /></td></tr>
+<tr class="separator:a2d9c50e846a8e27293a2e6297267207d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9485054817526044ee91e76d1598b5ca" id="r_a9485054817526044ee91e76d1598b5ca"><td class="memItemLeft" align="right" valign="top"><a id="a9485054817526044ee91e76d1598b5ca" name="a9485054817526044ee91e76d1598b5ca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSceneSound</b> (void)</td></tr>
+<tr class="memdesc:a9485054817526044ee91e76d1598b5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all sounds associated with the current scene. This function frees memory and unloads scene-specific sounds. <br /></td></tr>
 <tr class="separator:a9485054817526044ee91e76d1598b5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0423febc9cb7ee91b43d904eb2e8d81" id="r_ae0423febc9cb7ee91b43d904eb2e8d81"><td class="memItemLeft" align="right" valign="top">sfSound *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0423febc9cb7ee91b43d904eb2e8d81">GetSound</a> (const char *name)</td></tr>
 <tr class="memdesc:ae0423febc9cb7ee91b43d904eb2e8d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a sound instance by its name.  <br /></td></tr>
@@ -162,12 +164,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a1daf6161c18c2a9664fc751f320f6aeb" id="r_a1daf6161c18c2a9664fc751f320f6aeb"><td class="memItemLeft" align="right" valign="top">sfMusic *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1daf6161c18c2a9664fc751f320f6aeb">GetMusic</a> (const char *name)</td></tr>
 <tr class="memdesc:a1daf6161c18c2a9664fc751f320f6aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a music instance by its name.  <br /></td></tr>
 <tr class="separator:a1daf6161c18c2a9664fc751f320f6aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70cf07cc89f1a96aad7dc4401c3cb739" id="r_a70cf07cc89f1a96aad7dc4401c3cb739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70cf07cc89f1a96aad7dc4401c3cb739">DestroySoundsManager</a> (void)</td></tr>
-<tr class="memdesc:a70cf07cc89f1a96aad7dc4401c3cb739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the sound manager and releases all associated resources.  <br /></td></tr>
+<tr class="memitem:a70cf07cc89f1a96aad7dc4401c3cb739" id="r_a70cf07cc89f1a96aad7dc4401c3cb739"><td class="memItemLeft" align="right" valign="top"><a id="a70cf07cc89f1a96aad7dc4401c3cb739" name="a70cf07cc89f1a96aad7dc4401c3cb739"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DestroySoundsManager</b> (void)</td></tr>
+<tr class="memdesc:a70cf07cc89f1a96aad7dc4401c3cb739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the sound manager and releases all associated resources. <br /></td></tr>
 <tr class="separator:a70cf07cc89f1a96aad7dc4401c3cb739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains all the data to load sounds and musics for the engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_audio_manager_8h_source.html">AudioManager.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="ab38810c6f21a5e0aca4e8fabcb9cc70b" name="ab38810c6f21a5e0aca4e8fabcb9cc70b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab38810c6f21a5e0aca4e8fabcb9cc70b">&#9670;&#160;</a></span>Music</h2>
@@ -180,6 +185,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_audio_manager_8h_source.html#l00049">49</a> of file <a class="el" href="_audio_manager_8h_source.html">AudioManager.h</a>.</p>
 
 </div>
 </div>
@@ -195,28 +202,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_audio_manager_8h_source.html#l00036">36</a> of file <a class="el" href="_audio_manager_8h_source.html">AudioManager.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9485054817526044ee91e76d1598b5ca" name="a9485054817526044ee91e76d1598b5ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9485054817526044ee91e76d1598b5ca">&#9670;&#160;</a></span>ClearSceneSound()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClearSceneSound </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clears all sounds associated with the current scene. This function frees memory and unloads scene-specific sounds. </p>
-
-</div>
-</div>
 <a id="af52d67969774a4dc749498d33cc4166b" name="af52d67969774a4dc749498d33cc4166b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af52d67969774a4dc749498d33cc4166b">&#9670;&#160;</a></span>CreateMusic()</h2>
 
@@ -319,25 +309,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a70cf07cc89f1a96aad7dc4401c3cb739" name="a70cf07cc89f1a96aad7dc4401c3cb739"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70cf07cc89f1a96aad7dc4401c3cb739">&#9670;&#160;</a></span>DestroySoundsManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DestroySoundsManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destroys the sound manager and releases all associated resources. </p>
-
-</div>
-</div>
 <a id="a1daf6161c18c2a9664fc751f320f6aeb" name="a1daf6161c18c2a9664fc751f320f6aeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1daf6161c18c2a9664fc751f320f6aeb">&#9670;&#160;</a></span>GetMusic()</h2>
 
@@ -390,27 +361,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a19a30e005630efa6447f03cb39f4da6f" name="a19a30e005630efa6447f03cb39f4da6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19a30e005630efa6447f03cb39f4da6f">&#9670;&#160;</a></span>InitSoundManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InitSoundManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes the sound manager. This function sets up the necessary resources and data structures for sound management. </p>
-
-</div>
-</div>
-<a id="a8edbabe5eb6a71fe117796dd228c7c35" name="a8edbabe5eb6a71fe117796dd228c7c35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8edbabe5eb6a71fe117796dd228c7c35">&#9670;&#160;</a></span>LoadSceneSound()</h2>
+<a id="a2d9c50e846a8e27293a2e6297267207d" name="a2d9c50e846a8e27293a2e6297267207d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9c50e846a8e27293a2e6297267207d">&#9670;&#160;</a></span>LoadSceneSound()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,8 +370,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void LoadSceneSound </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>soundProgressValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>musicProgressValue</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -439,7 +400,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_audio_manager_8h.html">AudioManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_audio_manager_8h.html">AudioManager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

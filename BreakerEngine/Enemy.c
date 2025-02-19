@@ -24,7 +24,7 @@ void CreateEnemy(sfVector2f pos, float health)
 	enemy.sprite_rect = (sfIntRect){ 0,3214 ,173,86 };
 	enemy.speed = 400.f;
 	enemy.destination_pos = GetRandomPosInRectangle((sfFloatRect) { 960, 0, 1700, 900 });
-	enemy.hitbox = (sfFloatRect){ 0,0,enemy.sprite_rect.width,enemy.sprite_rect.height };
+	enemy.hitbox = (sfFloatRect){ 0,0,(float)enemy.sprite_rect.width, (float)enemy.sprite_rect.height };
 	enemies_list->push_back(enemies_list, &enemy);
 }
 
@@ -37,7 +37,7 @@ void InitEnemies()
 	spawn_timer = 0.f;
 
 	particle_parameters = CreateDefaultParam(ONE_TIME, sfVector2f_Create(0, 0), 0, 300.f);
-	particle_parameters.spawn_count = 30.f;
+	particle_parameters.spawn_count = 30;
 	particle_parameters.color = CreateColor(255, 0, 0, 255);
 	particle_parameters.angle_spawn_spread = 60.f;
 	particle_parameters.despawn_time = .5f;
@@ -53,7 +53,7 @@ void UpdateEnemies(WindowManager* window)
 
 	if (spawn_timer >= 2.5f)
 	{
-		CreateEnemy(sfVector2f_Create(2100.f, rand_float(0.f, 960.f)), 50.f);
+		CreateEnemy(sfVector2f_Create(2100.f, (float)rand_float(0.f, 960.f)), 50.f);
 		spawn_timer = 0.f;
 	}
 

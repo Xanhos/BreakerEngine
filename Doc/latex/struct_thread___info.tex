@@ -18,6 +18,12 @@ int \mbox{\hyperlink{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}{sta
 \item 
 int \mbox{\hyperlink{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388}{end}}
 \item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread___info_a82de35f11a33285a827bdc838c8f7cdf}{progress\+Value}}
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread___info_aa774e64ab73211ac168c125b8cdb7f4e}{total\+Size}}
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread___info_a06936021e05807fb2b8356a58994280e}{current\+Size}}
+\item 
 void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}{func}} )(const char \texorpdfstring{$\ast$}{*})
 \end{DoxyCompactItemize}
 
@@ -25,26 +31,62 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread___info_a0214acc21
 \doxysubsection{Detailed Description}
 Contains information about the files to process in a thread. 
 
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00554}{554}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+
+
 \doxysubsection{Field Documentation}
+\Hypertarget{struct_thread___info_a06936021e05807fb2b8356a58994280e}\index{Thread\_Info@{Thread\_Info}!currentSize@{currentSize}}
+\index{currentSize@{currentSize}!Thread\_Info@{Thread\_Info}}
+\doxysubsubsection{\texorpdfstring{currentSize}{currentSize}}
+{\footnotesize\ttfamily \label{struct_thread___info_a06936021e05807fb2b8356a58994280e} 
+float\texorpdfstring{$\ast$}{*} current\+Size}
+
+Pointer to track the current size during processing. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00561}{561}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
 \Hypertarget{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388}\index{Thread\_Info@{Thread\_Info}!end@{end}}
 \index{end@{end}!Thread\_Info@{Thread\_Info}}
 \doxysubsubsection{\texorpdfstring{end}{end}}
 {\footnotesize\ttfamily \label{struct_thread___info_abce9f5dc9c83f2639b72024fdee5d388} 
 int end}
 
-The ending index for processing. \Hypertarget{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}\index{Thread\_Info@{Thread\_Info}!files\_info@{files\_info}}
+The ending index for processing. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00558}{558}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a}\index{Thread\_Info@{Thread\_Info}!files\_info@{files\_info}}
 \index{files\_info@{files\_info}!Thread\_Info@{Thread\_Info}}
 \doxysubsubsection{\texorpdfstring{files\_info}{files\_info}}
 {\footnotesize\ttfamily \label{struct_thread___info_a6043bdc0ed5e8bfac4e25e018bc17f6a} 
 std\+List\texorpdfstring{$\ast$}{*} files\+\_\+info}
 
-The list of files to process. \Hypertarget{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}\index{Thread\_Info@{Thread\_Info}!func@{func}}
+The list of files to process. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00556}{556}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8}\index{Thread\_Info@{Thread\_Info}!func@{func}}
 \index{func@{func}!Thread\_Info@{Thread\_Info}}
 \doxysubsubsection{\texorpdfstring{func}{func}}
 {\footnotesize\ttfamily \label{struct_thread___info_a0214acc21cde467e1b513abb45b21fc8} 
 void(\texorpdfstring{$\ast$}{*} func) (const char \texorpdfstring{$\ast$}{*})}
 
-The function to apply to each file. \Hypertarget{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}\index{Thread\_Info@{Thread\_Info}!start@{start}}
+The function to apply to each file. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00562}{562}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{struct_thread___info_a82de35f11a33285a827bdc838c8f7cdf}\index{Thread\_Info@{Thread\_Info}!progressValue@{progressValue}}
+\index{progressValue@{progressValue}!Thread\_Info@{Thread\_Info}}
+\doxysubsubsection{\texorpdfstring{progressValue}{progressValue}}
+{\footnotesize\ttfamily \label{struct_thread___info_a82de35f11a33285a827bdc838c8f7cdf} 
+float\texorpdfstring{$\ast$}{*} progress\+Value}
+
+Pointer to track the progress value. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00559}{559}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449}\index{Thread\_Info@{Thread\_Info}!start@{start}}
 \index{start@{start}!Thread\_Info@{Thread\_Info}}
 \doxysubsubsection{\texorpdfstring{start}{start}}
 {\footnotesize\ttfamily \label{struct_thread___info_a37722a150250e2a5a98e5e0d11e53449} 
@@ -52,6 +94,20 @@ int start}
 
 The starting index for processing. 
 
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00557}{557}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+\Hypertarget{struct_thread___info_aa774e64ab73211ac168c125b8cdb7f4e}\index{Thread\_Info@{Thread\_Info}!totalSize@{totalSize}}
+\index{totalSize@{totalSize}!Thread\_Info@{Thread\_Info}}
+\doxysubsubsection{\texorpdfstring{totalSize}{totalSize}}
+{\footnotesize\ttfamily \label{struct_thread___info_aa774e64ab73211ac168c125b8cdb7f4e} 
+float\texorpdfstring{$\ast$}{*} total\+Size}
+
+Pointer to track the total size of the files. 
+
+Definition at line \mbox{\hyperlink{_tools_8h_source_l00560}{560}} of file \mbox{\hyperlink{_tools_8h_source}{Tools.\+h}}.
+
+
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_tools_8h}{Tools.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_tools_8h}{Tools.\+h}}\end{DoxyCompactItemize}

@@ -89,8 +89,7 @@ static void UIObject_SetOrigin(UIObject* object, sfVector2f origin)
 static void UIObject_SetSize(UIObject* object, sfVector2f size)
 {
 	object->_Data->transform.size = size;
-	sfIntRect rect = sfSprite_getTextureRect((sfSprite*)object->_Data->drawable);
-	sfVector2f spriteSize = (sfVector2f){ sfSprite_getTextureRect((sfSprite*)object->_Data->drawable).width, sfSprite_getTextureRect((sfSprite*)object->_Data->drawable).height };
+	sfVector2f spriteSize = (sfVector2f){ (float)sfSprite_getTextureRect((sfSprite*)object->_Data->drawable).width, (float)sfSprite_getTextureRect((sfSprite*)object->_Data->drawable).height };
 	switch (object->_Data->type)
 	{
 	case RECTANGLE:
@@ -170,7 +169,6 @@ static void UIObject_SetDrawable(UIObject* object, sfDrawable* shape)
 
 static void UIObject_SetTexture(UIObject* object, sfTexture* texture, sfBool reset_rect)
 {
-	sfVector2u rect = sfTexture_getSize(texture);
 	switch (object->_Data->type)
 	{
 	case RECTANGLE:
@@ -181,7 +179,7 @@ static void UIObject_SetTexture(UIObject* object, sfTexture* texture, sfBool res
 		break;
 	case SPRITE:
 		sfSprite_setTexture((sfSprite*)object->_Data->drawable, texture, reset_rect);
-		object->_Data->transform.size = reset_rect ? sfVector2f_Create(sfTexture_getSize(texture).x, sfTexture_getSize(texture).y) : object->_Data->transform.size;
+		object->_Data->transform.size = reset_rect ? sfVector2f_Create((float)sfTexture_getSize(texture).x, (float)sfTexture_getSize(texture).y) : object->_Data->transform.size;
 		break;
 	default:
 		break;
@@ -201,7 +199,7 @@ static void UIObject_SetTextureRect(UIObject* object, sfIntRect rect)
 		break;
 	case SPRITE:
 		sfSprite_setTextureRect((sfSprite*)object->_Data->drawable, rect);
-		object->_Data->transform.size = sfVector2f_Create(rect.width, rect.height);
+		object->_Data->transform.size = sfVector2f_Create((float)rect.width, (float)rect.height);
 		break;
 	default:
 		break;
@@ -372,13 +370,13 @@ static UIObject* CreateUIObject(sfDrawable* shape, char* name, UIObject_Type typ
 		switch (type)
 		{
 		case RECTANGLE:
-			shape = sfRectangleShape_create();
+			shape = (sfDrawable*)sfRectangleShape_create();
 			break;
 		case CIRCLE:
-			shape = sfCircleShape_create();
+			shape = (sfDrawable*)sfCircleShape_create();
 			break;
 		case SPRITE:
-			shape = sfSprite_create();
+			shape = (sfDrawable*)sfSprite_create();
 			break;
 		default:
 			break;
@@ -419,7 +417,7 @@ static UIObject* CreateUIObject(sfDrawable* shape, char* name, UIObject_Type typ
 		tmpTransform.position = sfSprite_getPosition((sfSprite*)shape);
 		tmpTransform.scale = sfSprite_getScale((sfSprite*)shape);
 		tmpTransform.origin = sfSprite_getOrigin((sfSprite*)shape);
-		tmpTransform.size = (sfVector2f){ sfSprite_getTextureRect((sfSprite*)shape).width, sfSprite_getTextureRect((sfSprite*)shape).height };
+		tmpTransform.size = (sfVector2f){ (float)sfSprite_getTextureRect((sfSprite*)shape).width, (float)sfSprite_getTextureRect((sfSprite*)shape).height };
 		tmpTransform.rotation = sfSprite_getRotation((sfSprite*)shape);
 		object->_Data->transform = tmpTransform;
 		break;
@@ -547,7 +545,7 @@ static void UIObjectManager_RemoveFromName(UIObjectManager* manager, char* name)
 
 static void UIObjectManager_Update(UIObjectManager* manager, WindowManager* window)
 {
-	FOR_EACH_POINTER(manager->_Data->uiobject_vector, UIObject*, i, it,
+	FOR_EACH_POINTER(manager->_Data->uiobject_vector, UIObject, i, it,
 		UIObject_Update(it, window);
 		);
 }
@@ -556,7 +554,7 @@ static void UIObjectManager_Render(UIObjectManager* manager, WindowManager* wind
 {
 	for (int i = 0; i < manager->_Data->uiobject_vector->size(manager->_Data->uiobject_vector); i++)
 	{
-		UIObject** it_ = ((UIObject*)manager->_Data->uiobject_vector->getData(manager->_Data->uiobject_vector, i));
+		UIObject** it_ = ((UIObject**)manager->_Data->uiobject_vector->getData(manager->_Data->uiobject_vector, i));
 		UIObject* it = *it_;
 		UIObject_Render(window, it, states);
 	};
@@ -564,7 +562,7 @@ static void UIObjectManager_Render(UIObjectManager* manager, WindowManager* wind
 
 static void UIObjectManager_Destroy(UIObjectManager** manager)
 {
-	FOR_EACH_POINTER((*manager)->_Data->uiobject_vector, UIObject*, i, it,
+	FOR_EACH_POINTER((*manager)->_Data->uiobject_vector, UIObject, i, it,
 		UIObject_Destroy(&it);
 		);
 	(*manager)->_Data->uiobject_vector->destroy(&(*manager)->_Data->uiobject_vector);

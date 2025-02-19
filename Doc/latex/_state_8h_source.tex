@@ -1,85 +1,85 @@
 \doxysection{State.\+h}
-\hypertarget{_state_8h_source}{}\label{_state_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/State.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/State.h}}
+\hypertarget{_state_8h_source}{}\label{_state_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/State.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/State.h}}
 \mbox{\hyperlink{_state_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_window_manager_8h}{WindowManager.h}}"{}}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ DECLARE\_HEADER\_STATE(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{void\ Init\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{void\ UpdateEvent\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{void\ Update\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{void\ Render\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{void\ UIRender\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{void\ Destroy\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ DECLARE\_SECTION\_PRAGMA\ \_\_pragma(section("{}.CRT\$XCU"{},\ read))}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ REGISTER\_C\_STATE(stateName)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ static\ void\ AddState\#\#stateName\#\#ToStateList()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ printf("{}Adding\ state\ \%s\(\backslash\)n"{},\ \#stateName);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ StateInfo\ info\ =\ \{.name\ =\ \#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Init\ =\ \&Init\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UpdateEvent\ =\ \&UpdateEvent\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Update\ =\ \&Update\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Render\ =\ \&Render\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UIRender\ =\ \&UIRender\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Destroy\ =\ \&Destroy\#\#stateName\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_RegisterState(info);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_SECTION\_PRAGMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \ \_\_declspec(allocate("{}.CRT\$XCU"{}))\ void\ (*p\_register\_\#\#stateName\#\#\_function)()\ =\ AddState\#\#stateName\#\#ToStateList;\ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ DECLARE\_BLANK\_STATE(stateName)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{void\ Init\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{void\ UpdateEvent\#\#stateName(WindowManager*\ windowManager)\ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{void\ Update\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{void\ Render\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00079\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{void\ UIRender\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{void\ Destroy\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_state_info}{StateInfo}}\ \mbox{\hyperlink{struct_state_info}{StateInfo}};}
-\DoxyCodeLine{00096\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_state_info}{StateInfo}}}
-\DoxyCodeLine{00097\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_state_info_a8e03167ce04350be901b028cc4cf1ce1}{name}}[256];\ }
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00104\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_aad3c9ec4b724dbc33957f078c4a73ff2}{Init}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00111\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a8095a7b33c1a1df74a8be4d7efbbf8ca}{UpdateEvent}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*,\ sfEvent*);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00117\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a46f73f8b319a237f28b58f3d0613f00f}{Update}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00123\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a43bdca7e84341c58ddbaa35f25934e40}{Render}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00129\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a2ac053f7fd3294516268af6c09599add}{UIRender}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00135\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7}{Destroy}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
-\DoxyCodeLine{00136\ \};}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_state_8h_a62e68478bf73836c847633654e7c9366}{\_\_RegisterState}}(\mbox{\hyperlink{struct_state_info}{StateInfo}}\ stateInfo);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00155\ \mbox{\hyperlink{struct_state_info}{StateInfo}}\ \mbox{\hyperlink{_state_8h_a36c0625ae545e09e53d37255d6c85fe6}{GetState}}(\textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_window_manager_8h}{WindowManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00019}\mbox{\hyperlink{_state_8h_a91d0f0a31fe83c7b7816b99f7d16d26c}{00019}}\ \textcolor{preprocessor}{\#define\ DECLARE\_HEADER\_STATE(name)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00020}00020\ \textcolor{preprocessor}{void\ Init\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00021}00021\ \textcolor{preprocessor}{void\ UpdateEvent\#\#name(WindowManager*,\ sfEvent*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00022}00022\ \textcolor{preprocessor}{void\ Update\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00023}00023\ \textcolor{preprocessor}{void\ Render\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00024}00024\ \textcolor{preprocessor}{void\ UIRender\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00025}00025\ \textcolor{preprocessor}{void\ Destroy\#\#name(WindowManager*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00026}00026\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ DECLARE\_SECTION\_PRAGMA\ \_\_pragma(section("{}.CRT\$XCU"{},\ read))}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00034}\mbox{\hyperlink{_state_8h_ae404d298ddd3a94460d895020e26a0a2}{00034}}\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ REGISTER\_STATE(stateName)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00044}\mbox{\hyperlink{_state_8h_a0c1b2f15f5b5600edb771a01bbfcdb8c}{00044}}\ \textcolor{preprocessor}{\ \ \ \ static\ void\ AddState\#\#stateName\#\#ToStateList()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00045}00045\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00046}00046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ printf("{}Adding\ state\ \%s\(\backslash\)n"{},\ \#stateName);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00047}00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ StateInfo\ info\ =\ \{.name\ =\ \#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00049}00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Init\ =\ \&Init\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UpdateEvent\ =\ \&UpdateEvent\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00051}00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Update\ =\ \&Update\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00052}00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Render\ =\ \&Render\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00053}00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UIRender\ =\ \&UIRender\#\#stateName,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00054}00054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Destroy\ =\ \&Destroy\#\#stateName\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_RegisterState(info);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00056}00056\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00057}00057\ \textcolor{preprocessor}{\ \ \ \ DECLARE\_SECTION\_PRAGMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ \ \_\_declspec(allocate("{}.CRT\$XCU"{}))\ void\ (*p\_register\_\#\#stateName\#\#\_function)()\ =\ AddState\#\#stateName\#\#ToStateList;\ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00059}00059\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00068}00068\ \textcolor{preprocessor}{\#define\ DECLARE\_BLANK\_STATE(stateName)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00069}00069\ \textcolor{preprocessor}{void\ Init\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00070}\mbox{\hyperlink{_state_8h_a2cb455bf85c34acff9982695f229d5e8}{00070}}\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00072}00072\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00073}00073\ \textcolor{preprocessor}{void\ UpdateEvent\#\#stateName(WindowManager*\ windowManager,\ sfEvent*\ evt)\ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00074}00074\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00075}00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00076}00076\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00077}00077\ \textcolor{preprocessor}{void\ Update\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00078}00078\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00079}00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00080}00080\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00081}00081\ \textcolor{preprocessor}{void\ Render\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00082}00082\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00084}00084\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00085}00085\ \textcolor{preprocessor}{void\ UIRender\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00086}00086\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00087}00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00088}00088\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00089}00089\ \textcolor{preprocessor}{void\ Destroy\#\#stateName(WindowManager*\ windowManager)\ \ \ \ \ \ \ }\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00090}00090\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00091}00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00092}00092\ \textcolor{preprocessor}{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00093}00093\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00099}00099\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_state_info}{StateInfo}}\ \mbox{\hyperlink{struct_state_info}{StateInfo}};}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00100}00100\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_state_info}{StateInfo}}}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00101}00101\ \{}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00102}\mbox{\hyperlink{struct_state_info}{00102}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_state_info_a8e03167ce04350be901b028cc4cf1ce1}{name}}[256];\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00109}00109\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_aad3c9ec4b724dbc33957f078c4a73ff2}{Init}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00117}00117\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a8095a7b33c1a1df74a8be4d7efbbf8ca}{UpdateEvent}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*,\ sfEvent*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00124}00124\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a46f73f8b319a237f28b58f3d0613f00f}{Update}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00131}00131\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a43bdca7e84341c58ddbaa35f25934e40}{Render}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00138}00138\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_a2ac053f7fd3294516268af6c09599add}{UIRender}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00145}00145\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7}{Destroy}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}*);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00146}00146\ \};}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00147}\mbox{\hyperlink{struct_state_info_add4e5cb6dba66fecd677db0fe79e9be7}{00147}}\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00156}00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_state_8h_a62e68478bf73836c847633654e7c9366}{\_\_RegisterState}}(\mbox{\hyperlink{struct_state_info}{StateInfo}}\ stateInfo);}
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{_state_8h_source_l00167}00167\ \mbox{\hyperlink{struct_state_info}{StateInfo}}\ \mbox{\hyperlink{_state_8h_a519aeb48bf7c841983d06b7fa063fe67}{GetState}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
 
 \end{DoxyCode}

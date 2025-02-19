@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Game.h File Reference}
-\hypertarget{_game_8h}{}\label{_game_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Game.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Game.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Game.h File Reference}
+\hypertarget{_game_8h}{}\label{_game_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Game.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Game.h}}
 
 
 This file contains the core of the game engine.  
@@ -13,10 +13,19 @@ This file contains the core of the game engine.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34}{Start\+Game}} (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window\+\_\+manager, char \texorpdfstring{$\ast$}{*}starting\+\_\+state, \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}loading\+\_\+screen\+\_\+animation, const char \texorpdfstring{$\ast$}{*}key\+\_\+anim\+\_\+name)
+void \mbox{\hyperlink{_game_8h_a5b9b03801ff0c87e2c299290ae5108ac}{Start\+Game}} (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window\+\_\+manager, const char \texorpdfstring{$\ast$}{*}starting\+\_\+state, const char \texorpdfstring{$\ast$}{*}loading\+\_\+state, void(\texorpdfstring{$\ast$}{*}Reset\+Loading\+State\+Func)(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window))
 \begin{DoxyCompactList}\small\item\em Starts the game with a specified loading screen animation. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_game_8h_a888ff971426076920c336d7d3ad4840e}{Change\+State}} (char \texorpdfstring{$\ast$}{*}state\+\_\+name)
-\begin{DoxyCompactList}\small\item\em Changes the current state of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_game_8h_a5cf564c7f1160a157bb48f546e7b1698}{End\+Game}} (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Ends the game and exits the Start\+Game function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_game_8h_a35c71e7f77f3542e3c52d5ee1838003a}{Change\+Main\+State}} (const char \texorpdfstring{$\ast$}{*}state\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Changes the current state of the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_game_8h_a07d53454948499cf8a28cc7c9a4e267f}{Register\+Sub\+State}} (char \texorpdfstring{$\ast$}{*}state\+\_\+name, \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, sf\+Bool update\+\_\+of\+\_\+below\+\_\+state, sf\+Bool display\+\_\+of\+\_\+below\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Registers a sub-\/state to the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_game_8h_aa576699d6bc218b2660467b2a54d2e5b}{Push\+Sub\+State}} (char \texorpdfstring{$\ast$}{*}state\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Pushes a sub-\/state onto the state stack. \end{DoxyCompactList}\item 
+\Hypertarget{_game_8h_a445c51d1e270341ee8f7fc15adcc0fb4}\label{_game_8h_a445c51d1e270341ee8f7fc15adcc0fb4} 
+void {\bfseries Pop\+Sub\+State} ()
+\begin{DoxyCompactList}\small\item\em Pops the current sub-\/state from the stack, returning to the previous state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -24,12 +33,16 @@ This file contains the core of the game engine.
 
 
 
+Definition in file \mbox{\hyperlink{_game_8h_source}{Game.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{_game_8h_a888ff971426076920c336d7d3ad4840e}\index{Game.h@{Game.h}!ChangeState@{ChangeState}}
-\index{ChangeState@{ChangeState}!Game.h@{Game.h}}
-\doxysubsubsection{\texorpdfstring{ChangeState()}{ChangeState()}}
-{\footnotesize\ttfamily \label{_game_8h_a888ff971426076920c336d7d3ad4840e} 
-void Change\+State (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{state\+\_\+name}{}\end{DoxyParamCaption})}
+\Hypertarget{_game_8h_a35c71e7f77f3542e3c52d5ee1838003a}\index{Game.h@{Game.h}!ChangeMainState@{ChangeMainState}}
+\index{ChangeMainState@{ChangeMainState}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{ChangeMainState()}{ChangeMainState()}}
+{\footnotesize\ttfamily \label{_game_8h_a35c71e7f77f3542e3c52d5ee1838003a} 
+void Change\+Main\+State (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{state\+\_\+name}{}\end{DoxyParamCaption})}
 
 
 
@@ -37,14 +50,68 @@ Changes the current state of the application.
 
 
 \begin{DoxyParams}{Parameters}
-{\em char} & state\+\_\+name Name of the new state. \\
+{\em state\+\_\+name} & Name of the new state. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34}\index{Game.h@{Game.h}!StartGame@{StartGame}}
+\Hypertarget{_game_8h_a5cf564c7f1160a157bb48f546e7b1698}\index{Game.h@{Game.h}!EndGame@{EndGame}}
+\index{EndGame@{EndGame}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{EndGame()}{EndGame()}}
+{\footnotesize\ttfamily \label{_game_8h_a5cf564c7f1160a157bb48f546e7b1698} 
+void End\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Ends the game and exits the Start\+Game function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function should call the destroy function of the current state and destroy the window. 
+\end{DoxyWarning}
+\Hypertarget{_game_8h_aa576699d6bc218b2660467b2a54d2e5b}\index{Game.h@{Game.h}!PushSubState@{PushSubState}}
+\index{PushSubState@{PushSubState}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{PushSubState()}{PushSubState()}}
+{\footnotesize\ttfamily \label{_game_8h_aa576699d6bc218b2660467b2a54d2e5b} 
+void Push\+Sub\+State (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{state\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Pushes a sub-\/state onto the state stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+name} & Name of the sub-\/state to push. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_game_8h_a07d53454948499cf8a28cc7c9a4e267f}\index{Game.h@{Game.h}!RegisterSubState@{RegisterSubState}}
+\index{RegisterSubState@{RegisterSubState}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{RegisterSubState()}{RegisterSubState()}}
+{\footnotesize\ttfamily \label{_game_8h_a07d53454948499cf8a28cc7c9a4e267f} 
+void Register\+Sub\+State (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{state\+\_\+name}{, }\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{sf\+Bool}]{update\+\_\+of\+\_\+below\+\_\+state}{, }\item[{sf\+Bool}]{display\+\_\+of\+\_\+below\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Registers a sub-\/state to the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+name} & Name of the sub-\/state. \\
+\hline
+{\em window} & Pointer to the \doxylink{struct_window_manager}{Window\+Manager} object. \\
+\hline
+{\em update\+\_\+of\+\_\+below\+\_\+state} & Boolean indicating if the state below should continue updating. \\
+\hline
+{\em display\+\_\+of\+\_\+below\+\_\+state} & Boolean indicating if the state below should continue rendering. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_game_8h_a5b9b03801ff0c87e2c299290ae5108ac}\index{Game.h@{Game.h}!StartGame@{StartGame}}
 \index{StartGame@{StartGame}!Game.h@{Game.h}}
 \doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
-{\footnotesize\ttfamily \label{_game_8h_a9192f490d1bf76e4dd171b2c101c2b34} 
-void Start\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window\+\_\+manager}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{starting\+\_\+state}{, }\item[{\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}}]{loading\+\_\+screen\+\_\+animation}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{key\+\_\+anim\+\_\+name}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_game_8h_a5b9b03801ff0c87e2c299290ae5108ac} 
+void Start\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window\+\_\+manager}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{starting\+\_\+state}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{loading\+\_\+state}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{Reset\+Loading\+State\+Func~}{)(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}\end{DoxyParamCaption})}
 
 
 
@@ -56,8 +123,8 @@ Starts the game with a specified loading screen animation.
 \hline
 {\em starting\+\_\+state} & Name of the starting state. \\
 \hline
-{\em loading\+\_\+screen\+\_\+animation} & Pointer to the \doxylink{struct_animation}{Animation} object for the loading screen. \\
+{\em loading\+\_\+state} & Name of the loading state. \\
 \hline
-{\em key\+\_\+anim\+\_\+name} & Name of the animation key to use for the loading screen. \\
+{\em Reset\+Loading\+State\+Func} & Function pointer to reset the loading state. \\
 \hline
 \end{DoxyParams}

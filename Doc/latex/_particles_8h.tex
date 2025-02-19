@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Particles.h File Reference}
-\hypertarget{_particles_8h}{}\label{_particles_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Particles.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Particles.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Particles.h File Reference}
+\hypertarget{_particles_8h}{}\label{_particles_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Particles.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Particles.h}}
 
 
 This file defines the \doxylink{struct_particles}{Particles} system structure and functions for managing a particles.  
@@ -42,14 +42,18 @@ enum \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{Particles
 \begin{DoxyCompactList}\small\item\em Creates a vanilla particle system with default settings. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_particles_8h_af74dd711febe687660f7862e24c87c43}{Create\+Texture\+Particles}} (\mbox{\hyperlink{struct_particle_param}{Particle\+Param}} parameters, sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Int\+Rect texture\+\_\+rect)
 \begin{DoxyCompactList}\small\item\em Creates a particle system that uses a texture for rendering particles. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_particles_8h_a8976b1ff83e8e9a7c19fda501180c7ac}{Update\+Particles}} (\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles, float delta\+Time)
-\begin{DoxyCompactList}\small\item\em Updates the particle system by advancing the particles based on the elapsed time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_particles_8h_a2a18128b41d830f785b16dd21971c939}{sf\+Render\+Window\+\_\+draw\+Particles}} (sf\+Render\+Window \texorpdfstring{$\ast$}{*}render\+\_\+window, \mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)
-\begin{DoxyCompactList}\small\item\em Renders the particles to the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renders the particles to the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_particles_8h_a28095219ae060a59958aebd771809788}{sf\+Render\+Texture\+\_\+draw\+Particles}} (sf\+Render\+Texture \texorpdfstring{$\ast$}{*}render\+\_\+texture, \mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}particles, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Renders the particles into a render texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This file defines the \doxylink{struct_particles}{Particles} system structure and functions for managing a particles. 
+
+
+
+Definition in file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
 
 
 
@@ -64,6 +68,10 @@ typedef struct Particle\+Param Particle\+Param}
 
 Parameters for configuring the behavior and properties of particles. 
 
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00047}{47}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
 \Hypertarget{_particles_8h_af7bc9875fe1fd5a63f430a9dd5d67f4a}\index{Particles.h@{Particles.h}!Particles@{Particles}}
 \index{Particles@{Particles}!Particles.h@{Particles.h}}
 \doxysubsubsection{\texorpdfstring{Particles}{Particles}}
@@ -73,6 +81,10 @@ typedef struct Particles Particles}
 
 
 Represents the particle system and its associated data. 
+
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00041}{41}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
 
 \Hypertarget{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}\index{Particles.h@{Particles.h}!Particles\_Data@{Particles\_Data}}
 \index{Particles\_Data@{Particles\_Data}!Particles.h@{Particles.h}}
@@ -84,11 +96,19 @@ typedef struct \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}
 
 Opaque structure that holds the internal data of the particles system. 
 
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00035}{35}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
 \Hypertarget{_particles_8h_a33bef84f04362bfc67663a0883e19585}\index{Particles.h@{Particles.h}!ParticlesTypes@{ParticlesTypes}}
 \index{ParticlesTypes@{ParticlesTypes}!Particles.h@{Particles.h}}
 \doxysubsubsection{\texorpdfstring{ParticlesTypes}{ParticlesTypes}}
 {\footnotesize\ttfamily \label{_particles_8h_a33bef84f04362bfc67663a0883e19585} 
 typedef enum \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{Particles\+Types}} \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{Particles\+Types}}}
+
+
+
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00053}{53}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
 
 
 
@@ -123,6 +143,10 @@ ALWAYS&\doxylink{struct_particles}{Particles} that continue indefinitely. \\
 \end{DoxyEnumFields}
 
 
+Definition at line \mbox{\hyperlink{_particles_8h_source_l00059}{59}} of file \mbox{\hyperlink{_particles_8h_source}{Particles.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
 \Hypertarget{_particles_8h_a9a53a1e80c7f045ae43fa2fb77f187a4}\index{Particles.h@{Particles.h}!CreateDefaultParam@{CreateDefaultParam}}
 \index{CreateDefaultParam@{CreateDefaultParam}!Particles.h@{Particles.h}}
@@ -140,7 +164,7 @@ Creates default particle parameters for a given type and position.
 \hline
 {\em position} & The initial position of the particles. \\
 \hline
-{\em direction} & The direction of the particles in radians. \\
+{\em direction} & The direction of the particles in degrees. \\
 \hline
 {\em speed} & The speed of the particles. \\
 \hline
@@ -190,6 +214,25 @@ Creates a vanilla particle system with default settings.
 \begin{DoxyReturn}{Returns}
 A pointer to a \doxylink{struct_particles}{Particles} object representing the created particle system. 
 \end{DoxyReturn}
+\Hypertarget{_particles_8h_a28095219ae060a59958aebd771809788}\index{Particles.h@{Particles.h}!sfRenderTexture\_drawParticles@{sfRenderTexture\_drawParticles}}
+\index{sfRenderTexture\_drawParticles@{sfRenderTexture\_drawParticles}!Particles.h@{Particles.h}}
+\doxysubsubsection{\texorpdfstring{sfRenderTexture\_drawParticles()}{sfRenderTexture\_drawParticles()}}
+{\footnotesize\ttfamily \label{_particles_8h_a28095219ae060a59958aebd771809788} 
+void sf\+Render\+Texture\+\_\+draw\+Particles (\begin{DoxyParamCaption}\item[{sf\+Render\+Texture \texorpdfstring{$\ast$}{*}}]{render\+\_\+texture}{, }\item[{\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}}]{particles}{, }\item[{sf\+Render\+States \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Renders the particles into a render texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+\_\+texture} & Pointer to the SFML render texture. \\
+\hline
+{\em particles} & Pointer to the \doxylink{struct_particles}{Particles} object to render. \\
+\hline
+{\em state} & Render states to apply while drawing the particles. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_particles_8h_a2a18128b41d830f785b16dd21971c939}\index{Particles.h@{Particles.h}!sfRenderWindow\_drawParticles@{sfRenderWindow\_drawParticles}}
 \index{sfRenderWindow\_drawParticles@{sfRenderWindow\_drawParticles}!Particles.h@{Particles.h}}
 \doxysubsubsection{\texorpdfstring{sfRenderWindow\_drawParticles()}{sfRenderWindow\_drawParticles()}}
@@ -207,22 +250,5 @@ Renders the particles to the window.
 {\em particles} & Pointer to the \doxylink{struct_particles}{Particles} object to render. \\
 \hline
 {\em state} & Render states to apply while drawing the particles. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{_particles_8h_a8976b1ff83e8e9a7c19fda501180c7ac}\index{Particles.h@{Particles.h}!UpdateParticles@{UpdateParticles}}
-\index{UpdateParticles@{UpdateParticles}!Particles.h@{Particles.h}}
-\doxysubsubsection{\texorpdfstring{UpdateParticles()}{UpdateParticles()}}
-{\footnotesize\ttfamily \label{_particles_8h_a8976b1ff83e8e9a7c19fda501180c7ac} 
-void Update\+Particles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particles}{Particles}} \texorpdfstring{$\ast$}{*}}]{particles}{, }\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
-
-
-
-Updates the particle system by advancing the particles based on the elapsed time. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em particles} & Pointer to the \doxylink{struct_particles}{Particles} object to update. \\
-\hline
-{\em delta\+Time} & The time elapsed since the last update (in seconds). \\
 \hline
 \end{DoxyParams}

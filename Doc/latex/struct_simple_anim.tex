@@ -1,0 +1,134 @@
+\doxysection{Simple\+Anim Struct Reference}
+\hypertarget{struct_simple_anim}{}\label{struct_simple_anim}\index{SimpleAnim@{SimpleAnim}}
+
+
+Encapsulates data and functions for a simple animation.  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_simple_anim_ac10bf7d910ccf2467bba467a01635879}{\+\_\+\+Data}}
+\item 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_simple_anim_a5c09936da134eb924b93af7a551b7a30}{Get\+Renderer}} )(\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Retrieves the sprite used for rendering. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_simple_anim_abc47ca332b1239f194bf15f3b88f35c8}{Update}} )(\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim, float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the simple animation. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_simple_anim_ac79cf4d03e1ef9c783489db8e420daac}{Draw}} )(\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim, sf\+Render\+Window \texorpdfstring{$\ast$}{*}window, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Draws the simple animation. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_simple_anim_a94b5e629a5958a4780b8b726e857e6c3}{Destroy}} )(\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Destroys the simple animation and releases resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates data and functions for a simple animation. 
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00242}{242}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_simple_anim_ac10bf7d910ccf2467bba467a01635879}\index{SimpleAnim@{SimpleAnim}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!SimpleAnim@{SimpleAnim}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_simple_anim_ac10bf7d910ccf2467bba467a01635879} 
+\mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Pointer to internal data for the simple animation. 
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00244}{244}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_simple_anim_a94b5e629a5958a4780b8b726e857e6c3}\index{SimpleAnim@{SimpleAnim}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!SimpleAnim@{SimpleAnim}}
+\doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
+{\footnotesize\ttfamily \label{struct_simple_anim_a94b5e629a5958a4780b8b726e857e6c3} 
+void(\texorpdfstring{$\ast$}{*} Destroy) (\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Destroys the simple animation and releases resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the simple animation pointer to destroy. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00272}{272}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_simple_anim_ac79cf4d03e1ef9c783489db8e420daac}\index{SimpleAnim@{SimpleAnim}!Draw@{Draw}}
+\index{Draw@{Draw}!SimpleAnim@{SimpleAnim}}
+\doxysubsubsection{\texorpdfstring{Draw}{Draw}}
+{\footnotesize\ttfamily \label{struct_simple_anim_ac79cf4d03e1ef9c783489db8e420daac} 
+void(\texorpdfstring{$\ast$}{*} Draw) (\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim, sf\+Render\+Window \texorpdfstring{$\ast$}{*}window, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)}
+
+
+
+Draws the simple animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the simple animation. \\
+\hline
+{\em window} & Pointer to the render window. \\
+\hline
+{\em state} & Render states to apply. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00266}{266}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_simple_anim_a5c09936da134eb924b93af7a551b7a30}\index{SimpleAnim@{SimpleAnim}!GetRenderer@{GetRenderer}}
+\index{GetRenderer@{GetRenderer}!SimpleAnim@{SimpleAnim}}
+\doxysubsubsection{\texorpdfstring{GetRenderer}{GetRenderer}}
+{\footnotesize\ttfamily \label{struct_simple_anim_a5c09936da134eb924b93af7a551b7a30} 
+sf\+Sprite \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} Get\+Renderer) (\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Retrieves the sprite used for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the simple animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the sprite. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00251}{251}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_simple_anim_abc47ca332b1239f194bf15f3b88f35c8}\index{SimpleAnim@{SimpleAnim}!Update@{Update}}
+\index{Update@{Update}!SimpleAnim@{SimpleAnim}}
+\doxysubsubsection{\texorpdfstring{Update}{Update}}
+{\footnotesize\ttfamily \label{struct_simple_anim_abc47ca332b1239f194bf15f3b88f35c8} 
+void(\texorpdfstring{$\ast$}{*} Update) (\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*}anim, float delta\+Time)}
+
+
+
+Updates the simple animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the simple animation. \\
+\hline
+{\em delta\+Time} & Time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00258}{258}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\end{DoxyCompactItemize}

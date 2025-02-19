@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/Particles.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/Particles.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -162,15 +162,17 @@ Functions</h2></td></tr>
 <tr class="memitem:af74dd711febe687660f7862e24c87c43" id="r_af74dd711febe687660f7862e24c87c43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_particles.html">Particles</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af74dd711febe687660f7862e24c87c43">CreateTextureParticles</a> (<a class="el" href="struct_particle_param.html">ParticleParam</a> parameters, sfTexture *texture, sfIntRect texture_rect)</td></tr>
 <tr class="memdesc:af74dd711febe687660f7862e24c87c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a particle system that uses a texture for rendering particles.  <br /></td></tr>
 <tr class="separator:af74dd711febe687660f7862e24c87c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8976b1ff83e8e9a7c19fda501180c7ac" id="r_a8976b1ff83e8e9a7c19fda501180c7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8976b1ff83e8e9a7c19fda501180c7ac">UpdateParticles</a> (<a class="el" href="struct_particles.html">Particles</a> *particles, float deltaTime)</td></tr>
-<tr class="memdesc:a8976b1ff83e8e9a7c19fda501180c7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the particle system by advancing the particles based on the elapsed time.  <br /></td></tr>
-<tr class="separator:a8976b1ff83e8e9a7c19fda501180c7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a18128b41d830f785b16dd21971c939" id="r_a2a18128b41d830f785b16dd21971c939"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a18128b41d830f785b16dd21971c939">sfRenderWindow_drawParticles</a> (sfRenderWindow *render_window, <a class="el" href="struct_particles.html">Particles</a> *particles, sfRenderStates *state)</td></tr>
 <tr class="memdesc:a2a18128b41d830f785b16dd21971c939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the particles to the window.  <br /></td></tr>
 <tr class="separator:a2a18128b41d830f785b16dd21971c939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28095219ae060a59958aebd771809788" id="r_a28095219ae060a59958aebd771809788"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28095219ae060a59958aebd771809788">sfRenderTexture_drawParticles</a> (sfRenderTexture *render_texture, <a class="el" href="struct_particles.html">Particles</a> *particles, sfRenderStates *state)</td></tr>
+<tr class="memdesc:a28095219ae060a59958aebd771809788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the particles into a render texture.  <br /></td></tr>
+<tr class="separator:a28095219ae060a59958aebd771809788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file defines the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> system structure and functions for managing a particles. </p>
+
+<p class="definition">Definition in file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a80c25ad2fe8b0cf5a02e4175b41a7e32" name="a80c25ad2fe8b0cf5a02e4175b41a7e32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80c25ad2fe8b0cf5a02e4175b41a7e32">&#9670;&#160;</a></span>ParticleParam</h2>
@@ -185,6 +187,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Parameters for configuring the behavior and properties of particles. </p>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00047">47</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -202,6 +206,8 @@ Functions</h2></td></tr>
 
 <p>Represents the particle system and its associated data. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00041">41</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a3253c86324e0c22c5311eb3efd9af5bb" name="a3253c86324e0c22c5311eb3efd9af5bb"></a>
@@ -218,6 +224,8 @@ Functions</h2></td></tr>
 
 <p>Opaque structure that holds the internal data of the particles system. </p>
 
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00035">35</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
+
 </div>
 </div>
 <a id="a33bef84f04362bfc67663a0883e19585" name="a33bef84f04362bfc67663a0883e19585"></a>
@@ -231,6 +239,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00053">53</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -258,6 +268,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a3d29f79327911221d81a96088abf27cca0f06c1c574ca2769a23fe384c2b1a353" name="a3d29f79327911221d81a96088abf27cca0f06c1c574ca2769a23fe384c2b1a353"></a>ALWAYS&#160;</td><td class="fielddoc"><p><a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> that continue indefinitely. </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="_particles_8h_source.html#l00059">59</a> of file <a class="el" href="_particles_8h_source.html">Particles.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +308,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">type</td><td>The type of particles to create (e.g., ONE_TIME, LIFE_TIME, etc.). </td></tr>
     <tr><td class="paramname">position</td><td>The initial position of the particles. </td></tr>
-    <tr><td class="paramname">direction</td><td>The direction of the particles in radians. </td></tr>
+    <tr><td class="paramname">direction</td><td>The direction of the particles in degrees. </td></tr>
     <tr><td class="paramname">speed</td><td>The speed of the particles. </td></tr>
   </table>
   </dd>
@@ -373,6 +385,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a28095219ae060a59958aebd771809788" name="a28095219ae060a59958aebd771809788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28095219ae060a59958aebd771809788">&#9670;&#160;</a></span>sfRenderTexture_drawParticles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sfRenderTexture_drawParticles </td>
+          <td>(</td>
+          <td class="paramtype">sfRenderTexture *</td>          <td class="paramname"><span class="paramname"><em>render_texture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_particles.html">Particles</a> *</td>          <td class="paramname"><span class="paramname"><em>particles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sfRenderStates *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the particles into a render texture. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">render_texture</td><td>Pointer to the SFML render texture. </td></tr>
+    <tr><td class="paramname">particles</td><td>Pointer to the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> object to render. </td></tr>
+    <tr><td class="paramname">state</td><td>Render states to apply while drawing the particles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2a18128b41d830f785b16dd21971c939" name="a2a18128b41d830f785b16dd21971c939"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a18128b41d830f785b16dd21971c939">&#9670;&#160;</a></span>sfRenderWindow_drawParticles()</h2>
 
@@ -409,42 +457,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8976b1ff83e8e9a7c19fda501180c7ac" name="a8976b1ff83e8e9a7c19fda501180c7ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8976b1ff83e8e9a7c19fda501180c7ac">&#9670;&#160;</a></span>UpdateParticles()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UpdateParticles </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_particles.html">Particles</a> *</td>          <td class="paramname"><span class="paramname"><em>particles</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Updates the particle system by advancing the particles based on the elapsed time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">particles</td><td>Pointer to the <a class="el" href="struct_particles.html" title="Represents a particle system containing multiple particles.">Particles</a> object to update. </td></tr>
-    <tr><td class="paramname">deltaTime</td><td>The time elapsed since the last update (in seconds). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_particles_8h.html">Particles.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_particles_8h.html">Particles.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

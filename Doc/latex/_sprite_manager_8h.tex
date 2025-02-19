@@ -1,23 +1,24 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Sprite\+Manager.h File Reference}
-\hypertarget{_sprite_manager_8h}{}\label{_sprite_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/SpriteManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/SpriteManager.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Sprite\+Manager.h File Reference}
+\hypertarget{_sprite_manager_8h}{}\label{_sprite_manager_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/SpriteManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/SpriteManager.h}}
 
 
 This file defines the \doxylink{struct_sprite_manager}{Sprite\+Manager} structure and functions for managing a multitude of sprite.  
 
 
 {\ttfamily \#include "{}Tools.\+h"{}}\newline
+{\ttfamily \#include "{}Window\+Manager.\+h"{}}\newline
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_sprite_manager}{Sprite\+Manager}}
-\begin{DoxyCompactList}\small\item\em Contains function pointers to manage sprites in a sprite collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Contains function pointers to manage sprites in a sprite collection. This structure acts as an interface to perform sprite management operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{Sprite\+Manager\+\_\+\+Data}} \mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}{Sprite\+Manager\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em Opaque structure that holds the internal data of the sprite manager. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Opaque structure that holds the internal data of the sprite manager. This is used to hide the internal details of the implementation and is not directly accessible from outside the \doxylink{struct_sprite_manager}{Sprite\+Manager}. \end{DoxyCompactList}\item 
 typedef struct Sprite\+Manager \mbox{\hyperlink{_sprite_manager_8h_ae5a2d3a06973795199bec6e2201e56f8}{Sprite\+Manager}}
-\begin{DoxyCompactList}\small\item\em Manages a collection of sprites and provides functions to manipulate and render them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Manages a collection of sprites and provides functions to manipulate and render them. This structure provides various functions to add, draw, remove, and access sprites by their name or index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,6 +35,10 @@ This file defines the \doxylink{struct_sprite_manager}{Sprite\+Manager} structur
 
 
 
+Definition in file \mbox{\hyperlink{_sprite_manager_8h_source}{Sprite\+Manager.\+h}}.
+
+
+
 \doxysubsection{Typedef Documentation}
 \Hypertarget{_sprite_manager_8h_ae5a2d3a06973795199bec6e2201e56f8}\index{SpriteManager.h@{SpriteManager.h}!SpriteManager@{SpriteManager}}
 \index{SpriteManager@{SpriteManager}!SpriteManager.h@{SpriteManager.h}}
@@ -43,7 +48,11 @@ typedef struct Sprite\+Manager Sprite\+Manager}
 
 
 
-Manages a collection of sprites and provides functions to manipulate and render them. 
+Manages a collection of sprites and provides functions to manipulate and render them. This structure provides various functions to add, draw, remove, and access sprites by their name or index. 
+
+
+
+Definition at line \mbox{\hyperlink{_sprite_manager_8h_source_l00044}{44}} of file \mbox{\hyperlink{_sprite_manager_8h_source}{Sprite\+Manager.\+h}}.
 
 \Hypertarget{_sprite_manager_8h_a67d55d92662a4c031208816a96cc45a3}\index{SpriteManager.h@{SpriteManager.h}!SpriteManager\_Data@{SpriteManager\_Data}}
 \index{SpriteManager\_Data@{SpriteManager\_Data}!SpriteManager.h@{SpriteManager.h}}
@@ -53,7 +62,11 @@ typedef struct \mbox{\hyperlink{_sprite_manager_8h_a67d55d92662a4c031208816a96cc
 
 
 
-Opaque structure that holds the internal data of the sprite manager. 
+Opaque structure that holds the internal data of the sprite manager. This is used to hide the internal details of the implementation and is not directly accessible from outside the \doxylink{struct_sprite_manager}{Sprite\+Manager}. 
+
+
+
+Definition at line \mbox{\hyperlink{_sprite_manager_8h_source_l00037}{37}} of file \mbox{\hyperlink{_sprite_manager_8h_source}{Sprite\+Manager.\+h}}.
 
 
 
@@ -69,7 +82,7 @@ Opaque structure that holds the internal data of the sprite manager.
 Creates a new \doxylink{struct_sprite_manager}{Sprite\+Manager} object. 
 
 \begin{DoxyReturn}{Returns}
-Pointer to the newly created \doxylink{struct_sprite_manager}{Sprite\+Manager} object. 
+Pointer to the newly created \doxylink{struct_sprite_manager}{Sprite\+Manager} object. This function allocates and initializes a new \doxylink{struct_sprite_manager}{Sprite\+Manager} instance. 
 \end{DoxyReturn}
 \Hypertarget{_sprite_manager_8h_acfc2794ce9d832067e9297e898f52a42}\index{SpriteManager.h@{SpriteManager.h}!sfSprite\_GetCenterPos@{sfSprite\_GetCenterPos}}
 \index{sfSprite\_GetCenterPos@{sfSprite\_GetCenterPos}!SpriteManager.h@{SpriteManager.h}}
@@ -87,7 +100,7 @@ Gets the center position of a sprite.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The center position of the sprite as a sf\+Vector2f. 
+The center position of the sprite as a sf\+Vector2f. This function returns the center position of the sprite in the window\textquotesingle{}s coordinate system. 
 \end{DoxyReturn}
 \Hypertarget{_sprite_manager_8h_ab187f1802fa01c22f42999665f80965e}\index{SpriteManager.h@{SpriteManager.h}!sfSprite\_GetTopLeftPos@{sfSprite\_GetTopLeftPos}}
 \index{sfSprite\_GetTopLeftPos@{sfSprite\_GetTopLeftPos}!SpriteManager.h@{SpriteManager.h}}
@@ -105,5 +118,5 @@ Gets the top-\/left position of a sprite.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The top-\/left position of the sprite as a sf\+Vector2f. 
+The top-\/left position of the sprite as a sf\+Vector2f. This function returns the top-\/left corner position of the sprite in the window\textquotesingle{}s coordinate system. 
 \end{DoxyReturn}

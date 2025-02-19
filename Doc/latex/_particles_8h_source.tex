@@ -1,79 +1,87 @@
 \doxysection{Particles.\+h}
-\hypertarget{_particles_8h_source}{}\label{_particles_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Particles.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Particles.h}}
+\hypertarget{_particles_8h_source}{}\label{_particles_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Particles.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Particles.h}}
 \mbox{\hyperlink{_particles_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}}\ \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particles}{Particles}}\ \mbox{\hyperlink{struct_particles}{Particles}};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ \mbox{\hyperlink{struct_particle_param}{ParticleParam}};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00059\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}}
-\DoxyCodeLine{00060\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27ccac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\ =\ -\/1,\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca8928a794d84628a0c16ab2c2c5730eac}{ONE\_TIME}},\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca4574d883ecd7b9abad71241211d9f894}{LIFE\_TIME}},\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca0f06c1c574ca2769a23fe384c2b1a353}{ALWAYS}}\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00065\ \};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00071\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particle_param}{ParticleParam}}}
-\DoxyCodeLine{00072\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ \mbox{\hyperlink{struct_particle_param_aaf118343039d4de829f702b754fef810}{type}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00074\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_particle_param_a3d92ec5abf8d6d77cdd0fecda1eb671a}{position}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00075\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_particle_param_a68a462316ed4b4eed741995eb4aae733}{origin}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a5050a760c11da521cd4aee6336f6529f}{radius}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_acc669dc3a59a1bea8d76b9c416d6bd9b}{angle\_direction}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_aa36595d8831b8673fcc0ab5424b5ed23}{angle\_spawn\_spread}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a7f7e4724cf57d59513b39c5ecc81adc8}{speed}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a1fc5a0e5fca1a310e6bfa125bf80042e}{rotation}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00081\ \ \ \ \ sfColor\ \mbox{\hyperlink{struct_particle_param_a5541683434a97a0952d7259c9b8a907c}{color}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a6dbc09f9c13f4527fd75c65473e57618}{despawn\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a4a9e1ed1d40fd6a7405341d605ed13f2}{spawn\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_particle_param_a45d9f6536f5d062fb5bfe7fb45bc4382}{spawn\_count}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a6a35b23c4be19f855a4a742299bb46f6}{life\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00086\ \};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00092\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particles}{Particles}}}
-\DoxyCodeLine{00093\ \{}
-\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}}*\ \mbox{\hyperlink{struct_particles_a825dfbbbbbbac68f474b9aeca83ebfb0}{\_Data}};\ \ }
-\DoxyCodeLine{00095\ \};}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00105\ \mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ \mbox{\hyperlink{_particles_8h_a9a53a1e80c7f045ae43fa2fb77f187a4}{CreateDefaultParam}}(\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ type,\ sfVector2f\ position,\ \textcolor{keywordtype}{float}\ direction,\ \textcolor{keywordtype}{float}\ speed);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00113\ \mbox{\hyperlink{struct_particles}{Particles}}*\ \mbox{\hyperlink{_particles_8h_aa4a4d6c1ceb6b1ad6930b0ab61e5f9b6}{CreateVanillaParticles}}(\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ parameters,\ \textcolor{keywordtype}{int}\ point\_count);}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00122\ \mbox{\hyperlink{struct_particles}{Particles}}*\ \mbox{\hyperlink{_particles_8h_af74dd711febe687660f7862e24c87c43}{CreateTextureParticles}}(\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ parameters,\ sfTexture*\ texture,\ sfIntRect\ texture\_rect);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_particles_8h_a8976b1ff83e8e9a7c19fda501180c7ac}{UpdateParticles}}(\mbox{\hyperlink{struct_particles}{Particles}}*\ particles,\ \textcolor{keywordtype}{float}\ deltaTime);}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_particles_8h_a2a18128b41d830f785b16dd21971c939}{sfRenderWindow\_drawParticles}}(sfRenderWindow*\ render\_window,\ \mbox{\hyperlink{struct_particles}{Particles}}*\ particles,\ sfRenderStates*\ state);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00035}\mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}}\ \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00041}\mbox{\hyperlink{_particles_8h_af7bc9875fe1fd5a63f430a9dd5d67f4a}{00041}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particles}{Particles}}\ \mbox{\hyperlink{struct_particles}{Particles}};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00047}\mbox{\hyperlink{_particles_8h_a80c25ad2fe8b0cf5a02e4175b41a7e32}{00047}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ \mbox{\hyperlink{struct_particle_param}{ParticleParam}};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00053}00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00059}\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{00059}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00061}\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27ccac157bdf0b85a40d2619cbc8bc1ae5fe2}{00061}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27ccac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\ =\ -\/1,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00062}\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca8928a794d84628a0c16ab2c2c5730eac}{00062}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca8928a794d84628a0c16ab2c2c5730eac}{ONE\_TIME}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00063}\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca4574d883ecd7b9abad71241211d9f894}{00063}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca4574d883ecd7b9abad71241211d9f894}{LIFE\_TIME}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00064}\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca0f06c1c574ca2769a23fe384c2b1a353}{00064}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cca0f06c1c574ca2769a23fe384c2b1a353}{ALWAYS}}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00065}00065\ \};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00071}\mbox{\hyperlink{struct_particle_param}{00071}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particle_param}{ParticleParam}}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00073}\mbox{\hyperlink{struct_particle_param_aaf118343039d4de829f702b754fef810}{00073}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ \mbox{\hyperlink{struct_particle_param_aaf118343039d4de829f702b754fef810}{type}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00074}\mbox{\hyperlink{struct_particle_param_a3d92ec5abf8d6d77cdd0fecda1eb671a}{00074}}\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_particle_param_a3d92ec5abf8d6d77cdd0fecda1eb671a}{position}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00075}\mbox{\hyperlink{struct_particle_param_a68a462316ed4b4eed741995eb4aae733}{00075}}\ \ \ \ \ sfVector2f\ \mbox{\hyperlink{struct_particle_param_a68a462316ed4b4eed741995eb4aae733}{origin}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00076}\mbox{\hyperlink{struct_particle_param_a5050a760c11da521cd4aee6336f6529f}{00076}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a5050a760c11da521cd4aee6336f6529f}{radius}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00077}\mbox{\hyperlink{struct_particle_param_acc669dc3a59a1bea8d76b9c416d6bd9b}{00077}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_acc669dc3a59a1bea8d76b9c416d6bd9b}{angle\_direction}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00078}\mbox{\hyperlink{struct_particle_param_aa36595d8831b8673fcc0ab5424b5ed23}{00078}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_aa36595d8831b8673fcc0ab5424b5ed23}{angle\_spawn\_spread}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00079}\mbox{\hyperlink{struct_particle_param_a7f7e4724cf57d59513b39c5ecc81adc8}{00079}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a7f7e4724cf57d59513b39c5ecc81adc8}{speed}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00080}\mbox{\hyperlink{struct_particle_param_ade81f6bd17aa02630820c3dc2be458cb}{00080}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_ade81f6bd17aa02630820c3dc2be458cb}{random\_speed\_boost}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00081}\mbox{\hyperlink{struct_particle_param_a1fc5a0e5fca1a310e6bfa125bf80042e}{00081}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a1fc5a0e5fca1a310e6bfa125bf80042e}{rotation}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00082}\mbox{\hyperlink{struct_particle_param_a9d620efcea23126fa7481d0a0e8a08e1}{00082}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a9d620efcea23126fa7481d0a0e8a08e1}{random\_spawn\_rotation}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00083}\mbox{\hyperlink{struct_particle_param_a5541683434a97a0952d7259c9b8a907c}{00083}}\ \ \ \ \ sfColor\ \mbox{\hyperlink{struct_particle_param_a5541683434a97a0952d7259c9b8a907c}{color}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00084}\mbox{\hyperlink{struct_particle_param_a6dbc09f9c13f4527fd75c65473e57618}{00084}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a6dbc09f9c13f4527fd75c65473e57618}{despawn\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00085}\mbox{\hyperlink{struct_particle_param_a4a9e1ed1d40fd6a7405341d605ed13f2}{00085}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a4a9e1ed1d40fd6a7405341d605ed13f2}{spawn\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00086}\mbox{\hyperlink{struct_particle_param_a45d9f6536f5d062fb5bfe7fb45bc4382}{00086}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_particle_param_a45d9f6536f5d062fb5bfe7fb45bc4382}{spawn\_count}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00087}\mbox{\hyperlink{struct_particle_param_a6a35b23c4be19f855a4a742299bb46f6}{00087}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_particle_param_a6a35b23c4be19f855a4a742299bb46f6}{life\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00088}00088\ \};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00094}\mbox{\hyperlink{struct_particles}{00094}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particles}{Particles}}}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00096}\mbox{\hyperlink{struct_particles_a825dfbbbbbbac68f474b9aeca83ebfb0}{00096}}\ \ \ \ \ \mbox{\hyperlink{_particles_8h_a3253c86324e0c22c5311eb3efd9af5bb}{Particles\_Data}}*\ \mbox{\hyperlink{struct_particles_a825dfbbbbbbac68f474b9aeca83ebfb0}{\_Data}};\ \ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00103}\mbox{\hyperlink{struct_particles_a1e44cfe2e04c13935deb003bcf1e113d}{00103}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_particles_a1e44cfe2e04c13935deb003bcf1e113d}{Update}})(\mbox{\hyperlink{struct_particles}{Particles}}*\ particles,\ \textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00110}\mbox{\hyperlink{struct_particles_a9c98bc9ce58f170d1f93fcbaeb27fdf4}{00110}}\ \ \ \ \ sfBool(*\mbox{\hyperlink{struct_particles_a9c98bc9ce58f170d1f93fcbaeb27fdf4}{HasFinish}})(\mbox{\hyperlink{struct_particles}{Particles}}*\ particles);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00116}\mbox{\hyperlink{struct_particles_a95e8d942a66d8508fbc7180b0b2d6a9b}{00116}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_particles_a95e8d942a66d8508fbc7180b0b2d6a9b}{Destroy}})(\mbox{\hyperlink{struct_particles}{Particles}}**\ particles);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00117}00117\ \};}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00127}\mbox{\hyperlink{_particles_8h_a9a53a1e80c7f045ae43fa2fb77f187a4}{00127}}\ \mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ \mbox{\hyperlink{_particles_8h_a9a53a1e80c7f045ae43fa2fb77f187a4}{CreateDefaultParam}}(\mbox{\hyperlink{_particles_8h_a3d29f79327911221d81a96088abf27cc}{ParticlesTypes}}\ type,\ sfVector2f\ position,\ \textcolor{keywordtype}{float}\ direction,\ \textcolor{keywordtype}{float}\ speed);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00135}\mbox{\hyperlink{_particles_8h_aa4a4d6c1ceb6b1ad6930b0ab61e5f9b6}{00135}}\ \mbox{\hyperlink{struct_particles}{Particles}}*\ \mbox{\hyperlink{_particles_8h_aa4a4d6c1ceb6b1ad6930b0ab61e5f9b6}{CreateVanillaParticles}}(\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ parameters,\ \textcolor{keywordtype}{int}\ point\_count);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00144}\mbox{\hyperlink{_particles_8h_af74dd711febe687660f7862e24c87c43}{00144}}\ \mbox{\hyperlink{struct_particles}{Particles}}*\ \mbox{\hyperlink{_particles_8h_af74dd711febe687660f7862e24c87c43}{CreateTextureParticles}}(\mbox{\hyperlink{struct_particle_param}{ParticleParam}}\ parameters,\ sfTexture*\ texture,\ sfIntRect\ texture\_rect);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00152}\mbox{\hyperlink{_particles_8h_a2a18128b41d830f785b16dd21971c939}{00152}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_particles_8h_a2a18128b41d830f785b16dd21971c939}{sfRenderWindow\_drawParticles}}(sfRenderWindow*\ render\_window,\ \mbox{\hyperlink{struct_particles}{Particles}}*\ particles,\ sfRenderStates*\ state);}
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_particles_8h_source_l00160}\mbox{\hyperlink{_particles_8h_a28095219ae060a59958aebd771809788}{00160}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_particles_8h_a28095219ae060a59958aebd771809788}{sfRenderTexture\_drawParticles}}(sfRenderTexture*\ render\_texture,\ \mbox{\hyperlink{struct_particles}{Particles}}*\ particles,\ sfRenderStates*\ state);}
 
 \end{DoxyCode}

@@ -1,0 +1,379 @@
+\doxysection{UIObject Struct Reference}
+\hypertarget{struct_u_i_object}{}\label{struct_u_i_object}\index{UIObject@{UIObject}}
+
+
+Structure representing a UI element with various properties and methods.  
+
+
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+UIObject\+\_\+\+Data \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a263cee25a36db3d02e320f857497b937}{\+\_\+\+Data}}
+\item 
+sf\+Bool \mbox{\hyperlink{struct_u_i_object_ac378649b9865c6ac38cf1ec7df750037}{is\+Hover}}
+\item 
+sf\+Bool \mbox{\hyperlink{struct_u_i_object_a8abc820e868368ec89c77f237c55d9c6}{is\+Clicked}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_aad1630795fc9f6ef91417d9af81da7e9}{set\+Position}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f position)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a62de6b80d1b8cf85cab57adfb9d63264}{set\+Scale}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f scale)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a8e9a8ac40962f9efdac5eec3c6b655ae}{set\+Origin}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f origin)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_ab2b52fcf35da4d175e7e95a078ee22e8}{set\+Size}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f size)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a4d359bb2d5356b70b7cc88dd8a5e8bac}{set\+Rotation}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, float rotation)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a636f1e8c997fd9e31cebcf7a1234b53a}{set\+Color}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Color color)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a189f6cd72e98fd473c91a0a68e5e00be}{set\+Drawable}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Drawable \texorpdfstring{$\ast$}{*}drawable)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a8cdb3ea86cacaff0b6aca5811bb21c3f}{set\+Texture}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Bool reset\+\_\+rect)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_af9941571e5b0089c98c949a6a2107105}{set\+Texture\+Rect}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Int\+Rect texture\+\_\+rect)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_ac4ce2147b532117cd0a39bcb97e903da}{set\+Update\+Function}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, UIUpdate\+Function callback)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_aec2d807c505f5e6a85111ae6baca2350}{set\+Is\+Visible}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Bool is\+\_\+visible)
+\item 
+const char \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a733da5e5d5acce95f5e38fb9bbb0361f}{get\+Name}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a9a0e09493fd776b108408397d62a99c3}{get\+Position}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_abe54fee7f3b475b8f2ec7c70daedad95}{get\+Scale}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a12689f12262e01b2504c40d68b61943a}{get\+Origin}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_aeeb839e307aba6bf81c6b4e2aac6e7dc}{get\+Size}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+float(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a5c25238b3bdf16037863b6d4ea9fb259}{get\+Rotation}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Color(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_ac2a83f1a2457ee2b5dea3377ffe3c662}{get\+Color}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Drawable \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a7cb604453856a17d433e2bf129867dbb}{get\+Drawable}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Texture \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a88646b1b51677656b62c8759c3069758}{get\+Texture}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Int\+Rect(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a8ee6bf64a2bb5d954fb5981ee7c16707}{get\+Texture\+Rect}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a910103d756ea990663be2db248db52a3}{get\+Is\+Visible}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)
+\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_aa5b704a8c3ed59b2a323018704e14827}{name\+Is}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_ae5b1f0960b6d6fdfa02198acb6ee8854}{update}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a807bd1d3c384df6b91a9ddf0426de6b9}{render}} )(\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, \mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_u_i_object_a128c2c37b4b08b26adc941a93d322a51}{destroy}} )(\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}object)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure representing a UI element with various properties and methods. 
+
+This structure encapsulates the core properties and behaviors of a UI object in the game, including transformations (position, scale, rotation), interactivity (hover, click), rendering, and custom update logic. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00058}{58}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_u_i_object_a263cee25a36db3d02e320f857497b937}\index{UIObject@{UIObject}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a263cee25a36db3d02e320f857497b937} 
+UIObject\+\_\+\+Data\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
+
+Internal data storage for the UI object, such as the object’s state and properties. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00060}{60}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a128c2c37b4b08b26adc941a93d322a51}\index{UIObject@{UIObject}!destroy@{destroy}}
+\index{destroy@{destroy}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{destroy}{destroy}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a128c2c37b4b08b26adc941a93d322a51} 
+void(\texorpdfstring{$\ast$}{*} destroy) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}object)}
+
+Destroys the UI object, freeing its resources. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00096}{96}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_ac2a83f1a2457ee2b5dea3377ffe3c662}\index{UIObject@{UIObject}!getColor@{getColor}}
+\index{getColor@{getColor}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getColor}{getColor}}
+{\footnotesize\ttfamily \label{struct_u_i_object_ac2a83f1a2457ee2b5dea3377ffe3c662} 
+sf\+Color(\texorpdfstring{$\ast$}{*} get\+Color) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the color of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00084}{84}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a7cb604453856a17d433e2bf129867dbb}\index{UIObject@{UIObject}!getDrawable@{getDrawable}}
+\index{getDrawable@{getDrawable}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getDrawable}{getDrawable}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a7cb604453856a17d433e2bf129867dbb} 
+sf\+Drawable \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Drawable) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the drawable object associated with the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00085}{85}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a910103d756ea990663be2db248db52a3}\index{UIObject@{UIObject}!getIsVisible@{getIsVisible}}
+\index{getIsVisible@{getIsVisible}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getIsVisible}{getIsVisible}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a910103d756ea990663be2db248db52a3} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} get\+Is\+Visible) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Checks if the UI object is visible. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00088}{88}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a733da5e5d5acce95f5e38fb9bbb0361f}\index{UIObject@{UIObject}!getName@{getName}}
+\index{getName@{getName}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getName}{getName}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a733da5e5d5acce95f5e38fb9bbb0361f} 
+const char \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Name) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the name of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00078}{78}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a12689f12262e01b2504c40d68b61943a}\index{UIObject@{UIObject}!getOrigin@{getOrigin}}
+\index{getOrigin@{getOrigin}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getOrigin}{getOrigin}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a12689f12262e01b2504c40d68b61943a} 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} get\+Origin) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the origin point of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00081}{81}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a9a0e09493fd776b108408397d62a99c3}\index{UIObject@{UIObject}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getPosition}{getPosition}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a9a0e09493fd776b108408397d62a99c3} 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} get\+Position) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the position of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00079}{79}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a5c25238b3bdf16037863b6d4ea9fb259}\index{UIObject@{UIObject}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getRotation}{getRotation}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a5c25238b3bdf16037863b6d4ea9fb259} 
+float(\texorpdfstring{$\ast$}{*} get\+Rotation) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the rotation angle of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00083}{83}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_abe54fee7f3b475b8f2ec7c70daedad95}\index{UIObject@{UIObject}!getScale@{getScale}}
+\index{getScale@{getScale}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getScale}{getScale}}
+{\footnotesize\ttfamily \label{struct_u_i_object_abe54fee7f3b475b8f2ec7c70daedad95} 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} get\+Scale) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the scale of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00080}{80}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_aeeb839e307aba6bf81c6b4e2aac6e7dc}\index{UIObject@{UIObject}!getSize@{getSize}}
+\index{getSize@{getSize}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getSize}{getSize}}
+{\footnotesize\ttfamily \label{struct_u_i_object_aeeb839e307aba6bf81c6b4e2aac6e7dc} 
+sf\+Vector2f(\texorpdfstring{$\ast$}{*} get\+Size) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the size of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00082}{82}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a88646b1b51677656b62c8759c3069758}\index{UIObject@{UIObject}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getTexture}{getTexture}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a88646b1b51677656b62c8759c3069758} 
+sf\+Texture \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Texture) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the texture of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00086}{86}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a8ee6bf64a2bb5d954fb5981ee7c16707}\index{UIObject@{UIObject}!getTextureRect@{getTextureRect}}
+\index{getTextureRect@{getTextureRect}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{getTextureRect}{getTextureRect}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a8ee6bf64a2bb5d954fb5981ee7c16707} 
+sf\+Int\+Rect(\texorpdfstring{$\ast$}{*} get\+Texture\+Rect) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object)}
+
+Retrieves the texture rectangle of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00087}{87}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a8abc820e868368ec89c77f237c55d9c6}\index{UIObject@{UIObject}!isClicked@{isClicked}}
+\index{isClicked@{isClicked}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{isClicked}{isClicked}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a8abc820e868368ec89c77f237c55d9c6} 
+sf\+Bool is\+Clicked}
+
+Indicates whether the UI object has been clicked. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00062}{62}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_ac378649b9865c6ac38cf1ec7df750037}\index{UIObject@{UIObject}!isHover@{isHover}}
+\index{isHover@{isHover}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{isHover}{isHover}}
+{\footnotesize\ttfamily \label{struct_u_i_object_ac378649b9865c6ac38cf1ec7df750037} 
+sf\+Bool is\+Hover}
+
+Indicates whether the UI object is currently hovered by the mouse cursor. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00061}{61}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_aa5b704a8c3ed59b2a323018704e14827}\index{UIObject@{UIObject}!nameIs@{nameIs}}
+\index{nameIs@{nameIs}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{nameIs}{nameIs}}
+{\footnotesize\ttfamily \label{struct_u_i_object_aa5b704a8c3ed59b2a323018704e14827} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} name\+Is) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, const char \texorpdfstring{$\ast$}{*}name)}
+
+Checks if the UI object’s name matches the provided name. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00091}{91}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a807bd1d3c384df6b91a9ddf0426de6b9}\index{UIObject@{UIObject}!render@{render}}
+\index{render@{render}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{render}{render}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a807bd1d3c384df6b91a9ddf0426de6b9} 
+void(\texorpdfstring{$\ast$}{*} render) (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, \mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Render\+States \texorpdfstring{$\ast$}{*}state)}
+
+Renders the UI object on the screen. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00095}{95}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a636f1e8c997fd9e31cebcf7a1234b53a}\index{UIObject@{UIObject}!setColor@{setColor}}
+\index{setColor@{setColor}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setColor}{setColor}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a636f1e8c997fd9e31cebcf7a1234b53a} 
+void(\texorpdfstring{$\ast$}{*} set\+Color) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Color color)}
+
+Sets the color of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00070}{70}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a189f6cd72e98fd473c91a0a68e5e00be}\index{UIObject@{UIObject}!setDrawable@{setDrawable}}
+\index{setDrawable@{setDrawable}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setDrawable}{setDrawable}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a189f6cd72e98fd473c91a0a68e5e00be} 
+void(\texorpdfstring{$\ast$}{*} set\+Drawable) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Drawable \texorpdfstring{$\ast$}{*}drawable)}
+
+Assigns a drawable (such as a shape or sprite) to the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00071}{71}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_aec2d807c505f5e6a85111ae6baca2350}\index{UIObject@{UIObject}!setIsVisible@{setIsVisible}}
+\index{setIsVisible@{setIsVisible}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setIsVisible}{setIsVisible}}
+{\footnotesize\ttfamily \label{struct_u_i_object_aec2d807c505f5e6a85111ae6baca2350} 
+void(\texorpdfstring{$\ast$}{*} set\+Is\+Visible) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Bool is\+\_\+visible)}
+
+Sets the visibility of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00075}{75}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a8e9a8ac40962f9efdac5eec3c6b655ae}\index{UIObject@{UIObject}!setOrigin@{setOrigin}}
+\index{setOrigin@{setOrigin}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setOrigin}{setOrigin}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a8e9a8ac40962f9efdac5eec3c6b655ae} 
+void(\texorpdfstring{$\ast$}{*} set\+Origin) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f origin)}
+
+Sets the origin point of the UI object for transformations. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00067}{67}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_aad1630795fc9f6ef91417d9af81da7e9}\index{UIObject@{UIObject}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setPosition}{setPosition}}
+{\footnotesize\ttfamily \label{struct_u_i_object_aad1630795fc9f6ef91417d9af81da7e9} 
+void(\texorpdfstring{$\ast$}{*} set\+Position) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f position)}
+
+Sets the position of the UI object in the 2D space. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00065}{65}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a4d359bb2d5356b70b7cc88dd8a5e8bac}\index{UIObject@{UIObject}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setRotation}{setRotation}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a4d359bb2d5356b70b7cc88dd8a5e8bac} 
+void(\texorpdfstring{$\ast$}{*} set\+Rotation) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, float rotation)}
+
+Sets the rotation angle of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00069}{69}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a62de6b80d1b8cf85cab57adfb9d63264}\index{UIObject@{UIObject}!setScale@{setScale}}
+\index{setScale@{setScale}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setScale}{setScale}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a62de6b80d1b8cf85cab57adfb9d63264} 
+void(\texorpdfstring{$\ast$}{*} set\+Scale) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f scale)}
+
+Sets the scale (size) of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00066}{66}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_ab2b52fcf35da4d175e7e95a078ee22e8}\index{UIObject@{UIObject}!setSize@{setSize}}
+\index{setSize@{setSize}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setSize}{setSize}}
+{\footnotesize\ttfamily \label{struct_u_i_object_ab2b52fcf35da4d175e7e95a078ee22e8} 
+void(\texorpdfstring{$\ast$}{*} set\+Size) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Vector2f size)}
+
+Sets the size of the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00068}{68}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_a8cdb3ea86cacaff0b6aca5811bb21c3f}\index{UIObject@{UIObject}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setTexture}{setTexture}}
+{\footnotesize\ttfamily \label{struct_u_i_object_a8cdb3ea86cacaff0b6aca5811bb21c3f} 
+void(\texorpdfstring{$\ast$}{*} set\+Texture) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Bool reset\+\_\+rect)}
+
+Assigns a texture to the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00072}{72}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_af9941571e5b0089c98c949a6a2107105}\index{UIObject@{UIObject}!setTextureRect@{setTextureRect}}
+\index{setTextureRect@{setTextureRect}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setTextureRect}{setTextureRect}}
+{\footnotesize\ttfamily \label{struct_u_i_object_af9941571e5b0089c98c949a6a2107105} 
+void(\texorpdfstring{$\ast$}{*} set\+Texture\+Rect) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, sf\+Int\+Rect texture\+\_\+rect)}
+
+Sets the portion of the texture to be used by the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00073}{73}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_ac4ce2147b532117cd0a39bcb97e903da}\index{UIObject@{UIObject}!setUpdateFunction@{setUpdateFunction}}
+\index{setUpdateFunction@{setUpdateFunction}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{setUpdateFunction}{setUpdateFunction}}
+{\footnotesize\ttfamily \label{struct_u_i_object_ac4ce2147b532117cd0a39bcb97e903da} 
+void(\texorpdfstring{$\ast$}{*} set\+Update\+Function) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, UIUpdate\+Function callback)}
+
+Sets a custom function to update the UI object. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00074}{74}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{struct_u_i_object_ae5b1f0960b6d6fdfa02198acb6ee8854}\index{UIObject@{UIObject}!update@{update}}
+\index{update@{update}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{update}{update}}
+{\footnotesize\ttfamily \label{struct_u_i_object_ae5b1f0960b6d6fdfa02198acb6ee8854} 
+void(\texorpdfstring{$\ast$}{*} update) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+Updates the UI object, possibly changing its state or properties. 
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00094}{94}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_u_i_8h}{UI.\+h}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Memory\+Management.h File Reference}
-\hypertarget{_memory_management_8h}{}\label{_memory_management_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MemoryManagement.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MemoryManagement.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Memory\+Management.h File Reference}
+\hypertarget{_memory_management_8h}{}\label{_memory_management_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/MemoryManagement.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/MemoryManagement.h}}
 
 
 This file contains a extension tools for the memory management of the engine.  
@@ -20,12 +20,17 @@ void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_memory_management_8h_adfcf9d6c
 \begin{DoxyCompactList}\small\item\em Allocates memory for an array of elements and tracks the allocation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57}{Detracker\+Calloc}} (void \texorpdfstring{$\ast$}{*}ptr)
 \begin{DoxyCompactList}\small\item\em Frees memory allocated by {\ttfamily Tracker\+Calloc} and removes it from tracking. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9}{Report\+Leaks}} (void)
+\Hypertarget{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9}\label{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9} 
+void {\bfseries Report\+Leaks} (void)
 \begin{DoxyCompactList}\small\item\em Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This file contains a extension tools for the memory management of the engine. 
+
+
+
+Definition in file \mbox{\hyperlink{_memory_management_8h_source}{Memory\+Management.\+h}}.
 
 
 
@@ -55,6 +60,10 @@ Allocates memory for an array of elements, with leak tracking enabled. This macr
 \begin{DoxyReturn}{Returns}
 A pointer to the allocated memory, cast to the specified type. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_memory_management_8h_source_l00039}{39}} of file \mbox{\hyperlink{_memory_management_8h_source}{Memory\+Management.\+h}}.
+
 \Hypertarget{_memory_management_8h_a1cbf7ed45db391747f19516c59909675}\index{MemoryManagement.h@{MemoryManagement.h}!free\_d@{free\_d}}
 \index{free\_d@{free\_d}!MemoryManagement.h@{MemoryManagement.h}}
 \doxysubsubsection{\texorpdfstring{free\_d}{free\_d}}
@@ -77,6 +86,10 @@ Frees memory allocated by {\ttfamily calloc\+\_\+d}, with leak tracking enabled.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_memory_management_8h_source_l00046}{46}} of file \mbox{\hyperlink{_memory_management_8h_source}{Memory\+Management.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
 \Hypertarget{_memory_management_8h_afb4af6e453533a986de72a3edaf73b57}\index{MemoryManagement.h@{MemoryManagement.h}!DetrackerCalloc@{DetrackerCalloc}}
 \index{DetrackerCalloc@{DetrackerCalloc}!MemoryManagement.h@{MemoryManagement.h}}
@@ -93,16 +106,6 @@ Frees memory allocated by {\ttfamily Tracker\+Calloc} and removes it from tracki
 {\em ptr} & Pointer to the memory to free. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9}\index{MemoryManagement.h@{MemoryManagement.h}!ReportLeaks@{ReportLeaks}}
-\index{ReportLeaks@{ReportLeaks}!MemoryManagement.h@{MemoryManagement.h}}
-\doxysubsubsection{\texorpdfstring{ReportLeaks()}{ReportLeaks()}}
-{\footnotesize\ttfamily \label{_memory_management_8h_acd5d5efabb0d9ea29bffa06669c469e9} 
-void Report\+Leaks (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Reports all memory leaks detected by the tracker. This function outputs information about unfreed memory allocations. 
-
 \Hypertarget{_memory_management_8h_adfcf9d6c211b587fad7eb650a39596ed}\index{MemoryManagement.h@{MemoryManagement.h}!TrackerCalloc@{TrackerCalloc}}
 \index{TrackerCalloc@{TrackerCalloc}!MemoryManagement.h@{MemoryManagement.h}}
 \doxysubsubsection{\texorpdfstring{TrackerCalloc()}{TrackerCalloc()}}

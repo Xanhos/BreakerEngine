@@ -1,19 +1,22 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Animation.h File Reference}
-\hypertarget{_animation_8h}{}\label{_animation_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Animation.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Animation.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Animation.h File Reference}
+\hypertarget{_animation_8h}{}\label{_animation_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Animation.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Animation.h}}
 
 
-This file defines the \doxylink{struct_animation}{Animation} system structure and functions for managing a animation.  
+This file defines the \doxylink{struct_animation}{Animation} system structure and functions for managing an animation.  
 
 
 {\ttfamily \#include "{}Tools.\+h"{}}\newline
 {\ttfamily \#include "{}Resources\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Window\+Manager.\+h"{}}\newline
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}}
 \begin{DoxyCompactList}\small\item\em Encapsulates data and functions for managing an animation key. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_animation}{Animation}}
-\begin{DoxyCompactList}\small\item\em Encapsulates data and functions for managing animations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Encapsulates data and functions for managing animations. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}}
+\begin{DoxyCompactList}\small\item\em Encapsulates data and functions for a simple animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,22 +27,33 @@ typedef struct \mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}
 typedef struct Animation \mbox{\hyperlink{_animation_8h_ade6a90df50ad3e4adaea9aebc4096ba8}{Animation}}
 \begin{DoxyCompactList}\small\item\em Represents an animation structure. \end{DoxyCompactList}\item 
 typedef struct \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\+\_\+\+Data}} \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em Holds internal data for an animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Holds internal data for an animation. \end{DoxyCompactList}\item 
+typedef struct Simple\+Anim \mbox{\hyperlink{_animation_8h_a5f1308d9b1332f5971985c88a2197ec1}{Simple\+Anim}}
+\begin{DoxyCompactList}\small\item\em Represents a simplified animation structure. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}} \mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em Holds internal data for a simple animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_animation_8h_ac18e934e4161580a6519f98920e17ffe}{Create\+Animation\+Key}} (const char \texorpdfstring{$\ast$}{*}name, sf\+Int\+Rect rect, int line\+\_\+number, int line\+\_\+frame\+\_\+number, int total\+\_\+frame, float frame\+\_\+time)
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_animation_8h_a9e116dbc330c6214eac64892c2b41b77}{Create\+Animation\+Key}} (const char \texorpdfstring{$\ast$}{*}name, sf\+Int\+Rect rect, int number\+\_\+of\+\_\+line, int frame\+\_\+per\+\_\+line, int total\+\_\+frame, float frame\+\_\+time)
 \begin{DoxyCompactList}\small\item\em Creates a new animation key. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_animation_8h_a1f84aabb71eace9430e1762897e97502}{Create\+Animation}} (const char \texorpdfstring{$\ast$}{*}name, sf\+Texture \texorpdfstring{$\ast$}{*}texture)
 \begin{DoxyCompactList}\small\item\em Creates a new animation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_animation_8h_a43ea4f0428853804bab669b411b2d723}{Create\+Animation\+From\+File}} (const char \texorpdfstring{$\ast$}{*}path, sf\+Texture \texorpdfstring{$\ast$}{*}texture)
 \begin{DoxyCompactList}\small\item\em Creates a new animation from a .anim file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_animation_8h_a548df4a7b5b031d636cfdca3d9f18f8b}{sf\+Render\+Window\+\_\+draw\+Animation}} (sf\+Render\+Window \texorpdfstring{$\ast$}{*}window, \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
-\begin{DoxyCompactList}\small\item\em Renders an animation in a render window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_animation_8h_ac5a28961c4da591a0cb4184403c970e1}{sf\+Render\+Window\+\_\+draw\+Animation}} (\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window, \mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, sf\+Render\+States \texorpdfstring{$\ast$}{*}states)
+\begin{DoxyCompactList}\small\item\em Renders an animation in a render window. \end{DoxyCompactList}\item 
+\Hypertarget{_animation_8h_a3b694ba4d5243c6e16f610adc3ed8709}\label{_animation_8h_a3b694ba4d5243c6e16f610adc3ed8709} 
+\mbox{\hyperlink{struct_simple_anim}{Simple\+Anim}} \texorpdfstring{$\ast$}{*} {\bfseries Create\+Simple\+Anim} (sf\+Texture \texorpdfstring{$\ast$}{*}texture, sf\+Int\+Rect rect, int line\+\_\+number, int line\+\_\+frame\+\_\+number, int total\+\_\+frame, float frame\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Creates a new simple animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file defines the \doxylink{struct_animation}{Animation} system structure and functions for managing a animation. 
+This file defines the \doxylink{struct_animation}{Animation} system structure and functions for managing an animation. 
+
+
+
+Definition in file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
 
 
 
@@ -54,6 +68,10 @@ typedef struct Animation Animation}
 
 Represents an animation structure. 
 
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00100}{100}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}\index{Animation.h@{Animation.h}!Animation\_Data@{Animation\_Data}}
 \index{Animation\_Data@{Animation\_Data}!Animation.h@{Animation.h}}
 \doxysubsubsection{\texorpdfstring{Animation\_Data}{Animation\_Data}}
@@ -63,6 +81,10 @@ typedef struct \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}
 
 
 Holds internal data for an animation. 
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00106}{106}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
 
 \Hypertarget{_animation_8h_af73dddac9408c4767c85bf6db0894af0}\index{Animation.h@{Animation.h}!Animation\_Key@{Animation\_Key}}
 \index{Animation\_Key@{Animation\_Key}!Animation.h@{Animation.h}}
@@ -74,6 +96,10 @@ typedef struct Animation\+\_\+\+Key Animation\+\_\+\+Key}
 
 Represents an animation key structure. 
 
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00037}{37}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}\index{Animation.h@{Animation.h}!Animation\_Key\_Data@{Animation\_Key\_Data}}
 \index{Animation\_Key\_Data@{Animation\_Key\_Data}!Animation.h@{Animation.h}}
 \doxysubsubsection{\texorpdfstring{Animation\_Key\_Data}{Animation\_Key\_Data}}
@@ -83,6 +109,38 @@ typedef struct \mbox{\hyperlink{_animation_8h_af7b2ccb1cfde03fa91b979f7f5b09736}
 
 
 Holds internal data for an animation key. 
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00043}{43}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{_animation_8h_a5f1308d9b1332f5971985c88a2197ec1}\index{Animation.h@{Animation.h}!SimpleAnim@{SimpleAnim}}
+\index{SimpleAnim@{SimpleAnim}!Animation.h@{Animation.h}}
+\doxysubsubsection{\texorpdfstring{SimpleAnim}{SimpleAnim}}
+{\footnotesize\ttfamily \label{_animation_8h_a5f1308d9b1332f5971985c88a2197ec1} 
+typedef struct Simple\+Anim Simple\+Anim}
+
+
+
+Represents a simplified animation structure. 
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00230}{230}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}\index{Animation.h@{Animation.h}!SimpleAnim\_Data@{SimpleAnim\_Data}}
+\index{SimpleAnim\_Data@{SimpleAnim\_Data}!Animation.h@{Animation.h}}
+\doxysubsubsection{\texorpdfstring{SimpleAnim\_Data}{SimpleAnim\_Data}}
+{\footnotesize\ttfamily \label{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040} 
+typedef struct \mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}} \mbox{\hyperlink{_animation_8h_ad955da6a04b3c5b8bec6859e4edd7040}{Simple\+Anim\+\_\+\+Data}}}
+
+
+
+Holds internal data for a simple animation. 
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00236}{236}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
 
 
 
@@ -127,11 +185,11 @@ Creates a new animation from a .anim file.
 \begin{DoxyReturn}{Returns}
 Pointer to the created animation. 
 \end{DoxyReturn}
-\Hypertarget{_animation_8h_ac18e934e4161580a6519f98920e17ffe}\index{Animation.h@{Animation.h}!CreateAnimationKey@{CreateAnimationKey}}
+\Hypertarget{_animation_8h_a9e116dbc330c6214eac64892c2b41b77}\index{Animation.h@{Animation.h}!CreateAnimationKey@{CreateAnimationKey}}
 \index{CreateAnimationKey@{CreateAnimationKey}!Animation.h@{Animation.h}}
 \doxysubsubsection{\texorpdfstring{CreateAnimationKey()}{CreateAnimationKey()}}
-{\footnotesize\ttfamily \label{_animation_8h_ac18e934e4161580a6519f98920e17ffe} 
-\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*} Create\+Animation\+Key (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{sf\+Int\+Rect}]{rect}{, }\item[{int}]{line\+\_\+number}{, }\item[{int}]{line\+\_\+frame\+\_\+number}{, }\item[{int}]{total\+\_\+frame}{, }\item[{float}]{frame\+\_\+time}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_animation_8h_a9e116dbc330c6214eac64892c2b41b77} 
+\mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*} Create\+Animation\+Key (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{sf\+Int\+Rect}]{rect}{, }\item[{int}]{number\+\_\+of\+\_\+line}{, }\item[{int}]{frame\+\_\+per\+\_\+line}{, }\item[{int}]{total\+\_\+frame}{, }\item[{float}]{frame\+\_\+time}{}\end{DoxyParamCaption})}
 
 
 
@@ -155,11 +213,11 @@ Creates a new animation key.
 \begin{DoxyReturn}{Returns}
 Pointer to the created animation key. 
 \end{DoxyReturn}
-\Hypertarget{_animation_8h_a548df4a7b5b031d636cfdca3d9f18f8b}\index{Animation.h@{Animation.h}!sfRenderWindow\_drawAnimation@{sfRenderWindow\_drawAnimation}}
+\Hypertarget{_animation_8h_ac5a28961c4da591a0cb4184403c970e1}\index{Animation.h@{Animation.h}!sfRenderWindow\_drawAnimation@{sfRenderWindow\_drawAnimation}}
 \index{sfRenderWindow\_drawAnimation@{sfRenderWindow\_drawAnimation}!Animation.h@{Animation.h}}
 \doxysubsubsection{\texorpdfstring{sfRenderWindow\_drawAnimation()}{sfRenderWindow\_drawAnimation()}}
-{\footnotesize\ttfamily \label{_animation_8h_a548df4a7b5b031d636cfdca3d9f18f8b} 
-void sf\+Render\+Window\+\_\+draw\+Animation (\begin{DoxyParamCaption}\item[{sf\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}}]{anim}{, }\item[{sf\+Render\+States \texorpdfstring{$\ast$}{*}}]{states}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_animation_8h_ac5a28961c4da591a0cb4184403c970e1} 
+void sf\+Render\+Window\+\_\+draw\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}}]{anim}{, }\item[{sf\+Render\+States \texorpdfstring{$\ast$}{*}}]{states}{}\end{DoxyParamCaption})}
 
 
 

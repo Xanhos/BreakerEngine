@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/MovieManager.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/MovieManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -136,24 +136,29 @@ Functions</h2></td></tr>
 <tr class="memitem:a9bea11167b6b551740e204c4321fa5da" id="r_a9bea11167b6b551740e204c4321fa5da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bea11167b6b551740e204c4321fa5da">DeleteMovie</a> (<a class="el" href="struct_movie.html">Movie</a> *movie)</td></tr>
 <tr class="memdesc:a9bea11167b6b551740e204c4321fa5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a movie object and releases its associated resources.  <br /></td></tr>
 <tr class="separator:a9bea11167b6b551740e204c4321fa5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af03905ac5ad720e07607b95c5ceaf497" id="r_af03905ac5ad720e07607b95c5ceaf497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af03905ac5ad720e07607b95c5ceaf497">InitMovieManager</a> (void)</td></tr>
-<tr class="memdesc:af03905ac5ad720e07607b95c5ceaf497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the movie manager. This function sets up resources and data structures for movie management.  <br /></td></tr>
+<tr class="memitem:af03905ac5ad720e07607b95c5ceaf497" id="r_af03905ac5ad720e07607b95c5ceaf497"><td class="memItemLeft" align="right" valign="top"><a id="af03905ac5ad720e07607b95c5ceaf497" name="af03905ac5ad720e07607b95c5ceaf497"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitMovieManager</b> (void)</td></tr>
+<tr class="memdesc:af03905ac5ad720e07607b95c5ceaf497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the movie manager. This function sets up resources and data structures for movie management. <br /></td></tr>
 <tr class="separator:af03905ac5ad720e07607b95c5ceaf497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4263ba80882bee09be9d417e62e1fa77" id="r_a4263ba80882bee09be9d417e62e1fa77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4263ba80882bee09be9d417e62e1fa77">LoadSceneMovie</a> (const char *scene)</td></tr>
-<tr class="memdesc:a4263ba80882bee09be9d417e62e1fa77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads movies associated with a specific scene.  <br /></td></tr>
-<tr class="separator:a4263ba80882bee09be9d417e62e1fa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51b1507110b3156fb3eefac22c383218" id="r_a51b1507110b3156fb3eefac22c383218"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51b1507110b3156fb3eefac22c383218">ClearSceneMovie</a> (void)</td></tr>
-<tr class="memdesc:a51b1507110b3156fb3eefac22c383218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all movies associated with the current scene. This function frees memory and unloads scene-specific movies.  <br /></td></tr>
+<tr class="memitem:a148f516394aac9345d5fb377ea1cdd41" id="r_a148f516394aac9345d5fb377ea1cdd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a148f516394aac9345d5fb377ea1cdd41">LoadSceneMovie</a> (const char *scene, float *progressValue)</td></tr>
+<tr class="memdesc:a148f516394aac9345d5fb377ea1cdd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads movies associated with a specific scene.  <br /></td></tr>
+<tr class="separator:a148f516394aac9345d5fb377ea1cdd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b1507110b3156fb3eefac22c383218" id="r_a51b1507110b3156fb3eefac22c383218"><td class="memItemLeft" align="right" valign="top"><a id="a51b1507110b3156fb3eefac22c383218" name="a51b1507110b3156fb3eefac22c383218"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSceneMovie</b> (void)</td></tr>
+<tr class="memdesc:a51b1507110b3156fb3eefac22c383218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all movies associated with the current scene. This function frees memory and unloads scene-specific movies. <br /></td></tr>
 <tr class="separator:a51b1507110b3156fb3eefac22c383218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63ab07acd4838bcc99910649abce8543" id="r_a63ab07acd4838bcc99910649abce8543"><td class="memItemLeft" align="right" valign="top">sfeMovie *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63ab07acd4838bcc99910649abce8543">GetMovie</a> (const char *name)</td></tr>
 <tr class="memdesc:a63ab07acd4838bcc99910649abce8543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a movie object by its name.  <br /></td></tr>
 <tr class="separator:a63ab07acd4838bcc99910649abce8543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b06e7aecb33fcf021984c17f108048" id="r_ae9b06e7aecb33fcf021984c17f108048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9b06e7aecb33fcf021984c17f108048">DestroyMoviesManager</a> (void)</td></tr>
-<tr class="memdesc:ae9b06e7aecb33fcf021984c17f108048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the movie manager and releases all associated resources.  <br /></td></tr>
+<tr class="memitem:ae9b06e7aecb33fcf021984c17f108048" id="r_ae9b06e7aecb33fcf021984c17f108048"><td class="memItemLeft" align="right" valign="top"><a id="ae9b06e7aecb33fcf021984c17f108048" name="ae9b06e7aecb33fcf021984c17f108048"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DestroyMoviesManager</b> (void)</td></tr>
+<tr class="memdesc:ae9b06e7aecb33fcf021984c17f108048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the movie manager and releases all associated resources. <br /></td></tr>
 <tr class="separator:ae9b06e7aecb33fcf021984c17f108048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains all the data to load movies for the engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_movie_manager_8h_source.html">MovieManager.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a650f97ae5af79464874764f77e985256" name="a650f97ae5af79464874764f77e985256"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a650f97ae5af79464874764f77e985256">&#9670;&#160;</a></span>Movie</h2>
@@ -167,28 +172,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_movie_manager_8h_source.html#l00036">36</a> of file <a class="el" href="_movie_manager_8h_source.html">MovieManager.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a51b1507110b3156fb3eefac22c383218" name="a51b1507110b3156fb3eefac22c383218"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51b1507110b3156fb3eefac22c383218">&#9670;&#160;</a></span>ClearSceneMovie()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClearSceneMovie </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clears all movies associated with the current scene. This function frees memory and unloads scene-specific movies. </p>
-
-</div>
-</div>
 <a id="aef283008e3e31ee921e2e6d27b98ee3f" name="aef283008e3e31ee921e2e6d27b98ee3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef283008e3e31ee921e2e6d27b98ee3f">&#9670;&#160;</a></span>CreateMovie()</h2>
 
@@ -240,25 +228,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9b06e7aecb33fcf021984c17f108048" name="ae9b06e7aecb33fcf021984c17f108048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b06e7aecb33fcf021984c17f108048">&#9670;&#160;</a></span>DestroyMoviesManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DestroyMoviesManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destroys the movie manager and releases all associated resources. </p>
-
-</div>
-</div>
 <a id="a63ab07acd4838bcc99910649abce8543" name="a63ab07acd4838bcc99910649abce8543"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63ab07acd4838bcc99910649abce8543">&#9670;&#160;</a></span>GetMovie()</h2>
 
@@ -285,27 +254,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af03905ac5ad720e07607b95c5ceaf497" name="af03905ac5ad720e07607b95c5ceaf497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af03905ac5ad720e07607b95c5ceaf497">&#9670;&#160;</a></span>InitMovieManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InitMovieManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes the movie manager. This function sets up resources and data structures for movie management. </p>
-
-</div>
-</div>
-<a id="a4263ba80882bee09be9d417e62e1fa77" name="a4263ba80882bee09be9d417e62e1fa77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4263ba80882bee09be9d417e62e1fa77">&#9670;&#160;</a></span>LoadSceneMovie()</h2>
+<a id="a148f516394aac9345d5fb377ea1cdd41" name="a148f516394aac9345d5fb377ea1cdd41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148f516394aac9345d5fb377ea1cdd41">&#9670;&#160;</a></span>LoadSceneMovie()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,8 +263,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void LoadSceneMovie </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>progressValue</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,7 +288,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_movie_manager_8h.html">MovieManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_movie_manager_8h.html">MovieManager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

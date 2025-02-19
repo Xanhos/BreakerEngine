@@ -1,53 +1,53 @@
 \doxysection{Texture\+Manager.\+h}
-\hypertarget{_texture_manager_8h_source}{}\label{_texture_manager_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/TextureManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/TextureManager.h}}
+\hypertarget{_texture_manager_8h_source}{}\label{_texture_manager_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/TextureManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/TextureManager.h}}
 \mbox{\hyperlink{_texture_manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture}{Texture}}\ \mbox{\hyperlink{struct_texture}{Texture}};}
-\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture}{Texture}}}
-\DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ sfTexture*\ \mbox{\hyperlink{struct_texture_a49e779d71f5f27d1c993228b22d6a3e2}{m\_texture}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{struct_path}{Path}}\ \mbox{\hyperlink{struct_texture_ae8a852c9fdc1d01d32735191278df912}{m\_path}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_texture_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ \ \ \ }
-\DoxyCodeLine{00041\ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00048\ \mbox{\hyperlink{struct_texture}{Texture}}\ \mbox{\hyperlink{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a}{CreateTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325}{DeleteTexture}}(\mbox{\hyperlink{struct_texture}{Texture}}*\ texture);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480}{InitTextureManager}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_a5d8b528a1df200bf4027f746707384b5}{LoadSceneTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_af8e33300474d16255b892e6778e03900}{ClearSceneTexture}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00079\ sfTexture*\ \mbox{\hyperlink{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c}{GetTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4}{DestroyTexturesManager}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00035}00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture}{Texture}}\ \mbox{\hyperlink{struct_texture}{Texture}};}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00036}\mbox{\hyperlink{struct_texture}{00036}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture}{Texture}}}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00038}\mbox{\hyperlink{struct_texture_a49e779d71f5f27d1c993228b22d6a3e2}{00038}}\ \ \ \ \ sfTexture*\ \mbox{\hyperlink{struct_texture_a49e779d71f5f27d1c993228b22d6a3e2}{m\_texture}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00039}\mbox{\hyperlink{struct_texture_ae8a852c9fdc1d01d32735191278df912}{00039}}\ \ \ \ \ \mbox{\hyperlink{struct_path}{Path}}\ \mbox{\hyperlink{struct_texture_ae8a852c9fdc1d01d32735191278df912}{m\_path}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00040}\mbox{\hyperlink{struct_texture_a77eb90782b126ca2be2d28378390070e}{00040}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_texture_a77eb90782b126ca2be2d28378390070e}{m\_name}}[\mbox{\hyperlink{_file_system_8h_a4620eb783fd7aaa1d61fe4fdaa750d74}{MAX\_PATH\_SIZE}}];\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00041}00041\ \};}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00048}\mbox{\hyperlink{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a}{00048}}\ \mbox{\hyperlink{struct_texture}{Texture}}\ \mbox{\hyperlink{_texture_manager_8h_a1329ed53464d97a103e6a9b3f8d48b7a}{CreateTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00054}\mbox{\hyperlink{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_ae4a876d6a711c699cfec9af65e560325}{DeleteTexture}}(\mbox{\hyperlink{struct_texture}{Texture}}*\ texture);}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00060}\mbox{\hyperlink{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480}{00060}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_a2195b062756b3539907b33a73e6c5480}{InitTextureManager}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00066}\mbox{\hyperlink{_texture_manager_8h_af6325975b291ef133818da5f18d47e2b}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_af6325975b291ef133818da5f18d47e2b}{LoadSceneTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ scene,\ \textcolor{keywordtype}{float}*\ progressValue);}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00072}\mbox{\hyperlink{_texture_manager_8h_af8e33300474d16255b892e6778e03900}{00072}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_af8e33300474d16255b892e6778e03900}{ClearSceneTexture}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00079}\mbox{\hyperlink{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c}{00079}}\ sfTexture*\ \mbox{\hyperlink{_texture_manager_8h_ae819638a24c825c4e192e58cee973d3c}{GetTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_texture_manager_8h_source_l00085}\mbox{\hyperlink{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4}{00085}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_texture_manager_8h_a7f0287d22cb8d638327393a6d11f14a4}{DestroyTexturesManager}}(\textcolor{keywordtype}{void});}
 
 \end{DoxyCode}

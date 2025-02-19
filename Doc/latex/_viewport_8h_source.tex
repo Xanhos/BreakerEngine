@@ -1,52 +1,52 @@
 \doxysection{Viewport.\+h}
-\hypertarget{_viewport_8h_source}{}\label{_viewport_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Viewport.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/Viewport.h}}
+\hypertarget{_viewport_8h_source}{}\label{_viewport_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Viewport.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/Viewport.h}}
 \mbox{\hyperlink{_viewport_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_viewport}{Viewport}}\ \mbox{\hyperlink{struct_viewport}{Viewport}};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}}\ \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00058\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_viewport}{Viewport}}\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}}*\ \mbox{\hyperlink{struct_viewport_ac4bc83495692267b71c8f86c2d4a4eb9}{\_Data}};\ }
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00066\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a1e8ba68397a5913bec61885af69ce772}{UpdatePort}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ sfFloatRect\ port);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00073\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a04c26432713d5d174e68d33067c75cb9}{UpdateWindowSize}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ sfVector2u\ size);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00080\ \ \ \ \ sfView*\ (*GetView)(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00087\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a376f21a449a4de8ce91cc4b80a67024d}{Zoom}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ \textcolor{keywordtype}{float}\ factor);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00094\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_ab26c657035d4c4aa42544c9410083888}{Dezoom}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ \textcolor{keywordtype}{float}\ factor);}
-\DoxyCodeLine{00095\ \};}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00116\ \mbox{\hyperlink{struct_viewport}{Viewport}}*\ \mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{CreateViewport}}(sfVector2u\ windowSize,\ sfVector2f\ size,\ sfFloatRect\ port);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00046}\mbox{\hyperlink{_viewport_8h_a9c83a52d93b01a49e9d819ead8615060}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_viewport}{Viewport}}\ \mbox{\hyperlink{struct_viewport}{Viewport}};}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00052}\mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{00052}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}}\ \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}};}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00058}\mbox{\hyperlink{struct_viewport}{00058}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_viewport}{Viewport}}\ \{}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00059}\mbox{\hyperlink{struct_viewport_ac4bc83495692267b71c8f86c2d4a4eb9}{00059}}\ \ \ \ \ \mbox{\hyperlink{_viewport_8h_a842a366565d6ddf46a7c18624a951836}{Viewport\_Data}}*\ \mbox{\hyperlink{struct_viewport_ac4bc83495692267b71c8f86c2d4a4eb9}{\_Data}};\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00066}\mbox{\hyperlink{struct_viewport_a1e8ba68397a5913bec61885af69ce772}{00066}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a1e8ba68397a5913bec61885af69ce772}{UpdatePort}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ sfFloatRect\ port);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00073}\mbox{\hyperlink{struct_viewport_a04c26432713d5d174e68d33067c75cb9}{00073}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a04c26432713d5d174e68d33067c75cb9}{UpdateWindowSize}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ sfVector2u\ size);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00080}\mbox{\hyperlink{struct_viewport_a57e60ffce6ac0e4860b539350ac2f203}{00080}}\ \ \ \ \ sfView*\ (*GetView)(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00087}\mbox{\hyperlink{struct_viewport_a376f21a449a4de8ce91cc4b80a67024d}{00087}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_a376f21a449a4de8ce91cc4b80a67024d}{Zoom}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ \textcolor{keywordtype}{float}\ factor);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00094}\mbox{\hyperlink{struct_viewport_ab26c657035d4c4aa42544c9410083888}{00094}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_viewport_ab26c657035d4c4aa42544c9410083888}{Dezoom}})(\mbox{\hyperlink{struct_viewport}{Viewport}}*\ viewport,\ \textcolor{keywordtype}{float}\ factor);}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00095}00095\ \};}
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_viewport_8h_source_l00116}\mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{00116}}\ \mbox{\hyperlink{struct_viewport}{Viewport}}*\ \mbox{\hyperlink{_viewport_8h_a70a05ff1d431670e65b6d56f1f8a7806}{CreateViewport}}(sfVector2u\ windowSize,\ sfVector2f\ size,\ sfFloatRect\ port);}
 
 \end{DoxyCode}

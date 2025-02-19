@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/FontManager.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/FontManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -136,24 +136,29 @@ Functions</h2></td></tr>
 <tr class="memitem:a741e81a1c660451477871b8439588a27" id="r_a741e81a1c660451477871b8439588a27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a741e81a1c660451477871b8439588a27">DeleteFont</a> (<a class="el" href="struct_font.html">Font</a> *font)</td></tr>
 <tr class="memdesc:a741e81a1c660451477871b8439588a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a font object and releases its associated resources.  <br /></td></tr>
 <tr class="separator:a741e81a1c660451477871b8439588a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4722cd2a9eeca57355a3fb1680e3d2cf" id="r_a4722cd2a9eeca57355a3fb1680e3d2cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4722cd2a9eeca57355a3fb1680e3d2cf">InitFontManager</a> (void)</td></tr>
-<tr class="memdesc:a4722cd2a9eeca57355a3fb1680e3d2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the font manager. This function sets up resources and data structures for font management.  <br /></td></tr>
+<tr class="memitem:a4722cd2a9eeca57355a3fb1680e3d2cf" id="r_a4722cd2a9eeca57355a3fb1680e3d2cf"><td class="memItemLeft" align="right" valign="top"><a id="a4722cd2a9eeca57355a3fb1680e3d2cf" name="a4722cd2a9eeca57355a3fb1680e3d2cf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitFontManager</b> (void)</td></tr>
+<tr class="memdesc:a4722cd2a9eeca57355a3fb1680e3d2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the font manager. This function sets up resources and data structures for font management. <br /></td></tr>
 <tr class="separator:a4722cd2a9eeca57355a3fb1680e3d2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9567f4769cde26f9a44ae74d45485edf" id="r_a9567f4769cde26f9a44ae74d45485edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9567f4769cde26f9a44ae74d45485edf">LoadSceneFont</a> (const char *scene)</td></tr>
-<tr class="memdesc:a9567f4769cde26f9a44ae74d45485edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads fonts associated with a specific scene.  <br /></td></tr>
-<tr class="separator:a9567f4769cde26f9a44ae74d45485edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe37678bf61b8f75cf4ed715f220cbba" id="r_afe37678bf61b8f75cf4ed715f220cbba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe37678bf61b8f75cf4ed715f220cbba">ClearSceneFont</a> (void)</td></tr>
-<tr class="memdesc:afe37678bf61b8f75cf4ed715f220cbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all fonts associated with the current scene. This function frees memory and unloads scene-specific fonts.  <br /></td></tr>
+<tr class="memitem:a5535b80b9d1f10fe6da8dd39572bf430" id="r_a5535b80b9d1f10fe6da8dd39572bf430"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5535b80b9d1f10fe6da8dd39572bf430">LoadSceneFont</a> (const char *scene, float *progressValue)</td></tr>
+<tr class="memdesc:a5535b80b9d1f10fe6da8dd39572bf430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads fonts associated with a specific scene.  <br /></td></tr>
+<tr class="separator:a5535b80b9d1f10fe6da8dd39572bf430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe37678bf61b8f75cf4ed715f220cbba" id="r_afe37678bf61b8f75cf4ed715f220cbba"><td class="memItemLeft" align="right" valign="top"><a id="afe37678bf61b8f75cf4ed715f220cbba" name="afe37678bf61b8f75cf4ed715f220cbba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSceneFont</b> (void)</td></tr>
+<tr class="memdesc:afe37678bf61b8f75cf4ed715f220cbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all fonts associated with the current scene. This function frees memory and unloads scene-specific fonts. <br /></td></tr>
 <tr class="separator:afe37678bf61b8f75cf4ed715f220cbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1866ff1a60d583bb1403b2f6e1b932f3" id="r_a1866ff1a60d583bb1403b2f6e1b932f3"><td class="memItemLeft" align="right" valign="top">sfFont *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1866ff1a60d583bb1403b2f6e1b932f3">GetFont</a> (const char *name)</td></tr>
 <tr class="memdesc:a1866ff1a60d583bb1403b2f6e1b932f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a font object by its name.  <br /></td></tr>
 <tr class="separator:a1866ff1a60d583bb1403b2f6e1b932f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa33e184d438525bbd5d18479e1ce83f8" id="r_aa33e184d438525bbd5d18479e1ce83f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa33e184d438525bbd5d18479e1ce83f8">DestroyFontsManager</a> (void)</td></tr>
-<tr class="memdesc:aa33e184d438525bbd5d18479e1ce83f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the font manager and releases all associated resources.  <br /></td></tr>
+<tr class="memitem:aa33e184d438525bbd5d18479e1ce83f8" id="r_aa33e184d438525bbd5d18479e1ce83f8"><td class="memItemLeft" align="right" valign="top"><a id="aa33e184d438525bbd5d18479e1ce83f8" name="aa33e184d438525bbd5d18479e1ce83f8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DestroyFontsManager</b> (void)</td></tr>
+<tr class="memdesc:aa33e184d438525bbd5d18479e1ce83f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the font manager and releases all associated resources. <br /></td></tr>
 <tr class="separator:aa33e184d438525bbd5d18479e1ce83f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains all the data to load fonts for the engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_font_manager_8h_source.html">FontManager.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a6793c760667fe6bf1481f61567954c12" name="a6793c760667fe6bf1481f61567954c12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6793c760667fe6bf1481f61567954c12">&#9670;&#160;</a></span>Font</h2>
@@ -167,28 +172,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_font_manager_8h_source.html#l00038">38</a> of file <a class="el" href="_font_manager_8h_source.html">FontManager.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="afe37678bf61b8f75cf4ed715f220cbba" name="afe37678bf61b8f75cf4ed715f220cbba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe37678bf61b8f75cf4ed715f220cbba">&#9670;&#160;</a></span>ClearSceneFont()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClearSceneFont </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clears all fonts associated with the current scene. This function frees memory and unloads scene-specific fonts. </p>
-
-</div>
-</div>
 <a id="a4200680cc51b40747b1c224784bef564" name="a4200680cc51b40747b1c224784bef564"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4200680cc51b40747b1c224784bef564">&#9670;&#160;</a></span>CreateFont()</h2>
 
@@ -240,25 +228,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa33e184d438525bbd5d18479e1ce83f8" name="aa33e184d438525bbd5d18479e1ce83f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa33e184d438525bbd5d18479e1ce83f8">&#9670;&#160;</a></span>DestroyFontsManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DestroyFontsManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destroys the font manager and releases all associated resources. </p>
-
-</div>
-</div>
 <a id="a1866ff1a60d583bb1403b2f6e1b932f3" name="a1866ff1a60d583bb1403b2f6e1b932f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1866ff1a60d583bb1403b2f6e1b932f3">&#9670;&#160;</a></span>GetFont()</h2>
 
@@ -285,27 +254,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4722cd2a9eeca57355a3fb1680e3d2cf" name="a4722cd2a9eeca57355a3fb1680e3d2cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4722cd2a9eeca57355a3fb1680e3d2cf">&#9670;&#160;</a></span>InitFontManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InitFontManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes the font manager. This function sets up resources and data structures for font management. </p>
-
-</div>
-</div>
-<a id="a9567f4769cde26f9a44ae74d45485edf" name="a9567f4769cde26f9a44ae74d45485edf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9567f4769cde26f9a44ae74d45485edf">&#9670;&#160;</a></span>LoadSceneFont()</h2>
+<a id="a5535b80b9d1f10fe6da8dd39572bf430" name="a5535b80b9d1f10fe6da8dd39572bf430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5535b80b9d1f10fe6da8dd39572bf430">&#9670;&#160;</a></span>LoadSceneFont()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,8 +263,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void LoadSceneFont </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>progressValue</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,7 +288,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_font_manager_8h.html">FontManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_font_manager_8h.html">FontManager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

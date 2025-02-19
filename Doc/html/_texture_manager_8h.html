@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/TextureManager.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/TextureManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -136,24 +136,29 @@ Functions</h2></td></tr>
 <tr class="memitem:ae4a876d6a711c699cfec9af65e560325" id="r_ae4a876d6a711c699cfec9af65e560325"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4a876d6a711c699cfec9af65e560325">DeleteTexture</a> (<a class="el" href="struct_texture.html">Texture</a> *texture)</td></tr>
 <tr class="memdesc:ae4a876d6a711c699cfec9af65e560325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a texture object and releases its associated resources.  <br /></td></tr>
 <tr class="separator:ae4a876d6a711c699cfec9af65e560325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2195b062756b3539907b33a73e6c5480" id="r_a2195b062756b3539907b33a73e6c5480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2195b062756b3539907b33a73e6c5480">InitTextureManager</a> (void)</td></tr>
-<tr class="memdesc:a2195b062756b3539907b33a73e6c5480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the texture manager and loads necessary resources. This function sets up resources and data structures for texture management.  <br /></td></tr>
+<tr class="memitem:a2195b062756b3539907b33a73e6c5480" id="r_a2195b062756b3539907b33a73e6c5480"><td class="memItemLeft" align="right" valign="top"><a id="a2195b062756b3539907b33a73e6c5480" name="a2195b062756b3539907b33a73e6c5480"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitTextureManager</b> (void)</td></tr>
+<tr class="memdesc:a2195b062756b3539907b33a73e6c5480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the texture manager and loads necessary resources. This function sets up resources and data structures for texture management. <br /></td></tr>
 <tr class="separator:a2195b062756b3539907b33a73e6c5480"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8b528a1df200bf4027f746707384b5" id="r_a5d8b528a1df200bf4027f746707384b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8b528a1df200bf4027f746707384b5">LoadSceneTexture</a> (const char *scene)</td></tr>
-<tr class="memdesc:a5d8b528a1df200bf4027f746707384b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all textures associated with a specific scene.  <br /></td></tr>
-<tr class="separator:a5d8b528a1df200bf4027f746707384b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8e33300474d16255b892e6778e03900" id="r_af8e33300474d16255b892e6778e03900"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8e33300474d16255b892e6778e03900">ClearSceneTexture</a> (void)</td></tr>
-<tr class="memdesc:af8e33300474d16255b892e6778e03900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all textures associated with the current scene. This function frees memory and unloads scene-specific textures.  <br /></td></tr>
+<tr class="memitem:af6325975b291ef133818da5f18d47e2b" id="r_af6325975b291ef133818da5f18d47e2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6325975b291ef133818da5f18d47e2b">LoadSceneTexture</a> (const char *scene, float *progressValue)</td></tr>
+<tr class="memdesc:af6325975b291ef133818da5f18d47e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all textures associated with a specific scene.  <br /></td></tr>
+<tr class="separator:af6325975b291ef133818da5f18d47e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e33300474d16255b892e6778e03900" id="r_af8e33300474d16255b892e6778e03900"><td class="memItemLeft" align="right" valign="top"><a id="af8e33300474d16255b892e6778e03900" name="af8e33300474d16255b892e6778e03900"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSceneTexture</b> (void)</td></tr>
+<tr class="memdesc:af8e33300474d16255b892e6778e03900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all textures associated with the current scene. This function frees memory and unloads scene-specific textures. <br /></td></tr>
 <tr class="separator:af8e33300474d16255b892e6778e03900"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae819638a24c825c4e192e58cee973d3c" id="r_ae819638a24c825c4e192e58cee973d3c"><td class="memItemLeft" align="right" valign="top">sfTexture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae819638a24c825c4e192e58cee973d3c">GetTexture</a> (const char *name)</td></tr>
 <tr class="memdesc:ae819638a24c825c4e192e58cee973d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a texture object by its name.  <br /></td></tr>
 <tr class="separator:ae819638a24c825c4e192e58cee973d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f0287d22cb8d638327393a6d11f14a4" id="r_a7f0287d22cb8d638327393a6d11f14a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f0287d22cb8d638327393a6d11f14a4">DestroyTexturesManager</a> (void)</td></tr>
-<tr class="memdesc:a7f0287d22cb8d638327393a6d11f14a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the texture manager and releases all associated resources. This function is called when shutting down the application to free up memory and unload textures.  <br /></td></tr>
+<tr class="memitem:a7f0287d22cb8d638327393a6d11f14a4" id="r_a7f0287d22cb8d638327393a6d11f14a4"><td class="memItemLeft" align="right" valign="top"><a id="a7f0287d22cb8d638327393a6d11f14a4" name="a7f0287d22cb8d638327393a6d11f14a4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DestroyTexturesManager</b> (void)</td></tr>
+<tr class="memdesc:a7f0287d22cb8d638327393a6d11f14a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the texture manager and releases all associated resources. This function is called when shutting down the application to free up memory and unload textures. <br /></td></tr>
 <tr class="separator:a7f0287d22cb8d638327393a6d11f14a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains all the data to load textures for the engine. </p>
+
+<p class="definition">Definition in file <a class="el" href="_texture_manager_8h_source.html">TextureManager.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a9862149b4afb78441c9ac01b07535975" name="a9862149b4afb78441c9ac01b07535975"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9862149b4afb78441c9ac01b07535975">&#9670;&#160;</a></span>Texture</h2>
@@ -167,28 +172,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_texture_manager_8h_source.html#l00035">35</a> of file <a class="el" href="_texture_manager_8h_source.html">TextureManager.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af8e33300474d16255b892e6778e03900" name="af8e33300474d16255b892e6778e03900"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e33300474d16255b892e6778e03900">&#9670;&#160;</a></span>ClearSceneTexture()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClearSceneTexture </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clears all textures associated with the current scene. This function frees memory and unloads scene-specific textures. </p>
-
-</div>
-</div>
 <a id="a1329ed53464d97a103e6a9b3f8d48b7a" name="a1329ed53464d97a103e6a9b3f8d48b7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1329ed53464d97a103e6a9b3f8d48b7a">&#9670;&#160;</a></span>CreateTexture()</h2>
 
@@ -240,25 +228,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f0287d22cb8d638327393a6d11f14a4" name="a7f0287d22cb8d638327393a6d11f14a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f0287d22cb8d638327393a6d11f14a4">&#9670;&#160;</a></span>DestroyTexturesManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DestroyTexturesManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destroys the texture manager and releases all associated resources. This function is called when shutting down the application to free up memory and unload textures. </p>
-
-</div>
-</div>
 <a id="ae819638a24c825c4e192e58cee973d3c" name="ae819638a24c825c4e192e58cee973d3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae819638a24c825c4e192e58cee973d3c">&#9670;&#160;</a></span>GetTexture()</h2>
 
@@ -285,27 +254,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2195b062756b3539907b33a73e6c5480" name="a2195b062756b3539907b33a73e6c5480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2195b062756b3539907b33a73e6c5480">&#9670;&#160;</a></span>InitTextureManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InitTextureManager </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes the texture manager and loads necessary resources. This function sets up resources and data structures for texture management. </p>
-
-</div>
-</div>
-<a id="a5d8b528a1df200bf4027f746707384b5" name="a5d8b528a1df200bf4027f746707384b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d8b528a1df200bf4027f746707384b5">&#9670;&#160;</a></span>LoadSceneTexture()</h2>
+<a id="af6325975b291ef133818da5f18d47e2b" name="af6325975b291ef133818da5f18d47e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6325975b291ef133818da5f18d47e2b">&#9670;&#160;</a></span>LoadSceneTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,8 +263,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void LoadSceneTexture </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>progressValue</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,7 +288,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_texture_manager_8h.html">TextureManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_texture_manager_8h.html">TextureManager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

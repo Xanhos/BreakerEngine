@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -122,12 +122,37 @@ Data Fields</h2></td></tr>
 <tr class="separator:a37722a150250e2a5a98e5e0d11e53449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abce9f5dc9c83f2639b72024fdee5d388" id="r_abce9f5dc9c83f2639b72024fdee5d388"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abce9f5dc9c83f2639b72024fdee5d388">end</a></td></tr>
 <tr class="separator:abce9f5dc9c83f2639b72024fdee5d388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82de35f11a33285a827bdc838c8f7cdf" id="r_a82de35f11a33285a827bdc838c8f7cdf"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82de35f11a33285a827bdc838c8f7cdf">progressValue</a></td></tr>
+<tr class="separator:a82de35f11a33285a827bdc838c8f7cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa774e64ab73211ac168c125b8cdb7f4e" id="r_aa774e64ab73211ac168c125b8cdb7f4e"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa774e64ab73211ac168c125b8cdb7f4e">totalSize</a></td></tr>
+<tr class="separator:aa774e64ab73211ac168c125b8cdb7f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06936021e05807fb2b8356a58994280e" id="r_a06936021e05807fb2b8356a58994280e"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06936021e05807fb2b8356a58994280e">currentSize</a></td></tr>
+<tr class="separator:a06936021e05807fb2b8356a58994280e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0214acc21cde467e1b513abb45b21fc8" id="r_a0214acc21cde467e1b513abb45b21fc8"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0214acc21cde467e1b513abb45b21fc8">func</a> )(const char *)</td></tr>
 <tr class="separator:a0214acc21cde467e1b513abb45b21fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains information about the files to process in a thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00554">554</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a id="a06936021e05807fb2b8356a58994280e" name="a06936021e05807fb2b8356a58994280e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06936021e05807fb2b8356a58994280e">&#9670;&#160;</a></span>currentSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* currentSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to track the current size during processing. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00561">561</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
 <a id="abce9f5dc9c83f2639b72024fdee5d388" name="abce9f5dc9c83f2639b72024fdee5d388"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abce9f5dc9c83f2639b72024fdee5d388">&#9670;&#160;</a></span>end</h2>
 
@@ -140,6 +165,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The ending index for processing. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00558">558</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -156,6 +183,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>The list of files to process. </p>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00556">556</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <a id="a0214acc21cde467e1b513abb45b21fc8" name="a0214acc21cde467e1b513abb45b21fc8"></a>
@@ -170,6 +199,25 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The function to apply to each file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00562">562</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="a82de35f11a33285a827bdc838c8f7cdf" name="a82de35f11a33285a827bdc838c8f7cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82de35f11a33285a827bdc838c8f7cdf">&#9670;&#160;</a></span>progressValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* progressValue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to track the progress value. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00559">559</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
 
 </div>
 </div>
@@ -186,10 +234,29 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>The starting index for processing. </p>
 
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00557">557</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
+</div>
+</div>
+<a id="aa774e64ab73211ac168c125b8cdb7f4e" name="aa774e64ab73211ac168c125b8cdb7f4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa774e64ab73211ac168c125b8cdb7f4e">&#9670;&#160;</a></span>totalSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* totalSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to track the total size of the files. </p>
+
+<p class="definition">Definition at line <a class="el" href="_tools_8h_source.html#l00560">560</a> of file <a class="el" href="_tools_8h_source.html">Tools.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/<a class="el" href="_tools_8h_source.html">Tools.h</a></li>
+<li>C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/<a class="el" href="_tools_8h_source.html">Tools.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

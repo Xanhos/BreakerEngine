@@ -1,81 +1,115 @@
 \doxysection{Window\+Manager.\+h}
-\hypertarget{_window_manager_8h_source}{}\label{_window_manager_8h_source}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/WindowManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/WindowManager.h}}
+\hypertarget{_window_manager_8h_source}{}\label{_window_manager_8h_source}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/WindowManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/WindowManager.h}}
 \mbox{\hyperlink{_window_manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
-\DoxyCodeLine{00005\ \textcolor{comment}{}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
-\DoxyCodeLine{00007\ \textcolor{comment}{}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
-\DoxyCodeLine{00009\ \textcolor{comment}{}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
-\DoxyCodeLine{00011\ \textcolor{comment}{}}
-\DoxyCodeLine{00012\ \textcolor{comment}{}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00018\ \textcolor{comment}{}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_window_manager}{WindowManager}}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}}\ \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_window_manager}{WindowManager}}}
-\DoxyCodeLine{00058\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}}*\ \mbox{\hyperlink{struct_window_manager_a62e59607bebbefbcd02200d18a19ab59}{\_Data}};\ }
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00066\ \ \ \ \ sfBool(*\mbox{\hyperlink{struct_window_manager_afacfacfd32636ef93505c18003dd0d2e}{IsFullscreen}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00072\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a95562274075293d323aa466cccc52a7a}{ToggleFullscreen}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00097\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}{AddNewCustomParam}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ void\ (*param\_func)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keywordtype}{void}*\ param),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ param\_data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ param\_size);}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00124\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{SetCustomParam}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ param);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}*\ (*GetCustomParam)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00157\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32}{AddNewSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ volume);}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00165\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a8600d560c40c0e3614fe6523d08face1}{SetSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ volume);}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00173\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_window_manager_a7806a4d20f6dda8adc96c2dfedcef0af}{GetSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00180\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_window_manager_ad0903b6aa12b69b9257d9a655b0ea3a9}{GetTimer}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00186\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_acc5cfb81127c486f8dbbd32e112b96ed}{ResetTimer}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00192\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a0658aa4588b4cf6f1e45609cfebe485a}{RestartClock}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00199\ \ \ \ \ sfRenderWindow*\ (*GetWindow)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00206\ \ \ \ \ sfEvent*\ (*GetEvent)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00213\ \ \ \ \ sfBool(*\mbox{\hyperlink{struct_window_manager_a0202631fb4c2a13a52f8f7673bfee3ee}{PollEvent}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00220\ \ \ \ \ sfVector2u(*\mbox{\hyperlink{struct_window_manager_a79fee84e5d31d39a39e4b86507ccff1e}{GetSize}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00227\ \ \ \ \ sfVector2f(*\mbox{\hyperlink{struct_window_manager_af28c35c1130f6e86cde0759edd3aa190}{GetMousePos}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00234\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}{SetCustomView}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ sfView*\ view);}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00241\ \ \ \ \ sfView*\ (*GetCustomView)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
-\DoxyCodeLine{00242\ }
-\DoxyCodeLine{00247\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_adf6981e088309db1c29e39f0242329e0}{Destroy}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}**\ window);}
-\DoxyCodeLine{00248\ \};}
-\DoxyCodeLine{00249\ }
-\DoxyCodeLine{00259\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title,\ \textcolor{keyword}{const}\ sfUint32\ style,\ \textcolor{keyword}{const}\ sfContextSettings*\ settings);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ Author:\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ Description:\ An\ advanced\ game\ engine\ for\ CSFML}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Date:\ 2025/01/22}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00010}00010\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2025\ GRALLAN\ Yann}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00013}00013\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00022}00022\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00023}00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tools_8h}{Tools.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00027}00027\ \textcolor{preprocessor}{\#undef\ DrawText;}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00048}\mbox{\hyperlink{_window_manager_8h_af768dc9d6463e45b64b69f36050fd641}{00048}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_window_manager}{WindowManager}}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}};}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00054}\mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{00054}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}}\ \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}};}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00060}\mbox{\hyperlink{struct_window_manager}{00060}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_window_manager}{WindowManager}}}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00062}\mbox{\hyperlink{struct_window_manager_a62e59607bebbefbcd02200d18a19ab59}{00062}}\ \ \ \ \ \mbox{\hyperlink{_window_manager_8h_a5fd6aa6c0609ee743a66a65550158463}{WindowManager\_Data}}*\ \mbox{\hyperlink{struct_window_manager_a62e59607bebbefbcd02200d18a19ab59}{\_Data}};\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00069}\mbox{\hyperlink{struct_window_manager_afacfacfd32636ef93505c18003dd0d2e}{00069}}\ \ \ \ \ sfBool(*\mbox{\hyperlink{struct_window_manager_afacfacfd32636ef93505c18003dd0d2e}{IsFullscreen}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00075}\mbox{\hyperlink{struct_window_manager_a95562274075293d323aa466cccc52a7a}{00075}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a95562274075293d323aa466cccc52a7a}{ToggleFullscreen}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00100}\mbox{\hyperlink{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}{00100}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a3d471fe8c466ce3accaab514ff756b0c}{AddNewCustomParam}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ void\ (*param\_func)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keywordtype}{void}*\ param),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ param\_data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ param\_size);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00127}\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{00127}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_abe06c3ed548be07379de83c905af7bd5}{SetCustomParam}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ param);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00152}\mbox{\hyperlink{struct_window_manager_aaac51aa56b484e12f2447f043e06cd4e}{00152}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ (*GetCustomParam)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00160}\mbox{\hyperlink{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32}{00160}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_abbfcb5c5ce1cfdc444097efc89760c32}{AddNewSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window\_manager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ volume);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00168}\mbox{\hyperlink{struct_window_manager_a8600d560c40c0e3614fe6523d08face1}{00168}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a8600d560c40c0e3614fe6523d08face1}{SetSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ volume);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00176}\mbox{\hyperlink{struct_window_manager_a7806a4d20f6dda8adc96c2dfedcef0af}{00176}}\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_window_manager_a7806a4d20f6dda8adc96c2dfedcef0af}{GetSound}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00183}\mbox{\hyperlink{struct_window_manager_ad0903b6aa12b69b9257d9a655b0ea3a9}{00183}}\ \ \ \ \ float\ (*\mbox{\hyperlink{struct_window_manager_ad0903b6aa12b69b9257d9a655b0ea3a9}{GetTimer}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00189}\mbox{\hyperlink{struct_window_manager_acc5cfb81127c486f8dbbd32e112b96ed}{00189}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_acc5cfb81127c486f8dbbd32e112b96ed}{ResetTimer}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00195}\mbox{\hyperlink{struct_window_manager_a0658aa4588b4cf6f1e45609cfebe485a}{00195}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a0658aa4588b4cf6f1e45609cfebe485a}{RestartClock}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00202}\mbox{\hyperlink{struct_window_manager_a991ece2e0688e3031b8113ccbe385727}{00202}}\ \ \ \ \ sfRenderWindow*\ (*GetWindow)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00209}\mbox{\hyperlink{struct_window_manager_afef585a227405807d3eb92214d78b144}{00209}}\ \ \ \ \ sfEvent*\ (*GetEvent)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00216}\mbox{\hyperlink{struct_window_manager_a0202631fb4c2a13a52f8f7673bfee3ee}{00216}}\ \ \ \ \ sfBool(*\mbox{\hyperlink{struct_window_manager_a0202631fb4c2a13a52f8f7673bfee3ee}{PollEvent}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00223}\mbox{\hyperlink{struct_window_manager_a79fee84e5d31d39a39e4b86507ccff1e}{00223}}\ \ \ \ \ sfVector2u(*\mbox{\hyperlink{struct_window_manager_a79fee84e5d31d39a39e4b86507ccff1e}{GetSize}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00225}00225\ \ \ \ \ sfVector2u(*GetBaseSize)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00232}\mbox{\hyperlink{struct_window_manager_af28c35c1130f6e86cde0759edd3aa190}{00232}}\ \ \ \ \ sfVector2f(*\mbox{\hyperlink{struct_window_manager_af28c35c1130f6e86cde0759edd3aa190}{GetMousePos}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00239}\mbox{\hyperlink{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}{00239}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_afaecc8783b2a3fc0983983c8bcb6afb9}{SetCustomView}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ sfView*\ view);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00246}\mbox{\hyperlink{struct_window_manager_a93754040317634faa644ad6f7b62a595}{00246}}\ \ \ \ \ sfView*\ (*GetCustomView)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00252}\mbox{\hyperlink{struct_window_manager_a39dc8cb847bb5f6aad980cda88ac3046}{00252}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_a39dc8cb847bb5f6aad980cda88ac3046}{SetDefaultView}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00259}\mbox{\hyperlink{struct_window_manager_a90fbd0e054ab0c05f508cda5ecba9d05}{00259}}\ \ \ \ \ sfView*\ (*GetDefaultView)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00266}\mbox{\hyperlink{struct_window_manager_afe5be974c3c5a6f0c29d274e99f4ba37}{00266}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_afe5be974c3c5a6f0c29d274e99f4ba37}{Clear}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ sfColor\ color);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00272}\mbox{\hyperlink{struct_window_manager_a9c2be0601236f129e849c8392545194b}{00272}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a9c2be0601236f129e849c8392545194b}{Display}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00280}\mbox{\hyperlink{struct_window_manager_ac3f298878291030b8f9cee2fd728f9fc}{00280}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_ac3f298878291030b8f9cee2fd728f9fc}{DrawSprite}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfSprite*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00288}\mbox{\hyperlink{struct_window_manager_ace737681a64dbe16f1fcf0b340177521}{00288}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_ace737681a64dbe16f1fcf0b340177521}{DrawText}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfText*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00296}\mbox{\hyperlink{struct_window_manager_a6f8a1c5618477aa25afad319a27f7795}{00296}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a6f8a1c5618477aa25afad319a27f7795}{DrawShape}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfShape*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00304}\mbox{\hyperlink{struct_window_manager_a4f9198d908123d7e554b546663a4c085}{00304}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a4f9198d908123d7e554b546663a4c085}{DrawCircleShape}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfCircleShape*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00312}\mbox{\hyperlink{struct_window_manager_a94c7d25d2b1df2e3966a33ad4682de3d}{00312}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a94c7d25d2b1df2e3966a33ad4682de3d}{DrawConvexShape}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfConvexShape*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00320}\mbox{\hyperlink{struct_window_manager_ab56d6a3aa252e73bc156251098fbcdec}{00320}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_ab56d6a3aa252e73bc156251098fbcdec}{DrawRectangleShape}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfRectangleShape*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00328}\mbox{\hyperlink{struct_window_manager_a98271ac55478493af8df97fb00e5c41f}{00328}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a98271ac55478493af8df97fb00e5c41f}{DrawVertexArray}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfVertexArray*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00336}\mbox{\hyperlink{struct_window_manager_a0a0e8b98ea5ab8784c2a595fdc3d3109}{00336}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a0a0e8b98ea5ab8784c2a595fdc3d3109}{DrawVertexBuffer}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ sfVertexBuffer*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00344}\mbox{\hyperlink{struct_window_manager_a8240c2dbede59fb03ad57a0fb056b718}{00344}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a8240c2dbede59fb03ad57a0fb056b718}{DrawAnimation}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_animation}{Animation}}*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00352}\mbox{\hyperlink{struct_window_manager_a75503994ea45d10b611ffc390bd05aa4}{00352}}\ \ \ \ \ void(*\mbox{\hyperlink{struct_window_manager_a75503994ea45d10b611ffc390bd05aa4}{DrawParticles}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ window,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_particles}{Particles}}*\ object,\ sfRenderStates*\ states);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00359}\mbox{\hyperlink{struct_window_manager_adf6981e088309db1c29e39f0242329e0}{00359}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_window_manager_adf6981e088309db1c29e39f0242329e0}{Destroy}})(\mbox{\hyperlink{struct_window_manager}{WindowManager}}**\ window);}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00360}00360\ \};}
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{_window_manager_8h_source_l00371}\mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{00371}}\ \mbox{\hyperlink{struct_window_manager}{WindowManager}}*\ \mbox{\hyperlink{_window_manager_8h_aa8e2cbe1d57126e6b82ea31f20c12be4}{CreateWindowManager}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title,\ \textcolor{keyword}{const}\ sfUint32\ style,\ \textcolor{keyword}{const}\ sfContextSettings*\ settings);}
 
 \end{DoxyCode}

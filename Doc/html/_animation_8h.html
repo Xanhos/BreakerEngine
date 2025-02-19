@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/Animation.h File Reference</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/Animation.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -111,10 +111,11 @@ $(function(){initNavTree('_animation_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file defines the <a class="el" href="struct_animation.html" title="Encapsulates data and functions for managing animations.">Animation</a> system structure and functions for managing a animation.  
+<p>This file defines the <a class="el" href="struct_animation.html" title="Encapsulates data and functions for managing animations.">Animation</a> system structure and functions for managing an animation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_tools_8h_source.html">Tools.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_resources_manager_8h_source.html">ResourcesManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>&quot;</code><br />
 </div>
 <p><a href="_animation_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -125,6 +126,9 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_animation.html">Animation</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates data and functions for managing animations.  <a href="struct_animation.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_simple_anim.html">SimpleAnim</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates data and functions for a simple animation.  <a href="struct_simple_anim.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -141,24 +145,36 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a6976ec0b17fa0de72cd28cc26b85734c" id="r_a6976ec0b17fa0de72cd28cc26b85734c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="#a6976ec0b17fa0de72cd28cc26b85734c">Animation_Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6976ec0b17fa0de72cd28cc26b85734c">Animation_Data</a></td></tr>
 <tr class="memdesc:a6976ec0b17fa0de72cd28cc26b85734c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds internal data for an animation.  <br /></td></tr>
 <tr class="separator:a6976ec0b17fa0de72cd28cc26b85734c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1308d9b1332f5971985c88a2197ec1" id="r_a5f1308d9b1332f5971985c88a2197ec1"><td class="memItemLeft" align="right" valign="top">typedef struct SimpleAnim&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f1308d9b1332f5971985c88a2197ec1">SimpleAnim</a></td></tr>
+<tr class="memdesc:a5f1308d9b1332f5971985c88a2197ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a simplified animation structure.  <br /></td></tr>
+<tr class="separator:a5f1308d9b1332f5971985c88a2197ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad955da6a04b3c5b8bec6859e4edd7040" id="r_ad955da6a04b3c5b8bec6859e4edd7040"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="#ad955da6a04b3c5b8bec6859e4edd7040">SimpleAnim_Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad955da6a04b3c5b8bec6859e4edd7040">SimpleAnim_Data</a></td></tr>
+<tr class="memdesc:ad955da6a04b3c5b8bec6859e4edd7040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds internal data for a simple animation.  <br /></td></tr>
+<tr class="separator:ad955da6a04b3c5b8bec6859e4edd7040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac18e934e4161580a6519f98920e17ffe" id="r_ac18e934e4161580a6519f98920e17ffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation___key.html">Animation_Key</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac18e934e4161580a6519f98920e17ffe">CreateAnimationKey</a> (const char *name, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time)</td></tr>
-<tr class="memdesc:ac18e934e4161580a6519f98920e17ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new animation key.  <br /></td></tr>
-<tr class="separator:ac18e934e4161580a6519f98920e17ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e116dbc330c6214eac64892c2b41b77" id="r_a9e116dbc330c6214eac64892c2b41b77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation___key.html">Animation_Key</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e116dbc330c6214eac64892c2b41b77">CreateAnimationKey</a> (const char *name, sfIntRect rect, int number_of_line, int frame_per_line, int total_frame, float frame_time)</td></tr>
+<tr class="memdesc:a9e116dbc330c6214eac64892c2b41b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new animation key.  <br /></td></tr>
+<tr class="separator:a9e116dbc330c6214eac64892c2b41b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f84aabb71eace9430e1762897e97502" id="r_a1f84aabb71eace9430e1762897e97502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation.html">Animation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f84aabb71eace9430e1762897e97502">CreateAnimation</a> (const char *name, sfTexture *texture)</td></tr>
 <tr class="memdesc:a1f84aabb71eace9430e1762897e97502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new animation.  <br /></td></tr>
 <tr class="separator:a1f84aabb71eace9430e1762897e97502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43ea4f0428853804bab669b411b2d723" id="r_a43ea4f0428853804bab669b411b2d723"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_animation.html">Animation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43ea4f0428853804bab669b411b2d723">CreateAnimationFromFile</a> (const char *path, sfTexture *texture)</td></tr>
 <tr class="memdesc:a43ea4f0428853804bab669b411b2d723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new animation from a .anim file.  <br /></td></tr>
 <tr class="separator:a43ea4f0428853804bab669b411b2d723"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a548df4a7b5b031d636cfdca3d9f18f8b" id="r_a548df4a7b5b031d636cfdca3d9f18f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a548df4a7b5b031d636cfdca3d9f18f8b">sfRenderWindow_drawAnimation</a> (sfRenderWindow *window, <a class="el" href="struct_animation.html">Animation</a> *anim, sfRenderStates *states)</td></tr>
-<tr class="memdesc:a548df4a7b5b031d636cfdca3d9f18f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders an animation in a render window.  <br /></td></tr>
-<tr class="separator:a548df4a7b5b031d636cfdca3d9f18f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a28961c4da591a0cb4184403c970e1" id="r_ac5a28961c4da591a0cb4184403c970e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5a28961c4da591a0cb4184403c970e1">sfRenderWindow_drawAnimation</a> (<a class="el" href="struct_window_manager.html">WindowManager</a> *window, <a class="el" href="struct_animation.html">Animation</a> *anim, sfRenderStates *states)</td></tr>
+<tr class="memdesc:ac5a28961c4da591a0cb4184403c970e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders an animation in a render window.  <br /></td></tr>
+<tr class="separator:ac5a28961c4da591a0cb4184403c970e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b694ba4d5243c6e16f610adc3ed8709" id="r_a3b694ba4d5243c6e16f610adc3ed8709"><td class="memItemLeft" align="right" valign="top"><a id="a3b694ba4d5243c6e16f610adc3ed8709" name="a3b694ba4d5243c6e16f610adc3ed8709"></a>
+<a class="el" href="struct_simple_anim.html">SimpleAnim</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>CreateSimpleAnim</b> (sfTexture *texture, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time)</td></tr>
+<tr class="memdesc:a3b694ba4d5243c6e16f610adc3ed8709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new simple animation. <br /></td></tr>
+<tr class="separator:a3b694ba4d5243c6e16f610adc3ed8709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file defines the <a class="el" href="struct_animation.html" title="Encapsulates data and functions for managing animations.">Animation</a> system structure and functions for managing a animation. </p>
+<div class="textblock"><p>This file defines the <a class="el" href="struct_animation.html" title="Encapsulates data and functions for managing animations.">Animation</a> system structure and functions for managing an animation. </p>
+
+<p class="definition">Definition in file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="ade6a90df50ad3e4adaea9aebc4096ba8" name="ade6a90df50ad3e4adaea9aebc4096ba8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade6a90df50ad3e4adaea9aebc4096ba8">&#9670;&#160;</a></span>Animation</h2>
@@ -173,6 +189,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Represents an animation structure. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00100">100</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -190,6 +208,8 @@ Functions</h2></td></tr>
 
 <p>Holds internal data for an animation. </p>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00106">106</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="af73dddac9408c4767c85bf6db0894af0" name="af73dddac9408c4767c85bf6db0894af0"></a>
@@ -206,6 +226,8 @@ Functions</h2></td></tr>
 
 <p>Represents an animation key structure. </p>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00037">37</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <a id="af7b2ccb1cfde03fa91b979f7f5b09736" name="af7b2ccb1cfde03fa91b979f7f5b09736"></a>
@@ -221,6 +243,44 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Holds internal data for an animation key. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00043">43</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="a5f1308d9b1332f5971985c88a2197ec1" name="a5f1308d9b1332f5971985c88a2197ec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1308d9b1332f5971985c88a2197ec1">&#9670;&#160;</a></span>SimpleAnim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct SimpleAnim SimpleAnim</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represents a simplified animation structure. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00230">230</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
+</div>
+</div>
+<a id="ad955da6a04b3c5b8bec6859e4edd7040" name="ad955da6a04b3c5b8bec6859e4edd7040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad955da6a04b3c5b8bec6859e4edd7040">&#9670;&#160;</a></span>SimpleAnim_Data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="#ad955da6a04b3c5b8bec6859e4edd7040">SimpleAnim_Data</a> <a class="el" href="#ad955da6a04b3c5b8bec6859e4edd7040">SimpleAnim_Data</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Holds internal data for a simple animation. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00236">236</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 
 </div>
 </div>
@@ -287,8 +347,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac18e934e4161580a6519f98920e17ffe" name="ac18e934e4161580a6519f98920e17ffe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac18e934e4161580a6519f98920e17ffe">&#9670;&#160;</a></span>CreateAnimationKey()</h2>
+<a id="a9e116dbc330c6214eac64892c2b41b77" name="a9e116dbc330c6214eac64892c2b41b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e116dbc330c6214eac64892c2b41b77">&#9670;&#160;</a></span>CreateAnimationKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,12 +366,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>line_number</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number_of_line</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>line_frame_number</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame_per_line</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -342,8 +402,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a548df4a7b5b031d636cfdca3d9f18f8b" name="a548df4a7b5b031d636cfdca3d9f18f8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a548df4a7b5b031d636cfdca3d9f18f8b">&#9670;&#160;</a></span>sfRenderWindow_drawAnimation()</h2>
+<a id="ac5a28961c4da591a0cb4184403c970e1" name="ac5a28961c4da591a0cb4184403c970e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a28961c4da591a0cb4184403c970e1">&#9670;&#160;</a></span>sfRenderWindow_drawAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +411,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void sfRenderWindow_drawAnimation </td>
           <td>(</td>
-          <td class="paramtype">sfRenderWindow *</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_window_manager.html">WindowManager</a> *</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -383,7 +443,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_animation_8h.html">Animation.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_animation_8h.html">Animation.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

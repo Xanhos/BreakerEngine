@@ -72,11 +72,11 @@ static Particle* CreateParticle(Particles* particles)
 	assert(particle);
 
 	particle->m_position = particles->_Data->m_position;
-	particle->m_speed = particles->_Data->m_speed + rand_float(0, particles->_Data->m_random_speed_boost);
+	particle->m_speed = particles->_Data->m_speed + (float)rand_float(0, particles->_Data->m_random_speed_boost);
 	particle->m_despawn_time = particles->_Data->m_despawn_time;
-	particle->m_rotation = rand_float(0, particles->_Data->m_random_spawn_rotation);
+	particle->m_rotation = (float)rand_float(0, particles->_Data->m_random_spawn_rotation);
 	particle->m_despawn_timer = 0.f;
-	particle->m_direction = GetVectorFromAngle(sfVector2f_Create(0, 0), 1, particles->_Data->m_angle_direction + rand_float(-particles->_Data->m_angle_spawn_spread, particles->_Data->m_angle_spawn_spread));
+	particle->m_direction = GetVectorFromAngle(sfVector2f_Create(0, 0), 1, particles->_Data->m_angle_direction + (float)rand_float(-particles->_Data->m_angle_spawn_spread, particles->_Data->m_angle_spawn_spread));
 
 	return particle;
 }
@@ -177,7 +177,7 @@ static Particles* CreateParticles(ParticleParam parameters ,int point_count)
 	data->m_spawn_timer = 0;
 	data->m_despawn_time = parameters.despawn_time;
 	data->m_spawn_count = parameters.spawn_count;
-	data->m_angle_spawn_spread = abs(parameters.angle_spawn_spread) / 2;
+	data->m_angle_spawn_spread = (float)abs(parameters.angle_spawn_spread) / 2;
 	data->m_life_time = parameters.life_time;
 	data->m_life_timer = 0.f;
 	data->m_type = parameters.type;
@@ -209,7 +209,7 @@ ParticleParam CreateDefaultParam(ParticlesTypes type, sfVector2f position, float
 			.color = CreateColor(255, 255, 255, 255),
 			.despawn_time = 5.f,
 			.spawn_time = 0.2f,
-			.spawn_count = 1.f,
+			.spawn_count = 1,
 			.life_time = 10.f
 	};
 }
@@ -243,7 +243,7 @@ Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, 
 	}
 	particles->_Data->m_texture = texture;
 	sfRectangleShape* renderer = sfRectangleShape_create();
-	sfRectangleShape_setSize(renderer, sfVector2f_Create(texture_rect.width, texture_rect.height));
+	sfRectangleShape_setSize(renderer, sfVector2f_Create((float)texture_rect.width, (float)texture_rect.height));
 	sfRectangleShape_setOrigin(renderer, parameters.origin);
 	sfRectangleShape_setFillColor(renderer, parameters.color);
 	sfRectangleShape_setTexture(renderer, texture, sfFalse);
@@ -290,7 +290,7 @@ void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* p
 			{
 				sfCircleShape_setPosition(data->m_vanilla_rendeder, it->m_position);
 				sfCircleShape_setRotation(data->m_vanilla_rendeder, it->m_rotation);
-				sfRenderTexture_drawRectangleShape(render_texture, data->m_vanilla_rendeder, state);
+				sfRenderTexture_drawCircleShape(render_texture, data->m_vanilla_rendeder, state);
 			}
 		);
 	}

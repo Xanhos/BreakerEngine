@@ -1,0 +1,220 @@
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+UI.h File Reference}
+\hypertarget{_u_i_8h}{}\label{_u_i_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/UI.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/UI.h}}
+
+
+This file contains all the logics to make UI elements.  
+
+
+{\ttfamily \#include "{}Tools.\+h"{}}\newline
+{\ttfamily \#include "{}Window\+Manager.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_u_i_object}{UIObject}}
+\begin{DoxyCompactList}\small\item\em Structure representing a UI element with various properties and methods. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_u_i_object___transform}{UIObject\+\_\+\+Transform}}
+\begin{DoxyCompactList}\small\item\em Structure holding transformation data for a UI object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_u_i_object_manager}{UIObject\+Manager}}
+\begin{DoxyCompactList}\small\item\em Manages a collection of UI objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct UIObject \mbox{\hyperlink{_u_i_8h_a75c2e8296c1b5100e785b2b08139043c}{UIObject}}
+\begin{DoxyCompactList}\small\item\em Represents a UI element with transformation and interaction capabilities. \end{DoxyCompactList}\item 
+typedef struct UIObject\+\_\+\+Data \mbox{\hyperlink{_u_i_8h_a432d4eeb0fbbd8d83097869aeb8dfa28}{UIObject\+\_\+\+Data}}
+\item 
+typedef struct sf\+Drawable \mbox{\hyperlink{_u_i_8h_a2d28d6e59e4ea26063b1912643aacbee}{sf\+Drawable}}
+\item 
+typedef struct UIObject\+\_\+\+Transform \mbox{\hyperlink{_u_i_8h_ae180026a1b367992882cc0961c2be118}{UIObject\+\_\+\+Transform}}
+\item 
+typedef struct UIObject\+Manager \mbox{\hyperlink{_u_i_8h_a9109b4406740c98063269c76694a36b3}{UIObject\+Manager}}
+\item 
+typedef struct UIObject\+Manager\+\_\+\+Data \mbox{\hyperlink{_u_i_8h_a8cd64046db638c4600f6786c73343c6c}{UIObject\+Manager\+\_\+\+Data}}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_u_i_8h_a6d928c30a7c919cc31aaccea34e10c3c}{UIUpdate\+Function}}) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_u_i_8h_a1be01640089c2ac5d3335848750e2ff8}{Create\+UIObject\+From\+Rectangle}} (sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}shape, char \texorpdfstring{$\ast$}{*}name, sf\+Mouse\+Button mouse\+\_\+button\+\_\+trigger, sf\+Key\+Code key\+\_\+button\+\_\+trigger)
+\begin{DoxyCompactList}\small\item\em Creates a UI object from a rectangle shape. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_u_i_8h_a5e939076bc42118bc667330891b9a861}{Create\+UIObject\+From\+Circle\+Shape}} (sf\+Circle\+Shape \texorpdfstring{$\ast$}{*}shape, char \texorpdfstring{$\ast$}{*}name, sf\+Mouse\+Button mouse\+\_\+button\+\_\+trigger, sf\+Key\+Code key\+\_\+button\+\_\+trigger)
+\begin{DoxyCompactList}\small\item\em Creates a UI object from a circle shape. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_u_i_8h_a70291ba6d1cce0cc5431f55d63bb8091}{Create\+UIObject\+From\+Sprite}} (sf\+Sprite \texorpdfstring{$\ast$}{*}shape, char \texorpdfstring{$\ast$}{*}name, sf\+Mouse\+Button mouse\+\_\+button\+\_\+trigger, sf\+Key\+Code key\+\_\+button\+\_\+trigger)
+\begin{DoxyCompactList}\small\item\em Creates a UI object from a sprite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_u_i_object_manager}{UIObject\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_u_i_8h_a9149afa40339f164b7d56533832c867e}{Create\+UIObject\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Creates a UI object manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the logics to make UI elements. 
+
+
+
+Definition in file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_u_i_8h_a2d28d6e59e4ea26063b1912643aacbee}\index{UI.h@{UI.h}!sfDrawable@{sfDrawable}}
+\index{sfDrawable@{sfDrawable}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{sfDrawable}{sfDrawable}}
+{\footnotesize\ttfamily \label{_u_i_8h_a2d28d6e59e4ea26063b1912643aacbee} 
+typedef struct sf\+Drawable sf\+Drawable}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00040}{40}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_a75c2e8296c1b5100e785b2b08139043c}\index{UI.h@{UI.h}!UIObject@{UIObject}}
+\index{UIObject@{UIObject}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIObject}{UIObject}}
+{\footnotesize\ttfamily \label{_u_i_8h_a75c2e8296c1b5100e785b2b08139043c} 
+typedef struct UIObject UIObject}
+
+
+
+Represents a UI element with transformation and interaction capabilities. 
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00037}{37}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_a432d4eeb0fbbd8d83097869aeb8dfa28}\index{UI.h@{UI.h}!UIObject\_Data@{UIObject\_Data}}
+\index{UIObject\_Data@{UIObject\_Data}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIObject\_Data}{UIObject\_Data}}
+{\footnotesize\ttfamily \label{_u_i_8h_a432d4eeb0fbbd8d83097869aeb8dfa28} 
+typedef struct UIObject\+\_\+\+Data UIObject\+\_\+\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00039}{39}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_ae180026a1b367992882cc0961c2be118}\index{UI.h@{UI.h}!UIObject\_Transform@{UIObject\_Transform}}
+\index{UIObject\_Transform@{UIObject\_Transform}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIObject\_Transform}{UIObject\_Transform}}
+{\footnotesize\ttfamily \label{_u_i_8h_ae180026a1b367992882cc0961c2be118} 
+typedef struct UIObject\+\_\+\+Transform UIObject\+\_\+\+Transform}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00042}{42}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_a9109b4406740c98063269c76694a36b3}\index{UI.h@{UI.h}!UIObjectManager@{UIObjectManager}}
+\index{UIObjectManager@{UIObjectManager}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIObjectManager}{UIObjectManager}}
+{\footnotesize\ttfamily \label{_u_i_8h_a9109b4406740c98063269c76694a36b3} 
+typedef struct UIObject\+Manager UIObject\+Manager}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00044}{44}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_a8cd64046db638c4600f6786c73343c6c}\index{UI.h@{UI.h}!UIObjectManager\_Data@{UIObjectManager\_Data}}
+\index{UIObjectManager\_Data@{UIObjectManager\_Data}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIObjectManager\_Data}{UIObjectManager\_Data}}
+{\footnotesize\ttfamily \label{_u_i_8h_a8cd64046db638c4600f6786c73343c6c} 
+typedef struct UIObject\+Manager\+\_\+\+Data UIObject\+Manager\+\_\+\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00045}{45}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+\Hypertarget{_u_i_8h_a6d928c30a7c919cc31aaccea34e10c3c}\index{UI.h@{UI.h}!UIUpdateFunction@{UIUpdateFunction}}
+\index{UIUpdateFunction@{UIUpdateFunction}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{UIUpdateFunction}{UIUpdateFunction}}
+{\footnotesize\ttfamily \label{_u_i_8h_a6d928c30a7c919cc31aaccea34e10c3c} 
+typedef void(\texorpdfstring{$\ast$}{*} UIUpdate\+Function) (\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{struct_window_manager}{Window\+Manager}} \texorpdfstring{$\ast$}{*}window)}
+
+
+
+Definition at line \mbox{\hyperlink{_u_i_8h_source_l00047}{47}} of file \mbox{\hyperlink{_u_i_8h_source}{UI.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_i_8h_a5e939076bc42118bc667330891b9a861}\index{UI.h@{UI.h}!CreateUIObjectFromCircleShape@{CreateUIObjectFromCircleShape}}
+\index{CreateUIObjectFromCircleShape@{CreateUIObjectFromCircleShape}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{CreateUIObjectFromCircleShape()}{CreateUIObjectFromCircleShape()}}
+{\footnotesize\ttfamily \label{_u_i_8h_a5e939076bc42118bc667330891b9a861} 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} Create\+UIObject\+From\+Circle\+Shape (\begin{DoxyParamCaption}\item[{sf\+Circle\+Shape \texorpdfstring{$\ast$}{*}}]{shape}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{sf\+Mouse\+Button}]{mouse\+\_\+button\+\_\+trigger}{, }\item[{sf\+Key\+Code}]{key\+\_\+button\+\_\+trigger}{}\end{DoxyParamCaption})}
+
+
+
+Creates a UI object from a circle shape. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & The circle shape (e.\+g., sf\+Circle\+Shape). \\
+\hline
+{\em name} & The name of the UI object. \\
+\hline
+{\em mouse\+\_\+button\+\_\+trigger} & The mouse button that triggers interaction. \\
+\hline
+{\em key\+\_\+button\+\_\+trigger} & The keyboard key that triggers interaction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created UI object. 
+\end{DoxyReturn}
+\Hypertarget{_u_i_8h_a1be01640089c2ac5d3335848750e2ff8}\index{UI.h@{UI.h}!CreateUIObjectFromRectangle@{CreateUIObjectFromRectangle}}
+\index{CreateUIObjectFromRectangle@{CreateUIObjectFromRectangle}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{CreateUIObjectFromRectangle()}{CreateUIObjectFromRectangle()}}
+{\footnotesize\ttfamily \label{_u_i_8h_a1be01640089c2ac5d3335848750e2ff8} 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} Create\+UIObject\+From\+Rectangle (\begin{DoxyParamCaption}\item[{sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}}]{shape}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{sf\+Mouse\+Button}]{mouse\+\_\+button\+\_\+trigger}{, }\item[{sf\+Key\+Code}]{key\+\_\+button\+\_\+trigger}{}\end{DoxyParamCaption})}
+
+
+
+Creates a UI object from a rectangle shape. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & The rectangle shape (e.\+g., sf\+Rectangle\+Shape). \\
+\hline
+{\em name} & The name of the UI object. \\
+\hline
+{\em mouse\+\_\+button\+\_\+trigger} & The mouse button that triggers interaction. \\
+\hline
+{\em key\+\_\+button\+\_\+trigger} & The keyboard key that triggers interaction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created UI object. 
+\end{DoxyReturn}
+\Hypertarget{_u_i_8h_a70291ba6d1cce0cc5431f55d63bb8091}\index{UI.h@{UI.h}!CreateUIObjectFromSprite@{CreateUIObjectFromSprite}}
+\index{CreateUIObjectFromSprite@{CreateUIObjectFromSprite}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{CreateUIObjectFromSprite()}{CreateUIObjectFromSprite()}}
+{\footnotesize\ttfamily \label{_u_i_8h_a70291ba6d1cce0cc5431f55d63bb8091} 
+\mbox{\hyperlink{struct_u_i_object}{UIObject}} \texorpdfstring{$\ast$}{*} Create\+UIObject\+From\+Sprite (\begin{DoxyParamCaption}\item[{sf\+Sprite \texorpdfstring{$\ast$}{*}}]{shape}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{sf\+Mouse\+Button}]{mouse\+\_\+button\+\_\+trigger}{, }\item[{sf\+Key\+Code}]{key\+\_\+button\+\_\+trigger}{}\end{DoxyParamCaption})}
+
+
+
+Creates a UI object from a sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & The sprite shape (e.\+g., sf\+Sprite). \\
+\hline
+{\em name} & The name of the UI object. \\
+\hline
+{\em mouse\+\_\+button\+\_\+trigger} & The mouse button that triggers interaction. \\
+\hline
+{\em key\+\_\+button\+\_\+trigger} & The keyboard key that triggers interaction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created UI object. 
+\end{DoxyReturn}
+\Hypertarget{_u_i_8h_a9149afa40339f164b7d56533832c867e}\index{UI.h@{UI.h}!CreateUIObjectManager@{CreateUIObjectManager}}
+\index{CreateUIObjectManager@{CreateUIObjectManager}!UI.h@{UI.h}}
+\doxysubsubsection{\texorpdfstring{CreateUIObjectManager()}{CreateUIObjectManager()}}
+{\footnotesize\ttfamily \label{_u_i_8h_a9149afa40339f164b7d56533832c867e} 
+\mbox{\hyperlink{struct_u_i_object_manager}{UIObject\+Manager}} \texorpdfstring{$\ast$}{*} Create\+UIObject\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a UI object manager. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created UI object manager. 
+\end{DoxyReturn}

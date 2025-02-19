@@ -11,12 +11,17 @@ var annotated_dup =
     [ "ParticleParam", "struct_particle_param.html", "struct_particle_param" ],
     [ "Particles", "struct_particles.html", "struct_particles" ],
     [ "Path", "struct_path.html", "struct_path" ],
+    [ "SimpleAnim", "struct_simple_anim.html", "struct_simple_anim" ],
     [ "Sound", "struct_sound.html", "struct_sound" ],
     [ "SpriteManager", "struct_sprite_manager.html", "struct_sprite_manager" ],
     [ "StateInfo", "struct_state_info.html", "struct_state_info" ],
     [ "Texture", "struct_texture.html", "struct_texture" ],
     [ "Thread_Info", "struct_thread___info.html", "struct_thread___info" ],
     [ "ThreadManager", "struct_thread_manager.html", "struct_thread_manager" ],
+    [ "Transform", "struct_transform.html", "struct_transform" ],
+    [ "UIObject", "struct_u_i_object.html", "struct_u_i_object" ],
+    [ "UIObject_Transform", "struct_u_i_object___transform.html", "struct_u_i_object___transform" ],
+    [ "UIObjectManager", "struct_u_i_object_manager.html", "struct_u_i_object_manager" ],
     [ "Viewport", "struct_viewport.html", "struct_viewport" ],
     [ "WindowManager", "struct_window_manager.html", "struct_window_manager" ]
 ];

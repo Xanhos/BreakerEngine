@@ -18,6 +18,14 @@ Encapsulates data and functions for managing animations.
 \begin{DoxyCompactList}\small\item\em Adds a new animation key to the animation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a3623e1f4009f033090b16de3eacd3006}{Select\+Animation\+Key}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, const char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em Selects an animation key by its name. \end{DoxyCompactList}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_ab4f538e93e78d8965894b66486e1c395}{Set\+Animation\+Parameters}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, sf\+Bool is\+\_\+paused, sf\+Bool is\+\_\+revert, sf\+Bool is\+\_\+stopped\+\_\+at\+\_\+last\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Sets various animation parameters. \end{DoxyCompactList}\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a0cadd534aebfaa5912b49e3f889152c4}{Is\+Revert}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Checks if the animation is reversed. \end{DoxyCompactList}\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a84ef828d573b1617c37b0e6a73bf6b22}{Is\+Paused}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Checks if the animation is paused. \end{DoxyCompactList}\item 
+sf\+Bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_ae6cb56742653148e2887ed9eb346d102}{Is\+Stopped\+At\+Last\+Frame}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
+\begin{DoxyCompactList}\small\item\em Checks if the animation stops at the last frame. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_animation___key}{Animation\+\_\+\+Key}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_ac94aaeef37785b7dfe8fab38a12224d6}{Get\+Current\+Animation\+Key}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
 \begin{DoxyCompactList}\small\item\em Retrieves the current animation key. \end{DoxyCompactList}\item 
 sf\+Rectangle\+Shape \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a8490d705ff41cce09406d911639d1408}{Get\+Renderer}} )(\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)
@@ -31,6 +39,10 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_animation_a76ee2779e38ed
 \doxysubsection{Detailed Description}
 Encapsulates data and functions for managing animations. 
 
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00112}{112}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+
+
 \doxysubsection{Field Documentation}
 \Hypertarget{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29}\index{Animation@{Animation}!\_Data@{\_Data}}
 \index{\_Data@{\_Data}!Animation@{Animation}}
@@ -38,7 +50,11 @@ Encapsulates data and functions for managing animations.
 {\footnotesize\ttfamily \label{struct_animation_a3558d4c58b753cbdeaefe1af5df0ff29} 
 \mbox{\hyperlink{_animation_8h_a6976ec0b17fa0de72cd28cc26b85734c}{Animation\+\_\+\+Data}}\texorpdfstring{$\ast$}{*} \+\_\+\+Data}
 
-Pointer to internal data for the animation. \Hypertarget{struct_animation_ad499900482505293873a7e3d45ca710a}\index{Animation@{Animation}!AddAnimationKey@{AddAnimationKey}}
+Pointer to internal data for the animation. 
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00114}{114}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_animation_ad499900482505293873a7e3d45ca710a}\index{Animation@{Animation}!AddAnimationKey@{AddAnimationKey}}
 \index{AddAnimationKey@{AddAnimationKey}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{AddAnimationKey}{AddAnimationKey}}
 {\footnotesize\ttfamily \label{struct_animation_ad499900482505293873a7e3d45ca710a} 
@@ -58,6 +74,10 @@ Adds a new animation key to the animation.
 \begin{DoxyReturn}{Returns}
 Pointer to the added animation key. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00122}{122}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{struct_animation_a76ee2779e38edb1d57c0e1fe724b8058}\index{Animation@{Animation}!Destroy@{Destroy}}
 \index{Destroy@{Destroy}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{Destroy}{Destroy}}
@@ -73,6 +93,10 @@ Destroys the animation and releases associated resources.
 {\em anim} & Pointer to the animation pointer to destroy. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00187}{187}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{struct_animation_ac94aaeef37785b7dfe8fab38a12224d6}\index{Animation@{Animation}!GetCurrentAnimationKey@{GetCurrentAnimationKey}}
 \index{GetCurrentAnimationKey@{GetCurrentAnimationKey}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{GetCurrentAnimationKey}{GetCurrentAnimationKey}}
@@ -91,6 +115,10 @@ Retrieves the current animation key.
 \begin{DoxyReturn}{Returns}
 Pointer to the current animation key. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00167}{167}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{struct_animation_a8490d705ff41cce09406d911639d1408}\index{Animation@{Animation}!GetRenderer@{GetRenderer}}
 \index{GetRenderer@{GetRenderer}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{GetRenderer}{GetRenderer}}
@@ -109,6 +137,76 @@ Retrieves the renderer for the animation.
 \begin{DoxyReturn}{Returns}
 Pointer to the rectangle shape used for rendering. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00174}{174}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_animation_a84ef828d573b1617c37b0e6a73bf6b22}\index{Animation@{Animation}!IsPaused@{IsPaused}}
+\index{IsPaused@{IsPaused}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{IsPaused}{IsPaused}}
+{\footnotesize\ttfamily \label{struct_animation_a84ef828d573b1617c37b0e6a73bf6b22} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} Is\+Paused) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Checks if the animation is paused. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if paused, otherwise sf\+False. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00153}{153}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_animation_a0cadd534aebfaa5912b49e3f889152c4}\index{Animation@{Animation}!IsRevert@{IsRevert}}
+\index{IsRevert@{IsRevert}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{IsRevert}{IsRevert}}
+{\footnotesize\ttfamily \label{struct_animation_a0cadd534aebfaa5912b49e3f889152c4} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} Is\+Revert) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Checks if the animation is reversed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if reversed, otherwise sf\+False. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00146}{146}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_animation_ae6cb56742653148e2887ed9eb346d102}\index{Animation@{Animation}!IsStoppedAtLastFrame@{IsStoppedAtLastFrame}}
+\index{IsStoppedAtLastFrame@{IsStoppedAtLastFrame}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{IsStoppedAtLastFrame}{IsStoppedAtLastFrame}}
+{\footnotesize\ttfamily \label{struct_animation_ae6cb56742653148e2887ed9eb346d102} 
+sf\+Bool(\texorpdfstring{$\ast$}{*} Is\+Stopped\+At\+Last\+Frame) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim)}
+
+
+
+Checks if the animation stops at the last frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+True if it stops at the last frame, otherwise sf\+False. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00160}{160}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{struct_animation_a3623e1f4009f033090b16de3eacd3006}\index{Animation@{Animation}!SelectAnimationKey@{SelectAnimationKey}}
 \index{SelectAnimationKey@{SelectAnimationKey}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{SelectAnimationKey}{SelectAnimationKey}}
@@ -129,6 +227,35 @@ Selects an animation key by its name.
 \begin{DoxyReturn}{Returns}
 Pointer to the selected animation key. 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00130}{130}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+\Hypertarget{struct_animation_ab4f538e93e78d8965894b66486e1c395}\index{Animation@{Animation}!SetAnimationParameters@{SetAnimationParameters}}
+\index{SetAnimationParameters@{SetAnimationParameters}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{SetAnimationParameters}{SetAnimationParameters}}
+{\footnotesize\ttfamily \label{struct_animation_ab4f538e93e78d8965894b66486e1c395} 
+void(\texorpdfstring{$\ast$}{*} Set\+Animation\+Parameters) (\mbox{\hyperlink{struct_animation}{Animation}} \texorpdfstring{$\ast$}{*}anim, sf\+Bool is\+\_\+paused, sf\+Bool is\+\_\+revert, sf\+Bool is\+\_\+stopped\+\_\+at\+\_\+last\+\_\+frame)}
+
+
+
+Sets various animation parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anim} & Pointer to the animation. \\
+\hline
+{\em is\+\_\+paused} & Whether the animation is paused. \\
+\hline
+{\em is\+\_\+revert} & Whether the animation plays in reverse. \\
+\hline
+{\em is\+\_\+stopped\+\_\+at\+\_\+last\+\_\+frame} & Whether the animation stops at the last frame. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00139}{139}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
 \Hypertarget{struct_animation_a54299950d4adb931928f36bbc3ee2ca6}\index{Animation@{Animation}!Update@{Update}}
 \index{Update@{Update}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{Update}{Update}}
@@ -148,6 +275,10 @@ Updates the animation based on elapsed time.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_animation_8h_source_l00181}{181}} of file \mbox{\hyperlink{_animation_8h_source}{Animation.\+h}}.
+
+
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/y.\+grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/y.\+grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\end{DoxyCompactItemize}

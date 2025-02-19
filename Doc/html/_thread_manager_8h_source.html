@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/ThreadManager.h Source File</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/ThreadManager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -153,20 +153,20 @@ $(function(){initNavTree('_thread_manager_8h_source.html',''); initResizable(tru
 </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="_thread_manager_8h.html#a99dc40445f277bf0294f56b0687b5dd1">   98</a></span><a class="code hl_struct" href="struct_thread_manager.html">ThreadManager</a>* <a class="code hl_function" href="_thread_manager_8h.html#a99dc40445f277bf0294f56b0687b5dd1">CreateThreadManager</a>(<span class="keywordtype">size_t</span> limit);</div>
-<div class="ttc" id="a_thread_manager_8h_html_a24994db2e17804a04c5ede725ea070f8"><div class="ttname"><a href="_thread_manager_8h.html#a24994db2e17804a04c5ede725ea070f8">ThreadManager_Data</a></div><div class="ttdeci">struct ThreadManager_Data ThreadManager_Data</div><div class="ttdoc">Opaque structure that holds the internal data for the thread manager.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:45</div></div>
+<div class="ttc" id="a_thread_manager_8h_html_a24994db2e17804a04c5ede725ea070f8"><div class="ttname"><a href="_thread_manager_8h.html#a24994db2e17804a04c5ede725ea070f8">ThreadManager_Data</a></div><div class="ttdeci">struct ThreadManager_Data ThreadManager_Data</div><div class="ttdoc">Opaque structure that holds the internal data for the thread manager.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">ThreadManager.h:45</a></div></div>
 <div class="ttc" id="a_thread_manager_8h_html_a99dc40445f277bf0294f56b0687b5dd1"><div class="ttname"><a href="_thread_manager_8h.html#a99dc40445f277bf0294f56b0687b5dd1">CreateThreadManager</a></div><div class="ttdeci">ThreadManager * CreateThreadManager(size_t limit)</div><div class="ttdoc">Creates a new ThreadManager with a specified thread limit.</div></div>
-<div class="ttc" id="astruct_thread_manager_html"><div class="ttname"><a href="struct_thread_manager.html">ThreadManager</a></div><div class="ttdoc">Contains function pointers to manage threads, including adding, updating, and destroying threads.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:58</div></div>
-<div class="ttc" id="astruct_thread_manager_html_a0621dc75309a153931333e0791f98d7a"><div class="ttname"><a href="struct_thread_manager.html#a0621dc75309a153931333e0791f98d7a">ThreadManager::_Data</a></div><div class="ttdeci">ThreadManager_Data * _Data</div><div class="ttdef"><b>Definition</b> ThreadManager.h:59</div></div>
-<div class="ttc" id="astruct_thread_manager_html_a333c9117391745797cc33d5935e58f34"><div class="ttname"><a href="struct_thread_manager.html#a333c9117391745797cc33d5935e58f34">ThreadManager::AddNewThread</a></div><div class="ttdeci">void(* AddNewThread)(ThreadManager *thread_manager, void(*func)(void *), void *func_data, sfBool copy_data, size_t data_size)</div><div class="ttdoc">Adds a new thread to the manager.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:71</div></div>
-<div class="ttc" id="astruct_thread_manager_html_a5c9a442416c696e91f6f4bfa94d2e209"><div class="ttname"><a href="struct_thread_manager.html#a5c9a442416c696e91f6f4bfa94d2e209">ThreadManager::Destroy</a></div><div class="ttdeci">void(* Destroy)(ThreadManager **thread_manager)</div><div class="ttdoc">Destroys the ThreadManager and releases all associated resources.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:90</div></div>
-<div class="ttc" id="astruct_thread_manager_html_a96742cf679674d8622333ed27c0aa1ae"><div class="ttname"><a href="struct_thread_manager.html#a96742cf679674d8622333ed27c0aa1ae">ThreadManager::Update</a></div><div class="ttdeci">void(* Update)(ThreadManager *thread_manager)</div><div class="ttdoc">Updates the state of all threads managed by the ThreadManager.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:84</div></div>
-<div class="ttc" id="astruct_thread_manager_html_adc00c20addb7c1ca1b894fec56c730fd"><div class="ttname"><a href="struct_thread_manager.html#adc00c20addb7c1ca1b894fec56c730fd">ThreadManager::GetThreadCount</a></div><div class="ttdeci">size_t(* GetThreadCount)(ThreadManager *thread_manager)</div><div class="ttdoc">Gets the current number of threads managed by the ThreadManager.</div><div class="ttdef"><b>Definition</b> ThreadManager.h:78</div></div>
+<div class="ttc" id="astruct_thread_manager_html"><div class="ttname"><a href="struct_thread_manager.html">ThreadManager</a></div><div class="ttdoc">Contains function pointers to manage threads, including adding, updating, and destroying threads.</div><div class="ttdef"><b>Definition</b> <a href="#l00057">ThreadManager.h:58</a></div></div>
+<div class="ttc" id="astruct_thread_manager_html_a0621dc75309a153931333e0791f98d7a"><div class="ttname"><a href="struct_thread_manager.html#a0621dc75309a153931333e0791f98d7a">ThreadManager::_Data</a></div><div class="ttdeci">ThreadManager_Data * _Data</div><div class="ttdef"><b>Definition</b> <a href="#l00059">ThreadManager.h:59</a></div></div>
+<div class="ttc" id="astruct_thread_manager_html_a333c9117391745797cc33d5935e58f34"><div class="ttname"><a href="struct_thread_manager.html#a333c9117391745797cc33d5935e58f34">ThreadManager::AddNewThread</a></div><div class="ttdeci">void(* AddNewThread)(ThreadManager *thread_manager, void(*func)(void *), void *func_data, sfBool copy_data, size_t data_size)</div><div class="ttdoc">Adds a new thread to the manager.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">ThreadManager.h:71</a></div></div>
+<div class="ttc" id="astruct_thread_manager_html_a5c9a442416c696e91f6f4bfa94d2e209"><div class="ttname"><a href="struct_thread_manager.html#a5c9a442416c696e91f6f4bfa94d2e209">ThreadManager::Destroy</a></div><div class="ttdeci">void(* Destroy)(ThreadManager **thread_manager)</div><div class="ttdoc">Destroys the ThreadManager and releases all associated resources.</div><div class="ttdef"><b>Definition</b> <a href="#l00090">ThreadManager.h:90</a></div></div>
+<div class="ttc" id="astruct_thread_manager_html_a96742cf679674d8622333ed27c0aa1ae"><div class="ttname"><a href="struct_thread_manager.html#a96742cf679674d8622333ed27c0aa1ae">ThreadManager::Update</a></div><div class="ttdeci">void(* Update)(ThreadManager *thread_manager)</div><div class="ttdoc">Updates the state of all threads managed by the ThreadManager.</div><div class="ttdef"><b>Definition</b> <a href="#l00084">ThreadManager.h:84</a></div></div>
+<div class="ttc" id="astruct_thread_manager_html_adc00c20addb7c1ca1b894fec56c730fd"><div class="ttname"><a href="struct_thread_manager.html#adc00c20addb7c1ca1b894fec56c730fd">ThreadManager::GetThreadCount</a></div><div class="ttdeci">size_t(* GetThreadCount)(ThreadManager *thread_manager)</div><div class="ttdoc">Gets the current number of threads managed by the ThreadManager.</div><div class="ttdef"><b>Definition</b> <a href="#l00078">ThreadManager.h:78</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_thread_manager_8h.html">ThreadManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_thread_manager_8h.html">ThreadManager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

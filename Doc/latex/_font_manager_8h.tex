@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Font\+Manager.h File Reference}
-\hypertarget{_font_manager_8h}{}\label{_font_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/FontManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/FontManager.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Font\+Manager.h File Reference}
+\hypertarget{_font_manager_8h}{}\label{_font_manager_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/FontManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/FontManager.h}}
 
 
 This file contains all the data to load fonts for the engine.  
@@ -23,20 +23,27 @@ typedef struct Font \mbox{\hyperlink{_font_manager_8h_a6793c760667fe6bf1481f6156
 \begin{DoxyCompactList}\small\item\em Creates a new font object from a file path. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_font_manager_8h_a741e81a1c660451477871b8439588a27}{Delete\+Font}} (\mbox{\hyperlink{struct_font}{Font}} \texorpdfstring{$\ast$}{*}font)
 \begin{DoxyCompactList}\small\item\em Deletes a font object and releases its associated resources. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_font_manager_8h_a4722cd2a9eeca57355a3fb1680e3d2cf}{Init\+Font\+Manager}} (void)
+\Hypertarget{_font_manager_8h_a4722cd2a9eeca57355a3fb1680e3d2cf}\label{_font_manager_8h_a4722cd2a9eeca57355a3fb1680e3d2cf} 
+void {\bfseries Init\+Font\+Manager} (void)
 \begin{DoxyCompactList}\small\item\em Initializes the font manager. This function sets up resources and data structures for font management. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_font_manager_8h_a9567f4769cde26f9a44ae74d45485edf}{Load\+Scene\+Font}} (const char \texorpdfstring{$\ast$}{*}scene)
+void \mbox{\hyperlink{_font_manager_8h_a5535b80b9d1f10fe6da8dd39572bf430}{Load\+Scene\+Font}} (const char \texorpdfstring{$\ast$}{*}scene, float \texorpdfstring{$\ast$}{*}progress\+Value)
 \begin{DoxyCompactList}\small\item\em Loads fonts associated with a specific scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_font_manager_8h_afe37678bf61b8f75cf4ed715f220cbba}{Clear\+Scene\+Font}} (void)
+\Hypertarget{_font_manager_8h_afe37678bf61b8f75cf4ed715f220cbba}\label{_font_manager_8h_afe37678bf61b8f75cf4ed715f220cbba} 
+void {\bfseries Clear\+Scene\+Font} (void)
 \begin{DoxyCompactList}\small\item\em Clears all fonts associated with the current scene. This function frees memory and unloads scene-\/specific fonts. \end{DoxyCompactList}\item 
 sf\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_font_manager_8h_a1866ff1a60d583bb1403b2f6e1b932f3}{Get\+Font}} (const char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em Retrieves a font object by its name. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_font_manager_8h_aa33e184d438525bbd5d18479e1ce83f8}{Destroy\+Fonts\+Manager}} (void)
+\Hypertarget{_font_manager_8h_aa33e184d438525bbd5d18479e1ce83f8}\label{_font_manager_8h_aa33e184d438525bbd5d18479e1ce83f8} 
+void {\bfseries Destroy\+Fonts\+Manager} (void)
 \begin{DoxyCompactList}\small\item\em Destroys the font manager and releases all associated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This file contains all the data to load fonts for the engine. 
+
+
+
+Definition in file \mbox{\hyperlink{_font_manager_8h_source}{Font\+Manager.\+h}}.
 
 
 
@@ -49,17 +56,11 @@ typedef struct Font Font}
 
 
 
+Definition at line \mbox{\hyperlink{_font_manager_8h_source_l00038}{38}} of file \mbox{\hyperlink{_font_manager_8h_source}{Font\+Manager.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{_font_manager_8h_afe37678bf61b8f75cf4ed715f220cbba}\index{FontManager.h@{FontManager.h}!ClearSceneFont@{ClearSceneFont}}
-\index{ClearSceneFont@{ClearSceneFont}!FontManager.h@{FontManager.h}}
-\doxysubsubsection{\texorpdfstring{ClearSceneFont()}{ClearSceneFont()}}
-{\footnotesize\ttfamily \label{_font_manager_8h_afe37678bf61b8f75cf4ed715f220cbba} 
-void Clear\+Scene\+Font (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Clears all fonts associated with the current scene. This function frees memory and unloads scene-\/specific fonts. 
-
 \Hypertarget{_font_manager_8h_a4200680cc51b40747b1c224784bef564}\index{FontManager.h@{FontManager.h}!CreateFont@{CreateFont}}
 \index{CreateFont@{CreateFont}!FontManager.h@{FontManager.h}}
 \doxysubsubsection{\texorpdfstring{CreateFont()}{CreateFont()}}
@@ -93,16 +94,6 @@ Deletes a font object and releases its associated resources.
 {\em font} & Pointer to the \doxylink{struct_font}{Font} object to delete. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_font_manager_8h_aa33e184d438525bbd5d18479e1ce83f8}\index{FontManager.h@{FontManager.h}!DestroyFontsManager@{DestroyFontsManager}}
-\index{DestroyFontsManager@{DestroyFontsManager}!FontManager.h@{FontManager.h}}
-\doxysubsubsection{\texorpdfstring{DestroyFontsManager()}{DestroyFontsManager()}}
-{\footnotesize\ttfamily \label{_font_manager_8h_aa33e184d438525bbd5d18479e1ce83f8} 
-void Destroy\+Fonts\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Destroys the font manager and releases all associated resources. 
-
 \Hypertarget{_font_manager_8h_a1866ff1a60d583bb1403b2f6e1b932f3}\index{FontManager.h@{FontManager.h}!GetFont@{GetFont}}
 \index{GetFont@{GetFont}!FontManager.h@{FontManager.h}}
 \doxysubsubsection{\texorpdfstring{GetFont()}{GetFont()}}
@@ -121,21 +112,11 @@ Retrieves a font object by its name.
 \begin{DoxyReturn}{Returns}
 Pointer to the font object if found, or NULL if not found. 
 \end{DoxyReturn}
-\Hypertarget{_font_manager_8h_a4722cd2a9eeca57355a3fb1680e3d2cf}\index{FontManager.h@{FontManager.h}!InitFontManager@{InitFontManager}}
-\index{InitFontManager@{InitFontManager}!FontManager.h@{FontManager.h}}
-\doxysubsubsection{\texorpdfstring{InitFontManager()}{InitFontManager()}}
-{\footnotesize\ttfamily \label{_font_manager_8h_a4722cd2a9eeca57355a3fb1680e3d2cf} 
-void Init\+Font\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Initializes the font manager. This function sets up resources and data structures for font management. 
-
-\Hypertarget{_font_manager_8h_a9567f4769cde26f9a44ae74d45485edf}\index{FontManager.h@{FontManager.h}!LoadSceneFont@{LoadSceneFont}}
+\Hypertarget{_font_manager_8h_a5535b80b9d1f10fe6da8dd39572bf430}\index{FontManager.h@{FontManager.h}!LoadSceneFont@{LoadSceneFont}}
 \index{LoadSceneFont@{LoadSceneFont}!FontManager.h@{FontManager.h}}
 \doxysubsubsection{\texorpdfstring{LoadSceneFont()}{LoadSceneFont()}}
-{\footnotesize\ttfamily \label{_font_manager_8h_a9567f4769cde26f9a44ae74d45485edf} 
-void Load\+Scene\+Font (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_font_manager_8h_a5535b80b9d1f10fe6da8dd39572bf430} 
+void Load\+Scene\+Font (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{progress\+Value}{}\end{DoxyParamCaption})}
 
 
 

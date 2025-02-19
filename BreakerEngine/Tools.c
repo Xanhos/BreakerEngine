@@ -324,7 +324,7 @@ sfBool CircleRect_Collision(sfVector2f pos, float radius, sfFloatRect _rect, sfB
 
 	float distX = pos.x - testX;
 	float distY = pos.y - testY;
-	float distance = sqrt((distX * distX) + (distY * distY));
+	float distance = (float)sqrt((distX * distX) + (distY * distY));
 
 	if (distance <= radius) {
 		return sfTrue;
@@ -348,9 +348,9 @@ sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector
 
 	float distX = start_line.x - end_line.x;
 	float distY = start_line.y - end_line.y;
-	float len = sqrt((distX * distX) + (distY * distY));
+	float len = (float)sqrt((distX * distX) + (distY * distY));
 
-	float dot = (((circle_pos.x - start_line.x) * (end_line.x - start_line.x)) + ((circle_pos.x - start_line.y) * (end_line.y - start_line.y))) / pow(len, 2);
+	float dot = (((circle_pos.x - start_line.x) * (end_line.x - start_line.x)) + ((circle_pos.x - start_line.y) * (end_line.y - start_line.y))) / (float)pow(len, 2);
 
 	float closestX = start_line.x + (dot * (end_line.x - start_line.x));
 	float closestY = end_line.y + (dot * (end_line.y - start_line.y));
@@ -361,7 +361,7 @@ sfBool LineCircle_Collision(sfVector2f start_line, sfVector2f end_line, sfVector
 
 	distX = closestX - circle_pos.x;
 	distY = closestY - circle_pos.y;
-	float distance = sqrt((distX * distX) + (distY * distY));
+	float distance = (float)sqrt((distX * distX) + (distY * distY));
 
 	if (distance <= r) {
 		return sfTrue;
@@ -478,12 +478,12 @@ double rand_float(float _min, float _max)
 
 sfVector2f GetRandomPosInRectangle(sfFloatRect rect)
 {
-	return sfVector2f_Create(rand_float(rect.left, rect.width), rand_float(rect.top, rect.height));
+	return sfVector2f_Create((float)rand_float(rect.left, rect.width), (float)rand_float(rect.top, rect.height));
 }
 
 sfVector2f GetRandomPosInCircle(sfVector2f pos, float radius)
 {
-	return GetVectorFromAngle(pos, rand_float(0, radius), rand_float(0, 360));
+	return GetVectorFromAngle(pos, (float)rand_float(0, radius), (float)rand_float(0, 360));
 }
 
 
@@ -510,8 +510,8 @@ sfVector2f GetVectorFromAngle(sfVector2f pos, float lenght, float angle)
 {
 	angle *= DEG2RAD;
 
-	float x = pos.x + lenght * cos(angle);
-	float y = pos.y + lenght * sin(angle);
+	float x = pos.x + lenght * (float)cos(angle);
+	float y = pos.y + lenght * (float)sin(angle);
 
 	return sfVector2f_Create(x, y);
 }
@@ -583,5 +583,5 @@ float GetFileSizeCustom(const char* filePath)
 	}
 	long size = ftell(file);
 	fclose(file);
-	return size;
+	return (float)size;
 }

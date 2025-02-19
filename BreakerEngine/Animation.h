@@ -25,12 +25,10 @@
 #include "ResourcesManager.h"
 #include "WindowManager.h"
 
-
 /**
  * @file animation.h
- * @brief This file defines the Animation system structure and functions for managing a animation.
+ * @brief This file defines the Animation system structure and functions for managing an animation.
  */
-
 
  /**
   * @typedef Animation_Key
@@ -80,8 +78,18 @@ struct Animation_Key
 	 */
 	void (*SetCurrentFrame)(Animation_Key* anim_key, int frame);
 
+	/**
+	 * @brief Retrieves the name of the animation key.
+	 * @param anim_key Pointer to the animation key.
+	 * @return Name of the animation key.
+	 */
 	const char* (*GetAnimationKeyName)(Animation_Key* anim_key);
 
+	/**
+	 * @brief Checks if the animation has finished playing.
+	 * @param anim_key Pointer to the animation key.
+	 * @return sfTrue if the animation has finished, otherwise sfFalse.
+	 */
 	sfBool(*HasFinishAnim)(Animation_Key* anim_key);
 };
 
@@ -121,11 +129,36 @@ struct Animation
 	 */
 	Animation_Key* (*SelectAnimationKey)(Animation* anim, const char* name);
 
+	/**
+	 * @brief Sets various animation parameters.
+	 * @param anim Pointer to the animation.
+	 * @param is_paused Whether the animation is paused.
+	 * @param is_revert Whether the animation plays in reverse.
+	 * @param is_stopped_at_last_frame Whether the animation stops at the last frame.
+	 */
 	void (*SetAnimationParameters)(Animation* anim, sfBool is_paused, sfBool is_revert, sfBool is_stopped_at_last_frame);
 
+	/**
+	 * @brief Checks if the animation is reversed.
+	 * @param anim Pointer to the animation.
+	 * @return sfTrue if reversed, otherwise sfFalse.
+	 */
 	sfBool(*IsRevert)(Animation* anim);
+
+	/**
+	 * @brief Checks if the animation is paused.
+	 * @param anim Pointer to the animation.
+	 * @return sfTrue if paused, otherwise sfFalse.
+	 */
 	sfBool(*IsPaused)(Animation* anim);
+
+	/**
+	 * @brief Checks if the animation stops at the last frame.
+	 * @param anim Pointer to the animation.
+	 * @return sfTrue if it stops at the last frame, otherwise sfFalse.
+	 */
 	sfBool(*IsStoppedAtLastFrame)(Animation* anim);
+
 	/**
 	 * @brief Retrieves the current animation key.
 	 * @param anim Pointer to the animation.
@@ -190,16 +223,56 @@ Animation* CreateAnimationFromFile(const char* path, sfTexture* texture);
  */
 void sfRenderWindow_drawAnimation(WindowManager* window, Animation* anim, sfRenderStates* states);
 
+/**
+ * @typedef SimpleAnim
+ * @brief Represents a simplified animation structure.
+ */
 typedef struct SimpleAnim SimpleAnim;
+
+/**
+ * @typedef SimpleAnim_Data
+ * @brief Holds internal data for a simple animation.
+ */
 typedef struct SimpleAnim_Data SimpleAnim_Data;
 
+/**
+ * @struct SimpleAnim
+ * @brief Encapsulates data and functions for a simple animation.
+ */
 struct SimpleAnim
 {
-	SimpleAnim_Data* _Data;
+	SimpleAnim_Data* _Data; /**< Pointer to internal data for the simple animation. */
+
+	/**
+	 * @brief Retrieves the sprite used for rendering.
+	 * @param anim Pointer to the simple animation.
+	 * @return Pointer to the sprite.
+	 */
 	sfSprite* (*GetRenderer)(SimpleAnim* anim);
+
+	/**
+	 * @brief Updates the simple animation.
+	 * @param anim Pointer to the simple animation.
+	 * @param deltaTime Time elapsed since the last update.
+	 */
 	void (*Update)(SimpleAnim* anim, float deltaTime);
+
+	/**
+	 * @brief Draws the simple animation.
+	 * @param anim Pointer to the simple animation.
+	 * @param window Pointer to the render window.
+	 * @param state Render states to apply.
+	 */
 	void (*Draw)(SimpleAnim* anim, sfRenderWindow* window, sfRenderStates* state);
+
+	/**
+	 * @brief Destroys the simple animation and releases resources.
+	 * @param anim Pointer to the simple animation pointer to destroy.
+	 */
 	void (*Destroy)(SimpleAnim** anim);
 };
 
+/**
+ * @brief Creates a new simple animation.
+ */
 SimpleAnim* CreateSimpleAnim(sfTexture* texture, sfIntRect rect, int line_number, int line_frame_number, int total_frame, float frame_time);

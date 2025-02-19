@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BreakerEngine: C:/Users/y.grallan/Documents/GitCours/C/C-Manager/Header/Game.h Source File</title>
+<title>BreakerEngine: C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine_/Game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BreakerEngine
+   <div id="projectname">BreakerEngine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">An Advanced Engine for SFML</div>
+   <div id="projectbrief">An advanced game engine for CSFML</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -117,46 +117,53 @@ $(function(){initNavTree('_game_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"></span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    Copyright (c) 2025 GRALLAN Yann</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="_resources_manager_8h.html">ResourcesManager.h</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="_window_manager_8h.html">WindowManager.h</a>&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="_thread_manager_8h.html">ThreadManager.h</a>&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="_animation_8h.html">Animation.h</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="_state_8h.html">State.h</a>&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_game_8h.html#a9192f490d1bf76e4dd171b2c101c2b34">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a9192f490d1bf76e4dd171b2c101c2b34">StartGame</a>(<a class="code hl_struct" href="struct_window_manager.html">WindowManager</a>* window_manager, <span class="keywordtype">char</span>* starting_state, <a class="code hl_struct" href="struct_animation.html">Animation</a>* loading_screen_animation, <span class="keyword">const</span> <span class="keywordtype">char</span>* key_anim_name);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_game_8h.html#a888ff971426076920c336d7d3ad4840e">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a888ff971426076920c336d7d3ad4840e">ChangeState</a>(<span class="keywordtype">char</span>* state_name);</div>
-<div class="ttc" id="a_animation_8h_html"><div class="ttname"><a href="_animation_8h.html">Animation.h</a></div><div class="ttdoc">This file defines the Animation system structure and functions for managing a animation.</div></div>
-<div class="ttc" id="a_game_8h_html_a888ff971426076920c336d7d3ad4840e"><div class="ttname"><a href="_game_8h.html#a888ff971426076920c336d7d3ad4840e">ChangeState</a></div><div class="ttdeci">void ChangeState(char *state_name)</div><div class="ttdoc">Changes the current state of the application.</div></div>
-<div class="ttc" id="a_game_8h_html_a9192f490d1bf76e4dd171b2c101c2b34"><div class="ttname"><a href="_game_8h.html#a9192f490d1bf76e4dd171b2c101c2b34">StartGame</a></div><div class="ttdeci">void StartGame(WindowManager *window_manager, char *starting_state, Animation *loading_screen_animation, const char *key_anim_name)</div><div class="ttdoc">Starts the game with a specified loading screen animation.</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"></span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="_resources_manager_8h.html">ResourcesManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="_window_manager_8h.html">WindowManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="_thread_manager_8h.html">ThreadManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="_animation_8h.html">Animation.h</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="_state_8h.html">State.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="_game_8h.html#a5b9b03801ff0c87e2c299290ae5108ac">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a5b9b03801ff0c87e2c299290ae5108ac">StartGame</a>(<a class="code hl_struct" href="struct_window_manager.html">WindowManager</a>* window_manager, <span class="keyword">const</span> <span class="keywordtype">char</span>* starting_state, <span class="keyword">const</span> <span class="keywordtype">char</span>* loading_state, <span class="keywordtype">void</span>(*ResetLoadingStateFunc)(<a class="code hl_struct" href="struct_window_manager.html">WindowManager</a>* window));</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_game_8h.html#a5cf564c7f1160a157bb48f546e7b1698">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a5cf564c7f1160a157bb48f546e7b1698">EndGame</a>(<a class="code hl_struct" href="struct_window_manager.html">WindowManager</a>* window);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_game_8h.html#a35c71e7f77f3542e3c52d5ee1838003a">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a35c71e7f77f3542e3c52d5ee1838003a">ChangeMainState</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* state_name);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="_game_8h.html#a07d53454948499cf8a28cc7c9a4e267f">   64</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a07d53454948499cf8a28cc7c9a4e267f">RegisterSubState</a>(<span class="keywordtype">char</span>* state_name, <a class="code hl_struct" href="struct_window_manager.html">WindowManager</a>* window, sfBool update_of_below_state, sfBool display_of_below_state);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_game_8h.html#aa576699d6bc218b2660467b2a54d2e5b">   70</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#aa576699d6bc218b2660467b2a54d2e5b">PushSubState</a>(<span class="keywordtype">char</span>* state_name);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="_game_8h.html#a445c51d1e270341ee8f7fc15adcc0fb4">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_game_8h.html#a445c51d1e270341ee8f7fc15adcc0fb4">PopSubState</a>();</div>
+<div class="ttc" id="a_animation_8h_html"><div class="ttname"><a href="_animation_8h.html">Animation.h</a></div><div class="ttdoc">This file defines the Animation system structure and functions for managing an animation.</div></div>
+<div class="ttc" id="a_game_8h_html_a07d53454948499cf8a28cc7c9a4e267f"><div class="ttname"><a href="_game_8h.html#a07d53454948499cf8a28cc7c9a4e267f">RegisterSubState</a></div><div class="ttdeci">void RegisterSubState(char *state_name, WindowManager *window, sfBool update_of_below_state, sfBool display_of_below_state)</div><div class="ttdoc">Registers a sub-state to the application.</div></div>
+<div class="ttc" id="a_game_8h_html_a35c71e7f77f3542e3c52d5ee1838003a"><div class="ttname"><a href="_game_8h.html#a35c71e7f77f3542e3c52d5ee1838003a">ChangeMainState</a></div><div class="ttdeci">void ChangeMainState(const char *state_name)</div><div class="ttdoc">Changes the current state of the application.</div></div>
+<div class="ttc" id="a_game_8h_html_a445c51d1e270341ee8f7fc15adcc0fb4"><div class="ttname"><a href="_game_8h.html#a445c51d1e270341ee8f7fc15adcc0fb4">PopSubState</a></div><div class="ttdeci">void PopSubState()</div><div class="ttdoc">Pops the current sub-state from the stack, returning to the previous state.</div></div>
+<div class="ttc" id="a_game_8h_html_a5b9b03801ff0c87e2c299290ae5108ac"><div class="ttname"><a href="_game_8h.html#a5b9b03801ff0c87e2c299290ae5108ac">StartGame</a></div><div class="ttdeci">void StartGame(WindowManager *window_manager, const char *starting_state, const char *loading_state, void(*ResetLoadingStateFunc)(WindowManager *window))</div><div class="ttdoc">Starts the game with a specified loading screen animation.</div></div>
+<div class="ttc" id="a_game_8h_html_a5cf564c7f1160a157bb48f546e7b1698"><div class="ttname"><a href="_game_8h.html#a5cf564c7f1160a157bb48f546e7b1698">EndGame</a></div><div class="ttdeci">void EndGame(WindowManager *window)</div><div class="ttdoc">Ends the game and exits the StartGame function.</div></div>
+<div class="ttc" id="a_game_8h_html_aa576699d6bc218b2660467b2a54d2e5b"><div class="ttname"><a href="_game_8h.html#aa576699d6bc218b2660467b2a54d2e5b">PushSubState</a></div><div class="ttdeci">void PushSubState(char *state_name)</div><div class="ttdoc">Pushes a sub-state onto the state stack.</div></div>
 <div class="ttc" id="a_resources_manager_8h_html"><div class="ttname"><a href="_resources_manager_8h.html">ResourcesManager.h</a></div><div class="ttdoc">This file contains all the data to manage all the resources used by the engine.</div></div>
-<div class="ttc" id="a_state_8h_html"><div class="ttname"><a href="_state_8h.html">State.h</a></div><div class="ttdoc">This file contains the function prototypes for managing states in the application.</div></div>
+<div class="ttc" id="a_state_8h_html"><div class="ttname"><a href="_state_8h.html">State.h</a></div><div class="ttdoc">This file contains the function prototypes for managing states in the application....</div></div>
 <div class="ttc" id="a_thread_manager_8h_html"><div class="ttname"><a href="_thread_manager_8h.html">ThreadManager.h</a></div><div class="ttdoc">This file defines the ThreadManager structure and functions for managing a multitude of thread.</div></div>
 <div class="ttc" id="a_window_manager_8h_html"><div class="ttname"><a href="_window_manager_8h.html">WindowManager.h</a></div><div class="ttdoc">This file defines the WindowManager structure and functions for managing a window and all the setting...</div></div>
-<div class="ttc" id="astruct_animation_html"><div class="ttname"><a href="struct_animation.html">Animation</a></div><div class="ttdoc">Encapsulates data and functions for managing animations.</div><div class="ttdef"><b>Definition</b> Animation.h:100</div></div>
-<div class="ttc" id="astruct_window_manager_html"><div class="ttname"><a href="struct_window_manager.html">WindowManager</a></div><div class="ttdoc">A structure that manages window operations and custom parameters.</div><div class="ttdef"><b>Definition</b> WindowManager.h:58</div></div>
+<div class="ttc" id="astruct_window_manager_html"><div class="ttname"><a href="struct_window_manager.html">WindowManager</a></div><div class="ttdoc">A structure that manages window operations and custom parameters.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00060">WindowManager.h:61</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9791a719fed70302b85149de9ff5a60f.html">Header</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
+    <li class="navelem"><a class="el" href="dir_74bfa73bd1359b4ba0bbdca20ae55686.html">BreakerEngine_</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

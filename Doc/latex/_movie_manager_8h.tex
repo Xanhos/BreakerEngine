@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Git\+Cours/\+C/\+C-\/\+Manager/\+Header/\+Movie\+Manager.h File Reference}
-\hypertarget{_movie_manager_8h}{}\label{_movie_manager_8h}\index{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MovieManager.h@{C:/Users/y.grallan/Documents/GitCours/C/C-\/Manager/Header/MovieManager.h}}
+\doxysection{C\+:/\+Users/y.grallan/\+Documents/\+Breaker\+Engine/\+Breaker\+Engine\+\_\+/\+Movie\+Manager.h File Reference}
+\hypertarget{_movie_manager_8h}{}\label{_movie_manager_8h}\index{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/MovieManager.h@{C:/Users/y.grallan/Documents/BreakerEngine/BreakerEngine\_/MovieManager.h}}
 
 
 This file contains all the data to load movies for the engine.  
@@ -23,20 +23,27 @@ typedef struct Movie \mbox{\hyperlink{_movie_manager_8h_a650f97ae5af79464874764f
 \begin{DoxyCompactList}\small\item\em Creates a new movie object from a file path. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_movie_manager_8h_a9bea11167b6b551740e204c4321fa5da}{Delete\+Movie}} (\mbox{\hyperlink{struct_movie}{Movie}} \texorpdfstring{$\ast$}{*}movie)
 \begin{DoxyCompactList}\small\item\em Deletes a movie object and releases its associated resources. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_movie_manager_8h_af03905ac5ad720e07607b95c5ceaf497}{Init\+Movie\+Manager}} (void)
+\Hypertarget{_movie_manager_8h_af03905ac5ad720e07607b95c5ceaf497}\label{_movie_manager_8h_af03905ac5ad720e07607b95c5ceaf497} 
+void {\bfseries Init\+Movie\+Manager} (void)
 \begin{DoxyCompactList}\small\item\em Initializes the movie manager. This function sets up resources and data structures for movie management. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_movie_manager_8h_a4263ba80882bee09be9d417e62e1fa77}{Load\+Scene\+Movie}} (const char \texorpdfstring{$\ast$}{*}scene)
+void \mbox{\hyperlink{_movie_manager_8h_a148f516394aac9345d5fb377ea1cdd41}{Load\+Scene\+Movie}} (const char \texorpdfstring{$\ast$}{*}scene, float \texorpdfstring{$\ast$}{*}progress\+Value)
 \begin{DoxyCompactList}\small\item\em Loads movies associated with a specific scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_movie_manager_8h_a51b1507110b3156fb3eefac22c383218}{Clear\+Scene\+Movie}} (void)
+\Hypertarget{_movie_manager_8h_a51b1507110b3156fb3eefac22c383218}\label{_movie_manager_8h_a51b1507110b3156fb3eefac22c383218} 
+void {\bfseries Clear\+Scene\+Movie} (void)
 \begin{DoxyCompactList}\small\item\em Clears all movies associated with the current scene. This function frees memory and unloads scene-\/specific movies. \end{DoxyCompactList}\item 
 sfe\+Movie \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_movie_manager_8h_a63ab07acd4838bcc99910649abce8543}{Get\+Movie}} (const char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em Retrieves a movie object by its name. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_movie_manager_8h_ae9b06e7aecb33fcf021984c17f108048}{Destroy\+Movies\+Manager}} (void)
+\Hypertarget{_movie_manager_8h_ae9b06e7aecb33fcf021984c17f108048}\label{_movie_manager_8h_ae9b06e7aecb33fcf021984c17f108048} 
+void {\bfseries Destroy\+Movies\+Manager} (void)
 \begin{DoxyCompactList}\small\item\em Destroys the movie manager and releases all associated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This file contains all the data to load movies for the engine. 
+
+
+
+Definition in file \mbox{\hyperlink{_movie_manager_8h_source}{Movie\+Manager.\+h}}.
 
 
 
@@ -49,17 +56,11 @@ typedef struct Movie Movie}
 
 
 
+Definition at line \mbox{\hyperlink{_movie_manager_8h_source_l00036}{36}} of file \mbox{\hyperlink{_movie_manager_8h_source}{Movie\+Manager.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{_movie_manager_8h_a51b1507110b3156fb3eefac22c383218}\index{MovieManager.h@{MovieManager.h}!ClearSceneMovie@{ClearSceneMovie}}
-\index{ClearSceneMovie@{ClearSceneMovie}!MovieManager.h@{MovieManager.h}}
-\doxysubsubsection{\texorpdfstring{ClearSceneMovie()}{ClearSceneMovie()}}
-{\footnotesize\ttfamily \label{_movie_manager_8h_a51b1507110b3156fb3eefac22c383218} 
-void Clear\+Scene\+Movie (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Clears all movies associated with the current scene. This function frees memory and unloads scene-\/specific movies. 
-
 \Hypertarget{_movie_manager_8h_aef283008e3e31ee921e2e6d27b98ee3f}\index{MovieManager.h@{MovieManager.h}!CreateMovie@{CreateMovie}}
 \index{CreateMovie@{CreateMovie}!MovieManager.h@{MovieManager.h}}
 \doxysubsubsection{\texorpdfstring{CreateMovie()}{CreateMovie()}}
@@ -93,16 +94,6 @@ Deletes a movie object and releases its associated resources.
 {\em movie} & Pointer to the \doxylink{struct_movie}{Movie} object to delete. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_movie_manager_8h_ae9b06e7aecb33fcf021984c17f108048}\index{MovieManager.h@{MovieManager.h}!DestroyMoviesManager@{DestroyMoviesManager}}
-\index{DestroyMoviesManager@{DestroyMoviesManager}!MovieManager.h@{MovieManager.h}}
-\doxysubsubsection{\texorpdfstring{DestroyMoviesManager()}{DestroyMoviesManager()}}
-{\footnotesize\ttfamily \label{_movie_manager_8h_ae9b06e7aecb33fcf021984c17f108048} 
-void Destroy\+Movies\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Destroys the movie manager and releases all associated resources. 
-
 \Hypertarget{_movie_manager_8h_a63ab07acd4838bcc99910649abce8543}\index{MovieManager.h@{MovieManager.h}!GetMovie@{GetMovie}}
 \index{GetMovie@{GetMovie}!MovieManager.h@{MovieManager.h}}
 \doxysubsubsection{\texorpdfstring{GetMovie()}{GetMovie()}}
@@ -121,21 +112,11 @@ Retrieves a movie object by its name.
 \begin{DoxyReturn}{Returns}
 Pointer to the movie object if found, or NULL if not found. 
 \end{DoxyReturn}
-\Hypertarget{_movie_manager_8h_af03905ac5ad720e07607b95c5ceaf497}\index{MovieManager.h@{MovieManager.h}!InitMovieManager@{InitMovieManager}}
-\index{InitMovieManager@{InitMovieManager}!MovieManager.h@{MovieManager.h}}
-\doxysubsubsection{\texorpdfstring{InitMovieManager()}{InitMovieManager()}}
-{\footnotesize\ttfamily \label{_movie_manager_8h_af03905ac5ad720e07607b95c5ceaf497} 
-void Init\+Movie\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Initializes the movie manager. This function sets up resources and data structures for movie management. 
-
-\Hypertarget{_movie_manager_8h_a4263ba80882bee09be9d417e62e1fa77}\index{MovieManager.h@{MovieManager.h}!LoadSceneMovie@{LoadSceneMovie}}
+\Hypertarget{_movie_manager_8h_a148f516394aac9345d5fb377ea1cdd41}\index{MovieManager.h@{MovieManager.h}!LoadSceneMovie@{LoadSceneMovie}}
 \index{LoadSceneMovie@{LoadSceneMovie}!MovieManager.h@{MovieManager.h}}
 \doxysubsubsection{\texorpdfstring{LoadSceneMovie()}{LoadSceneMovie()}}
-{\footnotesize\ttfamily \label{_movie_manager_8h_a4263ba80882bee09be9d417e62e1fa77} 
-void Load\+Scene\+Movie (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_movie_manager_8h_a148f516394aac9345d5fb377ea1cdd41} 
+void Load\+Scene\+Movie (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{scene}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{progress\+Value}{}\end{DoxyParamCaption})}
 
 
 

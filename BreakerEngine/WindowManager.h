@@ -41,10 +41,10 @@
  */
 
 
-/**
- * @typedef WindowManager
- * @brief Structure for managing the window and related operations.
- */
+ /**
+  * @typedef WindowManager
+  * @brief Structure for managing the window and related operations.
+  */
 typedef struct WindowManager WindowManager;
 
 /**
@@ -120,7 +120,7 @@ struct WindowManager
 	 *
 	 *     fps = 200;
 	 *     window_manager->SetCustomParam(window_manager, "FPS", &fps); // Set the FPS limit to 200
-	 *     window_manager->SetCustomParam(window_manager, "FPS", STD_CONVERT(unsigned int, 200)); // The use of STD_CONVERT macro is usefull to set the value directly
+	 *     window_manager->SetCustomParam(window_manager, "FPS", STD_CONVERT(unsigned int, 200)); // The use of STD_CONVERT macro is useful to set the value directly
 	 * }
 	 * @endcode
 	 */
@@ -245,23 +245,110 @@ struct WindowManager
 	 */
 	sfView* (*GetCustomView)(const WindowManager* window);
 
+	/**
+	 * @brief Sets the default view for the window manager.
+	 * @param window The WindowManager instance.
+	 */
 	void (*SetDefaultView)(const WindowManager* window);
 
+	/**
+	 * @brief Retrieves the default view for the window manager.
+	 * @param window The WindowManager instance.
+	 * @return The default sfView.
+	 */
 	sfView* (*GetDefaultView)(const WindowManager* window);
 
+	/**
+	 * @brief Clears the window with the given color.
+	 * @param window The WindowManager instance.
+	 * @param color The color to clear the window with.
+	 */
 	void (*Clear)(const WindowManager* window, sfColor color);
 
+	/**
+	 * @brief Displays the window content.
+	 * @param window The WindowManager instance.
+	 */
 	void(*Display)(const WindowManager* window);
 
+	/**
+	 * @brief Draws a sprite object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The sprite object to draw.
+	 * @param states Render states for the sprite.
+	 */
 	void(*DrawSprite)(const WindowManager* window, const sfSprite* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a text object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The text object to draw.
+	 * @param states Render states for the text.
+	 */
 	void(*DrawText)(const WindowManager* window, const sfText* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a shape object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The shape object to draw.
+	 * @param states Render states for the shape.
+	 */
 	void(*DrawShape)(const WindowManager* window, const sfShape* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a circle shape object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The circle shape object to draw.
+	 * @param states Render states for the circle shape.
+	 */
 	void(*DrawCircleShape)(const WindowManager* window, const sfCircleShape* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a convex shape object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The convex shape object to draw.
+	 * @param states Render states for the convex shape.
+	 */
 	void(*DrawConvexShape)(const WindowManager* window, const sfConvexShape* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a rectangle shape object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The rectangle shape object to draw.
+	 * @param states Render states for the rectangle shape.
+	 */
 	void(*DrawRectangleShape)(const WindowManager* window, const sfRectangleShape* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a vertex array object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The vertex array object to draw.
+	 * @param states Render states for the vertex array.
+	 */
 	void(*DrawVertexArray)(const WindowManager* window, const sfVertexArray* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws a vertex buffer object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The vertex buffer object to draw.
+	 * @param states Render states for the vertex buffer.
+	 */
 	void(*DrawVertexBuffer)(const WindowManager* window, const sfVertexBuffer* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws an animation object to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The animation object to draw.
+	 * @param states Render states for the animation.
+	 */
 	void(*DrawAnimation)(const WindowManager* window, const struct Animation* object, sfRenderStates* states);
+
+	/**
+	 * @brief Draws particle effects to the window.
+	 * @param window The WindowManager instance.
+	 * @param object The particles object to draw.
+	 * @param states Render states for the particles.
+	 */
 	void(*DrawParticles)(const WindowManager* window, const struct Particles* object, sfRenderStates* states);
 
 
