@@ -23,7 +23,6 @@
 #pragma once
 #include "Tools.h"
 
-
 /**
  * @file moviemanager.h
  * @brief This file contains all the data to load movies for the engine.

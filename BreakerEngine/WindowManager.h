@@ -41,8 +41,6 @@
  */
 
 
-struct Animation;
-
 /**
  * @typedef WindowManager
  * @brief Structure for managing the window and related operations.
@@ -264,7 +262,7 @@ struct WindowManager
 	void(*DrawVertexArray)(const WindowManager* window, const sfVertexArray* object, sfRenderStates* states);
 	void(*DrawVertexBuffer)(const WindowManager* window, const sfVertexBuffer* object, sfRenderStates* states);
 	void(*DrawAnimation)(const WindowManager* window, const struct Animation* object, sfRenderStates* states);
-
+	void(*DrawParticles)(const WindowManager* window, const struct Particles* object, sfRenderStates* states);
 
 
 	/**

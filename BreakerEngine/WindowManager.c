@@ -22,6 +22,7 @@
 */
 #include "WindowManager.h"
 #include "Animation.h"
+#include "Particles.h"
 #include "MemoryManagement.h"
 
 typedef struct SoundInfo SoundInfo;
@@ -311,6 +312,10 @@ static void WindowManagerDrawAnimation(const WindowManager* window, const Animat
 	sfRenderTexture_drawRectangleShape(window->_Data->m_render_texture, object->GetRenderer(object), state);
 }
 
+static void WindowManagerDrawParticles(const WindowManager* window, const Particles* object, const sfRenderStates* state)
+{
+	sfRenderTexture_drawParticles(window->_Data->m_render_texture, object, state);
+}
 
 static void DestroyWindowManager(WindowManager** window)
 {
@@ -380,6 +385,7 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	window_manager->DrawVertexArray = &WindowManagerDrawVertexArray;
 	window_manager->DrawVertexBuffer = &WindowManagerDrawVertexBuffer;
 	window_manager->DrawAnimation = &WindowManagerDrawAnimation;
+	window_manager->DrawParticles = &WindowManagerDrawParticles;
 
 	ScreenScaleFactorX = (float)window_manager->_Data->m_size.x / (float)window_manager->_Data->m_base_size.x;
 	ScreenScaleFactorY = (float)window_manager->_Data->m_size.y / (float)window_manager->_Data->m_base_size.y;

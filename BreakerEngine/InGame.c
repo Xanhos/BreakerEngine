@@ -105,7 +105,7 @@ void RenderInGame(WindowManager* windowManager)
 
 void UIRenderInGame(WindowManager* windowManager)
 {
-
+	DisplayPlayerUI(windowManager);
 }
 
 void DestroyInGame(WindowManager* windowManager)

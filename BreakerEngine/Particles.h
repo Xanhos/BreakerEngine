@@ -77,7 +77,9 @@ struct ParticleParam
     float angle_direction;            /**< The initial direction angle of the particle. */
     float angle_spawn_spread;         /**< Spread of the particle spawn in terms of angle. */
     float speed;                      /**< Speed of the particle's movement. */
+    float random_speed_boost;               /**< Speed of the particle's movement. */
     float rotation;                   /**< Rotation of the particle. */
+    float random_spawn_rotation;      /**< Random rotation at the spawn of the particle. */
     sfColor color;                    /**< Color of the particle. */
     float despawn_time;               /**< Time until the particle despawns. */
     float spawn_time;                 /**< Time for the particle to spawn. */
@@ -92,13 +94,25 @@ struct ParticleParam
 struct Particles
 {
     Particles_Data* _Data;  /**< Internal data for managing particles. */
+
+
+    /**
+     * @brief Updates the particle system by advancing the particles based on the elapsed time.
+     * @param particles Pointer to the Particles object to update.
+     * @param deltaTime The time elapsed since the last update (in seconds).
+     */
+    void (*Update)(Particles* particles, float deltaTime);
+
+    sfBool(*HasFinish)(Particles* particles);
+
+    void (*Destroy)(Particles** particles);
 };
 
 /**
  * @brief Creates default particle parameters for a given type and position.
  * @param type The type of particles to create (e.g., ONE_TIME, LIFE_TIME, etc.).
  * @param position The initial position of the particles.
- * @param direction The direction of the particles in radians.
+ * @param direction The direction of the particles in degrees.
  * @param speed The speed of the particles.
  * @return A ParticleParam structure initialized with the given parameters.
  */
@@ -122,16 +136,18 @@ Particles* CreateVanillaParticles(ParticleParam parameters, int point_count);
 Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, sfIntRect texture_rect);
 
 /**
- * @brief Updates the particle system by advancing the particles based on the elapsed time.
- * @param particles Pointer to the Particles object to update.
- * @param deltaTime The time elapsed since the last update (in seconds).
- */
-void UpdateParticles(Particles* particles, float deltaTime);
-
-/**
  * @brief Renders the particles to the window.
  * @param render_window Pointer to the SFML render window.
  * @param particles Pointer to the Particles object to render.
  * @param state Render states to apply while drawing the particles.
  */
 void sfRenderWindow_drawParticles(sfRenderWindow* render_window, Particles* particles, sfRenderStates* state);
+
+
+/**
+ * @brief Renders the particles into a render texture.
+ * @param render_window Pointer to the SFML render window.
+ * @param particles Pointer to the Particles object to render.
+ * @param state Render states to apply while drawing the particles.
+ */
+void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* particles, sfRenderStates* state);

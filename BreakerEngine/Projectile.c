@@ -14,9 +14,9 @@ void CreateProjectile(sfVector2f position, int damage, sfBool shotByPlayer)
 	projectile.transform.position = position;
 	projectile.transform.velocity = sfVector2f_Create(shotByPlayer ? 1 : -1, 0);
 	projectile.damage = damage;
-	projectile.hitbox = (sfFloatRect){ 0,0,26,19 };
 	projectile.isShotByPlayer = shotByPlayer;
-	projectile.texture_rect = shotByPlayer ? (sfIntRect) { 0, 1321, 26, 19 } : (sfIntRect) { 0, 1321, 26, 19 };
+	projectile.texture_rect = shotByPlayer ? (sfIntRect) { 0, 1321, 26, 19 } : (sfIntRect) { 0, 2011, 33, 31 };
+	projectile.hitbox = (sfFloatRect){ 0,0,projectile.texture_rect.width, projectile.texture_rect.height };
 
 	projectiles_list->push_back(projectiles_list, &projectile);
 }
@@ -25,7 +25,6 @@ void InitProjectiles()
 {
 	projectile_sprite = sfSprite_create();
 	sfSprite_setTexture(projectile_sprite, GetTexture("ingamep1"), sfFalse);
-	sfSprite_setTextureRect(projectile_sprite, (sfIntRect) { 0, 1321, 26, 19 });
 	projectiles_list = stdList_Create(sizeof(Projectile), 0);
 }
 
@@ -55,7 +54,7 @@ void UpdateProjectiles(WindowManager* window)
 			FOR_EACH(GetEnemyList(),Enemy,j,enemy,
 				if (Rectangle_Collision(it->hitbox, enemy->hitbox, sfFalse))
 				{
-					EnemyTakeDamage(enemy, it->damage);
+					EnemyTakeDamage(enemy, it->damage, AddVector2f(it->transform.position, sfVector2f_Create(it->hitbox.width, it->hitbox.height * .5f)));
 					projectiles_list->erase(projectiles_list, i);
 					i--;
 				})
@@ -70,6 +69,7 @@ void UpdateProjectiles(WindowManager* window)
 void DisplayProjectiles(WindowManager* window)
 {
 	FOR_EACH(projectiles_list, Projectile, i, it,
+		sfSprite_setTextureRect(projectile_sprite, it->texture_rect);
 		sfSprite_setPosition(projectile_sprite, it->transform.position);
 	window->DrawSprite(window, projectile_sprite, NULL);
 

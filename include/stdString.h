@@ -19,8 +19,6 @@
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
-
 #pragma once
 
 #include <stdio.h>
@@ -120,6 +118,12 @@ void LIBSTD_API stdStringPrint(stdString* str);
 /// \return A pointer to the newly allocated copy of the string.
 ////////////////////////////////////////////////////////////
 char LIBSTD_API* CopyAndAllocChar(const char* source);
+
+////////////////////////////////////////////////////////////
+/// \brief Free all the temporary memory allocated.
+/// 
+////////////////////////////////////////////////////////////
+void LIBSTD_API CleanUpTempMemory();
 
 /*
  * Description of utility functions:

@@ -3,6 +3,7 @@
 
 SimpleAnim* PlayerTrail;
 Animation* Player;
+sfText* PlayerScoreText;
 
 
 
@@ -13,6 +14,10 @@ void InitPlayer()
 	Player->AddAnimationKey(Player, CreateAnimationKey("Idle", (sfIntRect) { 0, 5995, 228, 130 }, 1, 1, 1, 1));
 	Player->AddAnimationKey(Player, CreateAnimationKey("Damage", (sfIntRect) { 0, 6125, 228, 130 }, 1, 3, 3, .5f / 6.f));
 	Player->SelectAnimationKey(Player, "Idle");
+	PlayerScoreText = sfText_create();
+	sfText_setFont(PlayerScoreText, GetFont("placeholder"));
+	sfText_setPosition(PlayerScoreText, sfVector2f_Create(50, 50));
+	PlayerScore = 0;
 }
 
 void UpdatePlayer(WindowManager* window)
@@ -42,7 +47,7 @@ void UpdatePlayer(WindowManager* window)
 
 	if (KEY_DOWN(Space))
 	{
-		CreateProjectile(AddVector2f(pos, sfVector2f_Create(120, 85)), 10, sfTrue);
+		CreateProjectile(AddVector2f(pos, sfVector2f_Create(120, 85)), 100, sfTrue);
 	}
 
 
@@ -63,11 +68,21 @@ void UpdatePlayer(WindowManager* window)
 	}
 	PlayerPos = AddVector2f(sfRectangleShape_getPosition(Player->GetRenderer(Player)), MultiplyVector2f(velocity, DeltaTime * 400.f));
 	sfRectangleShape_setPosition(Player->GetRenderer(Player), PlayerPos);
+
+	stdString* score = stdStringCreate("Score : ");
+	score->append(score, IntToString(PlayerScore));
+	sfText_setString(PlayerScoreText, score->getData(score));
+	score->destroy(&score);
 }
 
 void DisplayPlayer(WindowManager* window)
 {
 	window->DrawAnimation(window, Player, NULL);
+}
+
+void DisplayPlayerUI(WindowManager* window)
+{
+	window->DrawText(window, PlayerScoreText, NULL);
 }
 
 void DestroyPlayer()

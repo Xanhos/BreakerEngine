@@ -18,17 +18,20 @@ void UpdateUIVisual(UIObject* object, WindowManager* window)
 
 	if (object->isClicked)
 	{
-		if (object->nameIs(object, "Play"))
+		if (object->nameIs(object, "Play") && window->GetTimer(window) > .2f)
 		{
 			ChangeMainState("InGame");
+			window->ResetTimer(window);
 		}
-		else if (object->nameIs(object, "Option"))
+		else if (object->nameIs(object, "Option") && window->GetTimer(window) > .2f)
 		{
 			PushSubState("Option");
+			window->ResetTimer(window);
 		}
-		else if (object->nameIs(object, "Quit"))
+		else if (object->nameIs(object, "Quit") && window->GetTimer(window) > .2f)
 		{
 			EndGame(window);
+			window->ResetTimer(window);
 		}
 	}
 }

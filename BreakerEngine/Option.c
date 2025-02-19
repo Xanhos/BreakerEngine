@@ -107,6 +107,7 @@ void UpdateOption(WindowManager* windowManager)
 	back_button->setColor(back_button, CreateColor(color, color, color, 255));
 	if (back_button->isClicked)
 	{
+		windowManager->ResetTimer(windowManager);
 		PopSubState();
 	}
 }
