@@ -40,10 +40,13 @@ void InitEnemies()
 	particle_parameters.spawn_count = 30;
 	particle_parameters.color = CreateColor(255, 0, 0, 255);
 	particle_parameters.angle_spawn_spread = 60.f;
-	particle_parameters.despawn_time = .5f;
+	particle_parameters.despawn_time = .75f;
 	particle_parameters.random_spawn_rotation = 360.f;
 	particle_parameters.radius = 10.f;
-	particle_parameters.random_speed_boost = 700.f;
+	particle_parameters.random_speed_boost = 300.f;
+	particle_parameters.fading_flags = FADING_BY_COLOR | FADING_BY_SIZE;
+	particle_parameters.fading_color = CreateColor(255, 0, 255, 0);
+	particle_parameters.fading_start_time = 0.f;
 }
 
 
@@ -59,19 +62,19 @@ void UpdateEnemies(WindowManager* window)
 
 	FOR_EACH(enemies_list, Enemy, i, enemy_it,
 		enemy_it->shooting_timer += DeltaTime;
-	
-		if (GetDistance(enemy_it->transform.position, enemy_it->destination_pos) < 5.f)
-		{
-			enemy_it->destination_pos = GetRandomPosInRectangle((sfFloatRect) { 960, 0, 1700, 900 });
-		}
-		if (enemy_it->shooting_timer > 1.f)
-		{
-			enemy_it->shooting_timer = 0.f;
-			CreateProjectile(enemy_it->transform.position, 5, sfFalse);
-		}
 
-		enemy_it->transform.velocity = NormalizeVector2f(SubVector2f(enemy_it->destination_pos, enemy_it->transform.position));
-	
+	if (GetDistance(enemy_it->transform.position, enemy_it->destination_pos) < 5.f)
+	{
+		enemy_it->destination_pos = GetRandomPosInRectangle((sfFloatRect) { 960, 0, 1700, 900 });
+	}
+	if (enemy_it->shooting_timer > 1.f)
+	{
+		enemy_it->shooting_timer = 0.f;
+		CreateProjectile(enemy_it->transform.position, 5, sfFalse);
+	}
+
+	enemy_it->transform.velocity = NormalizeVector2f(SubVector2f(enemy_it->destination_pos, enemy_it->transform.position));
+
 
 	if (enemy_it->life <= 0)
 	{
@@ -87,13 +90,13 @@ void UpdateEnemies(WindowManager* window)
 
 
 	FOR_EACH_POINTER(particles_list, Particles, i, it,
-			it->Update(it, DeltaTime);
-			if (it->HasFinish(it))
-			{
-				it->Destroy(&it);
-				particles_list->erase(particles_list, i);
-				i--;
-			}
+		it->Update(it, DeltaTime);
+	if (it->HasFinish(it))
+	{
+		it->Destroy(&it);
+		particles_list->erase(particles_list, i);
+		i--;
+	}
 		);
 
 

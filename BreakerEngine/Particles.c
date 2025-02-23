@@ -44,39 +44,30 @@ struct Particles_Data
 	sfCircleShape* m_vanilla_rendeder;
 	sfRectangleShape* m_texture_renderer;
 
-	sfVector2f m_position;
-	float m_angle_direction;
-	float m_speed;
-	float m_random_speed_boost;
-	float m_rotation;
-	float m_random_spawn_rotation;
+	ParticleParam m_parameters;
 
-	float m_spawn_time;
+	float m_life_timer;
 	float m_spawn_timer;
 
-	float m_despawn_time;
-
-	float m_life_time;
-	float m_life_timer;
-
-	ParticlesTypes m_type;
-	int m_spawn_count;
-
-	float m_angle_spawn_spread;
-
 };
+
+static sfBool HasFadingType(Particles* particles, FadingTypes type)
+{
+	return (particles->_Data->m_parameters.fading_flags & type) == type;
+}
 
 static Particle* CreateParticle(Particles* particles)
 {
 	Particle* particle = calloc_d(Particle, 1);
 	assert(particle);
 
-	particle->m_position = particles->_Data->m_position;
-	particle->m_speed = particles->_Data->m_speed + (float)rand_float(0, particles->_Data->m_random_speed_boost);
-	particle->m_despawn_time = particles->_Data->m_despawn_time;
-	particle->m_rotation = (float)rand_float(0, particles->_Data->m_random_spawn_rotation);
+	particle->m_position = particles->_Data->m_parameters.position;
+	particle->m_speed = particles->_Data->m_parameters.speed + (float)rand_float(0, particles->_Data->m_parameters.random_speed_boost);
+	particle->m_despawn_time = particles->_Data->m_parameters.despawn_time;
+	particle->m_rotation = (float)rand_float(0, particles->_Data->m_parameters.random_spawn_rotation);
 	particle->m_despawn_timer = 0.f;
-	particle->m_direction = GetVectorFromAngle(sfVector2f_Create(0, 0), 1, particles->_Data->m_angle_direction + (float)rand_float(-particles->_Data->m_angle_spawn_spread, particles->_Data->m_angle_spawn_spread));
+	particle->m_direction = GetVectorFromAngle(sfVector2f_Create(0, 0), 1, particles->_Data->m_parameters.angle_direction + (float)rand_float(-particles->_Data->m_parameters.angle_spawn_spread, particles->_Data->m_parameters.angle_spawn_spread));
+
 
 	return particle;
 }
@@ -91,20 +82,20 @@ static sfBool UpdateParticle(Particles* particles, Particle* particle, float del
 	}
 
 	particle->m_position = AddVector2f(particle->m_position, MultiplyVector2f(particle->m_direction, particle->m_speed * delta_time));
-	particle->m_rotation += particles->_Data->m_rotation * delta_time;
+	particle->m_rotation += particles->_Data->m_parameters.rotation * delta_time;
 	return sfFalse;
 }
 
 static sfBool ParticlesHasFinish(Particles* particles)
 {
 	sfBool listIsEmpty = particles->_Data->m_particle_list->size(particles->_Data->m_particle_list) == 0;
-	if (particles->_Data->m_type == ALWAYS)
+	if (particles->_Data->m_parameters.type == ALWAYS)
 		return sfFalse;
-	if (particles->_Data->m_life_timer > particles->_Data->m_life_time && particles->_Data->m_type == LIFE_TIME && listIsEmpty)
+	if (particles->_Data->m_life_timer > particles->_Data->m_parameters.life_time && particles->_Data->m_parameters.type == LIFE_TIME && listIsEmpty)
 		return sfTrue;
-	if (particles->_Data->m_type == ONE_TIME && listIsEmpty)
+	if (particles->_Data->m_parameters.type == ONE_TIME && listIsEmpty)
 		return sfTrue;
-	if (particles->_Data->m_type == NONE && listIsEmpty)
+	if (particles->_Data->m_parameters.type == NONE && listIsEmpty)
 		return sfTrue;
 	return sfFalse;
 }
@@ -112,9 +103,9 @@ static sfBool ParticlesHasFinish(Particles* particles)
 static void ParticlesDestroy(Particles** particles)
 {
 	Particles* holder = *particles;
-	for (int i = 0; i < holder->_Data->m_particle_list->size(holder->_Data->m_particle_list); i++) 
+	for (int i = 0; i < holder->_Data->m_particle_list->size(holder->_Data->m_particle_list); i++)
 	{
-		Particle** it_ = ((Particle**)holder->_Data->m_particle_list->getData(holder->_Data->m_particle_list, i)); 
+		Particle** it_ = ((Particle**)holder->_Data->m_particle_list->getData(holder->_Data->m_particle_list, i));
 		Particle* it = *it_; DetrackerCalloc(it);
 	};
 	holder->_Data->m_particle_list->destroy(&holder->_Data->m_particle_list);
@@ -133,12 +124,14 @@ static void UpdateParticles(Particles* particles, float deltaTime)
 
 	data->m_life_timer += deltaTime;
 	data->m_spawn_timer += deltaTime;
-	if ((data->m_spawn_timer > data->m_spawn_time && (data->m_type == ALWAYS || data->m_type == LIFE_TIME && data->m_life_timer < data->m_life_time)) || data->m_type == ONE_TIME)
+	if ((data->m_spawn_timer > data->m_parameters.spawn_time && (data->m_parameters.type == ALWAYS ||
+		data->m_parameters.type == LIFE_TIME && data->m_life_timer < data->m_parameters.life_time)) ||
+		data->m_parameters.type == ONE_TIME)
 	{
-		if (data->m_type == ONE_TIME)
-			data->m_type = NONE;
+		if (data->m_parameters.type == ONE_TIME)
+			data->m_parameters.type = NONE;
 
-		for (int i = 0; i < data->m_spawn_count; i++)
+		for (int i = 0; i < data->m_parameters.spawn_count; i++)
 		{
 			Particle* tmp = CreateParticle(particles);
 			data->m_particle_list->push_back(data->m_particle_list, &tmp);
@@ -157,7 +150,7 @@ static void UpdateParticles(Particles* particles, float deltaTime)
 }
 
 
-static Particles* CreateParticles(ParticleParam parameters ,int point_count)
+static Particles* CreateParticles(ParticleParam parameters, int point_count)
 {
 	Particles* particles = calloc_d(Particles, 1);
 	assert(particles);
@@ -168,19 +161,8 @@ static Particles* CreateParticles(ParticleParam parameters ,int point_count)
 	data->m_texture = NULL;
 	data->m_texture_renderer = NULL;
 	data->m_vanilla_rendeder = NULL;
-	data->m_position = parameters.position;
-	data->m_angle_direction = parameters.angle_direction;
-	data->m_speed = parameters.speed;
-	data->m_rotation = parameters.rotation;
-	data->m_random_spawn_rotation = parameters.random_spawn_rotation;
-	data->m_spawn_time = parameters.spawn_time;
-	data->m_spawn_timer = 0;
-	data->m_despawn_time = parameters.despawn_time;
-	data->m_spawn_count = parameters.spawn_count;
-	data->m_angle_spawn_spread = (float)abs(parameters.angle_spawn_spread) / 2;
-	data->m_life_time = parameters.life_time;
-	data->m_life_timer = 0.f;
-	data->m_type = parameters.type;
+	parameters.angle_spawn_spread = (float)abs(parameters.angle_spawn_spread) / 2;
+	data->m_parameters = parameters;
 
 
 	particles->_Data = data;
@@ -290,6 +272,15 @@ void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* p
 			{
 				sfCircleShape_setPosition(data->m_vanilla_rendeder, it->m_position);
 				sfCircleShape_setRotation(data->m_vanilla_rendeder, it->m_rotation);
+				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				sfCircleShape_setScale(data->m_vanilla_rendeder, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
+				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
+				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);
+				unsigned char b = LERP(particles->_Data->m_parameters.fading_color.b, particles->_Data->m_parameters.color.b, scaleFactor);
+				unsigned char a = LERP(particles->_Data->m_parameters.fading_color.a, particles->_Data->m_parameters.color.a, scaleFactor);
+				sfCircleShape_setFillColor(data->m_vanilla_rendeder, HasFadingType(particles, FADING_BY_COLOR) && fadingCanStart ? CreateColor(r, g, b, a) : particles->_Data->m_parameters.color);
+
 				sfRenderTexture_drawCircleShape(render_texture, data->m_vanilla_rendeder, state);
 			}
 		);
@@ -300,6 +291,15 @@ void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* p
 			{
 				sfRectangleShape_setPosition(data->m_texture_renderer, it->m_position);
 				sfRectangleShape_setRotation(data->m_texture_renderer, it->m_rotation);
+				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				sfRectangleShape_setScale(data->m_texture_renderer, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
+				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
+				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);
+				unsigned char b = LERP(particles->_Data->m_parameters.fading_color.b, particles->_Data->m_parameters.color.b, scaleFactor);
+				unsigned char a = LERP(particles->_Data->m_parameters.fading_color.a, particles->_Data->m_parameters.color.a, scaleFactor);
+				sfRectangleShape_setFillColor(data->m_texture_renderer, HasFadingType(particles, FADING_BY_COLOR) && fadingCanStart ? CreateColor(r, g, b, a) : particles->_Data->m_parameters.color);
+
 				sfRenderTexture_drawRectangleShape(render_texture, data->m_texture_renderer, state);
 			}
 		);
