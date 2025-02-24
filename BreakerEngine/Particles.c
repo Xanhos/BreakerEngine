@@ -246,6 +246,15 @@ void sfRenderWindow_drawParticles(sfRenderWindow* render_window, Particles* part
 			{
 				sfCircleShape_setPosition(data->m_vanilla_rendeder, it->m_position);
 				sfCircleShape_setRotation(data->m_vanilla_rendeder, it->m_rotation);
+				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				sfCircleShape_setScale(data->m_vanilla_rendeder, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
+				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
+				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);
+				unsigned char b = LERP(particles->_Data->m_parameters.fading_color.b, particles->_Data->m_parameters.color.b, scaleFactor);
+				unsigned char a = LERP(particles->_Data->m_parameters.fading_color.a, particles->_Data->m_parameters.color.a, scaleFactor);
+				sfCircleShape_setFillColor(data->m_vanilla_rendeder, HasFadingType(particles, FADING_BY_COLOR) && fadingCanStart ? CreateColor(r, g, b, a) : particles->_Data->m_parameters.color);
+
 				sfRenderWindow_drawCircleShape(render_window, data->m_vanilla_rendeder, state);
 			}
 		);
@@ -256,6 +265,15 @@ void sfRenderWindow_drawParticles(sfRenderWindow* render_window, Particles* part
 			{
 				sfRectangleShape_setPosition(data->m_texture_renderer, it->m_position);
 				sfRectangleShape_setRotation(data->m_texture_renderer, it->m_rotation);
+				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				sfRectangleShape_setScale(data->m_texture_renderer, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
+				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
+				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);
+				unsigned char b = LERP(particles->_Data->m_parameters.fading_color.b, particles->_Data->m_parameters.color.b, scaleFactor);
+				unsigned char a = LERP(particles->_Data->m_parameters.fading_color.a, particles->_Data->m_parameters.color.a, scaleFactor);
+				sfRectangleShape_setFillColor(data->m_texture_renderer, HasFadingType(particles, FADING_BY_COLOR) && fadingCanStart ? CreateColor(r, g, b, a) : particles->_Data->m_parameters.color);
+
 				sfRenderWindow_drawRectangleShape(render_window, data->m_texture_renderer, state);
 			}
 		);
@@ -273,7 +291,7 @@ void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* p
 				sfCircleShape_setPosition(data->m_vanilla_rendeder, it->m_position);
 				sfCircleShape_setRotation(data->m_vanilla_rendeder, it->m_rotation);
 				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
-				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / (it->m_despawn_time - particles->_Data->m_parameters.fading_start_time)) : 1.f;
 				sfCircleShape_setScale(data->m_vanilla_rendeder, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
 				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
 				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);
@@ -292,7 +310,7 @@ void sfRenderTexture_drawParticles(sfRenderTexture* render_texture, Particles* p
 				sfRectangleShape_setPosition(data->m_texture_renderer, it->m_position);
 				sfRectangleShape_setRotation(data->m_texture_renderer, it->m_rotation);
 				sfBool fadingCanStart = particles->_Data->m_parameters.fading_start_time < it->m_despawn_timer;
-				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / it->m_despawn_time - particles->_Data->m_parameters.fading_start_time) : 1.f;
+				float scaleFactor = fadingCanStart ? LERP(1.f, 0.f, (it->m_despawn_timer - particles->_Data->m_parameters.fading_start_time) / (it->m_despawn_time - particles->_Data->m_parameters.fading_start_time)) : 1.f;
 				sfRectangleShape_setScale(data->m_texture_renderer, HasFadingType(particles, FADING_BY_SIZE) && fadingCanStart ? sfVector2f_Create(scaleFactor, scaleFactor) : sfVector2f_Create(1, 1));
 				unsigned char r = LERP(particles->_Data->m_parameters.fading_color.r, particles->_Data->m_parameters.color.r, scaleFactor);
 				unsigned char g = LERP(particles->_Data->m_parameters.fading_color.g, particles->_Data->m_parameters.color.g, scaleFactor);

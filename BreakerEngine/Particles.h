@@ -76,7 +76,7 @@ typedef enum FadingTypes FadingTypes;
  */
 enum FadingTypes
 {
-	NO_FADING = -1,        /**< No particle behavior. */
+	NO_FADING = 0,        /**< No particle behavior. */
 	FADING_BY_SIZE = 1,         /**< Particles that exist once and do not loop. */
 	FADING_BY_COLOR = 2,        /**< Particles that have a lifetime and despawn after a set time. */
 };
