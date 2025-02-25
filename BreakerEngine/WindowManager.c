@@ -307,6 +307,11 @@ static void WindowManagerDrawVertexBuffer(const WindowManager* window, const sfV
 	sfRenderTexture_drawVertexBuffer(window->_Data->m_render_texture, object, state);
 }
 
+static void WindowManagerDrawPrimitives(const WindowManager* window, const sfVertex* object, size_t vertexCount,sfPrimitiveType type ,const sfRenderStates* state)
+{
+	sfRenderTexture_drawPrimitives(window->_Data->m_render_texture, object, vertexCount, type, state);
+}
+
 static void WindowManagerDrawAnimation(const WindowManager* window, const Animation* object, const sfRenderStates* state)
 {
 	sfRenderTexture_drawRectangleShape(window->_Data->m_render_texture, object->GetRenderer(object), state);
@@ -384,6 +389,7 @@ WindowManager* CreateWindowManager(const unsigned int width, const unsigned int 
 	window_manager->DrawRectangleShape = &WindowManagerDrawRectangleShape;
 	window_manager->DrawVertexArray = &WindowManagerDrawVertexArray;
 	window_manager->DrawVertexBuffer = &WindowManagerDrawVertexBuffer;
+	window_manager->DrawPrimitives = &WindowManagerDrawPrimitives;
 	window_manager->DrawAnimation = &WindowManagerDrawAnimation;
 	window_manager->DrawParticles = &WindowManagerDrawParticles;
 

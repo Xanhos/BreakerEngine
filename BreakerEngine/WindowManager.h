@@ -336,6 +336,12 @@ struct WindowManager
 	void(*DrawVertexBuffer)(const WindowManager* window, const sfVertexBuffer* object, sfRenderStates* states);
 
 	/**
+	 * @brief Draws a primitive object to the window.
+	 * @param window The WindowManager instance.
+	 */
+	void(*DrawPrimitives)(const WindowManager* window, const sfVertex* object, size_t vertexCount, sfPrimitiveType type, const sfRenderStates* state);
+
+	/**
 	 * @brief Draws an animation object to the window.
 	 * @param window The WindowManager instance.
 	 * @param object The animation object to draw.
