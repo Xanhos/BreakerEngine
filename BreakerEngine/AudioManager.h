@@ -22,6 +22,7 @@
 */
 #pragma once
 #include "Tools.h"
+#include "KSound.h"
 
 /**
  * @file audiomanager.h
@@ -36,8 +37,7 @@
 typedef struct Sound Sound;
 struct Sound
 {
-    sfSoundBuffer* m_sound_buffer; /**< Pointer to the sound buffer containing audio data. */
-    sfSound* m_sound;             /**< Pointer to the sound instance for playback. */
+    KSound* m_sound;             /**< Pointer to the sound instance for playback. */
     Path m_path;                  /**< Path to the sound file. */
     char m_name[MAX_PATH_SIZE];   /**< Name of the sound, typically used for identification. */
 };
@@ -49,7 +49,7 @@ struct Sound
 typedef struct Music Music;
 struct Music
 {
-    sfMusic* m_music;            /**< Pointer to the music instance for playback. */
+    KSound* m_music;            /**< Pointer to the music instance for playback. */
     Path m_path;                 /**< Path to the music file. */
     char m_name[MAX_PATH_SIZE];  /**< Name of the music, typically used for identification. */
 };
@@ -103,14 +103,14 @@ void ClearSceneSound(void);
  * @param name Name of the sound to retrieve.
  * @return Pointer to the sound instance if found, or NULL if not found.
  */
-sfSound* GetSound(const char* name);
+KSound* GetSound(const char* name);
 
 /**
  * @brief Retrieves a music instance by its name.
  * @param name Name of the music to retrieve.
  * @return Pointer to the music instance if found, or NULL if not found.
  */
-sfMusic* GetMusic(const char* name);
+KSound* GetMusic(const char* name);
 
 /**
  * @brief Destroys the sound manager and releases all associated resources.

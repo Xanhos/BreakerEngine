@@ -18,6 +18,7 @@ void InitPlayer()
 	sfText_setFont(PlayerScoreText, GetFont("placeholder"));
 	sfText_setPosition(PlayerScoreText, sfVector2f_Create(50, 50));
 	PlayerScore = 0;
+	
 }
 
 void UpdatePlayer(WindowManager* window)

@@ -31,9 +31,7 @@ Sound CreateSound(const char* path)
 {
 	Sound sound;
 	Path tmpPath = fs_create_path(path);
-	sound.m_sound_buffer = sfSoundBuffer_createFromFile(path);
-	sound.m_sound = sfSound_create();
-	sfSound_setBuffer(sound.m_sound, sound.m_sound_buffer);
+	sound.m_sound = KSound_createSoundFromFile(path);
 	sound.m_path = tmpPath;
 	strcpy_s(sound.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(sound.m_name);
@@ -45,7 +43,7 @@ Music CreateMusic(const char* path)
 {
 	Music music;
 	Path tmpPath = fs_create_path(path);
-	music.m_music = sfMusic_createFromFile(path);
+	music.m_music = KSound_createSoundFromFile(path);
 	music.m_path = tmpPath;
 	strcpy_s(music.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(music.m_name);
@@ -55,13 +53,12 @@ Music CreateMusic(const char* path)
 
 void DeleteSound(Sound* sound)
 {
-	sfSoundBuffer_destroy(sound->m_sound_buffer);
-	sfSound_destroy(sound->m_sound);
+	KSound__destroySound(sound->m_sound);
 }
 
 void DeleteMusic(Music* music)
 {
-	sfMusic_destroy(music->m_music);
+	KSound__destroySound(music->m_music);
 }
 
 void InitSoundManager(void)
@@ -150,8 +147,7 @@ void ClearSceneSound(void)
 	{
 		for (int i = 0; i < scene_sound_list->size(scene_sound_list); i++)
 		{
-			sfSound_destroy(STD_GETDATA(scene_sound_list, Sound, i)->m_sound);
-			sfSoundBuffer_destroy(STD_GETDATA(scene_sound_list, Sound, i)->m_sound_buffer);
+			DeleteSound(STD_GETDATA(scene_sound_list, Sound, i));
 		}
 		scene_sound_list->clear(scene_sound_list);
 	}
@@ -159,13 +155,13 @@ void ClearSceneSound(void)
 	{
 		for (int i = 0; i < scene_music_list->size(scene_music_list); i++)
 		{
-			sfMusic_destroy(STD_GETDATA(scene_music_list, Music, i)->m_music);
+			DeleteMusic(STD_GETDATA(scene_music_list, Music, i));
 		}
 		scene_music_list->clear(scene_music_list);
 	}
 }
 
-sfSound* GetSound(const char* name)
+KSound* GetSound(const char* name)
 {
 	if (global_sound_list != NULL)
 		FOR_EACH_LIST(global_sound_list, Sound, it, tmp,
@@ -189,7 +185,7 @@ sfSound* GetSound(const char* name)
 	return NULL;
 }
 
-sfMusic* GetMusic(const char* name)
+KSound* GetMusic(const char* name)
 {
 	if (global_music_list != NULL)
 		FOR_EACH_LIST(global_music_list, Music, it, tmp,

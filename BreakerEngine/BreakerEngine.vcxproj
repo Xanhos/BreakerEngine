@@ -172,7 +172,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies)csfml-window.lib;csfml-system-d.lib;csfml-audio-d.lib;csfml-graphics-d.lib;csfml-network-d.lib;csfml-window-d.lib;CSTL.lib;CParser.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies)csfml-window.lib;csfml-system-d.lib;csfml-audio-d.lib;csfml-graphics-d.lib;csfml-network-d.lib;csfml-window-d.lib;CSTL.lib;CParser.lib;KSound.lib</AdditionalDependencies>
       <OptimizeReferences>false</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
@@ -215,7 +215,7 @@
       <OptimizeReferences>false</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies)csfml-window.lib;csfml-system.lib;csfml-audio.lib;csfml-graphics.lib;csfml-network.lib;CSTL.lib;CParser.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies)csfml-window.lib;csfml-system.lib;csfml-audio.lib;csfml-graphics.lib;csfml-network.lib;CSTL.lib;CParser.lib;KSound.lib</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
