@@ -97,7 +97,7 @@ static void UpdateAnimationKey(Animation_Key* anim_key, sfBool animation_is_paus
 				anim->m_has_finish_anim = sfTrue;
 				return;
 			}
-			else if (anim->m_current_frame > anim->m_total_frame - 1 && !animation_is_reverse)
+			else if (anim->m_current_frame > anim->m_total_frame - 1 && !animation_is_reverse && !anim->m_has_finish_anim)
 			{
 				anim->m_current_frame = anim->m_total_frame - 1;
 				anim->m_has_finish_anim = sfTrue;

@@ -13,7 +13,7 @@ void InitPlayer()
 	Player = CreateAnimation("Player", GetTexture("ingamep2"));
 	Player->AddAnimationKey(Player, CreateAnimationKey("Idle", (sfIntRect) { 0, 5995, 228, 130 }, 1, 1, 1, 1));
 	Player->AddAnimationKey(Player, CreateAnimationKey("Damage", (sfIntRect) { 0, 6125, 228, 130 }, 1, 3, 3, .5f / 6.f));
-	Player->SelectAnimationKey(Player, "Idle");
+	Player->SelectAnimationKey(Player, "Damage");
 	PlayerScoreText = sfText_create();
 	sfText_setFont(PlayerScoreText, GetFont("placeholder"));
 	sfText_setPosition(PlayerScoreText, sfVector2f_Create(50, 50));
