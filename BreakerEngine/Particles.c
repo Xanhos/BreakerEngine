@@ -22,6 +22,7 @@
 */
 #include "Particles.h"
 #include "MemoryManagement.h"
+#include "CParser/CParser.h"
 
 typedef struct Particle Particle;
 struct Particle
@@ -234,6 +235,61 @@ Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, 
 	particles->_Data->m_texture_renderer = renderer;
 
 	return particles;
+}
+
+Particles* LoadParticlesFromFile(const char* path, sfVector2f position, sfTexture* texture)
+{
+	ParticleParam param = CreateDefaultParam(NONE, position, 0.f, 0.f);
+	int hastexture = 0, fadeByColor = 0, fadeBySize = 0, pointCount = 0;
+	sfIntRect animRect = (sfIntRect){ 0, 0, 0, 0 };
+	parser_reader* parser = parser_reader_create(path);
+	while (parser_reader_still_reading(parser))
+	{
+		parser_reader_read(parser);
+		if (parser_reader_actual_object_is(parser, "Particles"))
+		{
+			parser_reader_get_value_int(parser, "Has_Texture", &hastexture);
+			parser_reader_get_value_int(parser, "Rect_left", &animRect.left);
+			parser_reader_get_value_int(parser, "Rect_top", &animRect.top);
+			parser_reader_get_value_int(parser, "Rect_width", &animRect.width);
+			parser_reader_get_value_int(parser, "Rect_height", &animRect.height);
+			parser_reader_get_value_float(parser, "Origin_X", &param.origin.x);
+			parser_reader_get_value_float(parser, "Origin_Y", &param.origin.y);
+			parser_reader_get_value_float(parser, "Radius", &param.radius);
+			parser_reader_get_value_float(parser, "Angle_Direction", &param.angle_direction);
+			parser_reader_get_value_float(parser, "Angle_Spawn_Spread", &param.angle_spawn_spread);
+			parser_reader_get_value_float(parser, "Speed", &param.speed);
+			parser_reader_get_value_float(parser, "Random_Speed_Boost", &param.random_speed_boost);
+			parser_reader_get_value_float(parser, "Rotation", &param.rotation);
+			parser_reader_get_value_float(parser, "Random_Rotation_Spawn", &param.random_spawn_rotation);
+			parser_reader_get_value_float(parser, "Spawn_Time", &param.spawn_time);
+			parser_reader_get_value_float(parser, "Despawn_Time", &param.despawn_time);
+			parser_reader_get_value_float(parser, "Life_Time", &param.life_time);
+			parser_reader_get_value_float(parser, "Fading_Start_Time", &param.fading_start_time);
+			parser_reader_get_value_int(parser, "Fading_ByColor", &fadeByColor);
+			parser_reader_get_value_int(parser, "Fading_BySize", &fadeBySize);
+			parser_reader_get_value_int(parser, "Color_R", &param.color.r);
+			parser_reader_get_value_int(parser, "Color_G", &param.color.g);
+			parser_reader_get_value_int(parser, "Color_B", &param.color.b);
+			parser_reader_get_value_int(parser, "Color_A", &param.color.a);
+			parser_reader_get_value_int(parser, "Fading_Color_R", &param.fading_color.r);
+			parser_reader_get_value_int(parser, "Fading_Color_G", &param.fading_color.g);
+			parser_reader_get_value_int(parser, "Fading_Color_B", &param.fading_color.b);
+			parser_reader_get_value_int(parser, "Fading_Color_A", &param.fading_color.a);
+			parser_reader_get_value_int(parser, "Point_Count", &pointCount);
+			parser_reader_get_value_int(parser, "Type", &param.type);
+			parser_reader_get_value_int(parser, "Spawn_Count", &param.spawn_count);
+		}
+	}
+
+	parser_reader_destroy(&parser);
+
+	param.fading_flags |= fadeByColor ? FADING_BY_COLOR : NO_FADING;
+	param.fading_flags |= fadeByColor ? FADING_BY_SIZE : NO_FADING;
+	Particles* tmp = hastexture ? CreateTextureParticles(param, texture, animRect) : CreateVanillaParticles(param, pointCount);
+
+	return tmp;
+
 }
 
 
