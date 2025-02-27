@@ -27,13 +27,13 @@ typedef enum
 
 KSound KSOUND_API* KSound_createSoundFromFile(const char* path);
 
-void KSOUND_API KSound_playSound(KSound* sound);
+void KSOUND_API KSound_play(KSound* sound);
 
-void KSOUND_API KSound_stopSound(KSound* sound);
+void KSOUND_API KSound_stop(KSound* sound);
 
-void KSOUND_API KSound_pauseSound(KSound* sound);
+void KSOUND_API KSound_pause(KSound* sound);
 
-void KSOUND_API KSound__destroySound(KSound* sound);
+void KSOUND_API KSound_destroy(KSound* sound);
 
 void KSOUND_API KSound_setLoop(KSound* sound, KBool loop);
 KBool KSOUND_API KSound_getLoop(KSound* sound);

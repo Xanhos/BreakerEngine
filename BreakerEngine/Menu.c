@@ -50,7 +50,7 @@ void InitMainMenu(WindowManager* windowManager)
 	spriteManager = CreateSpriteManager();
 	UIManager = CreateUIObjectManager();
 
-	KSound_playSound(GetMusic("placeholder"));
+	KSound_play(GetMusic("placeholder"));
 
 
 	starSelection = sfSprite_create();

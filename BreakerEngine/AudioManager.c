@@ -53,12 +53,12 @@ Music CreateMusic(const char* path)
 
 void DeleteSound(Sound* sound)
 {
-	KSound__destroySound(sound->m_sound);
+	KSound_destroy(sound->m_sound);
 }
 
 void DeleteMusic(Music* music)
 {
-	KSound__destroySound(music->m_music);
+	KSound_destroy(music->m_music);
 }
 
 void InitSoundManager(void)
