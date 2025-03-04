@@ -167,6 +167,8 @@ Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, 
 
 Particles* LoadParticlesFromFile(const char* path, sfVector2f position, sfTexture* texture);
 
+void RestartParticles()
+
 /**
  * @brief Renders the particles to the window.
  * @param render_window Pointer to the SFML render window.

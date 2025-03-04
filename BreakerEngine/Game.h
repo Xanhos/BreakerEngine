@@ -73,3 +73,5 @@ void PushSubState(char* state_name);
  * @brief Pops the current sub-state from the stack, returning to the previous state.
  */
 void PopSubState();
+
+const char* GetCurrentState();

@@ -47,6 +47,7 @@ struct Particles_Data
 
 	ParticleParam m_parameters;
 
+	sfBool has_shoot;
 	float m_life_timer;
 	float m_spawn_timer;
 
@@ -127,10 +128,9 @@ static void UpdateParticles(Particles* particles, float deltaTime)
 	data->m_spawn_timer += deltaTime;
 	if ((data->m_spawn_timer > data->m_parameters.spawn_time && (data->m_parameters.type == ALWAYS ||
 		data->m_parameters.type == LIFE_TIME && data->m_life_timer < data->m_parameters.life_time)) ||
-		data->m_parameters.type == ONE_TIME)
+		(data->m_parameters.type == ONE_TIME && data->has_shoot == sfFalse))
 	{
-		if (data->m_parameters.type == ONE_TIME)
-			data->m_parameters.type = NONE;
+		data->has_shoot = sfTrue;
 
 		for (int i = 0; i < data->m_parameters.spawn_count; i++)
 		{
@@ -290,6 +290,12 @@ Particles* LoadParticlesFromFile(const char* path, sfVector2f position, sfTextur
 
 	return tmp;
 
+}
+
+void RestartParticles(Particles* particles)
+{
+	particles->_Data->has_shoot = sfFalse;
+	particles->_Data->m_life_timer = 0.f;
 }
 
 

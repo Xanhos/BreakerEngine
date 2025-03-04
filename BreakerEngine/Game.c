@@ -271,6 +271,11 @@ void PopSubState()
 	active_sub_state_list->erase(active_sub_state_list, active_sub_state_list->size(active_sub_state_list) - 1);
 }
 
+const char* GetCurrentState()
+{
+	return Current_state.name;
+}
+
 static void CleanUpGame()
 {
 	FOR_EACH(registered_sub_state_list, StateInfo, i, it,
