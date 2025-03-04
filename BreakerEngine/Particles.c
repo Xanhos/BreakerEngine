@@ -150,6 +150,11 @@ static void UpdateParticles(Particles* particles, float deltaTime)
 			);
 }
 
+static void SetEmitterPos(Particles* particles, sfVector2f pos)
+{
+	particles->_Data->m_parameters.position = pos;
+}
+
 
 static Particles* CreateParticles(ParticleParam parameters, int point_count)
 {
@@ -171,6 +176,7 @@ static Particles* CreateParticles(ParticleParam parameters, int point_count)
 	particles->Update = &UpdateParticles;
 	particles->Destroy = &ParticlesDestroy;
 	particles->HasFinish = &ParticlesHasFinish;
+	particles->SetEmitterPosition = &SetEmitterPos;
 
 	return particles;
 }

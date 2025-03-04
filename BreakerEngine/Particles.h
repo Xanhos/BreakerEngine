@@ -130,6 +130,8 @@ struct Particles
 	 */
 	sfBool(*HasFinish)(Particles* particles);
 
+	void (*SetEmitterPosition)(Particles* particles, sfVector2f pos);
+
 	/**
 	 * @brief Destroys the particle system and frees allocated memory.
 	 * @param particles Pointer to the pointer of the Particles object to be destroyed.
@@ -167,7 +169,7 @@ Particles* CreateTextureParticles(ParticleParam parameters, sfTexture* texture, 
 
 Particles* LoadParticlesFromFile(const char* path, sfVector2f position, sfTexture* texture);
 
-void RestartParticles()
+void RestartParticles(Particles* particles);
 
 /**
  * @brief Renders the particles to the window.
