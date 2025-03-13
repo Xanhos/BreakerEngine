@@ -125,6 +125,7 @@ static sfBool ShouldRenderMainState(WindowManager* window)
 static void Update(WindowManager* window)
 {
 	UpdateKeyAndMouseState();
+	CleanUpTempMemory();
 	main_clock->restartClock(main_clock);
 	window->RestartClock(window);
 	DeltaTime = main_clock->getDeltaTime(main_clock);
