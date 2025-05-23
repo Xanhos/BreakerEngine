@@ -164,10 +164,16 @@ char resource_directory[MAX_PATH_SIZE];
 	* @param data_container_name The name for the data container.
 	* @param func The function to apply to each element.
 	*/
-#define FOR_EACH_LIST(list, type, it_name, data_container_name, func) \
-  for (int it_name = 0; it_name < list->size(list); it_name++) { \
-    type* data_container_name = STD_GETDATA(list, type, it_name); \
-    func }
+#define FOR_EACH_LIST(list, type, it_name, data_container_name, func)          \
+do {                                                              \
+    Link* _it = (list)->get_first_link(list);                     \
+    while (_it != NULL) {                                         \
+        int it_name = _it->id;                                      \
+        type* data_container_name = (type*)(_it->data);                      \
+        func;                                                     \
+        _it = _it->pNext;                                         \
+    }                                                             \
+} while (0);
 
 	/**
 	* @def FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)
@@ -178,11 +184,17 @@ char resource_directory[MAX_PATH_SIZE];
 	* @param data_container_name The name for the data container.
 	* @param func The function to apply to each element.
 	*/
-#define FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func) \
-  for (int it_name = 0; it_name < list->size(list); it_name++) { \
-    type* data_container_name##_ = STD_GETDATA(list, type, it_name); \
-    type data_container_name = *data_container_name##_; \
-    func }
+#define FOR_EACH_LIST_POINTER(list, type, it_name, data_container_name, func)\
+do {                                                              \
+    Link* _it = (list)->get_first_link(list);                     \
+    while (_it != NULL) {                                         \
+        int it_name = _it->id;                                    \
+		type* data_container_name##_ = (type*)(_it->data);				  \
+		type data_container_name = *data_container_name##_;							  \
+		func;                                                     \
+		_it = _it->pNext;                                         \
+	}                                                             \
+} while (0);
 
 	//------------------------------------------VECTOR FUNCTION----------------------------------------------//
 
@@ -223,36 +235,36 @@ char resource_directory[MAX_PATH_SIZE];
   }
 
 	/**
- * @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
- * @brief Declares a function to divide a vector by a scalar.
- * @param vector_type The type of vector (e.g., sfVector2f).
- * @param suffixe The suffix for the function (e.g., f for float).
- * @param type The type of scalar used for multiplication (e.g., float).
- */
+	* @def DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to divide a vector by a scalar.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for multiplication (e.g., float).
+	*/
 #define DECLARE_DIVIDE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type DivideVector2##suffixe(vector_type a, type b) { \
     return (vector_type){a.x / b, a.y / b}; \
   }
 
- /**
- * @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
- * @brief Declares a function to create a vector of specified type and values.
- * @param vector_type The type of vector (e.g., sfVector2f).
- * @param suffixe The suffix for the function (e.g., f for float).
- * @param type The type of scalar used for vector creation (e.g., float).
- */
+	/**
+	* @def DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to create a vector of specified type and values.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for vector creation (e.g., float).
+	*/
 #define DECLARE_CREATE_METHODE_VECTOR2_IN_C(vector_type, suffixe, type) \
   vector_type vector_type##_Create(type a, type b) { \
     return (vector_type){a, b}; \
   }
 
- /**
- * @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
- * @brief Declares a function to print the values of a vector.
- * @param vector_type The type of vector (e.g., sfVector2f).
- * @param suffixe The suffix for the function (e.g., f for float).
- * @param type The type of scalar used for printing (e.g., float).
- */
+	/**
+	* @def DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type)
+	* @brief Declares a function to print the values of a vector.
+	* @param vector_type The type of vector (e.g., sfVector2f).
+	* @param suffixe The suffix for the function (e.g., f for float).
+	* @param type The type of scalar used for printing (e.g., float).
+	*/
 #define DECLARE_PRINT_VECTOR_VALUE_IN_C(vector_type, suffixe, type) \
   void PrintVector2##suffixe(vector_type vec, sfBool go_to_next_line) { \
     NEW_CHAR(sentence_debug, 100) \
@@ -265,7 +277,7 @@ char resource_directory[MAX_PATH_SIZE];
       printf("\n"); \
   }
 
- // Declare basic vector operations for vector2 of any type, such as sfVector2f, sfVector2i, or sfVector2u.
+	// Declare basic vector operations for vector2 of any type, such as sfVector2f, sfVector2i, or sfVector2u.
 
 #define DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_H(vector_type, suffix, type)   \
     /**                                                                 \
