@@ -208,6 +208,14 @@ Animation_Key* CreateAnimationKey(const char* name, sfIntRect rect, int number_o
 Animation* CreateAnimation(const char* name, sfTexture* texture);
 
 /**
+ * @brief Creates a new animation.
+ * @param name Name of the animation.
+ * @param texture Pointer to the texture used for the animation.
+ * @return Pointer to the created animation.
+ */
+Animation* CopyAnimation(Animation* animation);
+
+/**
  * @brief Creates a new animation from a .anim file.
  * @param path File path for the animation data.
  * @param texture Pointer to the texture used for the animation.

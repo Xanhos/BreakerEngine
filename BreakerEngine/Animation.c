@@ -269,6 +269,7 @@ static void DestroyAnimation(Animation** anim_data)
 	free_d(tmp->_Data);
 	free_d(tmp);
 		);
+	anim->_Data->m_key_anim_list->destroy(&anim->_Data->m_key_anim_list);
 	free_d(anim->_Data->m_name);
 	free_d(anim->_Data);
 	free_d(anim);
@@ -303,6 +304,15 @@ Animation* CreateAnimation(const char* name, sfTexture* texture)
 	anim->GetCurrentAnimationKey = &GetCurrentAnimationKey;
 
 	return anim;
+}
+
+Animation* CopyAnimation(Animation* animation)
+{
+	Animation* new_anim = CreateAnimation(animation->_Data->m_name, animation->_Data->m_texture);
+	FOR_EACH_LIST_POINTER(animation->_Data->m_key_anim_list, Animation_Key*, i, it,
+		new_anim->AddAnimationKey(new_anim, CreateAnimationKey(it->_Data->m_name, it->_Data->m_int_rect, it->_Data->m_number_of_line, it->_Data->m_frame_per_line, it->_Data->m_total_frame, it->_Data->m_frame_time));
+	)
+		return new_anim;
 }
 
 Animation* CreateAnimationFromFile(const char* path, sfTexture* texture)
@@ -346,7 +356,7 @@ Animation* CreateAnimationFromFile(const char* path, sfTexture* texture)
 			tmp->AddAnimationKey(tmp, tmpAnimKey);
 		}
 	}
-
+	tmp->_Data->m_name = StrAllocNCopy(animName);
 	return tmp;
 }
 
