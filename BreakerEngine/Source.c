@@ -7,12 +7,29 @@
 #include <math.h>
 #include <string.h>
 
+#include "Tools.h"
+
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
 
-#define MAX_PARTICLES 1000
+#define MAX_PARTICLES 2000
 #define VERTICES_PER_PARTICLE 32 // Maximum pour un cercle
+
+
+// Structure pour les particules mortes (garde la même)
+typedef struct {
+	float position[3];
+	float finalColor[4];
+	float finalSize;
+} DeadParticle;
+
+typedef struct {
+	DeadParticle particles[MAX_PARTICLES];
+	int count;
+} DeadParticlesList;
+
+
 
 typedef struct {
 	float position[3];
@@ -23,20 +40,25 @@ typedef struct {
 	float color[4];
 } Particle;
 
+
+// Ajouter ces champs à la structure ParticleSystem
 typedef struct {
 	GLuint updateProgram;
 	GLuint renderProgram;
+	GLuint deadParticleProgram;  // NOUVEAU: Programme pour capturer les particules mortes
 	GLuint particleVBO;
 	GLuint particleVAO;
 	GLuint indexVBO;
 	GLuint transformFeedbackVBO;
-	GLuint texture;  // Texture pour les particules
+	GLuint deadParticleTFBO;     // NOUVEAU: Buffer pour les particules mortes
+	GLuint texture;
 	int particleCount;
 	int sidesCount;
 	float* circleVertices;
 	GLuint* circleIndices;
-	float* texCoords;  // Coordonnées de texture
+	float* texCoords;
 } ParticleSystem;
+
 
 const char* updateVertexShaderWithGS = "#version 330 core\n"
 "layout(location = 0) in vec3 position;\n"
@@ -105,6 +127,33 @@ const char* updateGeometryShader = "#version 330 core\n"
 "        out_size = vs_size[0];\n"
 "        out_rotation = vs_rotation[0];\n"
 "        out_color = vs_color[0];\n"
+"        EmitVertex();\n"
+"    }\n"
+"}\n";
+
+// Nouveau geometry shader spécialement pour capturer les particules mourantes
+const char* deadParticleGeometryShader = "#version 330 core\n"
+"layout(points) in;\n"
+"layout(points, max_vertices = 1) out;\n"
+"\n"
+"in vec3 vs_position[];\n"
+"in vec3 vs_velocity[];\n"
+"in float vs_life[];\n"
+"in float vs_size[];\n"
+"in float vs_rotation[];\n"
+"in vec4 vs_color[];\n"
+"\n"
+"out vec3 dead_position;\n"
+"out vec4 dead_color;\n"
+"out float dead_size;\n"
+"\n"
+"uniform float deltaTime;\n"
+"\n"
+"void main() {\n"
+"    if (vs_life[0] > 0.0 && (vs_life[0] - deltaTime) <= 0.0) {\n"
+"        dead_position = vs_position[0];\n"
+"        dead_color = vs_color[0];\n"
+"        dead_size = vs_size[0];\n"
 "        EmitVertex();\n"
 "    }\n"
 "}\n";
@@ -410,25 +459,35 @@ void generateRectangleGeometry(ParticleSystem* ps) {
 }
 
 
+// Fonction modifiée pour initialiser le système (remplacer initParticleSystem)
 void initParticleSystem(ParticleSystem* ps, int sides) {
 	ps->particleCount = 0;
 
 	// Generate polygon geometry
 	generatePolygonGeometry(ps, sides);
 
-	// Create shaders
+	// Create shaders - programmes existants
 	const char* varyings[] = { "out_position", "out_velocity", "out_life", "out_size", "out_rotation", "out_color" };
 	ps->updateProgram = createShaderProgram(updateVertexShaderWithGS, updateGeometryShader, NULL, varyings, 6);
 	ps->renderProgram = createShaderProgram(renderVertexShader, NULL, renderFragmentShader, NULL, 0);
 
+	// NOUVEAU: Créer le programme pour capturer les particules mortes
+	const char* deadVaryings[] = { "dead_position", "dead_color", "dead_size" };
+	ps->deadParticleProgram = createShaderProgram(updateVertexShaderWithGS, deadParticleGeometryShader, NULL, deadVaryings, 3);
+
 	// Créer une texture par défaut
 	ps->texture = createDefaultTexture();
 
-	// Create buffers
+	// Create buffers existants
 	glGenBuffers(1, &ps->particleVBO);
 	glGenBuffers(1, &ps->transformFeedbackVBO);
 	glGenBuffers(1, &ps->indexVBO);
 	glGenVertexArrays(1, &ps->particleVAO);
+
+	// NOUVEAU: Créer le buffer pour les particules mortes
+	glGenBuffers(1, &ps->deadParticleTFBO);
+	glBindBuffer(GL_ARRAY_BUFFER, ps->deadParticleTFBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(DeadParticle) * MAX_PARTICLES, NULL, GL_DYNAMIC_READ);
 
 	// Setup particle buffer
 	glBindBuffer(GL_ARRAY_BUFFER, ps->particleVBO);
@@ -442,7 +501,7 @@ void initParticleSystem(ParticleSystem* ps, int sides) {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ps->indexVBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * sides * 3, ps->circleIndices, GL_STATIC_DRAW);
 
-	// Setup VAO for rendering
+	// Setup VAO for rendering (code existant...)
 	glBindVertexArray(ps->particleVAO);
 	glBindBuffer(GL_ARRAY_BUFFER, ps->particleVBO);
 
@@ -492,9 +551,9 @@ void initParticleSystem(ParticleSystem* ps, int sides) {
 	glEnableVertexAttribArray(7);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ps->indexVBO);
-
 	glBindVertexArray(0);
 }
+
 
 // Fonction pour changer la texture d'un système de particules
 void setParticleTexture(ParticleSystem* ps, const char* filename) {
@@ -606,13 +665,111 @@ void resetOpenGLState()
 	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, 0);
 }
 
-void updateParticles(ParticleSystem* ps, float deltaTime)
-{
+
+// Nouvelle fonction pour capturer les particules mortes sur GPU
+int captureDeadParticlesGPU(ParticleSystem* ps, float deltaTime) {
+	if (ps->particleCount == 0) return 0;
+
+	glUseProgram(ps->deadParticleProgram);
+	glUniform1f(glGetUniformLocation(ps->deadParticleProgram, "deltaTime"), deltaTime);
+
+	// Bind current particle data
+	glBindBuffer(GL_ARRAY_BUFFER, ps->particleVBO);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, position));
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, velocity));
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, life));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, size));
+	glEnableVertexAttribArray(3);
+	glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, rotation));
+	glEnableVertexAttribArray(4);
+	glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, color));
+	glEnableVertexAttribArray(5);
+
+	// Bind dead particle transform feedback buffer
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, ps->deadParticleTFBO);
+
+	// Use query to count dead particles
+	GLuint query;
+	glGenQueries(1, &query);
+	glBeginQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, query);
+
+	glEnable(GL_RASTERIZER_DISCARD);
+	glBeginTransformFeedback(GL_POINTS);
+	glDrawArrays(GL_POINTS, 0, ps->particleCount);
+	glEndTransformFeedback();
+	glDisable(GL_RASTERIZER_DISCARD);
+
+	glEndQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN);
+
+	GLuint deadCount;
+	glGetQueryObjectuiv(query, GL_QUERY_RESULT, &deadCount);
+	glDeleteQueries(1, &query);
+
+	resetOpenGLState();
+	return (int)deadCount;
+}
+
+// Fonction pour lire les particules mortes depuis le GPU
+DeadParticlesList readDeadParticlesFromGPU(ParticleSystem* ps, int deadCount) {
+	DeadParticlesList deadList;
+	deadList.count = deadCount;
+
+	if (deadCount > 0) {
+		glBindBuffer(GL_ARRAY_BUFFER, ps->deadParticleTFBO);
+		DeadParticle* gpuData = (DeadParticle*)glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
+
+		if (gpuData) {
+			// Copier seulement le nombre de particules mortes
+			int copyCount = (deadCount < MAX_PARTICLES) ? deadCount : MAX_PARTICLES;
+			memcpy(deadList.particles, gpuData, copyCount * sizeof(DeadParticle));
+			deadList.count = copyCount;
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+		}
+		else {
+			deadList.count = 0;
+		}
+	}
+
+	return deadList;
+}	
+
+int getActiveParticleCount(ParticleSystem* ps) {
+	// Utiliser une Query pour obtenir le nombre de primitives générées
+	GLuint query;
+	glGenQueries(1, &query);
+
+	glBeginQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, query);
+
+	// Faire le transform feedback...
+	glBeginTransformFeedback(GL_POINTS);
+	glDrawArrays(GL_POINTS, 0, ps->particleCount);
+	glEndTransformFeedback();
+
+	glEndQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN);
+
+	GLuint result;
+	glGetQueryObjectuiv(query, GL_QUERY_RESULT, &result);
+	glDeleteQueries(1, &query);
+
+	return (int)result;
+}
+
+// Fonction updateParticles() complètement réécrite
+void updateParticles(ParticleSystem* ps, float deltaTime, DeadParticlesList* deadParticles) {
+	// Capturer les particules mortes AVANT la mise à jour
+	int deadCount = 0;
+	if (deadParticles) {
+		deadCount = captureDeadParticlesGPU(ps, deltaTime);
+		*deadParticles = readDeadParticlesFromGPU(ps, deadCount);
+	}
+
 	if (ps->particleCount == 0) return;
 
+	// Mise à jour normale des particules
 	glUseProgram(ps->updateProgram);
-
-	// Set uniforms 
 	glUniform1f(glGetUniformLocation(ps->updateProgram, "deltaTime"), deltaTime);
 	glUniform3f(glGetUniformLocation(ps->updateProgram, "gravity"), 0.0f, 0.f, 0.0f);
 	glUniform1f(glGetUniformLocation(ps->updateProgram, "damping"), 0.99f);
@@ -632,15 +789,10 @@ void updateParticles(ParticleSystem* ps, float deltaTime)
 	glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)offsetof(Particle, color));
 	glEnableVertexAttribArray(5);
 
-	// Bind transform feedback buffer
 	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, ps->transformFeedbackVBO);
 
-	// Disable rasterizer
 	glEnable(GL_RASTERIZER_DISCARD);
-
 	ps->particleCount = getActiveParticleCount(ps);
-
-	// Re-enable rasterizer
 	glDisable(GL_RASTERIZER_DISCARD);
 
 	// Swap buffers
@@ -648,9 +800,9 @@ void updateParticles(ParticleSystem* ps, float deltaTime)
 	ps->particleVBO = ps->transformFeedbackVBO;
 	ps->transformFeedbackVBO = temp;
 
-	// NOUVEAU: Nettoyer les états après l'update
 	resetOpenGLState();
 }
+
 void renderParticles(ParticleSystem* ps, float* projection, float* view, int useTexture) {
 	if (ps->particleCount == 0) return;
 
@@ -710,37 +862,22 @@ void createOrthoMatrix(float* matrix, float left, float right, float bottom, flo
 	matrix[15] = 1.0f;
 }
 
-int getActiveParticleCount(ParticleSystem* ps) {
-	// Utiliser une Query pour obtenir le nombre de primitives générées
-	GLuint query;
-	glGenQueries(1, &query);
 
-	glBeginQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, query);
 
-	// Faire le transform feedback...
-	glBeginTransformFeedback(GL_POINTS);
-	glDrawArrays(GL_POINTS, 0, ps->particleCount);
-	glEndTransformFeedback();
-
-	glEndQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN);
-
-	GLuint result;
-	glGetQueryObjectuiv(query, GL_QUERY_RESULT, &result);
-	glDeleteQueries(1, &query);
-
-	return (int)result;
-}
-
+// Modification du cleanup
 void cleanupParticleSystem(ParticleSystem* ps) {
 	glDeleteProgram(ps->updateProgram);
 	glDeleteProgram(ps->renderProgram);
+	glDeleteProgram(ps->deadParticleProgram);  // NOUVEAU
 	glDeleteBuffers(1, &ps->particleVBO);
 	glDeleteBuffers(1, &ps->transformFeedbackVBO);
+	glDeleteBuffers(1, &ps->deadParticleTFBO);  // NOUVEAU
 	glDeleteBuffers(1, &ps->indexVBO);
 	glDeleteVertexArrays(1, &ps->particleVAO);
 
 	if (ps->circleVertices) free(ps->circleVertices);
 	if (ps->circleIndices) free(ps->circleIndices);
+	if (ps->texCoords) free(ps->texCoords);  // NOUVEAU
 }
 
 
@@ -787,7 +924,7 @@ int main() {
 	initParticleSystem(&squareSystem, 4);    // Square
 	initParticleSystem(&circleSystem, 5);   // Circle (16 sides)
 
-	setParticleTexture(&squareSystem, "E:\\BreakerEngine\\Ressources\\ALL\\Textures\\loading.png");
+	setParticleTexture(&squareSystem, "..\\Ressources\\ALL\\Textures\\loading.png");
 
 	// Setup matrices
 	float projection[16], view[16];
@@ -803,7 +940,7 @@ int main() {
 	printf("3 - Circle particles\n");
 	printf("Click to spawn particles\n");
 	sfSprite* rect = sfSprite_create();
-	sfSprite_setTexture(rect, sfTexture_createFromFile("E:\\BreakerEngine\\Ressources\\ALL\\Textures\\loading.png", NULL), sfTrue);
+	sfSprite_setTexture(rect, sfTexture_createFromFile("..\\Ressources\\ALL\\Textures\\loading.png", NULL), sfTrue);
 	int currentMode = 2; // Start with circles
 
 	while (sfRenderWindow_isOpen(window)) {
@@ -821,29 +958,77 @@ int main() {
 				else if (event.key.code == sfKeyNum3) currentMode = 2;
 			}
 
-			if (event.type == sfEvtMouseButtonPressed) {
-				float x = (float)event.mouseButton.x;
-				float y = (float)event.mouseButton.y;
+			//if (event.type == sfEvtMouseButtonPressed) {
+			//	float x = (float)event.mouseButton.x;
+			//	float y = (float)event.mouseButton.y;
 
-				// Spawn particles based on current mode
-				for (int i = 0; i < MAX_PARTICLES; i++) {
-					if (currentMode == 0) {
-						addParticle(&triangleSystem, x + (rand() % 400 - 20), y + (rand() % 400 - 20), 0);
-					}
-					else if (currentMode == 1) {
-						addParticle(&squareSystem, x + (rand() % 20 - 20), y + (rand() % 20 - 20), 0);
-					}
-					else {
-						addParticle(&circleSystem, x + (rand() % 400 - 20), y + (rand() % 400 - 20), 0);
-					}
-				}
+			//	// Spawn particles based on current mode
+			//	for (int i = 0; i < MAX_PARTICLES; i++) {
+			//		if (currentMode == 0) {
+			//		addParticle(&triangleSystem, x + (rand() % 400 - 20), y + (rand() % 400 - 20), 0);
+			//	}
+			//else if (currentMode == 1) {
+			//	addParticle(&squareSystem, x + (rand() % 20 - 20), y + (rand() % 20 - 20), 0);
+			//}
+			//else {
+			//	addParticle(&circleSystem, x + (rand() % 400 - 20), y + (rand() % 400 - 20), 0);
+			//}
+			//	}
+			//}
+		}
+
+		if (sfMouse_isButtonPressed(sfMouseLeft))
+		{
+			sfVector2i mousePos = sfMouse_getPositionRenderWindow(window);
+			if (currentMode == 0) {
+				addParticle(&triangleSystem, mousePos.x , mousePos.y , 0);
+			}
+			else if (currentMode == 1) {
+				addParticle(&squareSystem, mousePos.x , mousePos.y , 0);
+			}
+			else {
+				addParticle(&circleSystem, mousePos.x , mousePos.y, 0);
 			}
 		}
 
+		DeadParticlesList deadTriangles, deadSquares, deadCircles;
 
-		updateParticles(&triangleSystem, deltaTime);
-		updateParticles(&squareSystem, deltaTime);
-		updateParticles(&circleSystem, deltaTime);
+		updateParticles(&triangleSystem, deltaTime, &deadTriangles);
+		updateParticles(&squareSystem, deltaTime, &deadSquares);
+		updateParticles(&circleSystem, deltaTime, &deadCircles);
+
+		// Utiliser les particules mortes
+		if (deadTriangles.count > 0) {
+			printf("Frame: %d particules triangles mortes\n", deadTriangles.count);
+			for (int i = 0; i < deadTriangles.count; i++) {
+				printf("  Triangle mort à: (%.2f, %.2f, %.2f)\n",
+					deadTriangles.particles[i].position[0],
+					deadTriangles.particles[i].position[1],
+					deadTriangles.particles[i].position[2]);
+			}
+		}
+
+		if (deadSquares.count > 0) {
+			printf("Frame: %d particules carrés mortes\n", deadSquares.count);
+			for (int i = 0; i < deadSquares.count; i++) {
+				printf("  Carré mort à: (%.2f, %.2f, %.2f)\n",
+					deadSquares.particles[i].position[0],
+					deadSquares.particles[i].position[1],
+					deadSquares.particles[i].position[2]);
+			}
+		}
+
+		if (deadCircles.count > 0) {
+			printf("Frame: %d particules cercles mortes\n", deadCircles.count);
+			for (int i = 0; i < deadCircles.count; i++) {
+				printf("  Cercle mort à: (%.2f, %.2f, %.2f)\n",
+					deadCircles.particles[i].position[0],
+					deadCircles.particles[i].position[1],
+					deadCircles.particles[i].position[2]);
+				sfVector2i mousePos = sfMouse_getPositionRenderWindow(window);
+				addParticle(&circleSystem, mousePos.x, mousePos.y, 0);
+			}
+		}
 
 		// Clear screen
 		sfRenderWindow_clear(window, sfBlack);
