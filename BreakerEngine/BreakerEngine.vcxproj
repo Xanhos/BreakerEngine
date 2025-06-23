@@ -31,6 +31,7 @@
     <ClInclude Include="MemoryManagement.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MovieManager.h" />
+    <ClInclude Include="openGLParticles.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Particles.h" />
     <ClInclude Include="Pause.h" />
@@ -58,6 +59,7 @@
     <ClCompile Include="MemoryManagement.c" />
     <ClCompile Include="Menu.c" />
     <ClCompile Include="MovieManager.c" />
+    <ClCompile Include="openGLParticles.c" />
     <ClCompile Include="Option.c" />
     <ClCompile Include="Particles.c" />
     <ClCompile Include="Pause.c" />

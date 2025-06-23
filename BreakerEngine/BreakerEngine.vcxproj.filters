@@ -95,6 +95,9 @@
     <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="openGLParticles.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
@@ -174,6 +177,9 @@
     </ClCompile>
     <ClCompile Include="Enemy.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="openGLParticles.c">
+      <Filter>Source Files\ENGINE</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
