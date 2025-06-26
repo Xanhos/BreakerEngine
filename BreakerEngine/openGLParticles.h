@@ -66,5 +66,5 @@ void setParticleTexture(ParticleSystem* ps, const char* filename);
 void addParticle(ParticleSystem* ps, float x, float y, float z);
 void updateParticles(ParticleSystem* ps, float deltaTime);
 void renderParticles(ParticleSystem* ps, int useTexture, sfRenderWindow* window);
-void cleanupParticleSystem(ParticleSystem* ps);
+void destroyParticleSystem(ParticleSystem* ps);
 ParticleSystem createEmptyParticlesSystem();

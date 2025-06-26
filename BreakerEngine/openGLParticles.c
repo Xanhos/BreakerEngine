@@ -460,8 +460,7 @@ void updateParticleSystemMatrices(ParticleSystem* ps, sfRenderWindow* window) {
 	}
 }
 
-
-// Fonction modifiée pour initialiser le système (remplacer initParticleSystem)
+ 
 void initParticleSystem(ParticleSystem* ps, int sides, unsigned int maxParticles, sfRenderWindow* window) {
 	ps->particleCount = 0;
 	ps->maxParticles = maxParticles;
@@ -859,7 +858,7 @@ void renderParticles(ParticleSystem* ps, int useTexture, sfRenderWindow* window)
 }
 
 // Modification du cleanup
-void cleanupParticleSystem(ParticleSystem* ps) {
+void destroyParticleSystem(ParticleSystem* ps) {
 	glDeleteProgram(ps->updateProgram);
 	glDeleteProgram(ps->renderProgram);
 	glDeleteProgram(ps->deadParticleProgram);

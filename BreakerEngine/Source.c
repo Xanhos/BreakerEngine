@@ -23,9 +23,9 @@ int main() {
 
 	// Initialize particle system with different shapes
 	ParticleSystem triangleSystem = createEmptyParticlesSystem(), squareSystem = createEmptyParticlesSystem(), circleSystem = createEmptyParticlesSystem();
-	initParticleSystem(&triangleSystem, 3, 100024, window);  // Triangle
-	initParticleSystem(&squareSystem, 4, 1024, window);    // Square
-	initParticleSystem(&circleSystem, 5, 1024, window);   // Circle (16 sides)
+	initParticleSystem(&triangleSystem, 3, 10240, window);  // Triangle
+	initParticleSystem(&squareSystem, 4, 1024 * 10, window);    // Square
+	initParticleSystem(&circleSystem, 5, 1024 * 10, window);   // Circle (16 sides)
 
 	setParticleTexture(&squareSystem, "..\\Ressources\\ALL\\Textures\\loading.png");
 
@@ -84,21 +84,39 @@ int main() {
 			//	}
 			//}
 		}
+		static float timerFPS = 0.f;
+		timerFPS += deltaTime;
+		if (timerFPS > 0.2f)
+		{
+			timerFPS = 0.f;
+			sfRenderWindow_setTitle(window, FloatToString(1.f / deltaTime, 0u));			
+		}
 
 		if (sfMouse_isButtonPressed(sfMouseLeft))
 		{
 			sfVector2i mousePos = sfMouse_getPositionRenderWindow(window);
+			sfVector2f mousePos_ = sfRenderWindow_mapPixelToCoords(window, mousePos, view);
 			if (currentMode == 0) {
-				addParticle(&triangleSystem, mousePos.x, mousePos.y, 0);
+				for (int i = triangleSystem.particleCount; i < triangleSystem.maxParticles; i++)
+				{
+					addParticle(&triangleSystem, mousePos_.x, mousePos_.y, 0);
+				}
 			}
 			else if (currentMode == 1) {
-				addParticle(&squareSystem, mousePos.x, mousePos.y, 0);
+				addParticle(&squareSystem, mousePos_.x, mousePos_.y, 0);
 			}
 			else {
-				addParticle(&circleSystem, mousePos.x, mousePos.y, 0);
+				addParticle(&circleSystem, mousePos_.x, mousePos_.y, 0);
 			}
 		}
 
+		if (KEY(R))
+		{
+			destroyParticleSystem(&triangleSystem);
+		}
+
+		static float zoomTimer = 0.f;
+		zoomTimer += deltaTime;
 		if (KEY(D))
 		{
 			sfView_setCenter(view, AddVector2f(sfView_getCenter(view), sfVector2f_Create(-100.f * deltaTime, 0.f)));
@@ -115,6 +133,16 @@ int main() {
 		else if (KEY(S))
 		{
 			sfView_setCenter(view, AddVector2f(sfView_getCenter(view), sfVector2f_Create(0.f, 100.f * deltaTime)));
+		}
+		if (KEY(A) && zoomTimer > .2f)
+		{
+			sfView_zoom(view, 1.1f);
+			zoomTimer = 0.f;
+		}
+		else if (KEY(E) && zoomTimer > .2f)
+		{
+			sfView_zoom(view,.9f);
+			zoomTimer = 0.f;
 		}
 		sfRenderWindow_setView(window, view);
 
@@ -169,9 +197,9 @@ int main() {
 	}
 
 	// Cleanup
-	cleanupParticleSystem(&triangleSystem);
-	cleanupParticleSystem(&squareSystem);
-	cleanupParticleSystem(&circleSystem);
+	destroyParticleSystem(&triangleSystem);
+	destroyParticleSystem(&squareSystem);
+	destroyParticleSystem(&circleSystem);
 	sfClock_destroy(clock);
 	sfRenderWindow_destroy(window);
 
