@@ -22,10 +22,14 @@
 */
 #include "AudioManager.h"
 
+#include "Logger.h"
+
 
 stdList* global_sound_list, * scene_sound_list, * global_music_list, * scene_music_list;
 Sound sound_place_holder;
 Music music_place_holder;
+
+#define SOUND_LOG_CATEGORY "SoundEngine"
 
 Sound CreateSound(const char* path)
 {
@@ -35,7 +39,7 @@ Sound CreateSound(const char* path)
 	sound.m_path = tmpPath;
 	strcpy_s(sound.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(sound.m_name);
-	printf_d("Sound {\n\tPath : %s\n\tName: %s\n } loaded\n\n", sound.m_path.path_data.m_path, sound.m_name);
+	LOG(SOUND_LOG_CATEGORY, MESSAGE, "Sound {\n\tPath : %s\n\tName: %s\n } loaded\n\n", sound.m_path.path_data.m_path, sound.m_name);
 	return sound;
 }
 
@@ -47,7 +51,7 @@ Music CreateMusic(const char* path)
 	music.m_path = tmpPath;
 	strcpy_s(music.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(music.m_name);
-	printf_d("Music {\n\tPath : %s\n\tName: %s\n } loaded\n\n", music.m_path.path_data.m_path, music.m_name);
+	LOG(SOUND_LOG_CATEGORY, MESSAGE, "Music {\n\tPath : %s\n\tName: %s\n } loaded\n\n", music.m_path.path_data.m_path, music.m_name);
 	return music;
 }
 
@@ -72,7 +76,7 @@ void InitSoundManager(void)
 		{
 			if (global_sound_list == NULL)
 			{
-				printf_d("Start Global sound loading\n\n");
+				LOG(SOUND_LOG_CATEGORY, MESSAGE, "Start Global sound loading\n\n");
 
 				global_sound_list = stdList_Create(sizeof(Sound), 0);
 				scene_sound_list = stdList_Create(sizeof(Sound), 0);
@@ -87,7 +91,7 @@ void InitSoundManager(void)
 		}
 		else
 		{
-			printf_d("No sound directory found, create a ALL/Sounds folder in your resources directory\n\n");
+			LOG(SOUND_LOG_CATEGORY, ERROR, "No sound directory found, create a ALL/Sounds folder in your resources directory\n\n");
 			exit(0);
 		}
 	}
@@ -99,7 +103,7 @@ void InitSoundManager(void)
 	{
 		if (global_music_list == NULL)
 		{
-			printf_d("Start Global music loading\n\n");
+			LOG(SOUND_LOG_CATEGORY, MESSAGE, "Start Global music loading\n\n");
 
 			global_music_list = stdList_Create(sizeof(Music), 0);
 			scene_music_list = stdList_Create(sizeof(Music), 0);
@@ -114,7 +118,7 @@ void InitSoundManager(void)
 	}
 	else
 	{
-		printf_d("No music directory found, create a ALL/Musics folder in your resources directory\n\n");
+		LOG(SOUND_LOG_CATEGORY, ERROR, "No music directory found, create a ALL/Musics folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -137,8 +141,8 @@ void LoadMusic(const char* path)
 void LoadSceneSound(const char* scene, float* soundProgressValue, float* musicProgressValue)
 {
 	ClearSceneSound();
-	__LoadScene(scene, "wav", "Sounds",soundProgressValue ,&LoadSound);
-	__LoadScene(scene, "ogg", "Musics",musicProgressValue ,&LoadMusic);
+	__LoadScene(scene, "wav", "Sounds", soundProgressValue, &LoadSound);
+	__LoadScene(scene, "ogg", "Musics", musicProgressValue, &LoadMusic);
 }
 
 void ClearSceneSound(void)
@@ -177,11 +181,11 @@ KSound* GetSound(const char* name)
 
 			if (sound_place_holder.m_sound)
 			{
-				printf_d("Sound %s not found, placeholder returned", name);
+				LOG(SOUND_LOG_CATEGORY, WARNING, "Sound %s not found, placeholder returned", name);
 				return sound_place_holder.m_sound;
 			}
 
-	printf_d("No Sound placeholder found, put a placeholder.wav in your %s/ALL/Sounds folder", resource_directory);
+	LOG(SOUND_LOG_CATEGORY, ERROR, "No Sound placeholder found, put a placeholder.wav in your %s/ALL/Sounds folder", resource_directory);
 	return NULL;
 }
 
@@ -201,11 +205,11 @@ KSound* GetMusic(const char* name)
 
 			if (music_place_holder.m_music)
 			{
-				printf_d("Music %s not found, placeholder returned", name);
+				LOG(SOUND_LOG_CATEGORY, WARNING, "Music %s not found, placeholder returned", name);
 				return music_place_holder.m_music;
 			}
 
-	printf_d("No Music placeholder found, put a placeholder.ogg in your %s/ALL/Musics folder", resource_directory);
+	LOG(SOUND_LOG_CATEGORY, ERROR, "No Music placeholder found, put a placeholder.ogg in your %s/ALL/Musics folder", resource_directory);
 	return NULL;
 }
 

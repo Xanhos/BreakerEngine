@@ -22,7 +22,9 @@
 */
 #include "MovieManager.h"
 #include "AudioManager.h"
+#include "Logger.h"
 
+#define MOVIE_LOG_CATEGORY "MovieEngine"
 
 stdList* global_movie_list, * scene_movie_list;
 Movie movie_place_holder;
@@ -35,7 +37,7 @@ Movie CreateMovie(const char* path)
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
-	printf_d("Movie {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
+	LOG(MOVIE_LOG_CATEGORY, MESSAGE, "Movie {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
 	return tmp;
 }
 
@@ -56,7 +58,7 @@ void InitMovieManager(void)
 	{
 		if (global_movie_list == NULL)
 		{
-			printf_d("Start Global movie loading\n\n");
+			LOG(MOVIE_LOG_CATEGORY, MESSAGE, "Start Global movie loading\n\n");
 
 			global_movie_list = stdList_Create(sizeof(Movie), 0);
 			scene_movie_list = stdList_Create(sizeof(Movie), 0);
@@ -71,7 +73,7 @@ void InitMovieManager(void)
 	}
 	else
 	{
-		printf_d("No movie directory found, create a ALL/Movies folder in your resources directory\n\n");
+		LOG(MOVIE_LOG_CATEGORY, ERROR, "No movie directory found, create a ALL/Movies folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -115,11 +117,11 @@ sfeMovie* GetMovie(const char* name)
 
 			if (movie_place_holder.m_movie)
 			{
-				printf_d("Movie %s not found, placeholder returned", name);
+				LOG(MOVIE_LOG_CATEGORY, WARNING, "Movie %s not found, placeholder returned", name);
 				return movie_place_holder.m_movie;
 			}
 
-	printf_d("No Movie placeholder found, put a placeholder.mp4 in your %s/ALL/Movies folder", resource_directory);
+	LOG(MOVIE_LOG_CATEGORY, ERROR, "No Movie placeholder found, put a placeholder.mp4 in your %s/ALL/Movies folder", resource_directory);
 	return NULL;
 }
 

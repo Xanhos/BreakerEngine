@@ -1,12 +1,13 @@
 #pragma once
 #include "WindowManager.h"
-
+#include "Logger.h"
 /**
  * @file State.h
  * @brief This file contains the function prototypes for managing states in the application.
  * It allows for dynamic management of different states in the application, with a lifecycle that includes initialization, updates, rendering, and destruction.
  */
 
+#define STATE_LOG_CATEGORY "StateEngine"
 
  /**
   * @brief Declares the function prototypes for a state.
@@ -33,17 +34,17 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
 #define DECLARE_SECTION_PRAGMA __pragma(section(".CRT$XCU", read))
 
    /**
-    * @brief Registers a state with the state manager.
-    *
-    * This macro registers a state by creating a function that adds the state information
-    * to the global state list. It will ensure the proper handling of states in the application lifecycle.
-    *
-    * @param stateName The name of the state to register.
-    */
+	* @brief Registers a state with the state manager.
+	*
+	* This macro registers a state by creating a function that adds the state information
+	* to the global state list. It will ensure the proper handling of states in the application lifecycle.
+	*
+	* @param stateName The name of the state to register.
+	*/
 #define REGISTER_STATE(stateName)                                            \
     static void AddState##stateName##ToStateList()                             \
     {                                                                          \
-        printf("Adding state %s\n", #stateName);                              /**< Prints the state being added. */ \
+        printf_d("Adding state %s\n", #stateName);                              /**< Prints the state being added. */ \
                                                                                \
         StateInfo info = {.name = #stateName,                                  \
                           .Init = &Init##stateName,                            /**< Pointer to the initialization function. */ \
@@ -57,14 +58,14 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
     DECLARE_SECTION_PRAGMA                                                     \
      __declspec(allocate(".CRT$XCU")) void (*p_register_##stateName##_function)() = AddState##stateName##ToStateList; /**< Declares the registration function. */ \
 
-    /**
-     * @brief Declares a blank state with empty function definitions.
-     *
-     * This macro generates empty function definitions for a given state. Useful when defining placeholder states
-     * or when you want to create a state with no actual logic implemented yet.
-     *
-     * @param stateName The name of the state.
-     */
+	/**
+	 * @brief Declares a blank state with empty function definitions.
+	 *
+	 * This macro generates empty function definitions for a given state. Useful when defining placeholder states
+	 * or when you want to create a state with no actual logic implemented yet.
+	 *
+	 * @param stateName The name of the state.
+	 */
 #define DECLARE_BLANK_STATE(stateName) \
 void Init##stateName(WindowManager* windowManager)          /**< Initializes the state. */ \
 {                                                           \
@@ -91,58 +92,58 @@ void Destroy##stateName(WindowManager* windowManager)       /**< Destroys the st
                                                             \
 }                                                           \
 
-     /**
-      * @struct StateInfo
-      * @brief Contains function pointers for managing the lifecycle of a state in the application.
-      * This structure allows the state manager to store the necessary functions for each state and execute them at the appropriate points in the application's lifecycle.
-      */
+	 /**
+	  * @struct StateInfo
+	  * @brief Contains function pointers for managing the lifecycle of a state in the application.
+	  * This structure allows the state manager to store the necessary functions for each state and execute them at the appropriate points in the application's lifecycle.
+	  */
 typedef struct StateInfo StateInfo;
 struct StateInfo
 {
-    char name[256]; /**< The name of the state. */
+	char name[256]; /**< The name of the state. */
 
-    /**
-     * @brief Initializes the state.
-     * @param window_manager Pointer to the WindowManager object for managing the application window.
-     * This function is called once when the state is first created, and it should set up any necessary resources for the state.
-     */
-    void (*Init)(WindowManager*);
+	/**
+	 * @brief Initializes the state.
+	 * @param window_manager Pointer to the WindowManager object for managing the application window.
+	 * This function is called once when the state is first created, and it should set up any necessary resources for the state.
+	 */
+	void (*Init)(WindowManager*);
 
-    /**
-     * @brief Handles events for the state.
-     * @param window_manager Pointer to the WindowManager object for event handling.
-     * @param event Pointer to the SFML event structure.
-     * This function handles input events like key presses or mouse clicks specific to this state.
-     */
-    void (*UpdateEvent)(WindowManager*, sfEvent*);
+	/**
+	 * @brief Handles events for the state.
+	 * @param window_manager Pointer to the WindowManager object for event handling.
+	 * @param event Pointer to the SFML event structure.
+	 * This function handles input events like key presses or mouse clicks specific to this state.
+	 */
+	void (*UpdateEvent)(WindowManager*, sfEvent*);
 
-    /**
-     * @brief Updates the state logic.
-     * @param window_manager Pointer to the WindowManager object for state updates.
-     * This function is called on every frame update to process the logic of the state, such as moving objects or updating variables.
-     */
-    void (*Update)(WindowManager*);
+	/**
+	 * @brief Updates the state logic.
+	 * @param window_manager Pointer to the WindowManager object for state updates.
+	 * This function is called on every frame update to process the logic of the state, such as moving objects or updating variables.
+	 */
+	void (*Update)(WindowManager*);
 
-    /**
-     * @brief Renders the state visuals.
-     * @param window_manager Pointer to the WindowManager object for rendering.
-     * This function is called every frame to render the state’s visuals to the screen, such as sprites, backgrounds, etc.
-     */
-    void (*Render)(WindowManager*);
+	/**
+	 * @brief Renders the state visuals.
+	 * @param window_manager Pointer to the WindowManager object for rendering.
+	 * This function is called every frame to render the state’s visuals to the screen, such as sprites, backgrounds, etc.
+	 */
+	void (*Render)(WindowManager*);
 
-    /**
-     * @brief Renders the user interface of the state.
-     * @param window_manager Pointer to the WindowManager object for UI rendering.
-     * This function is called to render any UI elements specific to the state, like buttons, labels, etc.
-     */
-    void (*UIRender)(WindowManager*);
+	/**
+	 * @brief Renders the user interface of the state.
+	 * @param window_manager Pointer to the WindowManager object for UI rendering.
+	 * This function is called to render any UI elements specific to the state, like buttons, labels, etc.
+	 */
+	void (*UIRender)(WindowManager*);
 
-    /**
-     * @brief Destroys and cleans up the state.
-     * @param window_manager Pointer to the WindowManager object for cleanup.
-     * This function is called when the state is being destroyed to release any resources and cleanup.
-     */
-    void (*Destroy)(WindowManager*);
+	/**
+	 * @brief Destroys and cleans up the state.
+	 * @param window_manager Pointer to the WindowManager object for cleanup.
+	 * This function is called when the state is being destroyed to release any resources and cleanup.
+	 */
+	void (*Destroy)(WindowManager*);
 };
 
 /**

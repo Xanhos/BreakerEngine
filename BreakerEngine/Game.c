@@ -24,6 +24,7 @@
 
 #include "MemoryManagement.h"
 #include "Animation.h"
+#include "Logger.h"
 #include "time.h"
 
 
@@ -161,7 +162,7 @@ static void Update(WindowManager* window)
 		thread_manager->Update(thread_manager);
 		if (!thread_manager->GetThreadCount(thread_manager))
 		{
- 			loading_delay -= DeltaTime;
+			loading_delay -= DeltaTime;
 			if (loading_delay < 0.f)
 			{
 				has_loaded_state = sfTrue;
@@ -227,7 +228,7 @@ void ChangeMainState(const char* state_name)
 	New_state = GetState(state_name);
 	if (strcmp(New_state.name, "null") == 0)
 	{
-		printf_d("ERROR, UNKNOW STATE !!!!\n");
+		LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW STATE !!!!\n");
 		return;
 	}
 	is_changing_state = sfTrue;
@@ -239,7 +240,7 @@ void RegisterSubState(char* state_name, WindowManager* window, sfBool update_of_
 
 	if (strcmp(state.name, "null") == 0)
 	{
-		printf_d("ERROR, UNKNOW STATE !!!!\n");
+		LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW STATE !!!!\n");
 		return;
 	}
 
@@ -263,7 +264,7 @@ void PushSubState(char* state_name)
 			return;
 		}
 	};
-	printf_d("ERROR, UNKNOW SUB STATE !!!!\n");
+	LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW SUB STATE !!!!\n");
 	return;
 }
 

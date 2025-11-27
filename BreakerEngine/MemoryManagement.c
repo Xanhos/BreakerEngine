@@ -22,6 +22,8 @@
 */
 #include "MemoryManagement.h"
 
+#include "Logger.h"
+
 typedef struct AllocInfo AllocInfo;
 struct AllocInfo
 {
@@ -39,7 +41,7 @@ static void allocationTracker(void* ptr, size_t size, const char* file, unsigned
 {
 	if (!allocations)
 		allocations = stdList_Create(sizeof(AllocInfo), 0, NULL);
-	allocations->push_back(allocations, STD_CONVERT(AllocInfo,  ptr,size,file,line ));
+	allocations->push_back(allocations, STD_CONVERT(AllocInfo, ptr, size, file, line));
 	totalAllocated += size;
 }
 
@@ -63,22 +65,23 @@ void DetrackerCalloc(void* ptr)
 			)
 
 
-	free(ptr);
-	
+		free(ptr);
+
 }
 
+#define MEMORY_LOG_CATEGORY "MemoryHelper"
 
 void ReportLeaks(void)
 {
 	if (allocations)
 	{
-		if(allocations->size(allocations) > 0)
-		printf_d("Memory leaks detected:\n");
+		if (allocations->size(allocations) > 0)
+			LOG(MEMORY_LOG_CATEGORY, ERROR, "Memory leaks detected:\n");
 		FOR_EACH_LIST(allocations, AllocInfo, it, tmp,
-			printf_d("Leaked %i bytes at %p (allocated in %s : %i\n", (int)tmp->size, tmp->ptr, tmp->file, tmp->line);
+			LOG(MEMORY_LOG_CATEGORY, ERROR, "Leaked %i bytes at %p (allocated in %s : %i\n", (int)tmp->size, tmp->ptr, tmp->file, tmp->line);
 		)
-			printf_d("Total allocated: %i\n", (int)totalAllocated);
-		printf_d("Total freed: %i\n", (int)totalFreed);
+			LOG(MEMORY_LOG_CATEGORY, WARNING, "Total allocated: %i\n", (int)totalAllocated);
+		LOG(MEMORY_LOG_CATEGORY, WARNING, "Total freed: %i\n", (int)totalFreed);
 	}
 }
 

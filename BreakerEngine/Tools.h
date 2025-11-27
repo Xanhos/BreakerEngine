@@ -582,6 +582,13 @@ float fClamp(float value, float min, float max);
  */
 #define printf_d(string, ...) DebugPrint(string, __VA_ARGS__)
 
+
+#define ENUM_TO_STRING(Enum) #Enum
+
+#define LOG_MAX_LENGTH 512
+
+#define SCENE_LOADER_LOG_CATEGORY "SceneLoader"
+
  /**
   * @brief Structure for managing thread information.
   */

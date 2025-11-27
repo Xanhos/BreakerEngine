@@ -22,7 +22,10 @@
 */
 #include "ResourcesManager.h"
 
-float __TextureProgressBar, __MovieProgressBar, __SoundProgressBar,__MusicProgressBar ,__FontProgressBar;
+#include "Logger.h"
+
+
+float __TextureProgressBar, __MovieProgressBar, __SoundProgressBar, __MusicProgressBar, __FontProgressBar;
 
 void InitResourcesManager(const char* resource_directory_)
 {
@@ -35,12 +38,12 @@ void InitResourcesManager(const char* resource_directory_)
 
 void LoadScene(const char* scene_name)
 {
-	printf_d("--------------------Starting loading the %s scene--------------------\n\n", scene_name);
-	LoadSceneTexture(scene_name,&__TextureProgressBar);
+	LOG(SCENE_LOADER_LOG_CATEGORY, MESSAGE, "--------------------Starting loading the %s scene--------------------\n\n", scene_name);
+	LoadSceneTexture(scene_name, &__TextureProgressBar);
 	LoadSceneFont(scene_name, &__FontProgressBar);
 	LoadSceneSound(scene_name, &__SoundProgressBar, &__MusicProgressBar);
 	LoadSceneMovie(scene_name, &__MovieProgressBar);
-	printf_d("--------------------Finish loading the %s scene--------------------\n\n", scene_name);
+	LOG(SCENE_LOADER_LOG_CATEGORY, MESSAGE, "--------------------Finish loading the %s scene--------------------\n\n", scene_name);
 }
 
 void DestroyResourcesManager(void)

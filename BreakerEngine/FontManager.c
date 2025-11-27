@@ -22,8 +22,12 @@
 */
 #include "FontManager.h"
 
+#include "Logger.h"
+
 stdList* global_font_list, * scene_font_list;
 Font font_place_holder;
+
+#define FONT_LOG_CATEGORY "FontEngine"
 
 Font CreateFont(const char* path)
 {
@@ -33,7 +37,7 @@ Font CreateFont(const char* path)
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
-	printf_d("Font {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
+	LOG(FONT_LOG_CATEGORY, MESSAGE, "Font {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
 
 	return tmp;
 }
@@ -53,11 +57,11 @@ void InitFontManager(void)
 	{
 		if (global_font_list == NULL)
 		{
-			printf_d("Start Global Font loading\n\n");
+			LOG(FONT_LOG_CATEGORY, MESSAGE, "Start Global Font loading\n\n");
 
 			global_font_list = stdList_Create(sizeof(Font), 0);
 			scene_font_list = stdList_Create(sizeof(Font), 0);
-			
+
 			FOR_EACH_TEMP_LIST(filesInfos, FilesInfo, SearchFilesInfos(fs_path.path_data.m_path, "ttf"),
 				Font tmp = CreateFont(STD_GETDATA(filesInfos, FilesInfo, i)->m_path);
 			if (strcmp(tmp.m_name, "placeholder") == 0)
@@ -69,7 +73,7 @@ void InitFontManager(void)
 	}
 	else
 	{
-		printf_d("No font directory found, create a ALL/Fonts folder in your resources directory\n\n");
+		LOG(FONT_LOG_CATEGORY, ERROR, "No font directory found, create a ALL/Fonts folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -83,7 +87,7 @@ void Load_Font(const char* path)
 void LoadSceneFont(const char* scene, float* progressValue)
 {
 	ClearSceneFont();
-	__LoadScene(scene, "ttf", "Fonts",progressValue, &Load_Font);
+	__LoadScene(scene, "ttf", "Fonts", progressValue, &Load_Font);
 }
 
 void ClearSceneFont(void)
@@ -112,11 +116,11 @@ sfFont* GetFont(const char* name)
 
 			if (font_place_holder.m_font)
 			{
-				printf_d("Font %s not found, placeholder returned\n\n", name);
+				LOG(FONT_LOG_CATEGORY, WARNING, "Font %s not found, placeholder returned\n\n", name);
 				return font_place_holder.m_font;
 			}
 
-	printf_d("No Font placeholder found, put a placeholder.ttf in your %s/ALL/Fonts folder\n\n", resource_directory);
+	LOG(FONT_LOG_CATEGORY, ERROR, "No Font placeholder found, put a placeholder.ttf in your %s/ALL/Fonts folder\n\n", resource_directory);
 	return NULL;
 }
 

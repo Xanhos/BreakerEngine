@@ -21,6 +21,8 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "Tools.h"
+
+#include "Logger.h"
 #include "WindowManager.h"
 #include "MemoryManagement.h"
 
@@ -157,7 +159,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 		stdList* files_infos = SearchFilesInfos(tmp_path.path_data.m_path, extension);
 		if (files_infos->size(files_infos) == 0)
 		{
-			printf_d("%s folder is empty\n", path);
+			LOG(SCENE_LOADER_LOG_CATEGORY, WARNING, "%s folder is empty\n", path);
 			files_infos->destroy(&files_infos);
 			return;
 		}
@@ -165,7 +167,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 		float totalSize = 0.f, currentSize = 0.f;
 
 		FOR_EACH_LIST(files_infos, FilesInfo, i, it,
-			totalSize ++;
+			totalSize++;
 		);
 
 		int nbrThread = files_infos->size(files_infos) < MAX_THREAD ? files_infos->size(files_infos) : MAX_THREAD;
@@ -209,7 +211,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 	}
 	else
 	{
-		printf_d("No %s directory found\n\n", path);
+		LOG(SCENE_LOADER_LOG_CATEGORY, ERROR, "No %s directory found\n\n", path);
 	}
 	*progressValue = 1.0f;
 }

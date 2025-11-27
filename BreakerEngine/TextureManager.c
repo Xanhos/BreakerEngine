@@ -22,9 +22,12 @@
 */
 #include "TextureManager.h"
 
+#include "Logger.h"
+
 stdList* global_texture_list, * scene_texture_list;
 Texture texture_place_holder;
 
+#define TEXTURE_LOG_CATEGORY "TextureEngine"
 
 Texture CreateTexture(const char* path)
 {
@@ -35,7 +38,7 @@ Texture CreateTexture(const char* path)
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
-	printf_d("Texture {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
+	LOG(TEXTURE_LOG_CATEGORY, MESSAGE, "Texture {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
 	return tmp;
 }
 
@@ -49,24 +52,24 @@ void InitTextureManager(void)
 	{
 		if (global_texture_list == NULL)
 		{
-			printf_d("Start Global texture loading\n\n");
+			LOG(TEXTURE_LOG_CATEGORY, MESSAGE, "Start Global texture loading\n\n");
 
 			global_texture_list = stdList_Create(sizeof(Texture), 0);
 			scene_texture_list = stdList_Create(sizeof(Texture), 0);
-			stdList* filesInfos = SearchFilesInfos(fs_path.path_data.m_path, "png"); 
-			for (int i = 0; i < filesInfos->size(filesInfos); i++) 
+			stdList* filesInfos = SearchFilesInfos(fs_path.path_data.m_path, "png");
+			for (int i = 0; i < filesInfos->size(filesInfos); i++)
 			{
 				Texture tmp = CreateTexture(((FilesInfo*)filesInfos->getData(filesInfos, i))->m_path);
-				if (strcmp(tmp.m_name, "placeholder") == 0) 
+				if (strcmp(tmp.m_name, "placeholder") == 0)
 					texture_place_holder = tmp;
 				else global_texture_list->push_back(global_texture_list, &tmp);
-			} 
+			}
 			filesInfos->destroy(&filesInfos);
 		}
 	}
 	else
 	{
-		printf_d("No texture directory found, create a ALL/Texture folder in your resources directory\n\n");
+		LOG(TEXTURE_LOG_CATEGORY, ERROR, "No texture directory found, create a ALL/Texture folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -81,7 +84,7 @@ void Load_Texture(const char* path)
 void LoadSceneTexture(const char* scene, float* progressValue)
 {
 	ClearSceneTexture();
-	__LoadScene(scene, "png", "Textures",progressValue, &Load_Texture);
+	__LoadScene(scene, "png", "Textures", progressValue, &Load_Texture);
 }
 
 
@@ -112,11 +115,11 @@ sfTexture* GetTexture(const char* name)
 
 			if (texture_place_holder.m_texture)
 			{
-				printf_d("Texture %s not found, placeholder returned", name);
+				LOG(TEXTURE_LOG_CATEGORY, WARNING, "Texture %s not found, placeholder returned", name);
 				return texture_place_holder.m_texture;
 			}
 
-	printf_d("No texture placeholder found, put a placeholder.png in your %s/ALL/Textures folder", resource_directory);
+	LOG(TEXTURE_LOG_CATEGORY, ERROR, "No texture placeholder found, put a placeholder.png in your %s/ALL/Textures folder", resource_directory);
 	return NULL;
 }
 
