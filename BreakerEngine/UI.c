@@ -386,6 +386,7 @@ static UIObject* CreateUIObject(sfDrawable* shape, char* name, UIObject_Type typ
 	object->_Data->drawable = shape;
 	object->_Data->type = type;
 	object->_Data->color = sfWhite;
+	object->_Data->is_visible = sfTrue;
 	object->_Data->mouse_button_trigger = mouse_button_trigger;
 	object->_Data->key_button_trigger = key_button_trigger;
 	object->_Data->name = StrAllocNCopy(name);

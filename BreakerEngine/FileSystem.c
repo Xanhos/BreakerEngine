@@ -98,6 +98,11 @@ Path extension(Path* path)
 	return fs_create_path(extension);
 }
 
+const char* get_path(Path* path)
+{
+	return path->path_data.m_path;
+}
+
 
 Path parent(Path* path)
 {
@@ -120,9 +125,7 @@ Path parent(Path* path)
 		}
 
 	Path parent = fs_create_path(tmp);
-	if (exist(&parent))
-		return parent;
-	return *path;
+	return parent;
 }
 
 
@@ -249,6 +252,7 @@ Path fs_create_path(const char* path)
 	tmp.parent = &parent;
 	tmp.stem = &stem;
 	tmp.filename = &filename;
+	tmp.path = &get_path;
 
 	return tmp;
 }

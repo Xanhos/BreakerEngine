@@ -7,7 +7,9 @@
  * It allows for dynamic management of different states in the application, with a lifecycle that includes initialization, updates, rendering, and destruction.
  */
 
-#define STATE_LOG_CATEGORY "StateEngine"
+
+DEFINE_LOG_CATEGORY(LogStateEngine)
+#define LogStateEngine LogStateEngine
 
  /**
   * @brief Declares the function prototypes for a state.
@@ -44,7 +46,7 @@ void Destroy##name(WindowManager*);                               /**< Destroys 
 #define REGISTER_STATE(stateName)                                            \
     static void AddState##stateName##ToStateList()                             \
     {                                                                          \
-        printf_d("Adding state %s\n", #stateName);                              /**< Prints the state being added. */ \
+        LOG(LogStateEngine, MESSAGE, "Adding state %s", #stateName);                              /**< Prints the state being added. */ \
                                                                                \
         StateInfo info = {.name = #stateName,                                  \
                           .Init = &Init##stateName,                            /**< Pointer to the initialization function. */ \

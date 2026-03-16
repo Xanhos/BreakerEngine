@@ -228,7 +228,7 @@ void ChangeMainState(const char* state_name)
 	New_state = GetState(state_name);
 	if (strcmp(New_state.name, "null") == 0)
 	{
-		LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW STATE !!!!\n");
+		LOG(LogStateEngine, ERROR, "ERROR, UNKNOW STATE !!!!\n");
 		return;
 	}
 	is_changing_state = sfTrue;
@@ -240,7 +240,7 @@ void RegisterSubState(char* state_name, WindowManager* window, sfBool update_of_
 
 	if (strcmp(state.name, "null") == 0)
 	{
-		LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW STATE !!!!\n");
+		LOG(LogStateEngine, ERROR, "ERROR, UNKNOW STATE !!!!\n");
 		return;
 	}
 
@@ -264,7 +264,7 @@ void PushSubState(char* state_name)
 			return;
 		}
 	};
-	LOG(STATE_LOG_CATEGORY, ERROR, "ERROR, UNKNOW SUB STATE !!!!\n");
+	LOG(LogStateEngine, ERROR, "ERROR, UNKNOW SUB STATE !!!!\n");
 	return;
 }
 

@@ -38,12 +38,12 @@ void InitResourcesManager(const char* resource_directory_)
 
 void LoadScene(const char* scene_name)
 {
-	LOG(SCENE_LOADER_LOG_CATEGORY, MESSAGE, "--------------------Starting loading the %s scene--------------------\n\n", scene_name);
+	LOG(LogSceneLoader, MESSAGE, "--------------------Starting loading the %s scene--------------------\n\n", scene_name);
 	LoadSceneTexture(scene_name, &__TextureProgressBar);
 	LoadSceneFont(scene_name, &__FontProgressBar);
 	LoadSceneSound(scene_name, &__SoundProgressBar, &__MusicProgressBar);
 	LoadSceneMovie(scene_name, &__MovieProgressBar);
-	LOG(SCENE_LOADER_LOG_CATEGORY, MESSAGE, "--------------------Finish loading the %s scene--------------------\n\n", scene_name);
+	LOG(LogSceneLoader, MESSAGE, "--------------------Finish loading the %s scene--------------------\n\n", scene_name);
 }
 
 void DestroyResourcesManager(void)

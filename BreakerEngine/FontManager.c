@@ -27,7 +27,8 @@
 stdList* global_font_list, * scene_font_list;
 Font font_place_holder;
 
-#define FONT_LOG_CATEGORY "FontEngine"
+
+DEFINE_LOG_CATEGORY(LogFont) 
 
 Font CreateFont(const char* path)
 {
@@ -37,7 +38,7 @@ Font CreateFont(const char* path)
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
-	LOG(FONT_LOG_CATEGORY, MESSAGE, "Font {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
+	LOG(LogFont, MESSAGE, "Font {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
 
 	return tmp;
 }
@@ -57,7 +58,7 @@ void InitFontManager(void)
 	{
 		if (global_font_list == NULL)
 		{
-			LOG(FONT_LOG_CATEGORY, MESSAGE, "Start Global Font loading\n\n");
+			LOG(LogFont, MESSAGE, "Start Global Font loading\n\n");
 
 			global_font_list = stdList_Create(sizeof(Font), 0);
 			scene_font_list = stdList_Create(sizeof(Font), 0);
@@ -73,7 +74,7 @@ void InitFontManager(void)
 	}
 	else
 	{
-		LOG(FONT_LOG_CATEGORY, ERROR, "No font directory found, create a ALL/Fonts folder in your resources directory\n\n");
+		LOG(LogFont, ERROR, "No font directory found, create a ALL/Fonts folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -116,11 +117,11 @@ sfFont* GetFont(const char* name)
 
 			if (font_place_holder.m_font)
 			{
-				LOG(FONT_LOG_CATEGORY, WARNING, "Font %s not found, placeholder returned\n\n", name);
+				LOG(LogFont, WARNING, "Font %s not found, placeholder returned\n\n", name);
 				return font_place_holder.m_font;
 			}
 
-	LOG(FONT_LOG_CATEGORY, ERROR, "No Font placeholder found, put a placeholder.ttf in your %s/ALL/Fonts folder\n\n", resource_directory);
+	LOG(LogFont, ERROR, "No Font placeholder found, put a placeholder.ttf in your %s/ALL/Fonts folder\n\n", resource_directory);
 	return NULL;
 }
 

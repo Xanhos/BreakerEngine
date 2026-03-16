@@ -69,19 +69,22 @@ void DetrackerCalloc(void* ptr)
 
 }
 
-#define MEMORY_LOG_CATEGORY "MemoryHelper"
+
+DEFINE_LOG_CATEGORY(LogMemory) 
+
+
 
 void ReportLeaks(void)
 {
 	if (allocations)
 	{
 		if (allocations->size(allocations) > 0)
-			LOG(MEMORY_LOG_CATEGORY, ERROR, "Memory leaks detected:\n");
+			LOG(LogMemory, ERROR, "Memory leaks detected:\n");
 		FOR_EACH_LIST(allocations, AllocInfo, it, tmp,
-			LOG(MEMORY_LOG_CATEGORY, ERROR, "Leaked %i bytes at %p (allocated in %s : %i\n", (int)tmp->size, tmp->ptr, tmp->file, tmp->line);
+			LOG(LogMemory, ERROR, "Leaked %i bytes at %p (allocated in %s : %i\n", (int)tmp->size, tmp->ptr, tmp->file, tmp->line);
 		)
-			LOG(MEMORY_LOG_CATEGORY, WARNING, "Total allocated: %i\n", (int)totalAllocated);
-		LOG(MEMORY_LOG_CATEGORY, WARNING, "Total freed: %i\n", (int)totalFreed);
+			LOG(LogMemory, WARNING, "Total allocated: %i\n", (int)totalAllocated);
+		LOG(LogMemory, WARNING, "Total freed: %i\n", (int)totalFreed);
 	}
 }
 

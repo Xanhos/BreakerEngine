@@ -136,6 +136,8 @@ struct Path
      * @return A new Path object representing the file name.
      */
     Path(*filename)(Path* path);
+
+    const char*(*path)(Path* path);
 };
 
 /**
@@ -207,3 +209,5 @@ Path parent(Path* path);
  * @return A new Path object representing the file extension.
  */
 Path extension(Path* path);
+
+const char* get_path(Path* path);

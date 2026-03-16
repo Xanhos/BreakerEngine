@@ -25,6 +25,9 @@ void UpdateUIVisual(UIObject* object, WindowManager* window)
 		}
 		else if (object->nameIs(object, "Option") && window->GetTimer(window) > .2f)
 		{
+
+			int* nullPointer = NULL;
+			*nullPointer = 42;
 			PushSubState("Option");
 			window->ResetTimer(window);
 		}

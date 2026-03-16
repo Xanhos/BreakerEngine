@@ -26,7 +26,7 @@
 #include "CParser/CParser.h"
 #include "MemoryManagement.h"
 
-#define ANIMATION_LOG_CATEGORY "Animation"
+DEFINE_LOG_CATEGORY(LogAnimation) 
 
 struct SimpleAnim_Data
 {
@@ -228,8 +228,8 @@ static Animation_Key* AddAnimationKey(Animation const* anim, Animation_Key* anim
 
 static Animation_Key* SelectAnimKey(Animation* anim, const char* name)
 {
-	LOG(ANIMATION_LOG_CATEGORY, MESSAGE, "Selecting key : %s\n", name);
-	LOG(ANIMATION_LOG_CATEGORY, MESSAGE, "List size : %d\n", anim->_Data->m_key_anim_list->size(anim->_Data->m_key_anim_list));
+	LOG(LogAnimation, MESSAGE, "Selecting key : %s\n", name);
+	LOG(LogAnimation, MESSAGE, "List size : %d\n", anim->_Data->m_key_anim_list->size(anim->_Data->m_key_anim_list));
 	FOR_EACH_LIST_POINTER(anim->_Data->m_key_anim_list, Animation_Key*, it, tmp,
 		if (strcmp((tmp)->_Data->m_name, name) == 0)
 		{
@@ -241,7 +241,7 @@ static Animation_Key* SelectAnimKey(Animation* anim, const char* name)
 			return tmp;
 		}
 			)
-		LOG(ANIMATION_LOG_CATEGORY, ERROR, "Animation key : %s not found", name);
+		LOG(LogAnimation, ERROR, "Animation key : %s not found", name);
 	return NULL;
 }
 

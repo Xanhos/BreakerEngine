@@ -94,10 +94,13 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
-    </ClInclude> 
+    </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Header Files\ENGINE</Filter>
-    </ClInclude> 
+    </ClInclude>
+    <ClInclude Include="CrashHandler.h">
+      <Filter>Header Files\ENGINE</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
@@ -177,9 +180,12 @@
     </ClCompile>
     <ClCompile Include="Enemy.c">
       <Filter>Source Files</Filter>
-    </ClCompile> 
+    </ClCompile>
     <ClCompile Include="Logger.c">
       <Filter>Source Files\ENGINE</Filter>
-    </ClCompile> 
+    </ClCompile>
+    <ClCompile Include="CrashHandler.c">
+      <Filter>Source Files\ENGINE</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

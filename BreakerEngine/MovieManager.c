@@ -24,7 +24,9 @@
 #include "AudioManager.h"
 #include "Logger.h"
 
-#define MOVIE_LOG_CATEGORY "MovieEngine"
+
+DEFINE_LOG_CATEGORY(LogMovie)
+#define MOVIE_LOG_CATEGORY LogMovie
 
 stdList* global_movie_list, * scene_movie_list;
 Movie movie_place_holder;

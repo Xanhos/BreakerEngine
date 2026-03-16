@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Author: GRALLAN Yann
 
 	Description: An advanced game engine for CSFML
@@ -30,6 +30,7 @@ DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2f, f, float)
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2i, i, int)
 DECLARE_ALL_BASICS_OPERATION_VECTOR2_IN_C(sfVector2u, u, unsigned int)
 
+MainThreadHasStarted = sfFalse;
 
 struct clock_data
 {
@@ -159,7 +160,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 		stdList* files_infos = SearchFilesInfos(tmp_path.path_data.m_path, extension);
 		if (files_infos->size(files_infos) == 0)
 		{
-			LOG(SCENE_LOADER_LOG_CATEGORY, WARNING, "%s folder is empty\n", path);
+			LOG(LogSceneLoader, WARNING, "%s folder is empty\n", path);
 			files_infos->destroy(&files_infos);
 			return;
 		}
@@ -211,7 +212,7 @@ void __LoadScene(const char* scene, const char* extension, const char* type, flo
 	}
 	else
 	{
-		LOG(SCENE_LOADER_LOG_CATEGORY, ERROR, "No %s directory found\n\n", path);
+		LOG(LogSceneLoader, ERROR, "No %s directory found\n\n", path);
 	}
 	*progressValue = 1.0f;
 }

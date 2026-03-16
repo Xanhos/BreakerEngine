@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Author: GRALLAN Yann
 
 	Description: An advanced game engine for CSFML
@@ -27,7 +27,8 @@
 stdList* global_texture_list, * scene_texture_list;
 Texture texture_place_holder;
 
-#define TEXTURE_LOG_CATEGORY "TextureEngine"
+
+DEFINE_LOG_CATEGORY(LogTexture) 
 
 Texture CreateTexture(const char* path)
 {
@@ -38,7 +39,7 @@ Texture CreateTexture(const char* path)
 	tmp.m_path = tmpPath;
 	strcpy_s(tmp.m_name, MAX_PATH_SIZE, tmpPath.stem(&tmpPath).path_data.m_path);
 	ToLower(tmp.m_name);
-	LOG(TEXTURE_LOG_CATEGORY, MESSAGE, "Texture {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
+	LOG(LogTexture, MESSAGE, "Texture {\n\tPath : %s\n\tName: %s\n } loaded\n\n", tmp.m_path.path_data.m_path, tmp.m_name);
 	return tmp;
 }
 
@@ -52,7 +53,7 @@ void InitTextureManager(void)
 	{
 		if (global_texture_list == NULL)
 		{
-			LOG(TEXTURE_LOG_CATEGORY, MESSAGE, "Start Global texture loading\n\n");
+			LOG(LogTexture, MESSAGE, "Start Global texture loading\n\n");
 
 			global_texture_list = stdList_Create(sizeof(Texture), 0);
 			scene_texture_list = stdList_Create(sizeof(Texture), 0);
@@ -69,7 +70,7 @@ void InitTextureManager(void)
 	}
 	else
 	{
-		LOG(TEXTURE_LOG_CATEGORY, ERROR, "No texture directory found, create a ALL/Texture folder in your resources directory\n\n");
+		LOG(LogTexture, ERROR, "No texture directory found, create a ALL/Texture folder in your resources directory\n\n");
 		exit(0);
 	}
 }
@@ -115,11 +116,11 @@ sfTexture* GetTexture(const char* name)
 
 			if (texture_place_holder.m_texture)
 			{
-				LOG(TEXTURE_LOG_CATEGORY, WARNING, "Texture %s not found, placeholder returned", name);
+				LOG(LogTexture, WARNING, "Texture %s not found, placeholder returned", name);
 				return texture_place_holder.m_texture;
 			}
 
-	LOG(TEXTURE_LOG_CATEGORY, ERROR, "No texture placeholder found, put a placeholder.png in your %s/ALL/Textures folder", resource_directory);
+	LOG(LogTexture, ERROR, "No texture placeholder found, put a placeholder.png in your %s/ALL/Textures folder", resource_directory);
 	return NULL;
 }
 

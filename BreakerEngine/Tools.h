@@ -27,6 +27,7 @@
 #include <string.h>
 
 #include "stdString.h"
+#include "Logger.h"
 #include "FileSystem.h"
 #include "SFML/Graphics.h"
 #include "SFML/Audio.h"
@@ -43,6 +44,8 @@
 struct WindowManager* GameWindow; /**< Pointer to the WindowManager structure responsible for managing the game window. */
 float ScreenScaleFactorX; /**< Scaling factor for the X-axis of the screen, used for scaling graphics to the window size. */
 float ScreenScaleFactorY; /**< Scaling factor for the Y-axis of the screen, used for scaling graphics to the window size. */
+
+sfBool MainThreadHasStarted;
 
 /**
  * @struct Transform
@@ -585,9 +588,8 @@ float fClamp(float value, float min, float max);
 
 #define ENUM_TO_STRING(Enum) #Enum
 
-#define LOG_MAX_LENGTH 512
 
-#define SCENE_LOADER_LOG_CATEGORY "SceneLoader"
+DEFINE_LOG_CATEGORY(LogSceneLoader) 
 
  /**
   * @brief Structure for managing thread information.
